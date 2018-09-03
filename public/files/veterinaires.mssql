@@ -1,0 +1,392 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Client :  127.0.0.1
+-- Généré le :  Ven 09 Juin 2017 à 17:24
+-- Version du serveur :  5.7.9
+-- Version de PHP :  5.6.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `veterinaires`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `animaux`
+--
+
+DROP TABLE IF EXISTS `animaux`;
+CREATE TABLE IF NOT EXISTS `animaux` (
+  `ID_ANIMAL` int(11) NOT NULL AUTO_INCREMENT,
+  `NOM` varchar(40) NOT NULL,
+  `ESPECE` varchar(40) NOT NULL,
+  `RACE` varchar(40) NOT NULL,
+  `DATE_NAISSANCE` date NOT NULL,
+  `ID_CLIENT` int(11) NOT NULL,
+  PRIMARY KEY (`ID_ANIMAL`),
+  KEY `FK_ANIMAUX` (`ID_CLIENT`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `animaux`
+--
+
+INSERT INTO `animaux` (`ID_ANIMAL`, `NOM`, `ESPECE`, `RACE`, `DATE_NAISSANCE`, `ID_CLIENT`) VALUES
+(1, 'Tosca', 'Chien', 'Berger des Pyrénnées', '2010-10-04', 1),
+(2, 'Aqualitus', 'Chat', 'Siamois', '2012-06-21', 1),
+(3, 'Vodka', 'Chien', 'Bâtard', '2009-04-18', 2),
+(4, 'Canelle', 'Chat', 'Persan', '2008-12-21', 3),
+(5, 'Noirot', 'Chien', 'Caniche', '2008-08-18', 4),
+(6, 'Toufou', 'Chien', 'Beagle', '2011-10-20', 5),
+(7, 'Tequilla', 'Lapin', 'Chinchilla', '2014-04-11', 6),
+(8, 'Daidji', 'Chien', 'Cocker américain', '2007-04-18', 7),
+(9, 'Winki', 'Chat', 'Sibérien', '2011-04-29', 7),
+(10, 'Coquille', 'Chien', 'Caniche', '2007-04-18', 8),
+(11, 'Zazou', 'Chat', 'Himalayen', '2012-11-25', 9),
+(12, 'Switty', 'Lapin', 'Lynx', '2013-09-19', 10),
+(13, 'Camomille', 'Chat', 'Ragdoll', '2008-01-26', 11),
+(14, 'Patapouf', 'Chien', 'Bulldog anglais', '2006-02-14', 12),
+(15, 'Tchouky', 'Chien', 'Carlin', '2010-04-26', 12),
+(16, 'Freddy', 'Chat', 'Abyssin', '2010-06-05', 12),
+(17, 'Djinn', 'Chien', 'Bâtard', '2005-04-30', 13),
+(18, 'Sam', 'Chien', 'Bâtard', '2011-10-19', 14),
+(19, 'Burana', 'Chat', 'Siamois', '2004-04-03', 15),
+(20, 'Chocolat', 'Chien', 'Caniche', '2010-04-26', 15),
+(21, 'Eclipse', 'Chien', 'Boxer', '2010-03-20', 15),
+(22, 'Féroce', 'Lapin', 'Normand', '2013-01-12', 16),
+(23, 'Choupette', 'Chien', 'Chihuahua', '2013-04-18', 17),
+(24, 'Tigre', 'Chat', 'Bengal', '2010-02-01', 18),
+(25, 'Capucine', 'Chat', 'Siamois', '2010-04-07', 18),
+(26, 'Clochette', 'Chien', 'Terre-neuve', '2010-05-11', 18),
+(27, 'Gigi', 'Lapin', 'Gris de Vienne', '2015-07-23', 18),
+(28, 'Nestor', 'Chien', 'Bâtard', '2010-12-12', 19),
+(29, 'Milou', 'Chien', 'Bâtard', '2010-04-08', 19),
+(30, 'Droopy', 'Chien', 'Bâtard', '2010-05-14', 19);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `clients`
+--
+
+DROP TABLE IF EXISTS `clients`;
+CREATE TABLE IF NOT EXISTS `clients` (
+  `ID_CLIENT` int(11) NOT NULL AUTO_INCREMENT,
+  `NOM` varchar(40) NOT NULL,
+  `PRENOM` varchar(40) NOT NULL,
+  `ADRESSE` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID_CLIENT`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `clients`
+--
+
+INSERT INTO `clients` (`ID_CLIENT`, `NOM`, `PRENOM`, `ADRESSE`) VALUES
+(1, 'AGARD', 'André', '5, Rue Léo Lagrange 13770 Venelles'),
+(2, 'RIDEAU', 'Bastien', '5, Rue d''Aguesseau 13770 Venelles'),
+(3, 'GONDOUIN', 'Bernard', '21, Rue d''Albon 13320 Bouc Bel Air'),
+(4, 'LHERMITTE', 'Bernard', '7, Rue d''Algérie 13510 Eguilles'),
+(5, 'RAMBEAUD', 'Christian', '14, Rue du Lieutenant Allouche 13511 Eguilles'),
+(6, 'KAC', 'Christine', '21, Rue de l''Alma 13512 Eguilles'),
+(7, 'BRELEUR', 'Christophe', '11, Rue des Alouettes 13610 Le Puy Saint Réparade'),
+(8, 'CYMBALIST', 'Christophe', '41, Avenue Ampère 13611 Le Puy Saint Réparade'),
+(9, 'LADD', 'Claude', '8, Avenue des Anges 13612 Le Puy Saint Réparade'),
+(10, 'MARTAUD', 'Daniel', '18, Route de l''Annonciade 13100 Aix en Provence'),
+(11, 'AGARD', 'Daniel', '5, Rue Léo Lagrange 13770 Venelles'),
+(12, 'FEBVRE', 'Denis', '34, Rue de l''Arbre-Sec 13102 Aix en Provence'),
+(13, 'LEURRE', 'Denise', '33, Rue Saint-Antoine 13770 Venelles'),
+(14, 'GEIL', 'Dominique', '41, Rue Sidoine-Apollinaire 13771 Venelles'),
+(15, 'SAINT DE FLER', 'Elsa', '61, Rue des Aqueducs 13100 Aix en Provence'),
+(16, 'BINET', 'Emmanuel', '11, Rue des Archers 13101 Aix en Provence'),
+(17, 'PUCCINI', 'Ernesto', '18, Avenue Arloing 13610 Le Puy Saint Réparade'),
+(18, 'BOUSLAH', 'Fabien', '6, Avenue d''Arsonval 13770 Venelles'),
+(19, 'GUITTON', 'Francis', '5, Avenue d''Aubigny 13320 Bouc Bel Air'),
+(20, 'VANNAXAY', 'Francis', '21, Rue Pierre-Audry 13510 Eguilles');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `consultations`
+--
+
+DROP TABLE IF EXISTS `consultations`;
+CREATE TABLE IF NOT EXISTS `consultations` (
+  `ID_CONSULTATION` int(11) NOT NULL AUTO_INCREMENT,
+  `DATE_CONSULTATION` date NOT NULL,
+  `MOTIF` varchar(100) DEFAULT NULL,
+  `COMPTE_RENDU` varchar(100) NOT NULL,
+  `ID_ANIMAL` int(11) NOT NULL,
+  `ID_VETERINAIRE` int(11) NOT NULL,
+  PRIMARY KEY (`ID_CONSULTATION`),
+  KEY `FK_CONSULTATIONS_1` (`ID_ANIMAL`),
+  KEY `FK_CONSULTATIONS_2` (`ID_VETERINAIRE`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `consultations`
+--
+
+INSERT INTO `consultations` (`ID_CONSULTATION`, `DATE_CONSULTATION`, `MOTIF`, `COMPTE_RENDU`, `ID_ANIMAL`, `ID_VETERINAIRE`) VALUES
+(3, '2016-01-04', 'Mal de ventre', 'Médicaments', 1, 2),
+(4, '2016-01-04', 'Mal de ventre', 'Médicaments', 16, 2),
+(5, '2016-01-05', 'Morsure', 'Vaccination', 2, 1),
+(6, '2016-01-05', 'Mal de ventre', 'Médicaments', 3, 1),
+(7, '2016-01-06', 'Patte cassée', 'Plâtrage', 5, 3),
+(8, '2016-01-06', 'Boite d''une patte', 'Médicaments', 6, 3),
+(9, '2016-01-07', 'Morsure', 'Vaccination', 8, 4),
+(10, '2016-01-07', 'Mal au ventre', 'Médicaments', 7, 4),
+(11, '2016-01-08', 'Morsure', 'Vaccination', 9, 2),
+(12, '2016-01-08', 'Patte cassée', 'Plâtrage', 10, 2),
+(13, '2016-01-09', 'Mal de ventre', 'Médicaments', 11, 1),
+(14, '2016-01-09', 'Morsure', 'Vaccination', 12, 3),
+(15, '2016-01-11', 'Morsure', 'Vaccination', 13, 2),
+(16, '2016-01-11', 'Boite d''une patte', 'Médicaments', 14, 4),
+(17, '2016-01-12', 'Patte cassée', 'Plâtrage', 15, 2),
+(18, '2016-01-12', 'Morsure', 'Vaccination', 16, 1),
+(19, '2016-01-13', 'Mal de ventre', 'Médicaments', 17, 3),
+(20, '2016-01-13', 'Morsure', 'Vaccination', 18, 4),
+(21, '2016-01-14', 'Boite d''une patte', 'Médicaments', 19, 2),
+(22, '2016-01-04', 'Mal de ventre', 'Médicaments', 22, 2),
+(23, '2016-01-15', 'Morsure', 'Vaccination', 23, 1),
+(24, '2016-01-15', 'Mal de ventre', 'Médicaments', 24, 1),
+(25, '2016-01-16', 'Patte cassée', 'Plâtrage', 26, 3),
+(26, '2016-01-16', 'Boite d''une patte', 'Médicaments', 27, 3),
+(27, '2016-01-18', 'Morsure', 'Vaccination', 29, 4),
+(28, '2016-01-18', 'Mal au ventre', 'Médicaments', 28, 4),
+(29, '2016-01-18', 'Morsure', 'Vaccination', 30, 2),
+(30, '2016-02-25', 'Morsure', 'Vaccination', 4, 3),
+(31, '2016-02-25', 'Patte cassée', 'Plâtrage', 25, 3),
+(32, '2016-01-25', 'Morsure', 'Vaccination', 20, 1),
+(33, '2016-01-25', 'Patte cassée', 'Plâtrage', 21, 1),
+(34, '2016-01-26', 'Morsure', 'Vaccination', 7, 2),
+(35, '2016-01-26', 'Mal au ventre', 'Médicaments', 11, 2),
+(36, '2016-01-27', 'Mal au ventre', 'Médicaments', 16, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `count_consult`
+--
+DROP VIEW IF EXISTS `count_consult`;
+CREATE TABLE IF NOT EXISTS `count_consult` (
+`NOMBRE` bigint(21)
+,`NOM` varchar(40)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `poids`
+--
+
+DROP TABLE IF EXISTS `poids`;
+CREATE TABLE IF NOT EXISTS `poids` (
+  `ID_POIDS` int(11) NOT NULL AUTO_INCREMENT,
+  `POIDS` float NOT NULL,
+  `ID_CONSULTATION` int(11) NOT NULL,
+  PRIMARY KEY (`ID_POIDS`),
+  KEY `FK_POIDS` (`ID_CONSULTATION`)
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `poids`
+--
+
+INSERT INTO `poids` (`ID_POIDS`, `POIDS`, `ID_CONSULTATION`) VALUES
+(1, 4.3, 23),
+(2, 11.4, 7),
+(3, 12.3, 12),
+(5, 15.1, 6),
+(6, 14.9, 19),
+(7, 15.6, 20),
+(8, 16, 28),
+(9, 15.2, 27),
+(10, 17.4, 29),
+(12, 18.6, 3),
+(13, 21.2, 8),
+(14, 22.5, 9),
+(15, 21.7, 16),
+(16, 23.4, 17),
+(17, 21.7, 25),
+(20, 3.1, 5),
+(21, 2.9, 11),
+(22, 2.8, 13),
+(23, 3.1, 15),
+(24, 3.1, 4),
+(25, 2.8, 18),
+(26, 3.2, 21),
+(27, 3.1, 24),
+(35, 2.5, 10),
+(36, 2.1, 14),
+(37, 2.3, 22),
+(38, 2.2, 26),
+(42, 3.2, 30),
+(43, 3.1, 31),
+(44, 10.1, 32),
+(45, 21.1, 33),
+(46, 2.6, 34),
+(47, 3.5, 35),
+(48, 3.2, 36);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `prescriptions`
+--
+
+DROP TABLE IF EXISTS `prescriptions`;
+CREATE TABLE IF NOT EXISTS `prescriptions` (
+  `ID_PRESCRIPTION` int(11) NOT NULL AUTO_INCREMENT,
+  `POSOLOGIE` varchar(50) NOT NULL,
+  `ID_CONSULTATION` int(11) NOT NULL,
+  PRIMARY KEY (`ID_PRESCRIPTION`),
+  KEY `FK_PRESCRIPTIONS` (`ID_CONSULTATION`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `prescriptions`
+--
+
+INSERT INTO `prescriptions` (`ID_PRESCRIPTION`, `POSOLOGIE`, `ID_CONSULTATION`) VALUES
+(1, 'Plâtrage de la patte', 7),
+(2, 'Plâtrage de la patte', 12),
+(3, 'Plâtrage de la patte', 17),
+(4, 'Plâtrage de la patte', 25),
+(8, 'Smecta', 3),
+(9, 'Smecta', 4),
+(10, 'Smecta', 6),
+(11, 'Smecta', 13),
+(12, 'Smecta', 19),
+(13, 'Smecta', 22),
+(14, 'Smecta', 24),
+(15, 'Plâtrage de la patte', 7),
+(16, 'Plâtrage de la patte', 12),
+(17, 'Plâtrage de la patte', 17),
+(18, 'Plâtrage de la patte', 25),
+(22, 'Crême', 8),
+(23, 'Crême', 16),
+(24, 'Crême', 21),
+(25, 'Crême', 26),
+(29, 'Plâtrage de la patte', 31),
+(30, 'Plâtrage de la patte', 33),
+(31, 'Smecta', 35),
+(32, 'Smecta', 36);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vaccinations`
+--
+
+DROP TABLE IF EXISTS `vaccinations`;
+CREATE TABLE IF NOT EXISTS `vaccinations` (
+  `ID_VACCINATION` int(11) NOT NULL AUTO_INCREMENT,
+  `VACCIN` varchar(40) DEFAULT NULL,
+  `ID_CONSULTATION` int(11) NOT NULL,
+  PRIMARY KEY (`ID_VACCINATION`),
+  KEY `FK_VACCINATIONS` (`ID_CONSULTATION`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `vaccinations`
+--
+
+INSERT INTO `vaccinations` (`ID_VACCINATION`, `VACCIN`, `ID_CONSULTATION`) VALUES
+(1, 'Rage', 9),
+(2, 'Rage', 20),
+(3, 'Rage', 23),
+(4, 'Rage', 27),
+(5, 'Rage', 29),
+(8, 'Coryza', 5),
+(9, 'Coryza', 11),
+(10, 'Coryza', 15),
+(11, 'Coryza', 18),
+(15, 'Myxomatose', 14),
+(16, 'Rage', 32),
+(17, 'Corysa', 30),
+(18, 'Myxomatose', 34);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `veterinaires`
+--
+
+DROP TABLE IF EXISTS `veterinaires`;
+CREATE TABLE IF NOT EXISTS `veterinaires` (
+  `ID_VETERINAIRE` int(11) NOT NULL AUTO_INCREMENT,
+  `NOM` varchar(40) NOT NULL,
+  `PRENOM` varchar(40) NOT NULL,
+  `ADRESSE` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID_VETERINAIRE`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `veterinaires`
+--
+
+INSERT INTO `veterinaires` (`ID_VETERINAIRE`, `NOM`, `PRENOM`, `ADRESSE`) VALUES
+(1, 'MILAZO', 'Jérome', '10, Rue Saporta 13100 Aix en Provence'),
+(2, 'AGARD', 'Mireille', '5, Rue Léo Lagrange 13770 Venelles'),
+(3, 'STRUZICK', 'Christine', '15, Rue Eugène Varlin 13610 Le Puy Saint Réparade'),
+(4, 'MATHIEU', 'Didier', '4, Avenue Maurice Plantier 13770 Venelles');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `count_consult`
+--
+DROP TABLE IF EXISTS `count_consult`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `count_consult`  AS  select count(`c`.`ID_CONSULTATION`) AS `NOMBRE`,`v`.`NOM` AS `NOM` from (`consultations` `c` join `veterinaires` `v`) where (`c`.`ID_VETERINAIRE` = `v`.`ID_VETERINAIRE`) group by `v`.`NOM` ;
+
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `animaux`
+--
+ALTER TABLE `animaux`
+  ADD CONSTRAINT `FK_ANIMAUX` FOREIGN KEY (`ID_CLIENT`) REFERENCES `clients` (`ID_CLIENT`);
+
+--
+-- Contraintes pour la table `consultations`
+--
+ALTER TABLE `consultations`
+  ADD CONSTRAINT `FK_CONSULTATIONS_1` FOREIGN KEY (`ID_ANIMAL`) REFERENCES `animaux` (`ID_ANIMAL`),
+  ADD CONSTRAINT `FK_CONSULTATIONS_2` FOREIGN KEY (`ID_VETERINAIRE`) REFERENCES `veterinaires` (`ID_VETERINAIRE`);
+
+--
+-- Contraintes pour la table `poids`
+--
+ALTER TABLE `poids`
+  ADD CONSTRAINT `FK_POIDS` FOREIGN KEY (`ID_CONSULTATION`) REFERENCES `consultations` (`ID_CONSULTATION`);
+
+--
+-- Contraintes pour la table `prescriptions`
+--
+ALTER TABLE `prescriptions`
+  ADD CONSTRAINT `FK_PRESCRIPTIONS` FOREIGN KEY (`ID_CONSULTATION`) REFERENCES `consultations` (`ID_CONSULTATION`);
+
+--
+-- Contraintes pour la table `vaccinations`
+--
+ALTER TABLE `vaccinations`
+  ADD CONSTRAINT `FK_VACCINATIONS` FOREIGN KEY (`ID_CONSULTATION`) REFERENCES `consultations` (`ID_CONSULTATION`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,362 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Client :  127.0.0.1
+-- Généré le :  Sam 30 Avril 2016 à 08:33
+-- Version du serveur :  5.7.9
+-- Version de PHP :  5.6.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `cabinet-medical`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `consultations`
+--
+
+DROP TABLE IF EXISTS `consultations`;
+CREATE TABLE IF NOT EXISTS `consultations` (
+  `ID_CONSULTATION` int(11) NOT NULL AUTO_INCREMENT,
+  `DATE_CONSULTATION` date NOT NULL,
+  `PRIX` decimal(5,2) NOT NULL,
+  `ID_PATIENT` int(11) NOT NULL,
+  `ID_MEDECIN` int(11) NOT NULL,
+  PRIMARY KEY (`ID_CONSULTATION`),
+  KEY `FK_CONSULTATIONS_1` (`ID_PATIENT`),
+  KEY `FK_CONSULTATIONS_2` (`ID_MEDECIN`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `consultations`
+--
+
+INSERT INTO `consultations` (`ID_CONSULTATION`, `DATE_CONSULTATION`, `PRIX`, `ID_PATIENT`, `ID_MEDECIN`) VALUES
+(1, '2016-04-05', '25.00', 1, 1),
+(2, '2016-04-05', '25.00', 2, 1),
+(3, '2016-04-05', '30.00', 3, 1),
+(4, '2016-04-05', '25.00', 4, 1),
+(5, '2016-04-05', '35.00', 5, 1),
+(6, '2016-04-07', '30.00', 17, 2),
+(7, '2016-04-07', '30.00', 18, 2),
+(8, '2016-04-06', '40.00', 6, 2),
+(9, '2016-04-06', '35.00', 7, 2),
+(10, '2016-04-06', '35.00', 8, 2),
+(11, '2016-04-06', '35.00', 9, 2),
+(12, '2016-04-06', '35.00', 10, 2),
+(13, '2016-04-06', '40.00', 11, 2),
+(14, '2016-04-06', '35.00', 12, 2),
+(15, '2016-04-07', '25.00', 13, 3),
+(16, '2016-04-07', '30.00', 14, 3),
+(17, '2016-04-07', '25.00', 15, 3),
+(18, '2016-04-07', '35.00', 16, 4),
+(19, '2016-04-07', '35.00', 17, 4),
+(20, '2016-04-07', '30.00', 18, 4),
+(21, '2016-04-07', '30.00', 19, 4),
+(22, '2016-04-07', '25.00', 20, 4),
+(23, '2016-04-07', '30.00', 9, 1),
+(24, '2016-04-07', '35.00', 16, 1),
+(25, '2016-04-07', '25.00', 18, 1),
+(26, '2016-04-07', '30.00', 14, 1),
+(27, '2016-04-07', '35.00', 12, 1),
+(28, '2016-04-08', '35.00', 7, 2),
+(29, '2016-04-08', '25.00', 10, 2),
+(30, '2016-04-08', '30.00', 4, 2),
+(31, '2016-04-08', '35.00', 9, 2),
+(32, '2016-04-08', '40.00', 9, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `consultations_maladies`
+--
+
+DROP TABLE IF EXISTS `consultations_maladies`;
+CREATE TABLE IF NOT EXISTS `consultations_maladies` (
+  `ID_CONSULTATION` int(11) NOT NULL,
+  `ID_MALADIE` int(11) NOT NULL,
+  PRIMARY KEY (`ID_CONSULTATION`,`ID_MALADIE`),
+  KEY `FK_CONSULTATIONS_MALADIES_2` (`ID_MALADIE`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `consultations_maladies`
+--
+
+INSERT INTO `consultations_maladies` (`ID_CONSULTATION`, `ID_MALADIE`) VALUES
+(1, 1),
+(4, 1),
+(14, 1),
+(24, 1),
+(3, 2),
+(9, 2),
+(21, 2),
+(25, 2),
+(2, 3),
+(26, 3),
+(29, 3),
+(5, 4),
+(15, 4),
+(20, 4),
+(30, 4),
+(32, 4),
+(6, 5),
+(17, 5),
+(7, 6),
+(11, 6),
+(22, 6),
+(10, 7),
+(16, 7),
+(23, 7),
+(31, 7),
+(8, 8),
+(13, 9),
+(18, 9),
+(27, 9),
+(12, 10),
+(19, 10),
+(28, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `maladies`
+--
+
+DROP TABLE IF EXISTS `maladies`;
+CREATE TABLE IF NOT EXISTS `maladies` (
+  `ID_MALADIE` int(11) NOT NULL AUTO_INCREMENT,
+  `NOM_MALADIE` varchar(40) NOT NULL,
+  PRIMARY KEY (`ID_MALADIE`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `maladies`
+--
+
+INSERT INTO `maladies` (`ID_MALADIE`, `NOM_MALADIE`) VALUES
+(1, 'Anémie'),
+(2, 'Chalazion'),
+(3, 'Diabète'),
+(4, 'Arythmie'),
+(5, 'Oreillons'),
+(6, 'Zika'),
+(7, 'Dengue'),
+(8, 'Chikungunya'),
+(9, 'Calcul biliaire'),
+(10, 'Calcul de la vessie');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `maladies_symptomes`
+--
+
+DROP TABLE IF EXISTS `maladies_symptomes`;
+CREATE TABLE IF NOT EXISTS `maladies_symptomes` (
+  `ID_MALADIE` int(11) NOT NULL,
+  `ID_SYMPTOME` int(11) NOT NULL,
+  PRIMARY KEY (`ID_MALADIE`,`ID_SYMPTOME`),
+  KEY `FK_MALADIES_SYMPTOMES_2` (`ID_SYMPTOME`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `maladies_symptomes`
+--
+
+INSERT INTO `maladies_symptomes` (`ID_MALADIE`, `ID_SYMPTOME`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(2, 6),
+(2, 7),
+(3, 8),
+(4, 9),
+(4, 10),
+(4, 11),
+(4, 12),
+(5, 13),
+(5, 14),
+(5, 15),
+(5, 17),
+(6, 17),
+(6, 18),
+(6, 19),
+(6, 20),
+(6, 21),
+(6, 22),
+(7, 23),
+(7, 24),
+(7, 25),
+(7, 26),
+(7, 27),
+(8, 28),
+(8, 29),
+(8, 30),
+(8, 31),
+(9, 32),
+(9, 33),
+(10, 34),
+(10, 35);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `medecins`
+--
+
+DROP TABLE IF EXISTS `medecins`;
+CREATE TABLE IF NOT EXISTS `medecins` (
+  `ID_MEDECIN` int(11) NOT NULL AUTO_INCREMENT,
+  `NOM` varchar(40) NOT NULL,
+  `PRENOM` varchar(40) NOT NULL,
+  `ADRESSE` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID_MEDECIN`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `medecins`
+--
+
+INSERT INTO `medecins` (`ID_MEDECIN`, `NOM`, `PRENOM`, `ADRESSE`) VALUES
+(1, 'MILAZO', 'Jérome', '10, Rue Saporta 13100 Aix en Provence'),
+(2, 'AGARD', 'Mireille', '5, Rue Léo Lagrange 13770 Venelles'),
+(3, 'STRUZICK', 'Christine', '15, Rue Eugène Varlin 13610 Le Puy Saint Réparade'),
+(4, 'MATHIEU', 'Didier', '4, Avenue Maurice Plantier 13770 Venelles');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `patients`
+--
+
+DROP TABLE IF EXISTS `patients`;
+CREATE TABLE IF NOT EXISTS `patients` (
+  `ID_PATIENT` int(11) NOT NULL AUTO_INCREMENT,
+  `NOM` varchar(40) NOT NULL,
+  `PRENOM` varchar(40) NOT NULL,
+  `ADRESSE` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID_PATIENT`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `patients`
+--
+
+INSERT INTO `patients` (`ID_PATIENT`, `NOM`, `PRENOM`, `ADRESSE`) VALUES
+(1, 'AGARD', 'André', '5, Rue Léo Lagrange 13770 Venelles'),
+(2, 'RIDEAU', 'Bastien', '5, Rue d''Aguesseau 13770 Venelles'),
+(3, 'GONDOUIN', 'Bernard', '21, Rue d''Albon 13320 Bouc Bel Air'),
+(4, 'LHERMITTE', 'Bernard', '7, Rue d''Algérie 13510 Eguilles'),
+(5, 'RAMBEAUD', 'Christian', '14, Rue du Lieutenant Allouche 13511 Eguilles'),
+(6, 'KAC', 'Christine', '21, Rue de l''Alma 13512 Eguilles'),
+(7, 'BRELEUR', 'Christophe', '11, Rue des Alouettes 13610 Le Puy Saint Réparade'),
+(8, 'CYMBALIST', 'Christophe', '41, Avenue Ampère 13611 Le Puy Saint Réparade'),
+(9, 'LADD', 'Claude', '8, Avenue des Anges 13612 Le Puy Saint Réparade'),
+(10, 'MARTAUD', 'Daniel', '18, Route de l''Annonciade 13100 Aix en Provence'),
+(11, 'AGARD', 'Daniel', '5, Rue Léo Lagrange 13770 Venelles'),
+(12, 'FEBVRE', 'Denis', '34, Rue de l''Arbre-Sec 13102 Aix en Provence'),
+(13, 'LEURRE', 'Denise', '33, Rue Saint-Antoine 13770 Venelles'),
+(14, 'GEIL', 'Dominique', '41, Rue Sidoine-Apollinaire 13771 Venelles'),
+(15, 'SAINT DE FLER', 'Elsa', '61, Rue des Aqueducs 13100 Aix en Provence'),
+(16, 'BINET', 'Emmanuel', '11, Rue des Archers 13101 Aix en Provence'),
+(17, 'PUCCINI', 'Bernard', '18, Avenue Arloing 13610 Le Puy Saint Réparade'),
+(18, 'BOUSLAH', 'Fabien', '6, Avenue d''Arsonval 13770 Venelles'),
+(19, 'GUITTON', 'Francis', '5, Avenue d''Aubigny 13320 Bouc Bel Air'),
+(20, 'VANNAXAY', 'Francis', '21, Rue Pierre-Audry 13510 Eguilles');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `symptomes`
+--
+
+DROP TABLE IF EXISTS `symptomes`;
+CREATE TABLE IF NOT EXISTS `symptomes` (
+  `ID_SYMPTOME` int(11) NOT NULL AUTO_INCREMENT,
+  `NOM_SYMPTOME` varchar(40) NOT NULL,
+  PRIMARY KEY (`ID_SYMPTOME`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `symptomes`
+--
+
+INSERT INTO `symptomes` (`ID_SYMPTOME`, `NOM_SYMPTOME`) VALUES
+(1, 'Fatique'),
+(2, 'Perte d''énergie'),
+(3, 'Maux de tête'),
+(4, 'Essouflement'),
+(5, 'Vertiges'),
+(6, 'Conjonctivite'),
+(7, 'Grosseur sous la paupière'),
+(8, 'Taux élevé de glucose dans le sang '),
+(9, 'Syncope'),
+(10, 'Irrégularités du pouls'),
+(11, 'Essoufflement'),
+(12, 'Palpitations'),
+(13, 'Douleurs des oreilles'),
+(14, 'Maux de tête'),
+(15, 'Douleurs à la mastication'),
+(16, 'Tuméfaction derrière la mâchoire'),
+(17, 'Syndrome grippal'),
+(18, 'Eruption cutanées'),
+(19, 'Conjonctivite'),
+(20, 'Douleur derrière les yeux'),
+(21, 'Oedème des mains ou des pieds'),
+(22, 'Piqûre de moustiques'),
+(23, 'Piqûre de moustiques'),
+(24, 'Fièvre'),
+(25, 'Vomissements'),
+(26, 'Anorexie'),
+(27, 'Myalgies'),
+(28, 'Piqûre de moustiques'),
+(29, 'Douleurs articulaires'),
+(30, 'Maux de tête'),
+(31, 'Eruption de boutons'),
+(32, 'Vomissements'),
+(33, 'Ictère'),
+(34, 'Difficulté à uriner'),
+(35, 'Douleur intense');
+
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `consultations`
+--
+ALTER TABLE `consultations`
+  ADD CONSTRAINT `FK_CONSULTATIONS_1` FOREIGN KEY (`ID_PATIENT`) REFERENCES `patients` (`ID_PATIENT`),
+  ADD CONSTRAINT `FK_CONSULTATIONS_2` FOREIGN KEY (`ID_MEDECIN`) REFERENCES `medecins` (`ID_MEDECIN`);
+
+--
+-- Contraintes pour la table `consultations_maladies`
+--
+ALTER TABLE `consultations_maladies`
+  ADD CONSTRAINT `FK_CONSULTATIONS_MALADIES_1` FOREIGN KEY (`ID_CONSULTATION`) REFERENCES `consultations` (`ID_CONSULTATION`),
+  ADD CONSTRAINT `FK_CONSULTATIONS_MALADIES_2` FOREIGN KEY (`ID_MALADIE`) REFERENCES `maladies` (`ID_MALADIE`);
+
+--
+-- Contraintes pour la table `maladies_symptomes`
+--
+ALTER TABLE `maladies_symptomes`
+  ADD CONSTRAINT `FK_MALADIES_SYMPTOMES_1` FOREIGN KEY (`ID_MALADIE`) REFERENCES `maladies` (`ID_MALADIE`),
+  ADD CONSTRAINT `FK_MALADIES_SYMPTOMES_2` FOREIGN KEY (`ID_SYMPTOME`) REFERENCES `symptomes` (`ID_SYMPTOME`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,613 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Client :  127.0.0.1
+-- Généré le :  Mar 16 Mai 2017 à 21:57
+-- Version du serveur :  5.7.9
+-- Version de PHP :  5.6.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `club_natation`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `abonnements`
+--
+
+DROP TABLE IF EXISTS `abonnements`;
+CREATE TABLE IF NOT EXISTS `abonnements` (
+  `ID_ABONNEMENT` int(11) NOT NULL AUTO_INCREMENT,
+  `TARIF` decimal(15,3) NOT NULL,
+  PRIMARY KEY (`ID_ABONNEMENT`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `abonnements`
+--
+
+INSERT INTO `abonnements` (`ID_ABONNEMENT`, `TARIF`) VALUES
+(1, '10.000'),
+(2, '15.000'),
+(3, '20.000'),
+(4, '25.000'),
+(5, '30.000'),
+(6, '40.000'),
+(7, '50.000'),
+(8, '60.000'),
+(9, '70.000'),
+(10, '80.000'),
+(11, '90.000'),
+(12, '100.000'),
+(13, '110.000'),
+(14, '120.000'),
+(15, '130.000'),
+(16, '140.000'),
+(17, '150.000'),
+(18, '160.000'),
+(19, '170.000'),
+(20, '180.000');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `abonnements_activites`
+--
+
+DROP TABLE IF EXISTS `abonnements_activites`;
+CREATE TABLE IF NOT EXISTS `abonnements_activites` (
+  `ID_ABONNEMENT` int(11) NOT NULL,
+  `ID_ACTIVITE` int(11) NOT NULL,
+  PRIMARY KEY (`ID_ABONNEMENT`,`ID_ACTIVITE`),
+  KEY `FK_ABONNEMENTS_ACTIVITES_2` (`ID_ACTIVITE`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `abonnements_activites`
+--
+
+INSERT INTO `abonnements_activites` (`ID_ABONNEMENT`, `ID_ACTIVITE`) VALUES
+(4, 1),
+(6, 1),
+(8, 1),
+(14, 1),
+(18, 1),
+(3, 2),
+(7, 2),
+(11, 2),
+(15, 2),
+(17, 2),
+(5, 3),
+(12, 3),
+(19, 3),
+(9, 4),
+(18, 4),
+(2, 5),
+(6, 5),
+(10, 5),
+(4, 6),
+(8, 6),
+(10, 6),
+(1, 7),
+(3, 7),
+(16, 7),
+(11, 8),
+(13, 8),
+(16, 8),
+(2, 9),
+(7, 9),
+(15, 9),
+(20, 9),
+(5, 10),
+(9, 10),
+(14, 10),
+(17, 10),
+(20, 10),
+(1, 11),
+(12, 11),
+(19, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `activites`
+--
+
+DROP TABLE IF EXISTS `activites`;
+CREATE TABLE IF NOT EXISTS `activites` (
+  `ID_ACTIVITE` int(11) NOT NULL AUTO_INCREMENT,
+  `LIBELLE` varchar(40) NOT NULL,
+  `CAPACITE` int(11) DEFAULT NULL,
+  `ID_PISCINE` int(11) NOT NULL,
+  PRIMARY KEY (`ID_ACTIVITE`),
+  KEY `FK_ACTIVITES` (`ID_PISCINE`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `activites`
+--
+
+INSERT INTO `activites` (`ID_ACTIVITE`, `LIBELLE`, `CAPACITE`, `ID_PISCINE`) VALUES
+(1, 'Cours de natation', 10, 1),
+(2, 'Cours de natation', 10, 2),
+(3, 'Cours de natation', 20, 3),
+(4, 'Plongeon', 5, 2),
+(5, 'Water-polo', 20, 3),
+(6, 'Danse synchronisée', 20, 1),
+(7, 'Danse synchronisée', 20, 3),
+(8, 'Plongée sous-marine', 15, 2),
+(9, 'Plongée sous-marine', 10, 1),
+(10, 'Entraînement compétition', 20, 1),
+(11, 'Entraînement compétition', 25, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `communes`
+--
+
+DROP TABLE IF EXISTS `communes`;
+CREATE TABLE IF NOT EXISTS `communes` (
+  `CODE_POSTAL` int(11) NOT NULL,
+  `COMMUNE` varchar(100) NOT NULL,
+  PRIMARY KEY (`CODE_POSTAL`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `communes`
+--
+
+INSERT INTO `communes` (`CODE_POSTAL`, `COMMUNE`) VALUES
+(13100, 'Aix en Provence'),
+(13510, 'Eguilles'),
+(13610, 'Le Puy Saint Réparade'),
+(13770, 'Venelles');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `membres`
+--
+
+DROP TABLE IF EXISTS `membres`;
+CREATE TABLE IF NOT EXISTS `membres` (
+  `ID_MEMBRE` int(11) NOT NULL AUTO_INCREMENT,
+  `NOM` varchar(40) NOT NULL,
+  `PRENOM` varchar(40) NOT NULL,
+  `ADRESSE` varchar(100) NOT NULL,
+  `CODE_POSTAL` int(11) NOT NULL,
+  `ID_PISCINE` int(11) NOT NULL,
+  PRIMARY KEY (`ID_MEMBRE`),
+  KEY `PRENOM` (`PRENOM`),
+  KEY `FK_MEMBRES_2` (`CODE_POSTAL`),
+  KEY `FK_MEMBRES_1` (`ID_PISCINE`) USING BTREE,
+  KEY `PRENOM_2` (`PRENOM`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `membres`
+--
+
+INSERT INTO `membres` (`ID_MEMBRE`, `NOM`, `PRENOM`, `ADRESSE`, `CODE_POSTAL`, `ID_PISCINE`) VALUES
+(1, 'AGARD', 'André', '5, Rue Léo Lagrange', 13770, 3),
+(2, 'RIDEAU', 'Bastien', '5, Rue d''Aguesseau', 13770, 1),
+(3, 'GONDOUIN', 'Bernard', '21, Rue d''Albon', 13510, 2),
+(4, 'LHERMITTE', 'Bernard', '7, Rue d''Algérie', 13510, 1),
+(5, 'RAMBEAUD', 'Christian', '14, Rue du Lieutenant Allouche', 13510, 2),
+(6, 'KAC', 'Christiane', '21, Rue de l''Alma', 13510, 1),
+(7, 'BRELEUR', 'Christophe', '11, Rue des Alouettes', 13610, 1),
+(8, 'CYMBALIST', 'Christophe', '41, Avenue Ampère', 13610, 1),
+(9, 'LADD', 'Claude', '8, Avenue des Anges', 13610, 1),
+(10, 'MARTAUD', 'Daniel', '18, Route de l''Annonciade', 13100, 2),
+(11, 'AGARD', 'Daniel', '5, Rue Léo Lagrange', 13770, 1),
+(12, 'FEBVRE', 'Denis', '34, Rue de l''Arbre-Sec', 13100, 2),
+(13, 'LEURRE', 'Denise', '33, Rue Saint-Antoine', 13770, 2),
+(14, 'GEIL', 'Dominique', '41, Rue Sidoine-Apollinaire', 13770, 1),
+(15, 'SAINT DE FLER', 'Elsa', '61, Rue des Aqueducs', 13100, 3),
+(16, 'BINET', 'Emmanuel', '11, Rue des Archers', 13100, 1),
+(17, 'PUCCINI', 'Bernard', '18, Avenue Arloing', 13610, 2),
+(18, 'BOUSLAH', 'Fabien', '6, Avenue d''Arsonval', 13770, 3),
+(19, 'GUITTON', 'Francis', '5, Avenue d''Aubigny', 13610, 3),
+(20, 'VANNAXAY', 'Francis', '21, Rue Pierre-Audry', 13510, 2),
+(32, 'REBBAEIT', 'Christophe', '26, Rue Léo Lagrange', 13770, 2),
+(33, 'BINAT', 'Daniel', '70, Rue Léo Lagrange', 13770, 2),
+(34, 'GENTEIIN', 'Fabien', '26, Rue Léo Lagrange', 13610, 3),
+(35, 'GAIN', 'Dominique', '42, Rue des Aqueducs', 13610, 3),
+(36, 'REBBAEIT', 'Denise', '40, Rue Léo Lagrange', 13770, 2),
+(37, 'RITAEI', 'Bernard', '73, Rue Sidoine-Apollinaire', 13770, 1),
+(38, 'GIITTEN', 'Christiane', '8, Rue Léo Lagrange', 13770, 3),
+(39, 'EGERT', 'Bernard', '71, Rue des Alouettes', 13610, 1),
+(40, 'PIFFINI', 'Denis', '97, Rue Léo Lagrange', 13770, 2),
+(41, 'GENTEIIN', 'Bernard', '27, Rue Léo Lagrange', 13770, 3),
+(42, 'BINAT', 'Dominique', '12, Avenue Ampère', 13610, 3),
+(43, 'REBBAEIT', 'Denis', '98, Rue Léo Lagrange', 13770, 1),
+(44, 'PIFFINI', 'Denise', '79, Rue Léo Lagrange', 13770, 2),
+(45, 'BINET', 'Elsa', '73, Rue Pierre-Audry', 13610, 1),
+(46, 'PIFFINI', 'Christophe', '95, Rue Sidoine-Apollinaire', 13610, 2),
+(47, 'EGERT', 'Daniel', '99, Rue des Aqueducs', 13610, 1),
+(48, 'GIITTAN', 'Denise', '92, Avenue des Anges', 13100, 1),
+(49, 'EGERT', 'Dominique', '60, Rue Léo Lagrange', 13770, 1),
+(50, 'FABVRA', 'Denis', '64, Rue Sidoine-Apollinaire', 13100, 3),
+(51, 'PIFFINI', 'Francis', '1, Rue des Aqueducs', 13100, 2),
+(52, 'AGART', 'Denis', '44, Rue des Alouettes', 13610, 1),
+(53, 'RABBEAIT', 'Christian', '98, Rue Léo Lagrange', 13770, 3),
+(54, 'RABBEAIT', 'Fabien', '69, Rue des Alouettes', 13610, 1),
+(55, 'GANTAIIN', 'Christiane', '3, Rue Léo Lagrange', 13770, 3),
+(56, 'RABBEAIT', 'Bernard', '16, Rue des Archers', 13100, 3),
+(57, 'BERTEIT', 'André', '89, Rue Léo Lagrange', 13770, 1),
+(58, 'REBBAEIT', 'Fabien', '83, Rue Sidoine-Apollinaire', 13100, 2),
+(59, 'GANTAIIN', 'Elsa', '75, Rue Léo Lagrange', 13770, 2),
+(60, 'REBBAEIT', 'Christophe', '88, Rue du Lieutenant Allouche', 13100, 1),
+(61, 'FYBBENITT', 'André', '82, Avenue Ampère', 13610, 3),
+(62, 'GENTEIIN', 'Daniel', '80, Rue Sidoine-Apollinaire', 13610, 3),
+(63, 'BARTAIT', 'Daniel', '14, Avenue des Anges', 13610, 1),
+(64, 'PIFFINI', 'Christophe', '49, Rue Léo Lagrange', 13770, 3),
+(65, 'GANTAIIN', 'Christian', '15, Rue Léo Lagrange', 13770, 2),
+(66, 'AGART', 'Dominique', '18, Rue Pierre-Audry', 13510, 2),
+(67, 'EGERT', 'Christiane', '86, Rue Sidoine-Apollinaire', 13770, 1),
+(68, 'RITAEI', 'André', '100, Rue Léo Lagrange', 13770, 3),
+(69, 'GIITTEN', 'Bernard', '95, Rue Léo Lagrange', 13770, 3),
+(70, 'RABBEAIT', 'Dominique', '1, Rue des Archers', 13610, 3),
+(71, 'RABBEAIT', 'Dominique', '92, Rue des Alouettes', 13610, 3),
+(72, 'GIITTEN', 'Dominique', '43, Rue Léo Lagrange', 13610, 3),
+(73, 'AGART', 'Elsa', '20, Rue Sidoine-Apollinaire', 13770, 3),
+(74, 'NAIRRA', 'André', '8, Rue des Aqueducs', 13610, 1),
+(75, 'AGART', 'Bernard', '77, Rue Sidoine-Apollinaire', 13770, 3),
+(76, 'VENNEXEY', 'Christophe', '26, Rue Sidoine-Apollinaire', 13770, 1),
+(77, 'BEITNEH', 'Christian', '20, Rue des Archers', 13100, 3),
+(78, 'NHARBITTA', 'Christophe', '61, Rue des Alouettes', 13610, 2),
+(79, 'BINET', 'Bernard', '9, Rue Léo Lagrange', 13770, 1),
+(80, 'NHARBITTA', 'Dominique', '7, Rue Sidoine-Apollinaire', 13770, 1),
+(81, 'GAIN', 'Christian', '15, Rue Léo Lagrange', 13100, 3),
+(82, 'GENTEIIN', 'Daniel', '31, Rue Saint-Antoine', 13100, 2),
+(83, 'REBBAEIT', 'Daniel', '4, Rue Sidoine-Apollinaire', 13770, 1),
+(84, 'RABBEAIT', 'Francis', '60, Rue Léo Lagrange', 13770, 1),
+(85, 'PIFFINI', 'Denis', '57, Rue Léo Lagrange', 13770, 3),
+(86, 'BARTAIT', 'Denise', '66, Rue Léo Lagrange', 13770, 2),
+(87, 'RABBEAIT', 'Bernard', '71, Rue des Alouettes', 13610, 2),
+(88, 'EGERT', 'Christian', '57, Rue Léo Lagrange', 13770, 1),
+(89, 'BINET', 'Elsa', '17, Rue Léo Lagrange', 13100, 3),
+(90, 'GENTEIIN', 'Christiane', '79, Avenue Ampère', 13100, 3),
+(91, 'FEBVRE', 'Denise', '71, Avenue Arloing', 13610, 1),
+(92, 'EGERT', 'Elsa', '49, Rue Léo Lagrange', 13770, 3),
+(93, 'AGART', 'Christophe', '15, Rue Sidoine-Apollinaire', 13770, 3),
+(94, 'VENNEXEY', 'Christophe', '8, Rue Léo Lagrange', 13770, 1),
+(95, 'BARTAIT', 'Denis', '1, Rue Léo Lagrange', 13770, 2),
+(96, 'RABBEAIT', 'Dominique', '15, Rue Léo Lagrange', 13770, 1),
+(97, 'AGART', 'Christian', '76, Avenue des Anges', 13100, 3),
+(98, 'VENNEXEY', 'André', '1, Rue des Archers', 13100, 1),
+(99, 'FEBVRE', 'Denise', '84, Rue Pierre-Audry', 13100, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `membres_abonnements`
+--
+
+DROP TABLE IF EXISTS `membres_abonnements`;
+CREATE TABLE IF NOT EXISTS `membres_abonnements` (
+  `DATE_DEB` date DEFAULT NULL,
+  `DATE_FIN` date DEFAULT NULL,
+  `ID_MEMBRE` int(11) NOT NULL,
+  `ID_ABONNEMENT` int(11) NOT NULL,
+  PRIMARY KEY (`ID_MEMBRE`,`ID_ABONNEMENT`),
+  KEY `FK_MEMBRES_ABONNEMENTS_2` (`ID_ABONNEMENT`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `membres_abonnements`
+--
+
+INSERT INTO `membres_abonnements` (`DATE_DEB`, `DATE_FIN`, `ID_MEMBRE`, `ID_ABONNEMENT`) VALUES
+('2014-09-01', '2015-06-27', 1, 3),
+('2015-08-31', '2016-06-25', 1, 10),
+('2013-09-02', '2014-06-28', 1, 14),
+('2013-09-02', '2014-06-28', 2, 1),
+('2015-08-31', '2016-06-25', 2, 11),
+('2014-09-01', '2015-06-27', 2, 20),
+('2014-09-01', '2015-06-27', 3, 2),
+('2013-09-02', '2014-06-28', 3, 7),
+('2015-08-31', '2016-06-25', 3, 10),
+('2014-09-01', '2015-06-27', 4, 1),
+('2015-08-31', '2016-06-25', 4, 9),
+('2013-09-02', '2014-06-28', 4, 18),
+('2014-09-01', '2015-06-27', 5, 8),
+('2013-09-02', '2014-06-28', 5, 10),
+('2015-08-31', '2016-06-25', 5, 11),
+('2014-09-01', '2015-06-27', 6, 2),
+('2013-09-02', '2014-06-28', 6, 4),
+('2015-08-31', '2016-06-25', 6, 6),
+('2015-08-31', '2016-06-25', 7, 15),
+('2013-09-02', '2014-06-28', 7, 19),
+('2014-09-01', '2015-06-27', 7, 20),
+('2013-09-02', '2014-06-28', 8, 6),
+('2014-09-01', '2015-06-27', 8, 18),
+('2015-08-31', '2016-06-25', 9, 8),
+('2014-09-01', '2015-06-27', 9, 14),
+('2015-08-31', '2016-06-25', 10, 18),
+('2014-09-01', '2015-06-27', 10, 20),
+('2015-08-31', '2016-06-25', 11, 1),
+('2014-09-01', '2015-06-27', 11, 2),
+('2014-09-01', '2015-06-27', 12, 3),
+('2015-08-31', '2016-06-25', 12, 5),
+('2013-09-02', '2014-06-28', 12, 12),
+('2015-08-31', '2016-06-25', 13, 13),
+('2013-09-02', '2014-06-28', 13, 14),
+('2013-09-02', '2014-06-28', 14, 4),
+('2015-08-31', '2016-06-25', 14, 9),
+('2014-09-01', '2015-06-27', 14, 19),
+('2014-09-01', '2015-06-27', 15, 1),
+('2015-08-31', '2016-06-25', 15, 8),
+('2013-09-02', '2014-06-28', 15, 14),
+('2014-09-01', '2015-06-27', 16, 13),
+('2015-08-31', '2016-06-25', 16, 18),
+('2014-09-01', '2015-06-27', 17, 3),
+('2015-08-31', '2016-06-25', 17, 4),
+('2013-09-02', '2014-06-28', 17, 9),
+('2015-08-31', '2016-06-25', 18, 3),
+('2013-09-02', '2014-06-28', 18, 4),
+('2014-09-01', '2015-06-27', 18, 6),
+('2013-09-02', '2014-06-28', 19, 3),
+('2014-09-01', '2015-06-27', 19, 6),
+('2015-08-31', '2016-06-25', 19, 12),
+('2015-08-31', '2016-06-25', 20, 2),
+('2013-09-02', '2014-06-28', 20, 8),
+('2014-09-01', '2015-06-27', 20, 19),
+('2015-08-31', '2016-06-25', 32, 2),
+('2014-09-01', '2015-06-27', 32, 7),
+('2013-09-02', '2014-06-28', 32, 19),
+('2015-08-31', '2016-06-25', 33, 3),
+('2013-09-02', '2014-06-28', 33, 7),
+('2014-09-01', '2015-06-27', 33, 17),
+('2013-09-02', '2014-06-28', 34, 7),
+('2014-09-01', '2015-06-27', 34, 12),
+('2015-08-31', '2016-06-25', 34, 15),
+('2014-09-01', '2015-06-27', 35, 7),
+('2015-08-31', '2016-06-25', 35, 8),
+('2013-09-02', '2014-06-28', 35, 9),
+('2015-08-31', '2016-06-25', 36, 12),
+('2013-09-02', '2014-06-28', 36, 14),
+('2014-09-01', '2015-06-27', 36, 17),
+('2015-08-31', '2016-06-25', 37, 8),
+('2013-09-02', '2014-06-28', 37, 12),
+('2015-08-31', '2016-06-25', 38, 2),
+('2014-09-01', '2015-06-27', 38, 14),
+('2013-09-02', '2014-06-28', 38, 20),
+('2013-09-02', '2014-06-28', 39, 6),
+('2015-08-31', '2016-06-25', 39, 9),
+('2014-09-01', '2015-06-27', 39, 16),
+('2015-08-31', '2016-06-25', 40, 2),
+('2014-09-01', '2015-06-27', 40, 9),
+('2013-09-02', '2014-06-28', 40, 17),
+('2015-08-31', '2016-06-25', 41, 4),
+('2013-09-02', '2014-06-28', 41, 20),
+('2014-09-01', '2015-06-27', 42, 4),
+('2013-09-02', '2014-06-28', 42, 12),
+('2015-08-31', '2016-06-25', 42, 15),
+('2014-09-01', '2015-06-27', 43, 8),
+('2015-08-31', '2016-06-25', 43, 15),
+('2013-09-02', '2014-06-28', 43, 17),
+('2014-09-01', '2015-06-27', 44, 2),
+('2013-09-02', '2014-06-28', 44, 6),
+('2015-08-31', '2016-06-25', 44, 16),
+('2013-09-02', '2014-06-28', 45, 6),
+('2014-09-01', '2015-06-27', 45, 10),
+('2015-08-31', '2016-06-25', 45, 18),
+('2014-09-01', '2015-06-27', 46, 4),
+('2015-08-31', '2016-06-25', 46, 7),
+('2013-09-02', '2014-06-28', 46, 12),
+('2013-09-02', '2014-06-28', 47, 17),
+('2014-09-01', '2015-06-27', 47, 19),
+('2015-08-31', '2016-06-25', 48, 3),
+('2013-09-02', '2014-06-28', 48, 9),
+('2013-09-02', '2014-06-28', 49, 5),
+('2015-08-31', '2016-06-25', 49, 7),
+('2014-09-01', '2015-06-27', 49, 8),
+('2014-09-01', '2015-06-27', 50, 10),
+('2015-08-31', '2016-06-25', 50, 15),
+('2013-09-02', '2014-06-28', 51, 1),
+('2014-09-01', '2015-06-27', 51, 7),
+('2015-08-31', '2016-06-25', 51, 10),
+('2013-09-02', '2014-06-28', 52, 7),
+('2015-08-31', '2016-06-25', 52, 12),
+('2015-08-31', '2016-06-25', 53, 6),
+('2014-09-01', '2015-06-27', 53, 7),
+('2013-09-02', '2014-06-28', 53, 10),
+('2013-09-02', '2014-06-28', 54, 5),
+('2014-09-01', '2015-06-27', 54, 14),
+('2015-08-31', '2016-06-25', 55, 10),
+('2013-09-02', '2014-06-28', 55, 17),
+('2014-09-01', '2015-06-27', 55, 19),
+('2015-08-31', '2016-06-25', 56, 11),
+('2013-09-02', '2014-06-28', 56, 19),
+('2015-08-31', '2016-06-25', 57, 3),
+('2013-09-02', '2014-06-28', 57, 8),
+('2014-09-01', '2015-06-27', 57, 18),
+('2014-09-01', '2015-06-27', 58, 15),
+('2015-08-31', '2016-06-25', 58, 18),
+('2013-09-02', '2014-06-28', 58, 20),
+('2013-09-02', '2014-06-28', 59, 9),
+('2014-09-01', '2015-06-27', 59, 10),
+('2013-09-02', '2014-06-28', 60, 4),
+('2015-08-31', '2016-06-25', 60, 9),
+('2014-09-01', '2015-06-27', 60, 18),
+('2015-08-31', '2016-06-25', 61, 8),
+('2014-09-01', '2015-06-27', 61, 11),
+('2013-09-02', '2014-06-28', 61, 20),
+('2015-08-31', '2016-06-25', 62, 9),
+('2014-09-01', '2015-06-27', 62, 10),
+('2013-09-02', '2014-06-28', 62, 12),
+('2014-09-01', '2015-06-27', 63, 10),
+('2013-09-02', '2014-06-28', 64, 15),
+('2014-09-01', '2015-06-27', 64, 18),
+('2015-08-31', '2016-06-25', 64, 19),
+('2015-08-31', '2016-06-25', 65, 4),
+('2013-09-02', '2014-06-28', 65, 15),
+('2014-09-01', '2015-06-27', 66, 10),
+('2015-08-31', '2016-06-25', 66, 16),
+('2013-09-02', '2014-06-28', 66, 20),
+('2014-09-01', '2015-06-27', 67, 1),
+('2013-09-02', '2014-06-28', 67, 9),
+('2013-09-02', '2014-06-28', 68, 9),
+('2015-08-31', '2016-06-25', 68, 11),
+('2014-09-01', '2015-06-27', 68, 12),
+('2015-08-31', '2016-06-25', 69, 8),
+('2014-09-01', '2015-06-27', 69, 11),
+('2013-09-02', '2014-06-28', 69, 16),
+('2015-08-31', '2016-06-25', 70, 3),
+('2013-09-02', '2014-06-28', 70, 4),
+('2014-09-01', '2015-06-27', 70, 5),
+('2015-08-31', '2016-06-25', 71, 8),
+('2013-09-02', '2014-06-28', 71, 9),
+('2014-09-01', '2015-06-27', 72, 3),
+('2013-09-02', '2014-06-28', 72, 16),
+('2013-09-02', '2014-06-28', 73, 1),
+('2015-08-31', '2016-06-25', 73, 14),
+('2014-09-01', '2015-06-27', 73, 15),
+('2014-09-01', '2015-06-27', 74, 16),
+('2015-08-31', '2016-06-25', 74, 20),
+('2015-08-31', '2016-06-25', 75, 18),
+('2013-09-02', '2014-06-28', 75, 19),
+('2013-09-02', '2014-06-28', 76, 1),
+('2014-09-01', '2015-06-27', 76, 12),
+('2013-09-02', '2014-06-28', 77, 11),
+('2015-08-31', '2016-06-25', 77, 12),
+('2014-09-01', '2015-06-27', 77, 15),
+('2015-08-31', '2016-06-25', 78, 6),
+('2014-09-01', '2015-06-27', 78, 7),
+('2013-09-02', '2014-06-28', 78, 11),
+('2015-08-31', '2016-06-25', 79, 1),
+('2014-09-01', '2015-06-27', 79, 14),
+('2015-08-31', '2016-06-25', 80, 6),
+('2013-09-02', '2014-06-28', 80, 15),
+('2014-09-01', '2015-06-27', 80, 20),
+('2014-09-01', '2015-06-27', 81, 1),
+('2015-08-31', '2016-06-25', 81, 11),
+('2013-09-02', '2014-06-28', 81, 18),
+('2013-09-02', '2014-06-28', 82, 11),
+('2014-09-01', '2015-06-27', 82, 19),
+('2015-08-31', '2016-06-25', 82, 20),
+('2015-08-31', '2016-06-25', 83, 2),
+('2014-09-01', '2015-06-27', 83, 11),
+('2013-09-02', '2014-06-28', 83, 18),
+('2013-09-02', '2014-06-28', 84, 4),
+('2015-08-31', '2016-06-25', 84, 18),
+('2014-09-01', '2015-06-27', 84, 19),
+('2013-09-02', '2014-06-28', 85, 2),
+('2014-09-01', '2015-06-27', 85, 20),
+('2013-09-02', '2014-06-28', 86, 8),
+('2015-08-31', '2016-06-25', 86, 16),
+('2014-09-01', '2015-06-27', 86, 17),
+('2014-09-01', '2015-06-27', 87, 9),
+('2015-08-31', '2016-06-25', 87, 14),
+('2013-09-02', '2014-06-28', 87, 17),
+('2015-08-31', '2016-06-25', 88, 3),
+('2014-09-01', '2015-06-27', 88, 9),
+('2013-09-02', '2014-06-28', 88, 18),
+('2013-09-02', '2014-06-28', 89, 6),
+('2015-08-31', '2016-06-25', 89, 18),
+('2014-09-01', '2015-06-27', 89, 20),
+('2013-09-02', '2014-06-28', 90, 10),
+('2014-09-01', '2015-06-27', 90, 14),
+('2015-08-31', '2016-06-25', 90, 16),
+('2014-09-01', '2015-06-27', 91, 1),
+('2015-08-31', '2016-06-25', 91, 4),
+('2013-09-02', '2014-06-28', 91, 10),
+('2013-09-02', '2014-06-28', 92, 11),
+('2015-08-31', '2016-06-25', 92, 18),
+('2014-09-01', '2015-06-27', 92, 19),
+('2014-09-01', '2015-06-27', 93, 5),
+('2013-09-02', '2014-06-28', 93, 12),
+('2015-08-31', '2016-06-25', 93, 17),
+('2014-09-01', '2015-06-27', 94, 3),
+('2013-09-02', '2014-06-28', 94, 10),
+('2015-08-31', '2016-06-25', 94, 12),
+('2015-08-31', '2016-06-25', 95, 4),
+('2013-09-02', '2014-06-28', 95, 9),
+('2013-09-02', '2014-06-28', 96, 5),
+('2015-08-31', '2016-06-25', 96, 12),
+('2014-09-01', '2015-06-27', 97, 6),
+('2015-08-31', '2016-06-25', 97, 20),
+('2015-08-31', '2016-06-25', 98, 4),
+('2014-09-01', '2015-06-27', 98, 18),
+('2013-09-02', '2014-06-28', 98, 20),
+('2015-08-31', '2016-06-25', 99, 5),
+('2014-09-01', '2015-06-27', 99, 8),
+('2013-09-02', '2014-06-28', 99, 16);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `piscines`
+--
+
+DROP TABLE IF EXISTS `piscines`;
+CREATE TABLE IF NOT EXISTS `piscines` (
+  `ID_PISCINE` int(11) NOT NULL AUTO_INCREMENT,
+  `NOM` varchar(40) NOT NULL,
+  `ADRESSE` varchar(100) NOT NULL,
+  `CODE_POSTAL` int(11) NOT NULL,
+  PRIMARY KEY (`ID_PISCINE`),
+  KEY `FK_PISCINES` (`CODE_POSTAL`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `piscines`
+--
+
+INSERT INTO `piscines` (`ID_PISCINE`, `NOM`, `ADRESSE`, `CODE_POSTAL`) VALUES
+(1, 'Piscine de Venelles', 'Chemin Collet de Redon\r\nParc des sports Maurice Daugé\r\n13770  Venelles', 13770),
+(2, 'Piscine au Puy Sainte Réparade', 'Route du Stade\r\n13610  Le Puy-Sainte-Réparade', 13510),
+(3, 'Piscine Yves Blanc', '26 avenue des Ecoles Militaires\r\n13100  Aix-en-Provence', 13100);
+
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `abonnements_activites`
+--
+ALTER TABLE `abonnements_activites`
+  ADD CONSTRAINT `FK_ABONNEMENTS_ACTIVITES_1` FOREIGN KEY (`ID_ABONNEMENT`) REFERENCES `abonnements` (`ID_ABONNEMENT`),
+  ADD CONSTRAINT `FK_ABONNEMENTS_ACTIVITES_2` FOREIGN KEY (`ID_ACTIVITE`) REFERENCES `activites` (`ID_ACTIVITE`);
+
+--
+-- Contraintes pour la table `activites`
+--
+ALTER TABLE `activites`
+  ADD CONSTRAINT `FK_ACTIVITES` FOREIGN KEY (`ID_PISCINE`) REFERENCES `piscines` (`ID_PISCINE`);
+
+--
+-- Contraintes pour la table `membres`
+--
+ALTER TABLE `membres`
+  ADD CONSTRAINT `FK_MEMBRES` FOREIGN KEY (`ID_PISCINE`) REFERENCES `piscines` (`ID_PISCINE`),
+  ADD CONSTRAINT `FK_MEMBRES_2` FOREIGN KEY (`CODE_POSTAL`) REFERENCES `communes` (`CODE_POSTAL`);
+
+--
+-- Contraintes pour la table `membres_abonnements`
+--
+ALTER TABLE `membres_abonnements`
+  ADD CONSTRAINT `FK_MEMBRES_ABONNEMENTS_1` FOREIGN KEY (`ID_MEMBRE`) REFERENCES `membres` (`ID_MEMBRE`),
+  ADD CONSTRAINT `FK_MEMBRES_ABONNEMENTS_2` FOREIGN KEY (`ID_ABONNEMENT`) REFERENCES `abonnements` (`ID_ABONNEMENT`);
+
+--
+-- Contraintes pour la table `piscines`
+--
+ALTER TABLE `piscines`
+  ADD CONSTRAINT `FK_PISCINES` FOREIGN KEY (`CODE_POSTAL`) REFERENCES `communes` (`CODE_POSTAL`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

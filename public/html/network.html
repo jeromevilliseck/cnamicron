@@ -1,0 +1,1626 @@
+<div class="pure-menu pure-menu-horizontal" style="width:100%;">
+    <ul class="pure-menu-list" style="width:100%;">
+        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover" style="width:100%;text-align:right;">
+            <a href="#link" id="menuLink1" class="pure-menu-link" style="font-size:19px;color:black">Accès rapide</a>
+            <ul class="pure-menu-children" style="border:1px solid #BFC9CA;">
+                <li class="pure-menu-item"><a href="#link0" class="pure-menu-link">Appréhension globale des réseaux</a></li>
+                <li class="pure-menu-item"><a href="#link1" class="pure-menu-link">Arborescence de fichiers d'un système UNIX</a></li>
+                <li class="pure-menu-item"><a href="#link2" class="pure-menu-link">Fichier de configuration de base du service apache</a></li>
+                <li class="pure-menu-item"><a href="#link3" class="pure-menu-link">Commandes linux locales</a></li>
+                <li class="pure-menu-item"><a href="#link4" class="pure-menu-link">Commandes linux réseau</a></li>
+                <li class="pure-menu-item"><a href="#link5" class="pure-menu-link">Synthèses</a></li>
+                <li class="pure-menu-item"><a href="#link6" class="pure-menu-link">Administration de serveurs : service Apache</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<h2 id="link0">Appréhension globale des réseaux</h2>
+
+<p>Présentation générale de la matière et du matériel</p>
+
+<ul><li>
+<img src="../img/icon_pdf.png"></img> <a href="../files/LesReseauxDeZero.pdf">Présentation générale des réseaux, entités, matériel(médias d'accès, hub / switch / repeater), types(LAN, WLAN, WAN), topologies(types, forme)</a></li>
+
+<li>
+<img src="../img/icon_pdf.png"></img> <a href="../files/ModeleOSI.pdf">Protocole(définition, explication), utilisation d'un protocole par l'exemple, fonctions nécessaires d'un protocole, Modèle OSI(analogie, couches, mnémotechnique), présentation des couches, processus de transmission / réception, Modèle TCP/IP(comparaison avec le modèle OSI), Encapsulation des données(SDU, PDU, DH, AH, APDU = AH + SDU)</a></li>
+
+<li>
+<img src="../img/icon_pdf.png"></img> <a href="../files/LesReseauxDeZerosNotionsAAssimiler.pdf">Notions à assimiler</a></li>
+
+<li>
+<img src="../img/icon_externlink.png"></img> <a href="http://distributions.free.fr/compil/PDF/les-reseaux-de-zero.pdf">Lien vers le cours (externe)</a></li>
+
+<li>
+<img src="../img/icon_globe.png"></img> <a href="http://www.frameip.com/">FrameIP.com (notions avancées, approfondir)</a></li>
+</ul>
+
+
+<h2 id="link1">Arborescence de fichiers d'un système UNIX</h2>
+
+<pre class="code" data-language="html">
+  / La racine UNIX du système
+  ├── <mark>bin</mark> -> usr/bin Commandes de base pour tous les utilisateurs
+  ├── boot Chargeur d'amorçage
+  ├── <mark>dev</mark> Fichiers d’accès aux périphériques
+  ├── <mark>etc</mark> Fichiers et dossiers pour la configurations du système
+  │ ├── <mark>cron.d</mark> Configuration du planificateur de tâches
+  │ ├── cron.hourly Liste des tâches planifiées à exécuter toutes les heures
+  │ ├── cron.daily Liste des tâches planifiées à exécuter tous les jours
+  │ ├── cron.weekly Liste des tâches planifiées à exécuter toutes les semaines
+  │ ├── cron.monthly Liste des tâches planifiées à exécuter tous les mois
+  │ ├── cron.yearly Liste des tâches planifiées à exécuter tous les ans
+  │ ├── <mark>httpd</mark> Configuration du serveur Web
+  │ ├── <mark>proftpd.d</mark> Configuration du serveur FTP
+  │ ├── <mark>init.d</mark> Liste de tous les services du système
+  │ ├── rc0,d Liste des services à lancer et à arrêter au RUNLEVEL 0 (arrêt du système)
+  │ ├── rc1,d Liste des services à lancer et à arrêter au RUNLEVEL 1 (mode sans échec sans réseau)
+  │ ├── rc2,d Liste des services à lancer et à arrêter au RUNLEVEL 2 (mode sans échec avec réseau)
+  │ ├── rc3,d Liste des services à lancer et à arrêter au RUNLEVEL 3 (mode texte, multi-utilisateurs, et réseau)
+  │ ├── rc4,d Liste des services à lancer et à arrêter au RUNLEVEL 4 (personnalisable)
+  │ ├── rc5,d Liste des services à lancer et à arrêter au RUNLEVEL 5 (idem RUNLEVEL 3 en mode graphique)
+  │ ├── rc6,d Liste des services à lancer et à arrêter au RUNLEVEL 6 (redémarrage)
+  │ ├── <mark>ssh</mark> Configuration du serveur SSH
+  │ ├── <mark>ssl</mark> Fichier de configuration pour l'identification sécurisée
+  │ ├── sysconfig Configuration des matériels (tel que le réseaux)
+  │ └── xinet.d Configuration du service XInetd
+  ├── <mark>home</mark> Répertoires des utilisateurs
+  │ ├── cnam Dossier personnel du compte « cnam »
+  │ └── lost+found Contient les fragments de fichiers perdus de la partition 4
+  ├── initrd Image minimale du système initialisé au démarrage
+  ├── lib -> usr/lib Bibliothèques logicielles nécessaires pour les commandes de base
+  ├── lost+found Contient les fragments de fichiers perdus de la partition 1
+  ├── media Ancien point de montage pour les médias amovibles (voir /run/media/...)
+  ├── mnt Point de montage pour les systèmes de fichiers
+  ├── opt Logiciels optionnels
+  ├── proc Système de fichiers virtuel documentant les différents processus
+  ├── <mark>root</mark> Répertoire de l'administrateur du système
+  ├── run Système de fichiers virtuel utilisé par le noyau Linux au démarrage
+  │ └── media Nouveau point de montage des media amovibles (/run/media/NOM_USER/NOM_MEDIA)
+  ├── <mark>sbin</mark> -> usr/sbin Exécutables pour l'administrateur du système
+  ├── srv Données pour les services hébergés par le système
+  ├── sys Système de fichiers virtuel documentant le noyau Linux
+  ├── <mark>tmp</mark> Fichiers temporaires
+  │ └── lost+found Contient les fragments de fichiers perdus de la partition 3
+  ├── <mark>usr</mark> Image des dossiers de la racine UNIX non nécessaires au fonctionnement minimal du système
+  │ ├── bin Binaires exécutables pour les utilisateurs
+  │ ├── etc Regroupe les fichiers de configuration qui peuvent être partagés entre plusieurs machines
+  │ ├── include Entête pour la compilation de programmes
+  │ ├── lib Bibliothèques partagées pour les utilisateurs
+  │ ├── local Hiérarchie tertiaire identique à /usr pour le stockage d'applications et de données locales
+  │ ├── <mark>sbin</mark> Binaires pour l'administrateur
+  │ ├── share Fichiers indépendants de la plate-forme
+  │ ├── src Source du noyau Linux
+  │ └── X11R6 Serveur graphique X11
+  └── <mark>var</mark> Fichiers variables
+    ├── cache Cache pour les données des applications
+    ├── db Contient les bases de données utilisées pour l'exploitation du système (tel que locate)
+    ├── empty Dossier vide utilisé par certain processus pour faire du CHROOT (tel que sshd
+    ├── <mark>ftp</mark> Données exportées par le serveur FTP
+    │ └── pub Zone publique exportée par FTP
+    ├── lib Données des applications tel que les bases de données, les paquetages, etc...
+    ├── local Données générées par les applications installées dans /usr/local
+    ├── lock -> ../run/lock Fichiers de verrouillage
+    ├── <mark>log</mark> Fichiers de journalisation [anciennes version linux ces fichiers était en texte désormais ils sont en BDD]
+    │ ├── <mark>httpd</mark> Journaux du serveur Web
+    │ ├── <mark>journal</mark> Journaux du système
+    │ ├── mysqld Journaux du serveur MySQL
+    │ ├── <mark>proftpd</mark> Journaux du serveur FTP
+    │ ├── samba Journaux du serveur SAMBA
+    │ ├── security Journaux liés à la sécurité du système
+    │ └── sudo-io Journaux des sessions administrateur (tel que sudo)
+    ├── lost+found Contient les fragments de fichiers perdus de la partition 5
+    ├── mail -> spool/mail Boîtes aux lettres des utilisateurs gérées par le serveur de messagerie
+    ├── nis Données pour l'identification des utilisateurs par un serveur NIS
+    ├── opt Données générées par les applications installées dans /opt
+    ├── spool Files d'attente des services
+    ├── <mark>tmp</mark> Fichiers temporaires
+    ├── <mark>www</mark> Données exportées par le serveur WEB
+    │ ├── cgi-bin Scripts CGI
+    │ └── <mark>html</mark> Pages HTML
+    └── yp Données pour l'identification des machines par un serveur NIS (pages jaunes)
+</pre>
+
+</br>
+
+<h2 id="link2">Fichier de configuration de base du service apache</h2>
+
+<a href="../files/apachefichierconfigbase.txt">Fichier de configuration initial</a>
+
+<p>
+Faire un copier coller du contenu de ce fichier et replacer / écraser dans le fichier de configuration initial en cas de dysfonctionnement du service.
+</p>
+
+</br>
+
+<h2 id="link3">Commandes linux locales</h2>
+
+<div class="pure-menu pure-menu-horizontal" >
+    <ul class="pure-menu-list" >
+        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover" style="text-align:left;">
+            <a href="#link" id="menuLink1" class="pure-menu-link" style="font-size:19px;color:black">Accès rapide</a>
+            <ul class="pure-menu-children" style="border:1px solid #BFC9CA;">
+                <li class="pure-menu-item"><a href="#link1A" class="pure-menu-link">ls - AFFICHAGE</a></li>
+                <li class="pure-menu-item"><a href="#link1B" class="pure-menu-link">cd - NAVIGATION</a></li>
+                <li class="pure-menu-item"><a href="#link1C" class="pure-menu-link">cp - COPIE</a></li>
+                <li class="pure-menu-item"><a href="#link1D" class="pure-menu-link">mv - DEPLACEMENT - RENOMMAGE</a></li>
+                <li class="pure-menu-item"><a href="#link1E" class="pure-menu-link">rm - SUPPRESSION</a></li>
+                <li class="pure-menu-item"><a href="#link1F" class="pure-menu-link">mkdir - CREATION REPERTOIRE</a></li>
+                <li class="pure-menu-item"><a href="#link1G" class="pure-menu-link">touch - CREATION FICHIER</a></li>
+                <li class="pure-menu-item"><a href="#link1H" class="pure-menu-link">ln - CREATION LIENS</a></li>
+                <li class="pure-menu-item"><a href="#link1I" class="pure-menu-link">chown - CHGT PROPRIETAIRE</a></li>
+                <li class="pure-menu-item"><a href="#link1J" class="pure-menu-link">chmod - CHGT DROITS</a></li>
+                <li class="pure-menu-item"><a href="#link1K" class="pure-menu-link">user - GESTION UTILISATEURS</a></li>
+                <li class="pure-menu-item"><a href="#link1L" class="pure-menu-link">sed - REMPLACEMENT PARCOURS</a></li>
+                <li class="pure-menu-item"><a href="#link1M" class="pure-menu-link">grep - RECHERCHE CHAINE</a></li>
+                <li class="pure-menu-item"><a href="#link1N" class="pure-menu-link">find - RECHERCHE FICHIERS</a></li>
+                <li class="pure-menu-item"><a href="#link1O" class="pure-menu-link">test - COMPARAISONS</a></li>
+                <li class="pure-menu-item"><a href="#link11" class="pure-menu-link">apt-get - PAQUETS (DEBIAN)</a></li>
+                <li class="pure-menu-item"><a href="#link1P" class="pure-menu-link">tar - COMPRESSION - DECOMPRESSION</a></li>
+                <li class="pure-menu-item"><a href="#link1Q" class="pure-menu-link">gzip - COMPRESSION - DECOMPRESSION</a></li>
+                <li class="pure-menu-item"><a href="#link1R" class="pure-menu-link">du - ESPACE</a></li>
+                <li class="pure-menu-item"><a href="#link1S" class="pure-menu-link">for / awk - BOUCLE ET RECHERCHE</a></li>
+                <li class="pure-menu-item"><a href="#link1T" class="pure-menu-link">GESTION DES PROCESSUS</a></li>
+                <li class="pure-menu-item"><a href="#link1U" class="pure-menu-link">UTILITAIRES</a></li>
+                <li class="pure-menu-item"><a href="#link1V" class="pure-menu-link">PASSAGE EN ADMINISTRATEUR</a></li>
+                <li class="pure-menu-item"><a href="#link1W" class="pure-menu-link">AUTRES COMMANDES</a></li>
+                <li class="pure-menu-item"><a href="#link1X" class="pure-menu-link">FLUX DE REDIRECTION</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<p class="paddingTen">
+<code id="link1A">LS</code>
+AFFICHAGE
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ls -l</code></pre>
+repertoire.contenu.affichage.détaillé
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ls -a</code></pre>
+repertoire.contenu.affichage.fichiers.cachés
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ls -la</code></pre>
+repertoire.contenu.affichage.détaillé.fichiers.cachés
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ls -h</code></pre>
+repertoire.contenu.affichage.fichiers.tailleLisible
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ls -r</code></pre>
+repertoire.contenu.tri.inversé
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ls -t</code></pre>
+repertoire.fichiers.tri.date_creation.decroissant
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ls -S</code></pre>
+repertoire.fichiers.tri.taille_fichier.decroissant
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ls -lhS</code></pre>
+repertoire.contenu.tri.fichiers.taillelisible.decroissant
+</p>
+
+<p class="paddingTen"><code id="link1B">CD</code>
+NAVIGATION
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cd /</code></pre>
+aller.racine_disque
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cd</code></pre>
+aller.utilisateur_courant.repertoire_personnel
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cd ~</code></pre>
+aller.utilisateur_courant.repertoire_personnel
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cd /var/www/</code></pre>
+aller.utilisateur_apache.repertoire_personnel
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cd ..</code></pre>
+aller.repertoire_parent
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cd -</code></pre>
+aller.repertoire_précédent
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">pwd</code></pre>
+affichage.chemin_absolu.repertoire_courant
+</p>
+
+<p class="paddingTen">
+<code id="link1C">CP</code>
+COPIE
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cp [chemin_absolu_origine][nom_fichier_extension_incluse] [chemin_absolu_destination]</code></pre>
+copie.fichier.vers_repertoire
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cp -r [chemin_absolu_repertoire_acopier] [chemin_absolu_repertoire_ou_coller_repertoire]</code></pre>
+copie.repertoire.vers_autreRepertoire
+</p>
+
+<p class="paddingTen">
+<code id="link1D">MV</code>
+DEPLACEMENT / RENOMMAGE
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">mv [chemin_absolu_origine][nom_fichier_extension_incluse] [chemin_absolu_destination]</code></pre>deplacer.fichier.vers_repertoire
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">mv [nom_fichier_AVANT_extension_incluse] [nom_fichier_APRES_extension_incluse]</code></pre>renommage.fichier
+</p>
+
+<p class="paddingTen">
+<code id="link1E">RM</code>
+SUPPRESSION
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">rm *.[extension]</code></pre>supprimer.fichier.extension
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">rm [fichier_extension_incluse] [fichier2_extension_incluse]</code></pre>supprimer.plusieurs.fichiers
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">rmdir [dossier]</code></pre>supprimer.dossier (commande parfois non fonctionnelle)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">rm -fr [nom_dossier]</code></pre>supprimer.dossier (commande fonctionnelle)
+</p>
+
+<p class="paddingTen">
+<code id="link1F">MKDIR</code>
+CREATION REPERTOIRE
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">mkdir -v [nom_dossier]</code></pre>afficher.informations.quandCreation.repertoire
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">mkdir -p [nom_dossier1] [nom_dossier2]</code></pre>creation.arborescence_complete (plusieurs dossiers)
+</p>
+
+<p class="paddingTen">
+<code id="link1G">TOUCH</code>
+CREATION FICHIER
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">touch [nom_fichier]</code></pre>Creation.fichier
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">split -10 [nom_fichier] [fichier_destination]</code></pre>Coupure.fichier(10lignes)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">tail [nb_de_lignes_a_afficher] [fichier]</code></pre>Affichage.nbChoisiLignes.Fin.fichier
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">head [nb_de_lignes_a_afficher] [fichier]</code></pre>Affichage.nbChoisiLignes.Début.fichier
+l'option -n précise le nombre de lignes à afficher
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">wc [fichier]</code></pre>Comptage.fichier(Lignes / Mots / Caractères)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">paste [test.txt>test1.txt]</code></pre>Collage.contenu(fichier_test).dans(fichier_test1)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cmp [file1] [file2]</code></pre>Comparer.2fichiers(identique_ou_non)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cut</code></pre>
+Couper.dans.fichierTexte
+</p>
+
+<p class="paddingTen">
+<code id="link1H">LN</code>
+CREATION DE LIENS
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ln [fichier_source] [fichier_mirroir_lien]</code></pre>Creation.fichierLien.versfichiersource
+-> si suppression fichier_source fichier_mirroir fonctionnel(copie_mirroir)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ln -s [fichier_source] [fichier_symbolique]</code></pre>Creation.raccourci.versfichiersource
+-> si suppression fichier source fichier symbolique inutilisable
+</p>
+
+<p class="paddingTen">
+<code id="link1I">CHOWN</code>
+CHANGEMENT PROPRIETAIRE FICHIER/REPERTOIRE
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">chown [user]:[group] [fichier_extension_incluse]</code></pre>attribuer.fichier.a.this>user.&.this>group
+-R : permet la récursivité
+</p>
+
+<p class="paddingTen">
+<code id="link1J">CHMOD</code>
+CHANGEMENT DROIT FICHIER OU REPERTOIRE
+(!) DROITS NECESSAIRES (PROPRIETAIRE[CIBLE] OU ROOT)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">chmod xxx [dossier_ou_fichier]</code></pre>modifier.droits.cible(dossier_ou_fichier)&.fichiers_dossiers_enfants
+<ul><li>r = 4; w = 2; x = 1; 0 = 0;</li>
+<li>r -> read(lecture)</li>
+<li>w -> write(ecriture)</li>
+<li>x -> execute(execution)</li></ul>
+</p>
+
+<p class="paddingTen">
+<code id="link1K">USER</code>
+GESTION DES UTILISATEURS
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">adduser</code></pre>
+ajouter.utilisateur</br>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">passwd</code></pre>
+changer.motDePasse.utilisateur<br>
+<samp>/etc/passwd</samp>
+fichier regroupant l'ensemble des utilisateurs du système et leurs informations<br>
+<samp>/etc/shadow</samp>
+fichier contenant les mots de passe chiffrés des utilisateurs<br>
+<samp>/etc/group</samp>
+fichier contenant les id de group des utilisateurs<br><br>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">deluser [--remove-home]</code></pre>
+suppression.utilisateur</br>
+--remove-home -> supprime tout ses fichiers.
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">addgroup</code></pre>
+création.groupe
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">usermod [nom_utilisateur] [options]</code></pre>
+OPTIONS
+<ul>
+  <li>
+<code class="language-bash">-l [nouveau nom]</code> : changer le nom de l'utlisateur
+</li>
+<li>
+<code class="language-bash">-g [groupe]</code> : assigner un groupe à l'utilisateur
+</li>
+<li>
+-G [groupe1] [groupe2]</li> : assigner plusieurs groupes à l'utilisateur
+</li>
+<li>
+<code class="language-bash">-ag</code> : assigner un nouveau groupe à l'utilisateur sans supprimer l'ancien
+</li>
+</ul>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">delgroup</code></pre>
+supprimer.groupe
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">groups [utilisateur]</code></pre>
+verifier.utilisateur/groupe
+</p>
+
+
+<p class="paddingTen">
+<code id="link1L">>SED</code>
+PARCOURIR FICHIER LIGNE PAR LIGNE POUR TRAITEMENT OU REMPLACEMENT
+SI EXPRESSION REGULIERE VERIFIEE
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sed 's/foo/bar/' file.txt</code></pre>Transformation.première_occurence_chaque_ligne(foo).par.(bar)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sed 's/\t/ /g' file.txt</code></pre>Transformation.toutes_tabulation.par.espace
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sed '/^#/ d' file.txt</code></pre>Suppression.toutes_lignes.commençant(un_espace)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sed '/^Bonjour/,/^Au revoir/d' file.txt</code></pre>Suppression.toutes_lignes.comprises.deux.motifs
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sed -n '/foo/p' file.txt</code></pre>Affichage.lignes(expression_regulière_trouvée).seulement
+</p>
+
+<p class="paddingTen">
+<code id="link1M">>GREP</code>
+RECHERCHE CHAINE DE CARACTERES OU MOTIF DANS UN FICHIER</br></br>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">grep 'text' foo.txt</code></pre>Rechercher.occurence(text).dans.fichier(foo.txt)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">grep -nri 'foobar' /project</code></pre>Rechercher.toutes_occurences(foobar).dans.repertoire(project)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">grep -nri '\(foo\|bar\|baz\)' /project</code></pre>Rechercher.toutes_occurences(foo; bar; baz).dans.repertoire(project)<br>
+Options
+<ul><li>
+<code class="language-bash">-v</code>: affiche les lignes ne contenant pas la chaîne.</li><li>
+<code class="language-bash">-c</code>: compte le nombre de lignes contenant la chaîne.</li><li>
+<code class="language-bash">-n</code>: retourne les lignes préfixées par leur numéro.</li><li>
+<code class="language-bash">-x</code>: ligne correspondant exactement à la chaîne.</li><li>
+<code class="language-bash">-l</code>: affiche le nom des fichiers qui contiennent la chaîne.</li></ul>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">[commande_linux] | grep [expression_régulière]
+</code></pre>Rechercher.toutes_occurences dans Commande.saisie
+</p>
+
+
+<p class="paddingTen">
+<code id="link1N">>FIND</code>
+
+RECHERCHE FICHIERS + EXECUTION COMMANDES SUR FICHIER
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">find myfile* -print</code></pre>Recherche.fichier.débutant(myfile)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">find -name *myfile*.txt -print</code></pre>Recherche.fichier.contenant(myfile).+.extension(txt)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">find /usr -type d -print</code></pre>Affichage.tout_repertoires(/usr)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">find $ HOME \( -name '*.txt' -o -name '*.pdf' \)</code></pre>Affichages.tout_fichier(.txt; .pdf).dans.repertoire_HOME.utilisateur
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">find $ HOME -name *.txt -atime +7 -exec rm {} \;</code></pre>Suppression.tout_fichier(.txt).+7jours_sans_consultation
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">find $ HOME -name '*.txt' -size +4k -exec ls -l {} \;</code></pre>Affichage.taille.fichier>4ko<br>
+(!) Pas d'espaces entre le $ et la COMMANDE<br><br>
+
+Options<ul><li>
+<code class="language-bash">-name</code>: Recherche d'un fichier par son nom</li><li>
+<code class="language-bash">-iname</code>: Même chose que -name mais insensible à la casse</li><li>
+<code class="language-bash">-type</code>: Recherche de fichier d'un certain type</li><li>
+<code class="language-bash">-atime</code>: Recherche par date de dernier accès</li><li>
+<code class="language-bash">-mtime</code>: Recherche par date de dernière modification</li><li>
+<code class="language-bash">-user</code>: Recherche de fichiers appartenant à l'utilisateur donné</li><li>
+<code class="language-bash">-group</code>: Recherche de fichiers appartenant au groupe donné</li><li>
+<code class="language-bash">-size</code>: Recherche par rapport à une taille de fichier.</li><li>
+<code class="language-bash">-exec</code>: Exécute la commande donnée aux fichiers trouvés.</li><li>
+<code class="language-bash">-a</code>: Opérateur ET</li><li>
+<code class="language-bash">-o</code>: Opérateur OU</li><li>
+<code class="language-bash">!</code> ou <code class="language-bash">-not</code>: Opérateur NOT</li></ul>
+
+
+<p class="paddingTen">
+<code id="link1O">>TEST</code>
+COMPARAISON STRINGS, NOMBRES, PROPRIETES FICHIERS
+VERIFICATION PROPRIETES FICHIERS</br></br>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">test -e foo.txt</code></pre>Test.existence.fichier</br>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">test -d foo</code></pre>Test.foo.est.repertoire</br>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">test -w foo.txt</code></pre>Test.fichier.foo.accessible(écriture)</br>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">test -x foo.txt</code></pre>Test.fichier.foo.accessible(execution)</br>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">[ ''string1'' != ''string2'' ]</code></pre>Vérification.chaine1.est_égale_chaine2</br>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">[ int1 != int2 ]</code></pre>Vérification.nombre.int1< int2</br></br>
+</p>
+
+
+<p class="paddingTen">
+<code id="link11">>APT</code>
+INSTALLATION DESINSTALATION PAQUETS SOUS DEBIAN (APT)<br>
+Passez en root pour utiliser ces commandes : <code class="language-bash">sudo sh</code>
+
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt update</code></pre>MAJ.dépôts(fichiers_disponibles)
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt search [nom_paquet]</code></pre>Recherche.paquets.dépôts
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt install [nom_paquet]</code></pre>Installation.paquet[nom_paquet]
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt install [nom_paquet]]=2.2-1</code></pre>Installation.paquet[nom_paquet].version(2.2.1)
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt-get remove [nom_paquet]</code></pre>Suppression.paquet[nom_paquet]. conservation.configuration(fichiers)
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt-get purge [nom_paquet]</code></pre>Suppression.paquet[nom_paquet]. suppression.configuration(fichiers)
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt-get -f purge [nom_paquet]</code></pre>Suppression.paquet(cassé). suppression.configuration(fichiers)
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt-cache policy php5</code></pre>Récupération.information.paquet_etat(php5)
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">dpkg -l | grep php</code></pre>Listage.paquets(php).machine(installés)
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">dpkg -l</code></pre>Listage.tous.paquets.machine(installés)
+
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt autoclean</code></pre>Suppression.cache.paquets_périmés
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt clean</code></pre>Suppression.cache
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt autoremove</code></pre>Suppression.paquet_dépendants_inutiles
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">[[ $(dpkg -l | grep ^rc) ]] && sudo dpkg -P $(dpkg -l | awk '/^rc/{print $2}') || echo "pas de paquets à purger"</code></pre>Suppression.residus_logiciels
+</pre>
+</p>
+
+<p class="paddingTen">
+Le listing logiciel et la sauvegarde
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">dpkg -l</code></pre>Listing.logicielDpkg est le logiciel fondamental sur lesquels s’appuient aussi bien apt-get et aptitude.
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">dpkg --get-selections</code></pre>Listing.logiciel.formatCourt
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">dpkg --get-selections > ma_liste.txt</code></pre>Enregistrement.listingDansFichier
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">dpkg --set-selections < ma_liste.txt</code></pre>Chargement.listingDansFichier
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">apt-get install dselect</code></pre>/SI ERREUR : installation.paquet.dselect
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">dselect</code></pre>Lancement.dselect
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">dpkg --set-selections < ma_liste.txt</code></pre>Rechargement.liste
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">apt-get dselect-upgrade</code></pre>Installation logiciels selectionnés<br>
+<br>Recapitulatif des commandes à taper
+<pre class="command-line" data-user="user" data-host="localhost">
+<code class="language-bash">cd ~
+dpkg --get-selections > ma_liste.txt</code>
+</pre>
+Se placer ensuite dans la machine cible pour restauration, placer le fichier ma_liste.txt préalablement exporté dans le repertoire ~ (votre home directory)
+<pre class="command-line" data-user="user" data-host="localhost">
+<code class="language-bash">dpkg --set-selections < ma_liste.txt</code>
+</pre>
+Si erreurs, sinon sauter les instructions qui suivent juste après
+<pre class="command-line" data-user="user" data-host="localhost">
+<code class="language-bash">aptitude install dselect
+dselect
+dpkg --set-selections < ma_liste.txt</code>
+</pre>
+Ensuite, on installe toute la liste de logiciels de la première machine
+<pre class="command-line" data-user="user" data-host="localhost">
+<code class="language-bash">apt-get dselect-upgrade</code>
+</pre>
+</p>
+
+<p class="paddingTen">
+<code id="link1P">>TAR</code>
+COMPRESSION DECOMPRESSION FICHIERS ET DOSSIERS
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">tar -cvf archive.tar fichier1</code></pre>Création.archive(archive.tar).contient.fichier(fichier1)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">tar -cvf archive.tar fichier1 fichier2</code></pre>Création.archive(archive.tar).contient.2fichiers(fichier1 + fichier2)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">tar -cvf archive.tar repertoire/</code></pre>Création.archive(archive.tar).contient(répertoire)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">tar -czvf archive.tar.gz repertoire/</code></pre>Création.archive(archive.tar.gz).contient(répertoire)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">tar -cjvf archive.tar.bz2 repertoire/</code></pre>Création.archive.format.bz2
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">tar -xzvf archive.tar.gz</code></pre>Extraction.archive(tar.gz)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">tar -xjvf archive.tar.bz2</code></pre>Extraction archive(tar.bz2)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">tar -tf mon_fichier.tar</code></pre>Listage.fichierArchive<br><br>
+
+Options<ul><li>
+<code class="language-bash">-c</code>: créer</li><li>
+<code class="language-bash">-t</code>: tester / lister</li><li>
+<code class="language-bash">-x</code>: extraire</li><li>
+<code class="language-bash">-v</code>: description des fichiers désarchivés</li><li>
+<code class="language-bash">-j</code>: format de compression bzip2</li><li>
+<code class="language-bash">-z</code>: format de compression gzip</li></ul>
+</p>
+
+<p class="paddingTen">
+<code id="link1Q">>GZIP</code>
+COMPRESSION DECOMPRESSION FICHIERS ET DOSSIERS format ZIP
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">gzip archive.tar.gz</code></pre>Compression.archive(format ZIP)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">bzip2 archive.tar.gz</code></pre>Compression.archive(format BZIP)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">gunzip archive.tar.gz</code></pre>Compression.archive(format ZIP)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">bunzip2 archive.tar.gz</code></pre>Compression.archive(format BZIP)
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">zcat</code></pre>
+Lire.contenu.fichier 
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">zmore</code></pre>
+Affichage.Ecran.par.Ecran
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">zless</code></pre>
+Affichage.page.par.page.fichiers_compressés
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">iconv -f [encodage_fichier_origine] -t [encodage_fichier_destination] [nom_fichier_extension incluse origine] >> [nom_fichier_extension incluse destination]</code></pre>Compression.archive(format BZIP)
+</p>
+
+<p class="paddingTen">
+<code>P7ZIP, DTRX</code>
+SUPPORTER COMPRESSION DECOMPRESSION TOUS FORMATS FICHIERS
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt install p7zip-full</code></pre>Va installer le support du format ZIP, Zip64, CAB, ARJ, GZIP, BZIP2, TAR, CPIO, RPM, ISO, DEB dans le gestionnaire d'archive
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt install p7zip-rar</code></pre>Va installer le support du format RAR dans le gestionnaire d'archives<br><br>
+<em>Vous pouvez désormais utiliser votre gestionnaire d'archive classique pour compresser décompresser ces formats</em><br><br>En cas de problème sur archive "resistante" à la compression décompression
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">
+
+sudo apt-get install dtrx</code></pre>Installation outil DoTheRightExtraction utilisable en ligne de commande
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">dtrx archive.tar.XX</code></pre>Décompression d'une archive tous formats
+</p>
+
+<p class="paddingTen">
+<code>img2pdf</code>
+PASSER IMAGE AU FORMAT PDF
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt install img2pdf</code></pre>Installation img2pdf
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">img2pdf -o [files_output_name_here] --pagesize A4 [files_input_name_here]</code></pre>transorme image en fichier pdf au format A4
+</p>
+
+
+
+<p class="paddingTen">
+<code id="link1R">DU</code>
+ESPACE
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">du -sh dossier1 dossier2</code></pre>
+Connaitre.espaceDisqueUtilise(dossier1; dossier2)</br></br>
+
+OPTIONS<ul><li>
+<code class="language-bash">--max-depth=x</code> ou <code class="language-bash">-d=x</code></li><li>
+avec x le chiffre indiquant le niveau de sous dossier à intégrer.</li></ul>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">du -hc --max-depth=1</code></pre>Affichage.espaceDisqueUtilise.repertoire(fichiers; repertoire)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">df -h</code></pre>Affichage.espaceDisqueDisponible
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">du -chd 1 | sort -h</code></pre>Affichage.espaceDisqueUtilise.repertoires.fichiers + repertoire.courant + tri.taille
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cd /
+sudo sh
+find . -size +10000k -exec ls -lhS --color=always {} \+</code></pre>
+commande linux permettant de rechercher recurisivement (rep et sous rep) les fichier les plus volumineux -> se placer dans le repertoire parent souhaité. Remplacez 10000 par la taille souhaitée pour filtrage (ko)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">du -chd 1 | sort -h</code></pre>Affichage.espaceDisqueUtilise.repertoires.fichiers + repertoire.courant + tri.taille
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">rm -rf ~/.local/share/Trash/*</code></pre>Vidage.corbeille.utilisateur (passer en root pour fichiers à problématiques)
+</p>
+
+<p class="paddingTen">
+<code id="link1R">PS2PDF</code>
+LOGICIEL DE COMPRESSION PDF
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo apt install ghostscript</code></pre>
+Installer ghostscript qui contient le logiciel de compression pdf
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">for x in *.pdf; do
+echo "$x";
+ps2pdf "$x" "${x/pdf/reduced.pdf}";
+rm "$x";
+done</code></pre>
+Cette boucle à insérer dans votre terminal puis appuyer sur <kbd>ENTER</kbd> va alors passer sur chaque éléments pdf et le compresser du dossier dans lequel vous insérez les commandes.
+</p>
+
+<p class="paddingTen">
+<span id="link1S">BOUCLE et RECHERCHE</span>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">for [condition] in [condition] do
+  [lignes_de_requêtes_terminal]
+  done</code></pre>execution.plusieursFois.action</br>
+<h4>Explication</h4>
+Exemple modifier le nom de fichiers à travers des requêtes, et l'execution de ces lignes sont conditionnées par le réponse aux conditions définies en paramètres de la boucle.
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">awk</code></pre>
+langage de programmation qui recherche des chaînes et d'expression et exécute des actions selon le résultat de la recherche.
+</p>
+
+
+<p class="paddingTen">
+<span id="link1T">GESTION PROCESSUS</span>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">top</code></pre>Affichage.processusEnCours(Proc; MEM, Tps CPU)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">free</code></pre>Affichage.mémoireLibre
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ps aux</code></pre>Affichage.processusEnExecution
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">kill pid</code></pre>Arrêt.processus
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">kill 9 pid</code></pre>Tuer.processus
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">kill all [programme]</code></pre>Arret.violent.programme
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ps -ef</code></pre>Affichage.processus manière détaillée
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ps -u [nom_utilisateur]</code></pre>Affichage.processus(utilisateurDefini)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">nice [0-20] [nom_processus]</code></pre>Changement.priorité.processus
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">&</code></pre>Passer.tachedefond.processus
+</p>
+
+<p class="paddingTen">
+<span id="link1U">UTILITAIRES</span>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">vi</code></pre>Lancement.VIM
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">mc</code></pre>Lancement.midnightCommander
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">lfm</code></pre>Lancement.linuxFileManager
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ftp</code></pre>Lancement.utilitaireFTP
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">talk</code></pre>lancement.conversation.machine_distante
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">telnet</code></pre>Lancement.connexion.machine_distante
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">lynx</code></pre>Lancement.navigateur.text
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">bc</code></pre>Lancement.calculette
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">date</code></pre>Affichage.Date
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cal</code></pre>Affichage.Calendrier
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ntpdate [pool.ntp.org]</code></pre>synchronisation.heure.serveur.ntp
+attention : le port 123 doit être ouvert.
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">uptime</code></pre>calcul.temps.depuis.miseEnRouteMachine
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">vmstat</code></pre>indication.ram.swap.cpu
+</p>
+
+<p class="paddingTen">
+<span id="link1V">PASSAGE EN ADMINISTRATEUR</span>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo [commande]</code></pre>exécuter.commande.en Root
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo sh</code></pre>passer.en.root
+</p>
+
+<p class="paddingTen">
+<span>PASSAGE DU TERMINAL EN MODE 256 COLORS</span>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cd ~</code></pre>se placer dans le repertoire home
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">nano .bashrc</code></pre>editer le fichier .bashrc, et rajouter la ligne suivante à la fin
+<pre><code class="language-bash">export TERM=xterm-256color</code></pre>puis sauvergarder et relancer le terminal
+</p>
+
+<p class="paddingTen">
+<span id="link1W">AUTRES COMMANDES</span>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">passwd</code></pre>Changer.passport(utilisateur_courant)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">exit</code></pre>Fermer.session_courante
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sort /etc/passwd</code></pre>Tri.fichier.passwd(ligne_par_ligne)<br>
+<br>
+                options<ul><li>
+                <code class="language-bash">-b</code> : Option à utiliser lorsque le critère de tri est alphanumérique et que les valeurs dans les champs sont calés à droite et complétés avec des espaces à gauche</li><li>
+                <code class="language-bash">-k</code> : champ [.car] [options] , champ [.car] [options] Spécifier le ou les champs à prendre en compte en tant que critère de tri. Le critère de tri peut commencer ou finir à une certaine position de caractère du champ.</li><li>
+                <code class="language-bash">-n</code> : Préciser que le critère de tri doit être traité comme valeur numérique et non comme chaine de caractères.</li><li>
+                <code class="language-bash">-r</code> : Demander un tri décroissant</li><li>
+                <code class="language-bash">-t sep</code> : Préciser le caractère séparateur de champs (espace par défaut)</li><li>
+                <code class="language-bash">-u</code> : Suppression des doublons</li></ul>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">file</code></pre>Afficher.type.fichier
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">more</code></pre>Afficher.fichier.ecranParEcran
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cat</code></pre>Afficher.contenu.fichier
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">less</code></pre>Afficher.contenu.fichier.page.par.page
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">who</code></pre>Afficher.utlisateurConnecteSysteme
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">w</code></pre>Afficher.utlisateurConnecte.tacheEnCours
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">man [commande]</code></pre>InformationsDetaillee(commande)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">clear</code></pre>EffacerEcran
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">reset</code></pre>Vider Terminal
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">id</code></pre>Information(UID+GID)<br>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">locate [nom_fichier extension_incluse]</code></pre>Rechercher.fichier.sur.disque.dur<br>
+Important : la commande parcours une base de donnée pas le disque dur. Pour trouver un fichier récent,
+il faut l'indexer dans la base avec <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo updatedb</code></pre> (mets à jour la base de donnée d'indexation)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">whereis</code></pre>Cherche.localisation.service<br><br>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">.</code></pre>Représentation(repertoire_courant)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">..</code></pre>Représentation(repertoire_père)
+<pre><kbd>CTRL+C</kbd></pre>Arreter.processusEnCours
+<pre><kbd>CTRL+Z</kbd></pre>Passer.processusEnCours.tâchedefond (en pause attention)
+<pre><kbd>CTRL+D</kbd></pre>Déconnecter.sessionEnCourségalement : Fermer.sessionSSH, sessionMysql...
+<pre><kbd>CTRL+R</kbd></pre>Rechercher.historique.commandesSaisies
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">fg</code></pre>Reprendre.processusEnCours
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">[commande1] & [commande2]</code></pre>lancer.commande2 sans attendre fin.commande1
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">bg</code></pre>passer.processus en cours arrière.plan
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">[commande] at [hh:mm]</code> puis <code class="code2">CTRL + D</code></pre>executer.tache a heure ultérieure
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">[commande1] && sleep [m/h/d] && [commande2]</code></pre>faire pause de x minutes / heures / jours entre 2 commandes
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">crontab</code></pre>Lire+modifier.fichier.crontab
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">screen</code></pre>Multiplexeur.terminaux
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ubuntu-drivers -h</code></pre>Installation.pilotes.proprietaires(graphique)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">system-config-printer</code></pre>Installation.imprimantes
+</p>
+
+
+<p class="paddingTen">
+<span>EMPLACEMENT DES APPLICATIONS, MODIFICATION DU CLAVIER</span>
+<pre><samp>/usr/share/applications</samp></pre>
+Emplacement.applications.debian
+
+<pre><samp>/usr/lib/jvm</samp></pre>
+Localisation.configuration.java.jdk.lubuntu</br>
+
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">setxkbmap fr</code></pre>
+Passer.clavier.azerty
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">loadkeys fr</code></pre>
+Passer.clavier.azerty.si.mode.console
+</p>
+
+<p class="paddingTen">
+<span id="link1X">FLUX DE REDIRECTION</span>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">></code></pre>
+Renvoyer.resultat.dans.fichier (si il existe il sera écrasé)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">>></code></pre>
+Renvoyer.resultat.dans.fichier (si il existe résultat rajouté à la fin)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">2></code></pre>
+Création.fichier.pour.erreurs
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">2>&1</code></pre>
+fusionner.sortie.dans.un.fichier
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash"><</code></pre>
+prendre.fichier.entrée
+</p>
+
+<p class="paddingTen">
+<span>EXPRESSIONS REGULIERES</span>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">* ? ?? [aA] [a-z]</code></pre>
+</p>
+
+
+<h3>Connaitre son matériel</h3>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">lscpu</code></pre>
+<p>liste les caractéristiques de son micro processeur</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">lspci [options]</code></pre>
+<p>Liste les périphériques PCI : options
+<ol>
+<ul><code class="language-bash">-n</code> : donne les indices numériques au lieu des noms</ul>
+<ul><code class="language-bash">-v</code> : bavard, rajouter un v ou 2 v selon le niveau d'infos voulu</ul>
+</ol>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">lshw</code></pre>
+Listing.materiel
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">inxi</code></pre>
+Informations.compactes
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">lsusb</code></pre>
+Listing.materiel.branché
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sensors</code></pre>
+Temperature.temps.reel.processeur
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">free</code></pre>
+Utilisation.temps.reel.mémoire
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">lsmod</code></pre>
+Modules.chargés
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">top</code></pre>
+Listing.processus.coursn faire <kbd>CTRL+C</kbd> pour stopper le programme
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ps</code></pre>
+Listing.processus.cours
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">netstat</code></pre>
+Informations réseau
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo apt install bleachbit</code></pre>
+Outil de maintenance et nettoyage
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo apt install gparted</code></pre>
+Outil de formatage
+
+</p>
+
+
+
+
+<h2 id="link4">Commandes réseau</h2>
+
+<div class="pure-menu pure-menu-horizontal" >
+    <ul class="pure-menu-list" >
+        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover" style="text-align:left;">
+            <a href="#link" id="menuLink1" class="pure-menu-link" style="font-size:19px;color:black">Accès rapide</a>
+            <ul class="pure-menu-children" style="border:1px solid #BFC9CA;">
+                <li class="pure-menu-item"><a href="#link2A" class="pure-menu-link">ssh - CONNEXION MACHINE DISTANTE</a></li>
+                <li class="pure-menu-item"><a href="#link2B" class="pure-menu-link">wget - COPIE FICHIER DISTANT</a></li>
+                <li class="pure-menu-item"><a href="#link2C" class="pure-menu-link">scp - TRANSFERTS FICHIERS</a></li>
+                <li class="pure-menu-item"><a href="#link2D" class="pure-menu-link">rsync - COPIE DEPUIS / VERS HOTE</a></li>
+                <li class="pure-menu-item"><a href="#link2E" class="pure-menu-link">DIAGNOSTIC RESEAU</a></li>
+                <li class="pure-menu-item"><a href="#link2F" class="pure-menu-link">GESTION SERVEUR</a></li>
+                <li class="pure-menu-item"><a href="#link2G" class="pure-menu-link">JOURNAL</a></li>
+                <li class="pure-menu-item"><a href="#link2H" class="pure-menu-link">SYSTEMCTL</a></li>
+                <li class="pure-menu-item"><a href="#link2I" class="pure-menu-link">APACHE</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<p class="paddingTen">
+
+  TRANSFERTS ET CONNEXION HOTE A DISTANCE<br><br>
+
+  <code id="link2A">SSH</code>
+CONNEXION MACHINE DISTANTE SSH
+
+<pre>
+Pour vous entrainter avec le service ssh, créez un compte sur <a href="http://www.sdf.org">UNIX Shell Account</a>
+puis munis de vos identifiants connectez vous depuis le terminal.</pre>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ssh john@remotehost.example.com</code></pre>
+ou
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ssh -l john remotehost.example.com</code></pre>Connexion.machine_distante.login=johnsyntaxe -> login@ip ou login@nom_hôte
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ssh-keygen -t dsa</code></pre>Génération.cléDSA
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ssh-copy-id -i ~/.ssh/id_dsa.pub john@remotehost.example.com</code></pre>Copie.clé_publique.vers.machineDistante
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ssh -X -l toto cnam.fr</code></pre>Lancement.interfacegraphique.prisedecontrole.machineadistance
+</p>
+
+
+<p class="paddingTen">
+<code id="link2B">WGET</code>
+COPIE FICHIER DISTANT SUR ORDINATEUR
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">wget http://www.site.org/files/fichier.txt</code></pre>
+copier.fichier.distant sur.ordinateur
+</p>
+
+<p class="paddingTen">
+<code id="link2C">SCP</code>
+TRANSFERT FICHIERS SERVEUR / CLIENT SSH
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">scp [nom_fichier] john@remotehost.example.com:</code></pre>Transfert.fichier.repertoire_courant[local].vers.home[compte_john].machine[remotehost.exemple.com]
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">scp john@remotehost.example.com:[nom_fichier] ./</code></pre>Transfert.fichier.home[compte_john].vers.repertoire_courant[local]
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">scp john@remotehost.example.com:/backups/*.sql backups/</code></pre>Recupération.sql_distants.vers.repertoirelocalCrée
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">scp -P 17654 john@remotehost:/files/ files/</code></pre>Recupération.fichiers.via.port!=22(defaut).
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">scp -r mails/ john@remotehost:</code></pre>Rcupération.repertoire_mail[compte_john]
+</p>
+
+<p class="paddingTen">
+<code id="link2D">RSYNC</code>
+COPIE FICHIERS ET DOSSIERS DEPUIS OU VERS HOTE A DISTANCE
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">rsync source/ destination/</code></pre>Synchronisation.fichiers_sources.vers.destination
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">rsync -azv john@remotehost.example.com:source/ destination/</code></pre>Récupération.fichiers(nouveaux, modifiés).de.Repertoire_Distant.vers.Répertoire_local
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">rsync -azv --delete source/ destination/</code></pre>Synchronisation.tout.fichiers.et.suppression.fichiers(inexistants_sur_source)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">rsync -azv --exclude=''dump/*.sql.gz'' files/ backup/</code></pre>Synchronisation.répertoire_files.exception.fichiers(sql.gz)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">rsync --rsh='ssh -p1234' source/ destination</code></pre>Synchronisation.port.spécifique</br></br>
+
+Note : en général, on suffixe toujours par un / le nom des répertoires sources et de destination.</p>
+
+<h4>Options</h4><ul><li>
+<code class="language-bash">-a</code>: copie de manière récursive tout en préservant les permissions et les dates des fichiers.</li><li>
+<code class="language-bash">-z</code>: compresse les données avant le transfert.</li><li>
+<code class="language-bash">-v</code>: affiche tout ce qui se passe pendant le transfert.</li><li>
+<code class="language-bash">-n</code>: permet de tester la commande (dry-run).</li><li>
+<code class="language-bash">--progress</code>: affiche la barre de progression pendant le transfert.</li><li>
+<code class="language-bash">--delete</code>: efface les fichiers qui n'existent pas chez l'émetteur</li><li>
+<code class="language-bash">--exclude=MOTIF</code>: exclut les fichiers correspondant au motif</li></ul>
+
+
+<p class="paddingTen">
+<span id="link2E">DIAGNOSTIC RESEAU</span>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ping [ip_adress OR domain_name]</code></pre>
+Pinguer.client(voir_si_en_ligne(repond))
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ifconfig</code></pre>
+Afficher.interfaceReseau.MachineLocale
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">netstat</code></pre>
+Afficher.connexionReseau+tableRoutagePC
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">traceroute [ip_adress OR domain_name]</code></pre>
+Tracer.route.paquet.routeur_par_routeur.jusque.destination
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">nmap</code></pre>
+Scanner.reseau+portsOuverts+detection.failles.machines
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">nslookup [domain_name]</code></pre>
+Conversion.adresseip>nom_domaine
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">dig</code></pre>
+Interrogation.DNS
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">netstat –anpt 1</code></pre>
+Visualisation.connexions.tcpencours
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">apt-get install arp-scan</code></pre>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">arp-scan --interface=eth0 --localnet</code></pre>
+ou <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">arp-scan --interface=eth0 [192.168.0.0/24]</code></pre>
+eth0 -> your device. you can find your device with ipconfig
+</p>
+
+<p class="paddingTen">
+<span id="link2F">GESTION SERVEUR</span>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">init</code></pre>
+Initialisation.controle.processus
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">services</code></pre> OU <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">service --status-all</code></pre>
+Listage.services.systeme
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">service apache start</code></pre>
+Demarrage.Apache
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl restart [nom_service]</code></pre>
+Redemarrage.service
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl enable [nom_service]</code></pre>
+Activer.service
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl disable [nom_service]</code></pre>
+Desactiver.service
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl is_enabled [nom_service]</code></pre>
+Verification.service.activation.demarrage
+</p>
+
+
+<p class="paddingTen">
+<span id="link2G">JOURNAL</span>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">journalctl</code></pre>
+Visualisation.logs<br><br>
+
+
+OPTIONS<ul><li>
+<code class="language-bash">-f</code> : continue sur la console jusque CTRL-C</li><li>
+<code class="language-bash">-u crond</code> : filtre par services</li><li>
+<code class="language-bash">_PID</code> : filtre par PID</li><li>
+<code class="language-bash">/usr/sbin/[nom_programme]</code> : filtre par programme</li><li>
+<code class="language-bash">--since YYYY-MM-DD HH:MM:SS</code> : filtre les logs par date</li><li>
+<code class="language-bash">--until YYYY-MM-DD HH:MM:SS</code> : filtre les logs par date</li><li>
+les deux sont combinables.</li></ul>
+</p>
+
+
+<p class="paddingTen">
+TAILLE DU JOURNAL
+-> éditer le fichier /etc/systemd/journald.conf
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">SystemMaxUse=500M</code></pre>
+limitation.taille.journal.500M
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">SystemMaxFileSize=100M</code></pre>
+limitation.par.fichier.100M
+-> donnera un equivalent de logrotate sur 5 fichiers
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">Storage=volatile</code></pre>
+Supprime.conservation.journaux.redemarrage
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">loginctl</code></pre>
+systemd.login.manager.controle
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">loginctl list-users</code></pre>
+affichage.utilisateurs.logués.avec.session.ouverte
+</p>
+
+
+<p class="paddingTen">
+<span id="link2H">SYSTEMCTL</span>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl status [nom_application].service</code></pre>
+controle.statut.service
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl list-units</code></pre>
+visualisation.services.actifs.session.machine
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl list-units --all</code></pre>
+visualisation.services.session.machine
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl list-dependencies [nom_service]</code></pre>
+visualisation.dépendences.services
+</p>
+
+
+<p class="paddingTen">
+<span id="link2I">APACHE</span>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">which httpd</code></pre>
+Localisation.apache(service)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl start httpd</code></pre>
+Demarrage.Apache
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl status httpd</code></pre>
+Controle.apache.fonctionnement.service
+
+<code class="code2">/etc/httpd/conf</code></pre>
+Localisation.configuration.apache
+<code class="code2">/etc/hosts</code></pre>
+Adresses
+<code class="code2">/etc/httpd/conf/sites.d/</code></pre>
+Localisation.fichierconfiguration.serveursvirtuels
+<code class="code2">/etc/services</code></pre>
+Correspondance.numerosDePorts.Services
+<code class="code2">127.0.0.1</code></pre>
+Adresse de boucle locale
+</p>
+
+<p class="paddingTen">
+<span>TEST DE QUALITE DE CONNEXION</span>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo apt install speedtest-cli</code></pre>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">speedtest-cli</code></pre>
+Test.vitesse.connexion
+
+<h2 >Synthèses</h2>
+
+<p>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_01_OSI.php">Introduction aux réseaux, 1 - modèle OSI</a></br>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_02_reseaulocaux.php">Introduction aux réseaux, 2 - réseaux locaux</a></br>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_03_DNS_securite_depannage.php">Introduction aux réseaux, 3 - DNS, commandes de dépannage</a></br>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_04_http.php">Protocole HTTP</a></br>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_05_apache_presentation.php">Apache, 1 -présentation, modules, commandes</a></br>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_06_apache_configbase.php">Apache, 2 - configuration de base</a></br>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_07_apache_droits_unix.php">Apache, 3 - droits UNIX</a></br>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_08_apache_droits_restreints.php">Apache, 4 - accès restreints</a></br>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_09_apache_serveurs_virtuels.php">Apache, 5 - serveurs virtuels</a></br>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_10_apache_delegation_gestion.php">Apache, 6 - Délégation de gestion</a></br>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_11_apache_ssl.php">Apache, 7 - SSL</a></br>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_12_apache_journaux.php">Apache, 8 - Fichiers journaux</a></br>
+<img src="../img/icon_notepad.png"></img>
+<a href="../files/reseau_cours_13_apache_ftp.php">Apache, 9 - FTP</a></br>
+
+<h2 id="link6">Utilisation d'apache2 (serveur web) : hebergement de vos sites web sur une machine locale</h2>
+
+<div class="pure-menu pure-menu-horizontal" >
+    <ul class="pure-menu-list" >
+        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover" style="text-align:left;">
+            <a href="#link" id="menuLink1" class="pure-menu-link" style="font-size:19px;color:#BFC9CA;">Accès rapide</a>
+            <ul class="pure-menu-children" style="border:1px solid #BFC9CA;">
+                <li class="pure-menu-item"><a href="#linkA" class="pure-menu-link">Installation du service Apache</a></li>
+                <li class="pure-menu-item"><a href="#linkB" class="pure-menu-link">les fichiers de configuration et les directives</a></li>
+                <li class="pure-menu-item"><a href="#linkC" class="pure-menu-link">l'édition des fichiers de configuration</a></li>
+                <li class="pure-menu-item"><a href="#linkD" class="pure-menu-link">configuration de base, directives</a></li>
+                <li class="pure-menu-item"><a href="#linkE" class="pure-menu-link">Apache et les droits UNIX</a></li>
+                <li class="pure-menu-item"><a href="#linkF" class="pure-menu-link">Gestion des accès restreints</a></li>
+                <li class="pure-menu-item"><a href="#linkG" class="pure-menu-link">Serveurs virtuels</a></li>
+                <li class="pure-menu-item"><a href="#linkH" class="pure-menu-link">Délegation de gestion</a></li>
+                <li class="pure-menu-item"><a href="#linkI" class="pure-menu-link">Fichiers journaux</a></li>
+                <li class="pure-menu-item"><a href="#linkJ" class="pure-menu-link">Serveur FTP</a></li>
+                <li class="pure-menu-item"><a href="#linkK" class="pure-menu-link">Serveur SSH</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<h3 id="linkA"><aside class="black">Installation du service apache</aside></h3>
+
+<p>
+
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">apt install apache2</code></pre>
+installez le service apache2
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">reboot</code></pre>
+redemarrez la machine
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">service apache2 start</code></pre>ou<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl start apache2</code></pre>
+lancez le service apache
+<pre><samp>http://127.0.0.1</samp></pre>
+entrez l'adresse ci-dessus dans votre navigateur : la page <em>Apache2 [nom_système] Default Page</em> doit alors s'afficher
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo a2enmod ssl</code></pre>
+activez le module ssl du serveur  HTTP apache2 (suite?)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl status apache2</code></pre>
+contrôlez le status du serveur
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">netstat -ant</code></pre>
+affichez la liste des ports ouverts pour contrôler que apache écoute sur le port 80</p>
+
+<h3 id="linkB" class="paddingTwelve"><aside class="black">les fichiers de configuration et les directives</aside></h3>
+
+<p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cp -r /etc/apache2 /etc/apache2_bck</code></pre>
+copiez récursivement les fichiers de configuration dans un répertoire de secours en cas de problème pendant les manipulations futures.
+<pre><code class="code2">/etc/apache2/mods-enabled</code></pre>
+ce dossier permet d'inclure des directives incluses dans d'autres fichiers .conf que vous y déposez.
+<pre><code class="code3"># Include generic snippets of statements
+IncludeOptional conf-enabled/*.conf</code></pre>
+regardez ces lignes ci dessus dans le fichier <pre><code class="code2">/etc/apache2/apache2.conf</code></pre> elle indiquent qu'elles incluent toutes les directives qu'elle trouvent dans les fichiers .conf que vous auriez pu ajouter dans le répertoire conf-enabled pour les fichiers de configuration ou mods-enabled pour les modules chargés au démarrés au démarrage du service.
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">cat /etc/apache2/apache2.conf | grep [mot_recherché]</code></pre>
+utilisez cette commande pour afficher uniquement les lignes du fichier avec [mot_recherché]utile notamment pour rechercher les directives include
+<pre><code class="code2">/etc/apache2/conf-enabled</code></pre>
+<pre><code class="code2">/etc/apache2/mods-enabled</code></pre>
+<pre><code class="code2">/etc/apache2/sites-enabled</code></pre>
+ces 3 répertoires contiennent des fichiers dont les directives sont intégrés de par la présence de la directive <pre><code class="code3">IncludeOptional [repertoire]/[nom_fichier].[extension]</code></pre>dans le fichier <pre><code class="code2">/etc/apache2/apache2.conf</code></pre>
+à noter : les modules chargés au démarrage portent l'extension <code class="code2">.load</code> et sont dans <pre><code class="code2">/etc/apache2/mods-enabled</code></pre>
+<pre><code class="code3">LoadModule [nom_module] /usr/lib/apache2/modules/[nom_fichier_module].so</code></pre>
+ci-dessus la syntaxe à utiliser dans un fichier .load du répertoire /etc/apache2/mods-enabled
+à noter le [nom_module] est identique au nom présent dans la balise < IfModule [nom_module]> du fichier .conf associé au fichier .load, mais le nom du module dans /usr/lib/apache2/modules/ en .so peut être différent.
+<pre><code class="code3">#ServerRoot "/etc/apache2"</code></pre>
+cette indication dans le fichier <pre><code class="code2">/etc/apache2/apache2.conf</code></pre> indique ou est le serverroot, c'est à dire le répertoire maître ou est la configuration du serveur, les fichiers d'erreurs, et les fichiers de logs.
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">apache2 -l</code></pre>
+affichez les modules actuellement chargés au démarrage d'apache
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ls -la /etc/apache2</code></pre>
+affichez le contenu du repertoire serverroot avec les liens symboliques potentiellement existants, leurs liens et destination
+<pre><code class="code3">< IfDefine HAVE_PHP>
+LoadModule extra_modules/mod_php4.so
+< /IfDefine></code></pre>
+insérez ce type de lignes dans <pre><code class="code2">/etc/apache2/apache2.conf</code></pre>pour charger des modules de manière conditionnelle : Toutes les directives placées entre la balise de début et la balise de fin seront exécutées si le paramètre
+HAVE_PHP est défini (a été passé au démarrage avec l'option -D) en démarrant le service de cette façon <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl start apache2 -DHAVE_PHP</code></pre></p>
+
+<h3 id="linkC" class="paddingTwelve"><aside class="black">l'édition des fichiers de configuration</aside></h3>
+
+<p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo apt-get install kate -y</code></pre>
+installez kate (editeur de fichiers incluant la coloration syntaxique)
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo kate</code></pre>
+lancez kate en mode root (administrateur)
+<pre><code class="code2">/etc/apache2/apache2.conf</code></pre>
+ouvrez le fichier et éditez en fonction de vos besoins
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo apt-get install konsole -y</code></pre>
+installez le terminal konsole qui permet de gérer plusieurs onglets en même temps.
+ouvrez 4 onglets : 
+<ul><li>
+- ONGLET1 : analyse syntaxique du fichier de configuration d'apache2</li><li>
+- ONGLET2 : relance du service apache2</li><li>
+- ONGLET3 : affichage des logs d'accès(le fichier journal d'apache concernant les connections au serveur web)</li><li>
+- ONGLET4 : affichage des logs d'erreur(fichier journal d'Apache concernant les erreurs du serveur Web)</li></ul>
+
+commandes pour chaque onglet<br>
+- ONGLET1 : <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">/usr/sbin/apache2 -t</code></pre>
+- ONGLET2 : <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">systemctl restart apache2</code></pre>
+- ONGLET3 : <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">tail -f /etc/apache2/log/access_log</code></pre>
+- ONGLET4 : <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">tail -f /etc/apache2/log/error_log</code></pre>
+sur apache2 <pre><code class="code3">ErrorLog ${APACHE_LOG_DIR}/error.log</code></pre>
+
+</p>
+
+
+<h3 id="linkD" class="paddingTwelve"><aside class="black">configuration de base, directives</aside></h3>
+
+<p>
+<ins>Conteneurs :</ins>
+<pre><code class="code3">< IfDefine></code></pre>directives qui ne seront appliquées que si un paramètre approprié a été défini dans la ligne de commande de apache2
+<pre><code class="code3">< IfModule></code></pre>similaire; les directives qu'il contient ne s'appliqueront que si un module particulier est disponible au niveau du serveur. Le module doit être soit compilé statiquement dans le serveur, soit dynamiquement et dans ce cas, la ligne LoadModule correspondante doit apparaître plus haut dans le fichier de configuration.</br>
+<pre><code class="code3">< IfVersion></code></pre>les directives qu'il contient ne s'appliqueront que si une version particulière du serveur s'exécute.
+
+<pre><code class="code3">< Directory [chemin_designant_le_repertoire]></code></pre>directives contenues dans une section <Directory> s'appliquent au répertoire précisé, ainsi qu'à tous ses sous-répertoires et aux fichiers que ces derniers contiennent. Le même effet peut être obtenu en utilisant les fichiers .htaccess.
+<pre><code class="code3">< Files></code></pre>s'appliquent à tout fichier avec le nom spécifié, quel que soit le répertoire dans lequel il se trouve.
+<pre><code class="code3">< LocationMatch></code></pre>modifient quant à eux la configuration de parties de l'arborescence du site web
+<pre><code class="code3">< VirtualHost></code></pre> permettent de rassembler un groupe de directives qui ne s'appliquent qu'à un serveur virtuel particulier.
+
+
+<ins>Directives de portée générale</ins>
+<pre><code class="code3">ServerType :
+Syntaxe : ServerType <mark>[type]</mark>
+Défaut : ServerType standalone
+Contexte : configuration serveur
+Statut : noyau</code></pre>
+définit comment le serveur est exécuté par le système d'exploitation.
+<mark>type</mark>peut valoir <code class="code3">inetd</code>(le serveur sera exécuté à partir du processus système xinetd ; la commande nécessaire au
+démarrage du serveur devra être ajoutée dans le dossier /etc/xinetd.d . Ce mode obsolète est
+maintenant
+déconseillé.)ou <code class="code3">standalone</code>(le serveur est lancé en tant que démon ; la commande de démarrage du serveur sera
+ajoutée aux scripts de démarrage du système d'exploitation. (/etc/rc.local ou /etc/rc3.d/....))
+
+<pre><code class="code3">ServerRoot :
+Syntaxe : ServerRoot <mark>[dossier]</mark>
+Défaut : ServerRoot /usr/local/apache
+Contexte : configuration serveur
+Statut : noyau</code></pre>
+La directive ServerRoot définit le répertoire dans lequel se situe le serveur. Typiquement, ce répertoire
+contiendra les sous-répertoires conf/ et logs/. Les chemins d'accès relatifs pour d'autres fichiers de
+configuration seront considérés relativement à ce répertoire.
+
+<pre><code class="code3">Port :
+Syntaxe : Port <mark>[numéro]</mark>
+Défaut : Port 80
+Contexte : configuration serveur
+Statut : noyau</code></pre>
+Cette directive indique un numéro de port. C'est un nombre compris entre 0 et 65535; certains numéros
+de ports (surtout en dessous de 1024) sont réservés pour des protocoles spécifiques. Une liste des ports
+prédéfinis est consultable dans le fichier /etc/services; le port standard assigné au protocole http est le
+port 80.
+Si vous ne pouvez utiliser le port 80, choisissez tout autre port libre. Les utilisateurs non-root devront
+choisir un numéro de port supérieur à 1023, 8000 par exemple.
+
+<pre><code class="code3">ServerAdmin :
+Syntaxe : ServerAdmin <mark>adresse e-mail</mark>
+Défaut : aucun
+Contexte : configuration serveur, hôte virtuel
+Statut : noyau</code></pre>
+La directive ServerAdmin définit l'adresse e-mail que le serveur inclut dans tout message d'erreur
+retourné au client.
+Il est déconseillé d'utiliser un compte administrateur (root) comme adresse email.
+
+<pre><code class="code3">ServerName :
+Syntaxe : ServerName <mark>[nom de domaine entièrement qualifié]</mark>
+Défaut : aucun
+Contexte : configuration serveur, hôte virtuel
+Statut : noyau</code></pre>
+C'est le nom du serveur web. Exemple : www.serveur.com.
+Se place au niveau
+global (configuration serveur) ou pour un serveur virtuel (cette notion sera abordée plus tard). On ne
+peut donc pas placer ServerName dans le conteneur Directory.
+
+<pre><code class="code3">DocumentRoot :
+Syntaxe : DocumentRoot <mark>[chemin]</mark>
+Défaut : DocumentRoot /usr/local/apache/htdocs
+Contexte : configuration serveur, hôte virtuel
+Statut : noyau</code></pre><br />
+
+REMARQUE IMPORTANTE : Sur certains fichiers de configuration (notamment mac), les chemins peuvent apparaître avec des "" entre le chemin. Le fichier de configuration dans la majorité des cas est fonctionnel au redemmarage du service avec ou sans accolades. En cas de problème, respectez la syntaxe initiale de votre fichier d'origine.
+
+Cette directive définit le répertoire racine à partir duquel httpd va distribuer les fichiers. Sauf si le
+répertoire est pointé par une directive telle que Alias, le serveur ajoute le chemin relatif mentionnée
+dans l'URL présentée à cette racine pour établir le chemin complet jusqu'au document.
+Exemple :
+DocumentRoot /home/web
+Un accès à <code class="code2">http://www.serveur.com/index.html</code> se réfère au document <pre><code class="code2">/home/web/index.html</code></pre>
+(!)Ne pas mettre de / après web dans l'exemple ci-dessus, un bogue existe et peut faire planter le chemin d'accès.
+
+<pre><code class="code3">DirectoryIndex :
+Syntaxe : DirectoryIndex local_url [local_url] ...
+Défaut : DirectoryIndex index.html
+Contexte : server config, virtual host, directory, .htaccess
+Statut : base
+Surcharge: Indexes
+Module: mod_dir</code></pre>
+Avec cette directive, vous déclarez les fichiers qui sont susceptibles d'être affichés lorsqu'un client
+demande à accéder à un répertoire sans préciser le nom de la page.
+Les fichiers suivants sont définis par défaut :
+index.html, index.htm, index.shtml, index.php, ...
+Ce qui signifie que, si vous placez un fichier portant un de ces noms dans un répertoire, ce fichier sera
+affiché si un client ne précise pas de nom de fichier html (ou php) dans l'adresse URL.
+
+<ins>Directives conteneurs</ins>
+
+Les directives conteneurs permettent de déclarer une partie précise du serveur Apache (un répertoire,
+une url, un serveur virtuel, ...) et de limiter l'effet d'autres directives à cette zone.
+Une directive conteneur comporte une balise de début et une balise de fin. Toutes les directives placées
+entre la balise de début et de fin verront leur effet limité à la zone déclarée par le conteneur.
+
+Directives supportant le contexte directory
+
+<pre><code class="code3">Options :
+Syntaxe : Options <mark>[[+|-]option]</mark> <mark>[[+|-]option]</mark> ...
+Défaut : aucun
+Contexte : configuration serveur, hôte virtuel, répertoire, .htaccess</code></pre>
+Le contexte "répertoire" signifie que cette directive peut être placée dans un conteneur Directory.
+La directive Options supporte les paramètres suivants :
+<pre><code class="code3">All</code></pre>toutes les options sont autorisées, sauf Multiviews
+<pre><code class="code3">ExecCGI</code></pre>vous autorisez l'exécution de scripts CGI (Perl, Bash, C, C++ ...)
+<pre><code class="code3">FollowSymLinks</code></pre>vous autorisez les clients URL à suivre les liens symboliques
+<pre><code class="code3">Includes</code></pre>vous autorisez les inclusions côté serveur (SSI : Server Side Include). Les SSI sont un
+langage de programmation fait pour être interprété par un serveur HTTP. Les SSI facilitent la
+maintenance des sites web en permettant de conserver dans un seul fichier les parties de page web qui
+se retrouvent à l'identique dans toutes les pages du site. Il s'agit souvent de l'en-tête et du pied de page,
+qui contiennent des informations comme le nom du site, les coordonnées de son auteur, etc.
+<pre><code class="code3">Indexes</code></pre>autorise un listing répertoire s'il n'existe pas de fichier de type index spécifié par la directive
+serveur DirectoryIndex. Indexes peut être contrôlée plus finement par IndexesOptions
+<pre><code class="code3">Multiviews</code></pre>sert à gérer les sites multilingues
+<pre><code class="code3">None</code></pre>désactive toutes les options.
+
+<pre><code class="code3">AllowOverride :
+Syntaxe : AllowOverride <mark>surcharge surcharge</mark> ...
+Défaut : AllowOverride All
+Contexte : répertoire</code></pre>
+AllowOverride permet de déléguer la gestion des propriétés du répertoire aux concepteurs de pages
+web (avec des fichiers .htaccess). Il sera étudié ultérieurement.
+Il est prudent de déclarer la valeur None si l'on ne souhaite pas donner explicitement de droits
+d'administration aux concepteurs de pages.
+
+<pre><code class="code3">Allow :
+Syntaxe : Allow from <mark>hôte hôte</mark> ...
+Défaut : aucun
+Contexte : répertoire, .htaccess</code></pre>
+Cette directive permet d'autoriser l'accès au répertoire en fonction de critères comme le nom de la
+machine cliente, son adresse IP, son adresse réseau, le nom du navigateur utilisé, ...
+Vous avez le droit à plusieurs syntaxes pour définir un réseau :
+<pre><code class="code3">Allow 192.168.10.0 / 255.255.255.0</code></pre>
+Ou
+<pre><code class="code3">Allow 192.168.10.0/24</code></pre>
+Ou
+<pre><code class="code3">Allow 192.168.10.</code></pre>
+La valeur all permet de donner l'accès à tout le monde.
+
+<pre><code class="code3">Deny:
+Syntaxe : Deny from <mark>hôte hôte</mark> ...
+Défaut : aucun
+Contexte : répertoire, .htaccess</code></pre>
+C'est l'inverse de la directive Allow, elle permet de refuser l'accès à un répertoire selon certains
+critères.
+
+<pre><code class="code3">Order:
+Syntaxe : Order <mark>ordre</mark>
+Défaut : Order deny, allow
+Contexte : répertoire, .htaccess</code></pre>
+Cette directive permet de sélectionner l'ordre dans lequel les règles Allow Deny seront traitées.
+Si vous choisissez l'ordre allow,deny, par défaut tout est refusé. La règle allow sera examinée la
+première et deny (si elle existe) ensuite.
+Exemple 1 :
+
+<pre><code class="code3">Order allow,deny
+Allow from all</code></pre>
+
+Autorise l'accès au serveur depuis n'importe quel client.
+
+<ins>La directive spécifique alias</ins>
+
+La directive Alias n'est pas un conteneur.
+<pre><code class="code3">Syntaxe : Alias <mark>[nom url] [chemin local]</mark>
+Défaut : aucun
+Contexte : configuration serveur, hôte virtuel
+Statut : base
+Module: mod_alias</code></pre>
+
+Alias ne peut pas être incluse dans un conteneur Directory.
+Exemple :
+<pre><code class="code3">Alias /icons /home/icons</code></pre>
+Signifie que sur votre serveur web, l'URL <code class="code2">http://localhost/icons/</code> désigne le répertoire <code class="code2">/home/icons</code> sur
+le disque.
+</p>
+
+<h3 id="linkE" class="paddingTwelve"><aside class="black">Apache et les droits UNIX</aside></h3>
+
+<p>
+<ins>Accès au système de fichiers par apache</ins>
+
+Le serveur httpd (Apache) doit être démarré à partir du compte root. Ceci lance un processus « père »
+qui va écouter les requêtes des clients. Ce processus "père" va donc fonctionner sous l'identité root.
+Pour chaque requête, il passera la main à un processus « fils » qui répondra au client. Le processus
+« père » veillera également à ce qu'un nombre suffisant de processus « fils » soient chargés en
+mémoire pour répondre aux requêtes. L'identité des processus « fils » est définie à l'aide des directives
+User et Group :
+
+<pre><code class="code3">User:
+Syntaxe : User <mark>[nom d'utilisateur Unix]</mark>
+Contexte : configuration serveur, hôte virtuel
+Module : core</code></pre>
+
+<pre><code class="code3">Group
+Syntaxe : Group <mark>[nom de groupe Unix]</mark>
+Contexte : configuration serveur, hôte virtuel
+Statut : core</code></pre>
+
+<ins>Pages personnelles des utilisateurs UNIX</ins>
+
+Il existe une façon simple, pour l'administrateur d'Apache, d'autoriser les utilisateurs du système UNIX
+à publier leurs pages personnelles.
+La directive UserDir permet de définir un répertoire type que les utilisateurs devront créer dans leur
+répertoire personnel. Ce répertoire type sera accessible à l'URL
+<pre><code class="code2">http://<mark>[serveur]</mark>/~<mark>[nom de l'utilisateur]</mark></code></pre>
+<pre><code class="code3">Syntaxe : UserDir <mark>[repertoire]</mark>
+Défaut : UserDir public_html
+Contexte : configuration serveur, hôtes virtuels
+Module : mod_userdir</code></pre>
+Nota : Le module mod_userdir peut ne pas être installé par défaut sur votre système. Pour l'installer, il
+suffit d'exécuter la commande urpmi apache-mod_userdir en tant que root. Un fichier de configuration
+dédié peut être créé (<code class="code2">/etc/httpd/conf/conf.d/userdir.conf</code>) afin de gérer tous les paramètres liés à ce
+module.
+Etudions un exemple. Vous gérez le serveur <code class="code2">www.titi.com</code> . L'utilisateur UNIX sylvestre possède un
+répertoire personnel (<code class="code2">/home/sylvestre</code>). Vous avez déclaré dans la configuration d'Apache :
+
+<code class="code3">UserDir public_html</code>
+
+Pour publier la page cartoon.html, sylvestre devra créer dans <code class="code2">/home/sylvestre</code> le répertoire <code class="code2">public_html</code>
+puis, placer <code class="code2">cartoon.html</code> dans <code class="code2">/home/sylvestre/public_html</code>. Cette page sera accessible à l'URL :
+<pre><code class="code2">http://www.titi.com/~sylvestre/cartoon.html</code></pre>
+Les installations d'Apache par défaut (à partir de paquetages RPM), contiennent un (voire plusieurs)
+conteneur Directory chargé de définir les droits Apache pour les sous-répertoires de type userdir.
+Par exemple, si UserDir est défini avec la valeur "public_html", vous trouverez la déclaration suivante
+dans le fichier de configuration d'Apache.
+<pre><code class="code3">< Directory /home/<mark>*</mark>/public_html>
+...
+< /Directory></code></pre>
+
+Le caractère jocker "<mark>*</mark>", remplace toute chaîne de caractères. Cette directive conteneur s'appliquera
+donc à tous les sous répertoires <code class="code2">public_html</code> des répertoires personnels créés dans <code class="code2">/home</code>.
+Exemples :
+
+<pre><code class="code2">/home/sylvestre/public_html</code></pre>
+<pre><code class="code2">/home/titi/public_html</code></pre>
+<pre><code class="code2">/home/toto/public_html</code></pre>
+</p>
+
+<h3 id="linkF" class="paddingTwelve"><aside class="black">Gestion des accès restreints</aside></h3>
+<p>
+<ins>Principe de fonctionnement</ins>
+
+Nous n'étudierons qu'un seul type de contrôle, le type basique par fichier de mots de passe géré par le
+module module mod_auth.
+
+Les login et mots de passe (cryptés) sont contenus dans un fichier sur le serveur.
+
+L'authentification peut être définie dans un conteneur Directory. Lorsque vous demandez une
+authentification, une <strong>boite de dialogue</strong> (nom et mot de passe) apparaît aux utilisateurs qui souhaitent
+explorer vos pages.
+
+Plusieurs répertoires disjoints peuvent être déclarés comme appartenant à la même zone. Si un
+utilisateur s'authentifie durant l'accès à un des répertoires, il sera autorisé à accéder à tous les autres.
+
+<ins>Mise en oeuvre</ins>
+
+Directives à utiliser
+
+<pre><code class="code3">AuthType :
+Syntaxe : AuthType <mark>[type]</mark>
+Défaut : aucun
+Contexte : répertoire, .htaccess
+Surcharge : AuthConfig
+Statut : noyau</code></pre>
+Cette directive sélectionne le type d'authentification pour un répertoire. Nous utiliserons le type Basic.
+Pour fonctionner correctement, elle devra être accompagnée des directives AuthName et Require, et
+des directives telles que AuthUserFile et AuthGroupFile.
+
+<pre><code class="code3">AuthUserFile :
+Syntaxe : AuthUserFile <mark>[nomFichier]</mark>
+Défaut : aucun
+Contexte : répertoire, .htaccess
+Surcharge : AuthConfig
+Statut : base
+Module : mod_auth</code></pre>
+La directive AuthUserFile définit le nom du fichier texte dans lequel est enregistré une liste de noms
+d'utilisateurs et des mots de passe qui leur sont associés dans le but d'une authentification d'accès.
+nomFichier est le chemin d'accès absolu au fichier d'utilisateurs.
+
+<pre><code class="code3">AuthName :
+Syntaxe : AuthName <mark>[domaine-autorisé]</mark>
+Défaut : aucun
+Contexte : répertoire, .htaccess
+Surcharge : AuthConfig
+Statut : noyau</code></pre>
+Cette directive indique le nom du schéma d'autorisation pour un répertoire. Ce schéma sera donné au
+client de sorte que l'utilisateur sache quel nom et quel mot de passe envoyer. Pour fonctionner
+correctement, elle devra être accompagnée des directives AuthType et Require, et des directives telles
+que AuthUserFile et AuthGroupFile.
+
+<pre><code class="code3">Require :
+Syntaxe : Require <mark>[nomEntité] [Entite] [Entite]</mark>...
+Défaut : aucun
+Contexte : répertoire, .htaccess
+Surcharge : AuthConfig
+Statut : noyau</code></pre>
+Cette directive définit les utilisateurs autorisés à accéder au répertoire. Les syntaxes valides sont :
+
+<pre><code class="code3">Require user utilisateur1 utilisateur2...</code></pre>
+Seuls les utilisateurs nommés (séparation par un caractère espace) peuvent accéder au répertoire.
+
+<pre><code class="code3">Require group nomGroupe nomGroupe2...</code></pre>
+Seuls les utilisateurs des groupes cités peuvent accéder au répertoire.
+
+<pre><code class="code3">Require valid-user</code></pre>
+C'est cette syntaxe qui nous intéresse. Tout utilisateur reconnu (login + mot de passe valide) peut
+accéder au répertoire.
+
+<ins>En pratique</ins>
+
+<pre><code class="code2">/etc/apache2/apache2.conf</code></pre>
+Ouvrez le fichier de configuration principal
+<pre><code class="code3">< Directory /home/web/secret>
+Options none
+Authname prive
+AuthType basic
+AuthUserFile /etc/httpd/utilsweb
+Require valid-user
+Order allow,deny
+Allow from all
+< /Directory></code></pre>
+Placez les directives suivantes :<ul><li>
+- Authname donne un nom de zone à l'accès restreint</li><li>
+- AuthType définit ci-dessus le type d'authentification retenu</li><li>
+- AuthUserFile définit pour le type basic ou se trouve le fichier noms / mots de passe associés</li><li>
+- Require demande l'authentification pour l'accès au pages</li></ul>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">htpasswd –c [nom du fichier] [nom utilisateur]</code></pre>
+créez ainsi le fichier des utilisateurs et mots de passe<br>
+entrez le mot de passe que vous désirez 2 fois pour cet utilisateur<br>
+ne placez l'option -c qu'au moment de la création du fichier
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">htpasswd [nom du fichier] [nom utilisateur]</code></pre>
+ajoutez un utilisateur ou modifiez le mot de passe d'un utilisateur avec la commande ci-dessus.<br>
+Remarque : les utilisateurs définis par l'intermédiaire de la commande <strong>htpasswd n'ont rien à voir avec
+ceux de Linux</strong> (fichier <code class="code2">/etc/passwd</code>).
+
+<h3 id="linkG" class="paddingTwelve"><aside class="black">Serveurs virtuels</aside></h3>
+
+<p>
+
+<ins>Hebergement multiple basés sur IP ou Ports différents</ins>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ifconfig lo:0 192.168.30.1</code></pre>
+attribuez une nouvelle adresse à l'interface lo(de bouclage)<br>
+on a attribué l'adressse 192.168.30.1 à l'alias 0 de l'interface logicielle lo.
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ifconfig</code></pre>
+notez l'apparition de la nouvelle adresse,<br>
+désormais l'interface lo à 2 adresses IP
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ifconfig lo:0 down</code></pre>
+vous pouvez de cette façon désactiver votre alias
+<pre><code class="code2">https://www.linuxtricks.fr/wiki/mageia-systemd-restaurer-la-fonctionnalite-rc-local</code></pre>
+Remarque : <strong>ces modifications ne seront pas sauvegardées lors d'une mise hors tension de votre
+machine</strong>. Si vous souhaitez conserver ces réglages, ajoutez la ligne de commande à la fin du fichier :
+<code class="code2">/etc/rc.d/rc.local</code>. Avec la migration des distributions Linux vers systemd ce fichier a été supprimé par défaut. Ce tutoriel en ligne permet de retrouver une fonctionnalité similaire avec systemd
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ping 127.0.0.1</code></pre>
+pinguez l'adresse ip de bouclage
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ping 192.168.30.1</code></pre>
+pinguez votre alias ip pour voir si il fonctionne.
+<pre><code class="code2">/etc/hosts</code></pre>
+Modifiez (ou créez) ce fichier (le fichier est bien dans etc pas dans un repertoire hosts) et insérez lui les informations suivantes
+<pre><code class="code3">127.0.0.1	localhost <mark>web1</mark>
+127.0.1.1	jerome-HP-Stream-Notebook
+<mark>192.168.30.1 web2</mark>
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters</code></pre>
+Rajoutez ce qui est surligné dans le fichier hosts
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ping web1</code></pre>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">ping web2</code></pre>
+effectuez les tests ci-dessus qui doivent êtres concluants
+<pre><code class="code2">/etc/apache2/sites-available</code></pre>(à revoir attention)
+<pre><code class="code2">/etc/apache2/sites-enabled</code></pre>
+rendez-vous dans le dossier ci-dessus
+<pre><code class="code3">< VirtualHost 192.168.30.1:80>
+	DocumentRoot	/var/www/virtual1.com
+	ServerName	virtual1.com
+< /VirtualHost></code></pre>
+créez-y un fichier en le nommant virtual1.conf et insérez-y ces 4 lignes ci-dessus
+Dans chacun des fichiers de configuration, on retrouve pour l'hôte virtuel, l'adresse IP choisie, ainsi que le port (80). Les 2 directives minimales sont DocumentRoot et ServerName.
+
+DocumentRoot permet de déclarer l'emplacement de l'arborescence Web de l'hôte virtuel (l'emplacement des fichiers sur votre système). Le nom du répertoire ne doit pas comporter le caractère / final.
+Le répertoire <code class="code2">/var/www/virtual1.com</code> doit exister et bénéficier des bonnes permissions.
+ServerName permet de définir le nom de domaine du Serveur Virtuel.
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo a2ensite virtual1.conf</code></pre>
+activez votre hôte avec cette commande
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo /etc/init.d/apache2 reload</code></pre>
+rechargez la configuration de votre serveur
+
+Il est possible aussi de baser les hôtes virtuels sur :
+<ul><li>
+- le nom</li><li>
+- le port</li></ul>
+Pour la configuration vous pouvez la retrouver <a href="https://doc.ubuntu-fr.org/tutoriel/virtualhosts_avec_apache2">ici</a>
+
+<ins>les 2 directives de configuration d'apache sur virtual host</ins>
+
+<pre><code class="code3">VirtualHost:
+Syntaxe : < VirtualHost <mark>[adresse_ip]:[port]</mark>> ... </VirtualHost>
+Défaut : aucun
+Contexte : configuration serveur
+C'est une directive conteneur. Toutes les directives encadrées par ce conteneur vont définir les
+propriétés du serveur virtuel.</code></pre>
+
+<pre><code class="code3">Listen:
+Syntaxe : Listen <mark>[adresse_ip]:[port]</mark>
+Défaut : aucun
+Contexte : configuration serveur</code></pre>
+Vous pouvez placer plusieurs directives Listen dans le fichier de configuration d'Apache.
+Si vous souhaitez qu'Apache se mette à l'écoute d'un port particulier sur toutes les interfaces, ne
+précisez pas d'adresse IP à la suite de Listen comme indiqué ci-dessous :
+
+<pre><code class="code3">listen 8080</code></pre>
+
+Si vous souhaitez qu'Apache se mette à l'écoute sur un port particulier à une certaine adresse IP,
+précisez la comme indiqué ci-dessous :
+<pre><code class="code3">listen 192.168.50.22:8000</code></pre>
+
+</p>
+
+<h3 id="linkH" class="paddingTwelve"><aside class="black">Délegation de gestion</aside></h3>
+
+<p>
+
+<ins>Les fichiers de configuration</ins>
+
+Directive à utiliser dans <pre><code class="code2">/etc/apache2/apache2.conf</code></pre>
+
+<pre><code class="code3">AccessFileName:
+Syntaxe : AccessFileName <mark>[nomfichier] [nomfichier2]</mark>...
+Défaut : AccessFileName .htaccess
+Contexte: configuration serveur, hôte virtuel
+Compatibilité : AccessFileName ne peut accepter plusieurs noms de fichiers qu'à partir de la
+version 1.3 d'Apache.</code></pre>
+
+Lorsqu'il retourne un document au client, le serveur cherche le premier fichier de contrôle d'accès
+existant dans cette liste dans chacun des répertoires inscrit dans le chemin d'accès menant au document,
+pour déterminer si l'accès est autorisé dans chacun de ces répertoires.
+
+Exemple :
+
+<pre><code class="code3">AccessFileName .acl</code></pre>
+
+Avant d'exporter le document <code class="code2">/usr/local/web/index.html</code>, le serveur lira les fichiers :
+
+<pre><code class="code2">/.acl</code></pre>
+<pre><code class="code2">/usr/.acl</code></pre>
+<pre><code class="code2">/usr/local/.acl</code></pre>
+<pre><code class="code2">/usr/local/web/.acl</code></pre>
+
+...à la recherche de directives, sauf si celles-ci ont été désactivées comme on le verra plus loin.
+
+<code class="code2">/etc/apache2/apache2.conf</code></br>
+Placez cette directive de portée globale dans ce fichier.</br></br>
+
+Directive à placer dans un <pre><code class="code2">< Directory></code></pre>
+
+<pre><code class="code3">AllowOverride:
+Syntaxe : AllowOverride <mark>[All|None] [type de directive1] [type de directive2]</mark> ...
+Défaut : AllowOverride All
+Contexte : répertoire</code></pre>
+Lorsque le serveur trouve un fichier <code class="code2">.htaccess</code> (comme spécifié par <code class="code3">AccessFileName</code>) il doit savoir
+quelles sont les directives déclarées dans ce fichier qui peuvent outrepasser les droits fixés par des
+directives précédentes.
+Si la directive est définie à <code class="code3">None</code>, les fichiers <code class="code2">.htaccess</code> sont ignorés. Dans ce cas, le serveur n'essaie
+même pas de lire les fichiers <code class="code2">.htaccess</code>.
+Si la directive est définie à <code class="code3">All</code> toutes les directives possibles dans le contexte <code class="code2">.htaccess</code> sont autorisées
+dans les fichiers <code class="code2">.htaccess</code>.
+
+types de directives dont le contrôle peut être délégué
+
+<code class="code3">AuthConfig</code>
+<code class="code3">FileInfo</code>
+<code class="code3">Indexes</code>
+<code class="code3">Limit</code>
+<code class="code3">Options</code></pre>
+
+<ins>Le gestion des messages d'erreur</ins>
+
+<pre><code class="code3">ErrorDocument:
+Syntaxe : ErrorDocument <mark>[code d'erreur] [document]</mark>
+Contexte : configuration serveur, hôtes virtuels, répertoire, .htaccess</code></pre>
+Compatibilité : Les contextes répertoire et .htaccess ne sont utilisables qu'à partir de la version
+1.1 d'Apache.<br>
+
+Dans l'éventualité d'un problème ou d'une erreur, Apache peut exécuter l'une des quatre actions
+suivantes :
+
+<ul><li>
+1. sortie d'un message d'erreur simple standard</li><li>
+2. sortie d'un message personnalisé</li><li>
+3. redirection vers une URL locale pour traiter le problème (ou l'erreur)</li><li>
+4. redirection vers une URL externe pour traiter le problème (ou l'erreur)</li></ul>
+
+La première option est celle par défaut, les options 2 à 4 seront obtenues en utilisant la directive
+ErrorDocument, suivi du code HTTP d'erreur avec le message textuel d'erreur, ou une URL.<br>
+
+Les messages dans ce contexte, commencent par un guillemet simple ("), qui ne fait pas partie du
+message lui-même. Apache ajoutera souvent des informations complémentaires explicitant le problème
+(ou l'erreur).<br>
+L'URL peut débuter par un slash (/) pour des URL locales, ou être complètement qualifiées.
+Exemples :
+
+<pre><code class="code3">ErrorDocument 500 http://foo.example.com/cgi-bin/tester</code></pre>
+<pre><code class="code3">ErrorDocument 404 /cgi-bin/bad_urls.pl</code></pre>
+<pre><code class="code3">ErrorDocument 401 /subscription_info.html</code></pre>
+<pre><code class="code3">ErrorDocument 403 "Sorry can't allow you access today</code></pre>
+
+</p>
+
+<h3 id="linkI" class="paddingTwelve"><aside class="black">Fichiers journaux</aside></h3>
+
+<p>
+<pre><code class="code2">/var/log</code></pre>
+emplacement des fichiers journaux du système
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">journalctl</code></pre>
+afficher tout les évenements enregistrés par le système<br>
+OPTIONS :<ul><li>
+<code class="language-bash">-b</code> affichera les messages de boot du noyau.</li><li>
+<code class="language-bash">-b -2</code> affichera les messages du boot n-2.</li><li>
+<code class="language-bash">--utc</code> affiche les événements avec la date en UTC.</li><li>
+<code class="language-bash">--list-boots</code> affiche l'historique des démarrages du système</li><li>
+<code class="language-bash">-u</code> (-u filtre par service) crond.service affiche les événements du service Crond.</li><li>
+(liste des services : systemctl)</li></ul>
+
+Lien pour facilitez vos opérations de filtrage<br>
+<a href="https://www.linuxtricks.fr/wiki/utiliser-journalctl-les-logs-de-systemd">linuxtricks</a><br><br>
+
+<pre><samp>/etc/logrotate.d dossier</samp></pre> qui contient un fichier par service avec ses réglages pour les journaux
+<pre><samp>/etc/cron.daily/logrotate</samp></pre> script utilisé par service de plannification de tâches crond
+<pre><samp>/var/lib/logrotate.status</samp></pre> fichier à qui stocker son état logrotate
+<pre><samp>/etc/httpd/conf/httpd.conf</samp></pre> les directives errorlog et customlog du fichier contrôle l'emplacement des fichiers journaux d'apache
+
+
+</p>
+
+<h3 id="linkJ" class="paddingTwelve"><aside class="black">Serveur FTP</aside></h3>
+<h3 id="linkK" class="paddingTwelve"><aside class="black">Serveur SSH</aside></h3>
+
+<h3 id="linkL" class="paddingTwelve"><aside class="black">Utilisation d'Apache, Php, MySQl en native sur Mac OS</aside></h3>
+
+<p>Rubrique a retravailler : des erreurs sont présentes dans le premier lien sur la configuration de Directory, il faut modifier le chemin de la directive documentroot dans httpd.conf et non pas utiliser un conteneur Directory dans un fichier username.conf, il faut bien décommenter l'ensemble des modules mentionnés pour les faire fonctionner</p>
+<p>pour php, se rendre sur le lien php, car le tutoriel utilise php5 or le module est php*, actuellement php7</p>
+<a href="https://blog.edenpulse.com/apache-mysql-php-sur-osx/">Config de base</a>
+<a href="http://php.net/manual/fr/install.macosx.bundled.php">Activation de php</a>
+
+
+
+</p>

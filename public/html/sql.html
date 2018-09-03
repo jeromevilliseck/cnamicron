@@ -1,0 +1,1847 @@
+<div class="pure-menu pure-menu-horizontal" style="width:100%;">
+    <ul class="pure-menu-list" style="width:100%;">
+        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover" style="width:100%;text-align:right;">
+            <a href="#link" id="menuLink1" class="pure-menu-link" style="font-size:19px;color:black;">Accès rapide</a>
+            <ul class="pure-menu-children" style="border:1px solid #BFC9CA;">
+                <li class="pure-menu-item"><a href="#link0" class="pure-menu-link">Tableau des différents langages</a></li>
+                <li class="pure-menu-item"><a href="#link1" class="pure-menu-link">Syntaxe SQL</a></li>
+                <li class="pure-menu-item"><a href="#link2" class="pure-menu-link">Algèbre relationnelle</a></li>
+                <li class="pure-menu-item"><a href="#link3" class="pure-menu-link">Valeurs informatiques</a></li>
+                <li class="pure-menu-item"><a href="#link6" class="pure-menu-link">Cours video : MySql par la pratique</a></li>
+                <li class="pure-menu-item"><a href="#link4" class="pure-menu-link">Requêtes SQL</a></li>
+                <li class="pure-menu-item"><a href="#link5" class="pure-menu-link">Exercices - Corrigés</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<h2>Concevoir sa base de données : Modélisation MERISE. Manipuler les données à travers le langage, fondamentaux</h2>
+
+<h3 id="link0"><aside class="orange">Tableau des différents langages</aside></h3>
+<p>
+Pour la conception du MCD, téléchargez <a href="http://www.jfreesoft.com/JMerise/JMerise.zip">JMERISE</a>(<a href="http://www.jfreesoft.com/JMerise">Site</a>)
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Descriptif</th>
+      <th>Finalité</th>
+      <th>Cours</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="">MCD</td>
+      <td data-label="Descriptif">Modèle conceptuel de données</td>
+      <td data-label="Finalité">Représente de manière structurée les données du système d'information ainsi que le sens et le lien entre ces données, à travers des : Entités, Associations, Attributs, Instances.</td>
+      <td data-label="Cours"><img src="../img/icon_pdf.png"></img> <a href="../files/MCD.pdf">MCD</a></td>
+    </tr>
+    <tr>
+      <td data-label="">MLD</td>
+      <td data-label="Descriptif">Modèle logique de données</td>
+      <td data-label="Finalité">L'entité devient une table, l'identifiant deviant une clef primaire, l'attribut de l'entité devient un attribut de la table, transformations des relations 1-N, N-N</td>
+      <td data-label="Cours"><img src="../img/icon_pdf.png"></img> <a href="../files/MLD.pdf">MLD</a></td>
+    </tr>
+    <tr>
+      <td data-label="">MPD</td>
+      <td data-label="Descriptif">Modèle physique de données</td>
+      <td data-label="Finalité">Constitue le <mark>script SQL</mark> généré par le MLD à importer en tant que fichier .sql dans le SGBDR ou à copier coller (son contenu) dans une console de requêtes du SGDBR.</td>
+      <td data-label="Cours"><img src="../img/icon_pdf.png"></img> <a href="../files/MPD.pdf">MPD</td>
+    </tr>
+    <tr>
+      <td data-label="">LCD</td>
+      <td data-label="Descriptif">Langage de contrôle des données</td>
+      <td data-label="Finalité">Gérer les comptes utilisateurs du SGBDR et leurs droits, attribuer des privilèges à ces utilisateurs, commit, rollback</td>
+      <td data-label="Cours"><img src="../img/icon_pdf.png"></img> <a href="../files/LCD.pdf">LCD</td>
+    </tr>
+    <tr>
+      <td data-label="">LDD</td>
+      <td data-label="Descriptif">Langage de définition de données</td>
+      <td data-label="Finalité">Create, Drop, Alter, Rename -> sur Tables et Bases</td>
+      <td data-label="Cours"><img src="../img/icon_pdf.png"></img> <a href="../files/LDD.pdf">LDD</td>
+    </tr>
+    <tr>
+      <td data-label="">LID</td>
+      <td data-label="Descriptif">Langage d'interrogation de données</td>
+      <td data-label="Finalité">Select * from (projection et classement), order by (tri), where (restriction), union, intersect, minus (différence), jointures, opérateurs, fonctions, agrégation</td>
+      <td data-label="Cours"><img src="../img/icon_pdf.png"></img> <a href="../files/LID.pdf">LID</td>
+    </tr>
+    <tr>
+      <td data-label="">LMD</td>
+      <td data-label="Descriptif">Langage de manipulation de données</td>
+      <td data-label="Finalité">Insertion de tuples, modification de tuples, suppression de tuples</td>
+      <td data-label="Cours"><img src="../img/icon_pdf.png"></img> <a href="../files/LMD.pdf">LMD</td>
+    </tr>
+    <tr>
+      <td data-label="">TERMINAL</td>
+      <td data-label="Descriptif">Commandes sql à executer en ligne de commande</td>
+      <td data-label="Finalité">Connexion à un serveur MySQL, à une base de données, lister des bases et des tables, décrire la structure d'une table, traitement en batch, sauvegarde, spool</td>
+      <td data-label="Cours"><img src="../img/icon_pdf.png"></img> <a href="../files/TERMINAL.pdf">>_</td>
+    </tr>
+  </tbody>
+</table><br />
+<a href="../files/NFA008_NOTES_Synthese_MCD.pdf">Notes synthèse MCD</a>
+</p>
+
+<h3><aside class="orange" id="link1">Syntaxe SQL : paramètres des attributs à la création d'un table</aside></h3>
+<h4>Nom d'un attribut</h4>
+<p>
+C'est le nom du champ du tuple. Appelé aussi nom d'un champ.
+</p>
+
+<h4>Un tuple</h4>
+<p>
+TUPLE = n-uplet = enregistrement = row = ligne d'une rangée de résultats sql<br />
+> somme des valeurs / instances / occurences d'une ligne d'attributs de la table<br />
+> appelé aussi instance de l'entité (instance = tuple, entité = table)<br /><br />
+
+(!) dans les requetes le nom_attribut entre crochets inversés simples `` peut être une syntaxe utilisée.
+</p>
+
+<h4>Types Attributs</h4>
+<p>
+  <table>
+  <thead>
+    <tr>
+      <th>TYPE</th>
+      <th>STORAGE</th>
+      <th>POWER (BYTES)</th>
+      <th>UNSIGNED : MIN / MAX VALUES</th>
+      <th>SIGNED : MIN / MAX VALUES</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="TYPE">TINYINT</td>
+      <td data-label="STORAGE">1</td>
+      <td data-label="POWER (BYTES)">2^8</td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">0 / 255</td>
+      <td data-label="SIGNED : MIN / MAX VALUES">-128 / 127</td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">SMALLINT</td>
+      <td data-label="STORAGE">2</td>
+      <td data-label="POWER (BYTES)">2^16</td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">0 / 65 535</td>
+      <td data-label="SIGNED : MIN / MAX VALUES">-32 768 / 32 767</td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">MEDIUMINT</td>
+      <td data-label="STORAGE">3</td>
+      <td data-label="POWER (BYTES)">2^32</td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">0 / 16 777 215</td>
+      <td data-label="SIGNED : MIN / MAX VALUES">-8 388 608 / 8 388 607</td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">INT or INTEGER</td>
+      <td data-label="STORAGE">4</td>
+      <td data-label="POWER (BYTES)">2^48</td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">0 / 4 294 967 295</td>
+      <td data-label="SIGNED : MIN / MAX VALUES">-2 147 483 648 / 2 147 483 647</td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">BIGINT</td>
+      <td data-label="STORAGE">5</td>
+      <td data-label="POWER (BYTES)">2^64</td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">0 / 18 446 744 073 709 551 615</td>
+      <td data-label="SIGNED : MIN / MAX VALUES">-18 446 744 073 709 551 615</td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">FLOAT</td>
+      <td data-label="STORAGE"></td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">0 / 3.402823466E+38</td>
+      <td data-label="SIGNED : MIN / MAX VALUES">-3.402823466E+38 / -1.175494351E-38</td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">DOUBLE</td>
+      <td data-label="STORAGE"></td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">0 / 2.2250738585072014E-308</td>
+      <td data-label="SIGNED : MIN / MAX VALUES">-1.7976931348623157E+308 / -2.2250738585072014E-308</td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">BIT</td>
+      <td data-label="STORAGE"></td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">0 / 1</td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">BOOLEAN</td>
+      <td data-label="STORAGE"></td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">TRUE / FALSE</td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">SERIAL</td>
+      <td data-label="STORAGE"></td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">Alias > BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE</td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">DATE -> en insertion sql 'yyyy/m/d'</td>
+      <td data-label="STORAGE"></td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">'1000-01-01' to '9999-12-31'</td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">DATETIME -> en insertion sql 'Y/m/d H:i:s'</td>
+      <td data-label="STORAGE"></td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES"></td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">TIME</td>
+      <td data-label="STORAGE"></td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">'-838:59:59' to '838:59:59'</td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">YEAR</td>
+      <td data-label="STORAGE"></td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">1901 to 2155</td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">CHAR</td>
+      <td data-label="STORAGE">fixed-length</td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">0 / 255</td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">VARCHAR</td>
+      <td data-label="STORAGE">variable-length</td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">0 / 255</td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">TEXT</td>
+      <td data-label="STORAGE"></td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES">0 / 65 535</td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">BLOB</td>
+      <td data-label="STORAGE">binary values (images)</td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES"></td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">ENUM</td>
+      <td data-label="STORAGE">list of values</td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES"></td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+    <tr>
+      <td data-label="TYPE">BIGINT</td>
+      <td data-label="STORAGE"></td>
+      <td data-label="POWER (BYTES)"></td>
+      <td data-label="UNSIGNED : MIN / MAX VALUES"></td>
+      <td data-label="SIGNED : MIN / MAX VALUES"></td>
+    </tr>
+  </tbody>
+</table><br />
+CHAR				fixed-length			0 / 255<br />
+	ex : CHAR(4) > donnée utilisateur 'ab' > stockage bdd 'ab00' LENGTH 4 / 4<br />
+	+ rapide et normalisé en mémoire.<br /><br />
+VARCHAR				variable-length			0 / 255<br />
+	ex : VARCHAR(10) > donnée utilisateur 'srtee' > stockage bdd 'stree' LENGTH 5 / 10<br />
+<h4>Taille (length)</h4>
+<p>
+  NUMERICS			(3) = 0 to 999<br />
+  STRING				(7) = setters<br />
+  TIMES, BLOB, ENUM	NOTHING<br />
+</p>
+<h4>Valeur par défaut</h4>
+<p>
+  NOT NULL > Pas de valeur par defaut (Aucune)<br />
+  NOT NULL DEFAULT 'valeurParDefaut' > Mettra en valeur valeurParDefaut si rien n'est saisi (tel que defini :)<br />
+  NULL > Ne remplira pas le champ mais mettra la valeur NULL en mémoire.<br />
+  	Va servir pour faire des recherches style WHERE NOM=NULL par exemple.<br />
+  DEFAULT CURRENT_TIMESTAMP > La date sera mise à jour lors de la création de l'enregistrement (Requête Insert).<br />
+  	au format 'YYYY-MM-DD HH:MM:SS'<br />
+</p>
+<h4>Interclassement</h4>
+<p>
+  Si l'on ne met rien prend par défaut l'interclassement de la BDD défini au préalable ou par défaut<br />
+  > RECOMMANDE : préserve l'unincité de la BDD pour l'encodage.
+</p>
+<h4>Attributs</h4>
+<p>
+  BINARY > Différencie la majuscule de la minuscule en binaire (case-sensitive)<br />
+  utile pour les identifiants et passwords<br /><br />
+
+  Applicable sur des nombres<br />
+  UNSIGNED > Interdit nombre négatif<br />
+  UNSIGNED ZEROFILL > Interdit nombre négatif + remplit la taille du champ avec des zeros<br /><br />
+
+  on update CURRENT_TIMESTAMP > La date sera mise à jour à chaque modification de l'enregistrement (Requête Update).<br />
+  	au format 'YYYY-MM-DD HH:MM:SS'<br /><br />
+
+  CLE JAUNE (Primaire) > Modification possible : primary key retirable<br />
+  CLE GRISE (Primaire) > Modification impossible : le type est obligatoirement clé primaire (serial)
+</p>
+<h4>Case NULL</h4>
+<p>
+  On accepte des valeurs nulles
+</p>
+<h4>Types d'index</h4>
+<p>
+  INDEX UNIQUE	Clé primaire avec contrainte unicité<br />
+  INDEX			Les données seront aussi organisées selon ce champ (pour des recherches)<br />
+  	ex : mettre un index au niveau du sexe, du code postal (prends de la place en mémoire)<br />
+  	attention plus il y a de valeurs dans l'attribut, plus ça va être lourd.<br />
+  FULL TEXT		Fonctionne avec MyISAM. Permet des recherches avec notion de pertinence.<br />
+</p>
+<h4>Engine</h4>
+<p>
+  InnoDB > +lent mais accepte les transactions. Si crash peut récupérer les données.<br />
+  MyISAM > Système plus rapide pour des recherches full text (recherche avec notion de priorité).<br />
+  Un mot clé trouvé plus souvent signifiera un résultat plus pertinent.
+</p>
+<h4>String</h4>
+<p>
+  Pas besoin de mettre des guillemets pour insérer un numérique en valeur dans un attribut de type string.<br />
+  	ex: NOM=1.2 fonctionne 1.2 sera transformé en '1.2'
+</p>
+
+<h3><aside class="orange" id="link2">Algèbre relationnelle</aside></h3>
+<h4>Opérateurs de restriction</h4>
+<p>
+  <table>
+    <thead>
+      <tr>
+        <th>OPERATEUR</th>
+        <th>SIGNIFICATION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="OPERATEUR">=</td>
+        <td data-label="SIGNIFICATION">egal</td>
+      </tr>
+      <tr>
+        <td data-label="OPERATEUR">!=</td>
+        <td data-label="SIGNIFICATION">different</td>
+      </tr>
+      <tr>
+        <td data-label="OPERATEUR">< ></td>
+        <td data-label="SIGNIFICATION">different</td>
+      </tr>
+      <tr>
+        <td data-label="OPERATEUR">></td>
+        <td data-label="SIGNIFICATION">superieur</td>
+      </tr>
+      <tr>
+        <td data-label="OPERATEUR">>=</td>
+        <td data-label="SIGNIFICATION">superieur ou egal</td>
+      </tr>
+      <tr>
+        <td data-label="OPERATEUR"><</td>
+        <td data-label="SIGNIFICATION">inferieur</td>
+      </tr>
+      <tr>
+        <td data-label="OPERATEUR"><=</td>
+        <td data-label="SIGNIFICATION">inferieur ou egal</td>
+      </tr>
+      <tr>
+        <td data-label="OPERATEUR">between ... and ...</td>
+        <td data-label="SIGNIFICATION">entre ... et ...</td>
+      </tr>
+      <tr>
+        <td data-label="OPERATEUR">in</td>
+        <td data-label="SIGNIFICATION">dans</td>
+      </tr>
+      <tr>
+        <td data-label="OPERATEUR">like</td>
+        <td data-label="SIGNIFICATION">comme</td>
+      </tr>
+      <tr>
+        <td data-label="OPERATEUR">is NULL</td>
+        <td data-label="SIGNIFICATION">indefini</td>
+      </tr>
+      <tr>
+        <td data-label="OPERATEUR">any</td>
+        <td data-label="SIGNIFICATION">au moins 1</td>
+      </tr>
+      <tr>
+        <td data-label="OPERATEUR">all</td>
+        <td data-label="SIGNIFICATION">tout</td>
+      </tr>
+    </tbody>
+  </table>
+</p>
+<h4>Union</h4>
+<p>
+  <code>[Requete_SQL] UNION [Requete_SQL]</code><br />
+  	Recupération des enregistrements liées au deux tables sans doublons
+</p>
+<h4>Intersection</h4>
+<p>
+  <code>[Requete_SQL] INTERSECT [Requete_SQL]</code><br />
+  	Recupération des enregistrements appartenant à la fois au deux tables sans doublons
+</p>
+<h4>Différence</h4>
+<p>
+  <code>[Requete_SQL] MINUS [Requete_SQL]</code><br />
+  	Récupération enregistrements sur table 1 mais pas table 2
+</p>
+
+<h3><aside class="orange" id="link3">Valeurs informatiques : binaire / décimal / héxadécimal</aside></h3>
+<h4>Table de conversion notation en bases</h4>
+<p>
+  <table>
+    <thead>
+      <tr>
+        <th>Base binaire (2)</th>
+        <th>Base décimale (10)</th>
+        <th>Base hexadécimale</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="BINAIRE">0000</td>
+        <td data-label="DECIMAL">0</td>
+        <td data-label="HEXADECIMAL">0</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">0001</td>
+        <td data-label="DECIMAL">1</td>
+        <td data-label="HEXADECIMAL">1</td>
+        <tr>
+        <td data-label="BINAIRE">0010</td>
+        <td data-label="DECIMAL">2</td>
+        <td data-label="HEXADECIMAL">2</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">0011</td>
+        <td data-label="DECIMAL">3</td>
+        <td data-label="HEXADECIMAL">3</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">0100</td>
+        <td data-label="DECIMAL">4</td>
+        <td data-label="HEXADECIMAL">4</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">0101</td>
+        <td data-label="DECIMAL">5</td>
+        <td data-label="HEXADECIMAL">5</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">0110</td>
+        <td data-label="DECIMAL">6</td>
+        <td data-label="HEXADECIMAL">6</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">0111</td>
+        <td data-label="DECIMAL">7</td>
+        <td data-label="HEXADECIMAL">7</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">1000</td>
+        <td data-label="DECIMAL">8</td>
+        <td data-label="HEXADECIMAL">8</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">1001</td>
+        <td data-label="DECIMAL">9</td>
+        <td data-label="HEXADECIMAL">9</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">1010</td>
+        <td data-label="DECIMAL">10</td>
+        <td data-label="HEXADECIMAL">A</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">1011</td>
+        <td data-label="DECIMAL">11</td>
+        <td data-label="HEXADECIMAL">B</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">1100</td>
+        <td data-label="DECIMAL">12</td>
+        <td data-label="HEXADECIMAL">C</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">1101</td>
+        <td data-label="DECIMAL">13</td>
+        <td data-label="HEXADECIMAL">D</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">1110</td>
+        <td data-label="DECIMAL">14</td>
+        <td data-label="HEXADECIMAL">E</td>
+      </tr>
+      <tr>
+        <td data-label="BINAIRE">1111</td>
+        <td data-label="DECIMAL">15</td>
+        <td data-label="HEXADECIMAL">F</td>
+      </tr>
+    </tbody>
+  </table>
+  Explication : sur la plage de 4 Bits correspondent en fait 4 valeurs qui peuvent prendre 0 ou 1 comme valeur.<br />
+  Le 0 correspond à éteint (pas de courant), le 1 correspond à allumé (un courant éléctrique passe sur ce bit).
+  Chaque zéro vaut une valeur numérique différente.<br />
+  De la < < < droite vers la gauche < < <<br />
+  0 0 0 0 (bits)<br />
+  8 4 2 1 (valeurs)<br />
+  ex: allumez le premier et le dernier zéro et vous obtenez 9 en décimal.<br />
+  ex: allumez les deux derniers zéro de gauche et vous obtenez C en héxadécimal.<br />
+</p>
+
+<h4>Les octets</h4>
+<p>
+  Voici un octet représenté dans le tableau ci-dessous : 00000000<br />
+  <table>
+    <thead>
+      <tr>
+        <th>BITS</th>
+        <th>POWER</th>
+        <th>NUMERIC</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="BITS">0/1 (éteint/allumé)</td>
+        <td data-label="POWER">2⁷</td>
+        <td data-label="NUMERIC">128</td>
+      </tr>
+      <tr>
+        <td data-label="BITS">0/1</td>
+        <td data-label="POWER">2⁶</td>
+        <td data-label="NUMERIC">64</td>
+      </tr>
+      <tr>
+        <td data-label="BITS">0/1</td>
+        <td data-label="POWER">2⁵</td>
+        <td data-label="NUMERIC">32</td>
+      </tr>
+      <tr>
+        <td data-label="BITS">0/1</td>
+        <td data-label="POWER">2⁵</td>
+        <td data-label="NUMERIC">32</td>
+      </tr>
+      <tr>
+        <td data-label="BITS">0/1</td>
+        <td data-label="POWER">2⁴</td>
+        <td data-label="NUMERIC">16</td>
+      </tr>
+      <tr>
+        <td data-label="BITS">0/1</td>
+        <td data-label="POWER">2³</td>
+        <td data-label="NUMERIC">8</td>
+      </tr>
+      <tr>
+        <td data-label="BITS">0/1</td>
+        <td data-label="POWER">2²</td>
+        <td data-label="NUMERIC">4</td>
+      </tr>
+      <tr>
+        <td data-label="BITS">0/1</td>
+        <td data-label="POWER">2¹</td>
+        <td data-label="NUMERIC">2</td>
+      </tr>
+      <tr>
+        <td data-label="BITS">0/1</td>
+        <td data-label="POWER">2⁰</td>
+        <td data-label="NUMERIC">1</td>
+      </tr>
+    </tbody>
+  </table>
+  Chaque caractère est codé sur un octet.<br />
+  Un octet à 256 valeurs possibles = 0 / 255<br /><br />
+  ex : j'obtiens la valeur 192 en allumant les deux premiers bits de droite (XX------)<br /><br />
+
+  1 Byte(EN) [B] = 1 octet(FR) [o] = 	8 bits(FR-EN) 01000110 > 1 bit(FR-EN) [b] = 0 ou 1<br /><br />
+
+  OCTET = 2^8 = 0 / 255 VALEURS<br />
+  KILO OCTET = 2^10 = 0 / 1024 VALEURS<br />
+  MEGA OCTET = 2^20 = 0 / 1 048 576 VALEURS<br />
+  GIGA OCTET = 2^30 = 0 / 1 073 741 824 VALEUR<br />
+
+</p>
+
+<h4>Table ACSII des caractères</h4>
+<p>
+  <img src="../img/ascii.png"></img>
+</p>
+
+<h3><aside class="orange" id="link6">Cours video : MySql par la pratique</aside></h3>
+
+<div class="wrapper">
+  <div class="youtube" data-embed="https://www.youtube.com/playlist?list=PLjwdMgw5TTLUJLpzUYGBK7K5-hPgZA7zo">
+	  <div class="play-button"></div>
+  </div>
+</div>
+
+<p>
+  Toutes les requêtes et valeurs présentées sur cette chaîne de videos sont disponibles sur cette page dans les rubriques dédiées.
+</p>
+
+<h3><aside class="orange" id="link4">Requêtes SQL</aside></h3>
+
+<div class="pure-menu pure-menu-horizontal" >
+    <ul class="pure-menu-list" >
+        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover" style="text-align:left;">
+            <a href="#link" id="menuLink1" class="pure-menu-link" style="font-size:19px;color:black">Accès rapide</a>
+            <ul class="pure-menu-children" style="border:1px solid #BFC9CA;">
+                <li class="pure-menu-item"><a href="#linkA" class="pure-menu-link">Tables</a></li>
+                <li class="pure-menu-item"><a href="#linkB" class="pure-menu-link">Données</a></li>
+                <li class="pure-menu-item"><a href="#linkBA" class="pure-menu-link">Opérateurs de conditions</a></li>
+                <li class="pure-menu-item"><a href="#linkC" class="pure-menu-link">Fonctions</a></li>
+                <li class="pure-menu-item"><a href="#linkD" class="pure-menu-link">Jointures</a></li>
+                <li class="pure-menu-item"><a href="#linkE" class="pure-menu-link">Recherches full text</a></li>
+                <li class="pure-menu-item"><a href="#linkF" class="pure-menu-link">Transactions</a></li>
+                <li class="pure-menu-item"><a href="#linkG" class="pure-menu-link">Requêtes préparées</a></li>
+                <li class="pure-menu-item"><a href="#linkH" class="pure-menu-link">Vues, Triggers, Dumps</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<p>
+  Pour toutes les requetes ci-dessous, n'oubliez pas :
+  <ul>
+    <li>
+      Mettez bien les valeurs des attributs entre simple quotes ''
+    </li>
+    <li>
+      Supprimez tout les [] dans vos saisies, mais pas les ()
+    </li>
+  </ul>
+</p>
+
+<h4 id="linkA">Tables</h4>
+<p>
+  <mark>CREATE</mark><br /><br />
+
+  table.creer<br />
+  <code class="code2">CREATE TABLE [nom_table] (<br />
+  [nom_attribut] [type_attribut] (taille) [valeurParDefaut],<br />
+  ..,<br />
+  ..,<br />
+  ..     //Pas de virgule sur dernier attribut<br />
+  )<br />
+  ENGINE=[moteur_choisi]</code><br /><br />
+
+  <mark>CREATE WITH PRIMARY KEY</mark><br /><br />
+
+  tableAvecClePrimaire.creer<br />
+  <code class="code2">CREATE TABLE [nom_table] (<br />
+  [nom_attribut] [type_attribut] (taille) [valeurParDefaut],<br />
+  ..,<br />
+  ..,<br />
+  PRIMARY KEY ([nom_attribut])<br />
+  )<br />
+  ENGINE=[moteur_choisi]</code><br />
+  	(!) Ne pas oublier NOT NULL AUTO_INCREMENT sur la declaration de la primary key<br /><br />
+
+
+  <mark>ENGINE VALUES (TABLE)</mark><br />
+  <code class="code2">InnoDB</code> <code class="code2">MyISAM</code> <code class="code2">BLACKHOLE</code> <code class="code2">CSV</code> <code class="code2">MEMORY</code> <code class="code2">ARCHIVE</code> <code class="code2">MRG_MYISAM</code><br />
+<br />
+
+  	<mark>SHOW CREATE (TABLE)</mark><br /><br />
+
+  table.recuperation (instructions.creation)<br />
+  <code class="code2">SHOW CREATE TABLE [nom_table]</code><br /><br />
+
+
+
+
+  	<mark>MODIFY TABLE NAME</mark><br /><br />
+
+  table.modification(nom)<br />
+  <code class="code2">ALTER TABLE [OLD_TABLE_NAME] RENAME [NEW_TABLE_NAME]</code><br /><br />
+
+
+
+  	<mark>ALTER</mark><br /><br />
+
+  table.modification<br />
+  <code class="code2">ALTER TABLE [nom_table]</code><br /><br />
+  table.colonne(ajout)<br />
+  <code class="code2">ADD [nom_attribut] [type_attribut] (taille) [valeurParDefaut]</code><br />
+  (!)Rajouter entre (taille) et [valeurParDefaut] le mot clé DEFAULT si l'on veut insérer une valeur par défaut, ne pas oublier également pour cette valeur les simple quotes en cas de caractères pour le type d'attribut.<br /><br />
+  table.colonne(suppression)<br />
+  <code class="code2">DROP [nom_attribut]</code><br /><br />
+  table.colonne(modification)<br />
+  <code class="code2">CHANGE [old_nom_attribut] [new_nom_attribut] [new_type_attribut] (new_taille) [new_valeurParDefaut]</code><br /><br />
+  table.colonne(modification.type)<br />
+  <code class="code2">MODIFY [nom_attribut] [old_type_attribut] [new_type_attribut]</code><br /><br />
+
+
+    <mark>DROP</mark><br /><br />
+  table.suppression<br />
+  <code class="code2">DROP TABLE [nom_table]</code><br /><br />
+
+
+
+  	<mark>ID</mark><br /><br />
+
+  table.ajout(clé_primaire)<br />
+  <code class="code2">[ ./ADD/CHANGE/MODIFY] [nom_attribut] [type_attribut] (taille) [valeurParDefaut] AUTO_INCREMENT PRIMARY KEY FIRST</code><br /><br />
+
+  (!) Ne jamais mettre l'ID d'une table par défaut en null.<br />
+  (!) Laisser l'ID en INT(11), sa (taille) n'a pas d'impact important sur la mémoire.<br />
+
+  (!) Toujours utiliser le simple quote et l'antislash (en cas d'échappement nécessaire) pour les attributs.<br />
+  (!) Valeur par défaut laisser le champ vide.<br /><br />
+
+  table.reinitialisation.id (sans_perte_de_données)<br />
+  <code class="code2">ALTER TABLE [nom_table] DROP [nom_attribut_quiest_ID]<br />ALTER TABLE [nom_table] ADD [nom_attribut_quiest_ID] [type_attribut](taille) NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY ([nom_attribut_quiest_ID])</code><br /><br />
+  (!)Si l'attribut se nomme id, cela donne<br />
+  <code class="code2">ALTER TABLE [nom_table] DROP `ID`<br />ALTER TABLE [nom_table] ADD `ID` INT(11) NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`ID`)</code>
+<br /><br />
+  table.ajout(clé_étrangère)<br />
+  <code class="code2">ALTER TABLE [table_parent] ADD FOREIGN KEY fk ([colonne_table_parent_qui va devenir clé étrangère]) REFERENCES [table_enfant] ([colonne_id_de la table enfant])</code></br>
+  on suppose ici que la colonne de la table parent qui va devenir étrangère existe déja : et attention la valeur de ses attributs doit être par défaut a NULL pour éviter une erreur SQL 1452 (on ne peut avoir des valeurs dans les attributs id des deux tables qui n'existeraient pas au moins dans chacune d'entre elles).<br />
+</p>
+
+<h4 id="linkB">Données</h4>
+<p>
+    <mark>ADD</mark><br /><br />
+
+  <code class="code2">table.donnees (ajout.1ligne)<br />
+  INSERT INTO [nom_table]<br />
+  VALUES (NULL, [valeur], [valeur], [valeur])</code><br />
+  (!) sur cette syntaxe une valeur pour chaque champ doit être présente.<br /><br />
+
+  table.donnees (ajout.plusieurslignes)<br />
+  <code class="code2">INSERT INTO [nom_table]<br />
+  VALUES (NULL, [valeur], [valeur], [valeur]),<br />
+  (NULL, [valeur], [valeur], [valeur]),<br />
+  (NULL, [valeur], [valeur], [valeur])</code><br /><br />
+
+  table.donnees (ajout.selectionAttributs)<br />
+  <code class="code2">INSERT INTO [nom_table] ([nom_attribut], [nom_attribut])<br />
+  VALUES ([valeur], [valeur]),<br />
+  ([valeur], [valeur])</code><br /><br />
+
+  table.donnees (ajout.syntaxeSpécifiqueMysql)<br />
+  <code class="code2">INSERT INTO [nom_table] SET [nom_attribut]=[valeur], [nom_attribut]=[valeur], ...</code><br />
+  	pour un tuple uniquement à chaque fois.<br /><br />
+
+
+
+
+
+  	<mark>DELETE</mark><br /><br />
+
+  table.donnees (suppression.allTuples)<br />
+  <code class="code2">DELETE FROM [nom_table]</code><br /><br />
+
+  table.donnees (suppression.1Tuple)<br />
+  <code class="code2">DELETE FROM [nom_table] WHERE [nom_attribut]=[valeur] LIMIT [de 1 à Nb de tuples à limiter]</code><br /><br />
+
+  table.donnees (id.reinitialisation+ suppression.allTuples)<br />
+  <code class="code2">TRUNCATE [nom_table]</code><br /><br />
+
+
+
+
+
+  	<mark>UPDATE</mark><br /><br />
+
+  table.donnees (modification.1Tuple)<br />
+  <code class="code2">UPDATE [nom_table] SET [nom_attribut]=[valeur] WHERE [nom_attribut]=[valeur] (on prends svent l'id en where)</code><br />
+  ou selon objectif<br /><br />
+  <code class="code2">UPDATE [nom_table] SET [nom_attribut]=[nom_attribut] WHERE [nom_attribut]=[valeur]</code><br />
+  ou selon objectif<br /><br />
+  <code class="code2">UPDATE [nom_table] SET [nom_attribut]=[nom_attribut +/-* opérations] WHERE [nom_attribut]=[valeur]</code><br /><br />
+
+
+
+
+  	<mark>SELECT</mark><br /><br />
+
+  table.donnees (selection.champs.allTuples)<br />
+  <code class="code2">SELECT [nom_attribut], [nom_attribut] FROM [nom_table]</code><br /><br />
+
+  table.donnees (selection.champs.1Tuple)<br />
+  <code class="code2">SELECT [nom_attribut], [nom_attribut] FROM [nom_table] WHERE [nom_attribut]=[valeur] (avec l'id en where) LIMIT [Nombre_enregistrements]</code><br /><br />
+
+  LIMIT 0, 15 > Pour une pagination prends les 15 premiers enregistrements<br />
+  LIMIT 16, 30 > Pour une pagination prends les 16 à 30 enregistrements<br />
+  * > Selectionne tout les [nom_attribut] du tuple<br /><br />
+
+  table.donnees (selection.champs.allTuples. tri)<br />
+  <code class="code2">SELECT [nom_attribut], [nom_attribut] FROM [nom_table] ORDER BY [nom_attribut] [ASC / DESC]</code><br />
+
+  table.donnees (selection.3tables.memeTemps)
+  <pre>
+  <code class="language-sql">
+	SELECT AT1, AT2
+	FROM TAB1 C, TAB2 CP, TAB3 V, TAB4 F
+	WHERE C.AT3 = CP.AT3
+	AND C.AT3 = V.AT3
+	AND C.AT3 = F.AT3
+
+	SELECT NOM, PRENOM
+	FROM CLIENTS C, CODES_POSTAUX CP, VENDEUR V, FOURNISSEURS F 
+	WHERE  C.CODE_POSTAUX = CP.CODE_POSTAUX
+	AND C.CODES_POSTAUX = V.CODES_POSTAUX
+	AND C.CODES_POSTAUX = F.CODES_POSTAUX
+  </code>
+  </pre>
+
+
+  <br /><br />
+
+
+
+
+
+  	<mark>SELECT FONCTIONS</mark><br /><br />
+
+  table.donnees (comptage.tuples)<br />
+  <code class="code2">SELECT COUNT([nom_attribut]) FROM [nom_table]</code> >>> Ne comptera pas les valeurs de [nom_attribut] à NULL<br />
+  ou<br />
+  <code class="code2">SELECT COUNT(*) FROM [nom_table]</code><br /><br />
+
+  table.donnees (alias_renommage)<br />
+  <code class="code2">SELECT COUNT(*) as [nom_renommage] FROM [nom_table]</code><br />
+  	(!)alias de renommage : va renommer l'attribut dans la vue affichée suite à la saisie de la requête.<br /><br />
+
+  table donnees (selection.allTuples. groupage.comptage)<br />
+  <code class="code2">SELECT COUNT(*), [nom_attribut], [nom_attribut], [nom_attribut] as [nom_renommage] FROM [nom_table] GROUP BY [nom_attribut]</code><br /><br />
+
+  table.donnees (selection.maximum.allTuples)<br />
+  <code class="code2">SELECT MAX([nom_attribut]) FROM [nom_table]</code><br /><br />
+
+  table.donnees (selection.minimum.allTuples)<br />
+  <code class="code2">SELECT MIN([nom_attribut]) FROM [nom_table]</code><br /><br />
+
+  table.donnees (selection.moyenne.allTuples)<br />
+  <code class="code2">SELECT AVG([nom_attribut]) FROM [nom_table]</code><br /><br />
+
+
+  table.alias (correspondance)<br />
+  <code class="code2">[...] FROM [NOM_TABLE] [alias_correspondance]</code><br />
+  	(!)alias de correspondance : va permettre par la suite de faire des [alias_correspondance].[nom_attribut] dans<br />
+  	les WHERE qui complètent la requête.<br />
+
+</p>
+
+  <h4 id="linkBA">Opérateurs de conditions</h4>
+
+<p>
+
+  Or (valeurs multiples)<br />
+  <code class="code2">WHERE [nom_attribut]=[valeur] OR [nom_attribut]=[valeur]</code><br /><br />
+
+  And (entonnoir)<br />
+  <code class="code2">WHERE [nom_attribut]=[valeur] AND [nom_attribut]=[valeur]</code><br />
+  ou Syntaxe plus simple<br />
+  <code class="code2">WHERE [nom_attribut] IN ([valeur], [valeur], [valeur])</code><br /><br />
+
+  Like (jokers)<br />
+  <code class="code2">WHERE [nom_attribut] LIKE [%valeur%]</code><br />
+  > % pour n'importe quoi (pas de notion de pertinence attention)<br />
+  > c'est un select évolué<br />
+  (!) <code class="code2">[%valeur‰]</code> sous format entre double quotes<br /><br />
+
+  != different de
+
+</p>
+
+  <h4 id="linkC">Fonctions</h4>
+<p>
+
+  <mark>FONCTIONS NUMERIQUES</mark><br /><br />
+
+
+  attribut.conversion_ valeur_absolue(chiffre)<br />
+  <code class="code2">ABS(nom_attribut)</code><br />
+  attribut.arrondissement_ valeur(chiffre)<br />
+  <code class="code2">ROUND(nom_attribut)</code><br />
+  attribut.arrondissement_ entier_superieur(chiffre)<br />
+  <code class="code2">CEIL(nom_attribut)</code><br />
+  attribut.arrondissement_ entier_inferieur(chiffre)<br />
+  <code class="code2">FLOOR(nom_attribut)</code><br />
+  attribut.racine_carrée(chiffre)<br />
+  <code class="code2">SQRT(nom_attribut)</code><br />
+  attribut.arrondissement_ après_virgule(chiffre)<br />
+  <code class="code2">TRUNCATE(nom_attribut,x_chiffres_voulu_apres_virgule)</code><br />
+  attributs.obtenir.reste_ division(attribut_1_par_attribut_2)<br />
+  <code class="code2">MODULO(nom_attribut_1,nom_attribut_2)</code><br />
+  attribut.puissance (elevé à la puissance attribut 2)<br />
+  <code class="code2">POWER(nom_attribut_1,nom_attribut_2)</code><br />
+  attribut.retour (pluspetitevaleur)<br />
+  <code class="code2">LEAST(n1,n2,..)</code><br />
+  attribut.retour (plusgrandevaleur)<br />
+  <code class="code2">GREATEST(n1,n2,..)</code><br />
+
+  atribut.opérations<br />
+  <code class="code2">(nom_attribut)+3</code><br />
+  >>> aves les attributs en opérandes<br /><br />
+
+  (!) peuvent aussi s'appliquer sur des valeurs numériques, pas que des attributs<br />
+  (!) Les attributs de type caractères à mettre entre simple quotes à l'intérieur des parenthèses<br /><br />
+
+
+<mark>FONCTIONS CHAINES DE CARACTERES</mark><br /><br />
+
+
+  attribut.concatenation()<br />
+  <code class="code2">CONCAT(nom_attribut_1, ' ', nom_attribut_2) as [nom_choisi_pr_renommer_champ]</code><br />
+  attribut.recuperer_taille (chaine_de_caractères)<br />
+  <code class="code2">LENGTH(nom_attribut)</code><br />
+  attribut.conversion (minuscules)<br />
+  <code class="code2">LOWER(nom_attribut)</code><br />
+  attribut.conversion (majuscules)<br />
+  <code class="code2">UPPER(nom_attribut)</code><br />
+  attribut.recuperer_x_ premiers_caracteres<br />
+  <code class="code2">SUBSTR(nom_attribut,x)</code><br />
+  attribut.recuperer_x_ premiers_caracteres.a_partir_de_y_caracteres<br />
+  <code class="code2">SUBSTR(nom_attribut,x,y)</code><br /><br />
+  attribut.remplacement (une_chaine_x.par_une_autre_y)<br />
+  <code class="code2">REPLACE(nom_attribut, 'x', 'y')</code><br />
+  	> versionEvoluee<br />
+  	<code class="code2">UPDATE [nom_attribut] SET content = REPLACE(content, 'url1', 'url2')</code><br /><br />
+  attribut.sonorite (chaine_de_caractere = valeur de prononciation)<br />
+  <code class="code2">SOUNDEX(nom_attribut)</code><br />
+  attribut.inversion (chaine_de_caractere)<br />
+  <code class="code2">REVERSE(nom_attribut)</code><br />
+  attribut.suppression_espaces (chaine_de_caracteres)<br />
+  <code class="code2">TRIM(nom_attribut)</code><br />
+  attribut.suppression_x (chaine_de_caracteres)<br />
+  <code class="code2">TRIM(BOTH 'x' FROM nom_attribut)</code><br />
+  attribut.suppression_x_debut (chaine_de_caracteres)<br />
+  <code class="code2">TRIM(LEADING 'x' FROM nom_attribut)</code><br />
+  attribut.suppression_x_fin (chaine_de_caracteres)<br />
+  <code class="code2">TRIM(TRAILING 'x' FROM nom_attribut)</code><br />
+  	> versionEvoluee<br />
+  	<code class="code2">UPDATE [nom_attribut] SET content = TRIM(content)</code><br />
+  attribut.recherche_full_text<br />
+  <code class="code2">MATCH</code><br /><br />
+
+
+<mark>FONCTIONS TEMPORELLES</mark><br /><br />
+
+
+
+  date.ajout(j)<br />
+  <code class="code2">ADDDATE(nom_attribut, j)</code><br />
+  date.ajout(y)<br />
+  <code class="code2">ADDDATE(nom_attribut, INTERVAL 1 YEAR)</code><br />
+  date.ajout(w)<br />
+  <code class="code2">ADDDATE(nom_attribut, INTERVAL 1 WEEK)</code><br />
+  date.ajout(h)<br />
+  <code class="code2">ADDDATE(nom_attribut, INTERVAL 1 HOUR)</code><br />
+  date.suppression(x)<br />
+  <code class="code2">SUBDATE(nom_attribut, INTERVAL 1 x)</code><br />
+  > existe aussi en <code class="code2">DATE_ADD</code> et <code class="code2">DATE_SUB</code><br />
+  (!) pas d'entier en second paramètre sur ces 2 la.<br /><br />
+
+  date.ajout('j h:m:s')<br />
+  <code class="code2">ADDTIME(nom_attribut, 'j h:m:s')</code><br /><br />
+
+  	> versionEvoluee<br />
+  <code class="code2">SELECT * FROM [nom_table] < [nom_attribut] < SUBDATE(nom_attribut, INTERVAL x)</code><br /><br />
+
+  sql.dateDuJour<br />
+  <code class="code2">NOW()</code> > date + hms<br />
+  <code class="code2">CURDATE()</code> date<br />
+  <code class="code2">CURTIME()</code> hms<br /><br />
+
+  date.différence(2dates)<br />
+  <code class="code2">FROM_DAYS(DATEDIFF(CURDATE(), nom_attribut))</code><br /><br />
+
+  expression.extraire_partie_ date_sans_heures<br />
+  <code class="code2">DATE(nom_attribut)</code><br />
+  <code class="code2">DATE_FORMAT(nom_attribut, entre_doublequotes_formatchoisi)</code><br />
+  	>formats<br />
+  	<code class="code2">%W</code> weekday name<br />
+  	<code class="code2">%d</code> day of the month<br />
+  	<code class="code2">%M</code> month name<br />
+  	<code class="code2">%Y</code> year numeric four digits<br />
+  	>locales françaises existantes<br />
+  	(!) sur serveurs mutualisés local pas forcément configurée<br />
+  		>preferer le langage de programmation<br /><br />
+
+  expression.extraire_avec_zone_locale<br />
+  <code class="code2">DATE_FORMAT(nom_attribut, GET_FORMAT(DATE, 'ZONE'))</code><br />
+
+  (!) si on est en date brute pas en attribut simple quotes a placer<br /><br />
+
+  date.jours_ecarts(comptage)<br />
+  <code class="code2">DATEDIFF(date, date_a_comparer)</code><br /><br />
+
+
+  date.recuperation(annee, mois, semaine, jour)<br />
+  <code class="code2">YEAR(nom_attribut)</code><br />
+  <code class="code2">MONTH(nom_attribut)</code><br />
+  <code class="code2">WEEK(nom_attribut)</code><br />
+  <code class="code2">DAY(nom_attribut)</code><br />
+  	< versionEvoluee<br />
+  <code class="code2">SELECT * FROM [nom_table] WHERE YEAR(nom_attribut) > x_annee</code><br /><br />
+
+<mark>FONCTIONS D'AGREGATION</mark><br /><br />
+
+
+  Regroupement<br />
+  <code class="code2">GROUP BY [valeur]</code><br />
+  Comptage<br />
+  <code class="code2">COUNT(nom_attribut_ou_*)</code><br />
+  	(!)necessitera un group by pour des agregation complexes.<br /><br />
+  Moyenne<br />
+  <code class="code2">AVG(nom_attribut_ou_*)</code><br />
+  Somme<br />
+  <code class="code2">SUM()</code><br />
+  Minimum<br />
+  <code class="code2">MIN()</code><br />
+  Maximum<br />
+  <code class="code2">MAX()</code><br />
+  Ecart Type<br />
+  <code class="code2">STD()</code><br />
+  Variance<br />
+  <code class="code2">VARIANCE()</code><br />
+</p>
+
+
+<h4 id="linkD">Jointures</h4>
+<p>
+
+  	<mark>CREATION CLE ETRANGERE</mark><br /><br />
+
+  cleEtrangere_nom_attribut > <code class="code2"><span style="color:red;">[nom_table_de_liaison_etrangere]_ID</span></code><br />
+  cleEtrangere_type_attribut > <code class="code2">INT (11)</code><br />
+  cleEtrangere_index > <code class="code2">INDEX</code><br /><br />
+
+  creation.cle_etrangere<br />
+  <code class="code2">ALTER TABLE [nom_table] ADD <span style="color:red;">`[nom_table_de_liaison_etrangere]_ID`</span> INT(11) NOT NULL, ADD INDEX (`UTILISATEUR_ID`)</code><br /><br />
+
+  association.1tuple_table_1. à.1id_tuple_table_2<br />
+  <code class="code2">UPDATE [nom_table] SET [cleEtrangere_attribut] = x</code><br />
+  <code class="code2">WHERE [nom_attribut_clePrimaire_tableDeLiaison] = y</code><br />
+  	x = cible le tuple n°x de la table de liaison<br />
+  	y = cible le tuple n°y de la table courante<br /><br />
+
+
+
+  	<mark>JOINTURES (Syntaxe spécifique à MySQL)</mark><br /><br />
+
+  jointure(interne).table1cleEtrangere< >table2clePrimaire<br />
+  <code class="code2">SELECT [nom_attribut_table1], [nom_attribut2_table1], ..., [nom_attribut_table2], ...<br />
+  FROM [nom_table1]<br />
+  JOIN [nom_table2] ON [nom_table2].[nom_attribut_clePrimaire_ tableDeLiaison] = [nom_table1].[cleEtrangere_attribut]</code><br />
+  	>la table 1 s'affichera à gauche, la table 2 s'affichera à droite<br />
+  	>leurs tuples respectifs seront collées, joints (join) par l'égalité de valeur suivante<br />
+  	>valeur([nom_table1].[cleEtrangere_attribut]) = ([nom_table2].[nom_attribut_clePrimaire_tableDeLiaison])<br />
+  	>(!) attention ce type d'enregistrement n'affiche que les tuples ayant un enregistrement de chaque coté (liaison interne)<br /><br />
+
+
+  jointure(externe).par_la_gauche<br />
+  <code class="code2">SELECT [nom_attribut_table1], [nom_attribut2_table1], ..., [nom_attribut_table2], ...<br />
+  FROM [nom_table1]<br />
+  LEFT OUTER JOIN [nom_table2] ON [nom_table2].[nom_attribut_clePrimaire_ tableDeLiaison] = [nom_table1].[cleEtrangere_attribut]</code><br />
+  	>la table 1 s'affichera à gauche, la table 2 s'affichera à droite<br />
+  	>leurs tuples respectifs seront collées, joints (join) par l'égalité de valeur suivante<br />
+  	>valeur([nom_table1].[cleEtrangere_attribut]) = ([nom_table2].[nom_attribut_clePrimaire_tableDeLiaison])<br />
+  	>(!) affichage des tuples de GAUCHE avec une valeur à 0 sur la clé étrangère<br />
+  	>(!) le mot OUTER est optionnel : LEFT OUTER JOIN produit le même résultat que LEFT JOIN<br /><br />
+
+
+  jointure(externe).par_la_droite<br />
+  <code class="code2">SELECT [nom_attribut_table1], [nom_attribut2_table1], ..., [nom_attribut_table2], ...<br />
+  FROM [nom_table1]<br />
+  RIGHT JOIN [nom_table2] ON [nom_table2].[nom_attribut_clePrimaire_ tableDeLiaison] = [nom_table1].[cleEtrangere_attribut]</code><br />
+  	>la table 1 s'affichera à gauche, la table 2 s'affichera à droite<br />
+  	>leurs tuples respectifs seront collées, joints (join) par l'égalité de valeur suivante<br />
+  	>valeur([nom_table1].[cleEtrangere_attribut]) = ([nom_table2].[nom_attribut_clePrimaire_tableDeLiaison])<br />
+  	>(!) affichage des tuples de DROITE et parcours tout les tuples de la table de droite en parcourant l'ID de 0 à x :<br />
+  		si pas de tuples associés à gauche à un tuple avec id à droite, affichage avec null<br />
+  	>(!) le mot OUTER est optionnel : LEFT OUTER JOIN produit le même résultat que LEFT JOIN<br />
+  	>(!) peut être remplacé par un LEFT JOIN en inversant les tables de gauche et droite<br /><br />
+
+
+    <mark>JOINTURES AVEC RECHERCHES (Syntaxe MySQL)</mark><br /><br />
+
+    <img src="../img/icon_pdf.png"> <a href="../files/NFA008_NOTES_Liaisons_sql.pdf">Mieux comprendre les jointures (naviguer avec le MLD)</a><br /><br />
+
+
+  jointures.cumulees(exemple3tables)<br />
+  <code class="code2">SELECT [nom_table1]<br />
+  LEFT JOIN [nom_table2]<br />
+  	ON [nom_table2].[cle_primaire_table_2] = [nom_table1].[cleEtrangere_deliaisonavec_table2]<br />
+  LEFT JOIN [nom_table3]<br />
+  	ON [nom_table1].[cleEtrangere_deliaisonavec_table3] = [nom_table3].[cle_primaire_table_3]<br />
+  	> Avance(avecRecherche)<br />
+  WHERE [nom_table_1/2/ou3][nom_attribut_unedes3tables] = [valeur]</code><br />
+  	(!) Une clé étrangère peut être mise en index comme ci-dessus ou en clé étrangère<br />
+  	(!) FOREIGN_KEY -> ajoute une notion de dépendance<br /><br />
+
+
+<mark>JOINTURES AVEC ALIAS (Syntaxe tous SGBR)</mark><br /><br />
+
+  requetes.ambigues.solutionnement<br />
+  <code class="code2">SELECT [nom_table1].[nom_attribut_table1]<br />
+  FROM [nom_table1]</code><br /><br />
+
+  requetes.ambigues.solutionnement. avec.alias<br />
+  <code class="code2">SELECT [nom_table1_en_alias].[nom_attribut_table1]<br />
+  FROM [nom_table1] AS [nom_table1_en_alias]</code><br />
+
+
+</p>
+
+
+
+  <h4 id="linkE">Recherches Full Text</h4>
+
+<p>
+
+  table.passage (moteur=MyISAM)<br />
+  <code class="code2">ALTER TABLE [nom_table] ENGINE = MYISAM</code><br />
+  	(!)obligatoire pour les recherches full text<br /><br />
+
+  attribut.ajout (indexFulltext)<br />
+  <code class="code2">ALTER TABLE [nom_table] ADD FULLTEXT (nom_attribut)</code><br />
+  	(!)obligatoire d'indexer tout attribut sur lequel est effectué une recherche full text<br /><br />
+
+  attribut.rechercheFullText<br />
+  <code class="code2">SELECT * FROM [nom_table]<br />
+  WHERE MATCH (nom_attribut) AGAINST (valeur)</code><br />
+  	(!) le mot clé n'est pas sorti si il est dans plus de 50% du contenu<br />
+  	(!) les espaces entre 2 mots engendre des recherches mots par mots<br /><br />
+
+  attribut.rechercheFullText. motpartiel<br />
+  <code class="code2">SELECT * FROM [nom_table]<br />
+  WHERE MATCH (nom_attribut) AGAINST (vale*)</code><br /><br />
+
+  attribut.rechercheFullText. motscomposés<br />
+  <code class="code2">SELECT * FROM [nom_table]<br />
+  WHERE MATCH (nom_attribut) AGAINST (valeur_entre_guillementsdoubles_etentreguillementssimples)</code><br /><br />
+
+  attribut.rechercheFullText. +integrerUnMot.-ExclureunAutreMot<br />
+  <code class="code2">SELECT * FROM [nom_table]<br />
+  WHERE MATCH (nom_attribut) AGAINST ('+valeur -valeur')</code><br /><br />
+
+  attribut.rechercheFullText. precisionPertinence<br />
+  <code class="code2">SELECT *, MATCH (nom_attribut) AGAINST (valeur)<br />
+  FROM [nom_table]</code><br /><br />
+
+  attribut.rechercheFullText. precisionPertinence.booleen (1sitrouve0sitrouvepas)<br />
+  <code class="code2">SELECT *, MATCH (nom_attribut) AGAINST (valeur IN BOOLEAN MODE)<br />
+  FROM [nom_table]<br />
+  WHERE MATCH (nom_attribut) AGAINST (valeur)<br />
+  ORDER BY pertinence DESC</code><br /><br />
+
+  attribut.rechercheFullText. avecExtansionDeRecherche<br />
+  <code class="code2">SELECT * FROM [nom_table]<br />
+  WHERE MATCH (nom_attribut) AGAINST (valeur WITH QUERY EXPANSION)</code><br />
+  	(!) si le mot clé est trouvé il recherche d'autres tuples ou le mots présents dans les résultats y sont également.<br /><br />
+
+</p>
+
+<h4 id="linkF">Transactions</h4>
+
+<p>
+
+  par défaut > mysql est en <code class="code2">AUTO COMMIT</code><br />
+  cela veut dire que la requête est effectuée est impacte directement la base de donnée<br />
+  = travailler à la volée sur la base de donnée<br /><br />
+
+
+  table.passage(moteur=INNODB)<br />
+  <code class="code2">ALTER TABLE [nom_table] ENGINE = INNODB</code><br />
+  	(!)obligatoire pour la gestion du système de transaction<br /><br />
+
+
+  demarrage.transaction.execution<br />
+  <code class="code2">START TRANSACTION;</code><br />
+  >>> saisirsesrequetessql<br />
+  <code class="code2">COMMIT;</code><br />
+  	(!) toutes les requetes ne sont plus executées tant que l'on ne fait pas un commit<br /><br />
+
+  demarrage.transaction.retrograder<br />
+  <code class="code2">START TRANSACTION;</code><br />
+  >>> saisirsesrequetessql<br />
+  <code class="code2">ROLLBACK</code><br />
+
+  demarrage.transaction.checkpoints<br />
+  <code class="code2">START TRANSACTION;</code><br />
+  >>> saisirsesrequetessql<br />
+  <code class="code2">SAVEPOINT [nom_de_checkpoint]</code><br />
+  >>> saisirsesrequetessql<br />
+  <code class="code2">SAVEPOINT [nom_de_checkpoint]</code><br />
+  >>> saisirsesrequetessql<br />
+  <code class="code2">ROLLBACK TO SAVEPOINT [nom_de_checkpoint]</code><br />
+  	(!)remonte le rollback jusqu'a la requête juste avant le checkpoint désigné.<br />
+  	Cette requête est annulée comme toutes les plus récentes jusqu'a celle ci.<br />
+  	> chaque checkpoint doit prendre un nom différent.<br />
+  <code class="code2">COMMIT;</code>
+
+</p>
+
+
+<h4 id="linkG">Requêtes Préparées</h4>
+
+<p>
+
+  stocker.requetePreparee<br />
+  <code class="code2">PREPARE [nom_preparation] FROM 'UPDATE nom_table SET attribut1=? WHERE attribut2=?'</code><br /><br />
+
+  executer.requetePreparee<br />
+  <code class="code2">SET @attribut1='valeur';</code> < guillemets doubles pour une chaine de caracteres<br />
+  <code class="code2">SET @attribut2='valeur';</code><br />
+  <code class="code2">EXECUTE [nom_preparation] USING @nom @id</code><br /><br />
+
+  supprimer.requetePreparee<br />
+  <code class="code2">DEALLOCATE PREPARE [nom_preparation]</code>
+
+</p>
+
+<h4 id="linkH">Vues, triggers, dumps</h4>
+
+<p>
+
+  vues = tables virtuelles<br />
+  permet de creer une table temporaire qui stocke un affichage particulier par exemple le resultat affiché d'une jointure<br />
+  (!) on ne peut pas effectuer des opérations dans une vue, mais elle se modifie en temps réel en cas de modification de la base.<br />
+  (!) la vue ne peux etre créer avec 2 attributs de même nom, utiliser les alias<br /><br />
+
+  vue.creation<br />
+  <code class="code2">CREATE VIEW [nom_de_la_vue]<br />
+  AS [requête_sql]</code><br /><br />
+
+  vue.modification<br />
+  <code class="code2">ALTER VIEW [nom_de_la_vue]<br />
+  AS [requête_sql_modifiée]</code><br /><br />
+
+  vue.requetesDessus<br />
+  <code class="code2">SELECT * FROM [nom_de_la_vue] [requetes_sql]</code><br /><br />
+
+  vue.suppression<br />
+  <code class="code2">DROP VIEW [nom_de_la_vue]</code>
+
+</p>
+
+
+<h4>TRIGGERS</h4>
+<p>
+
+  Abordé plus tard.
+
+</p>
+
+
+<h4>DUMPS VOLUMINEUX</h4>
+
+<p>
+
+  DEFINITION(Un dump permet d'exporter importer sa base de donnée en ligne de commande)
+
+  <code>CMD</code> A TAPER >>><br />
+  <code>cd [dossier_contenant_dump]</code> <<< SE PLACER DANS DOSSIER IMPORT EXPORT<br />
+  <code>mysqldump -uroot -p [nom_table] > [nom_du_dump_voulu].sql</code> <<< EXPORT & CREATION DU DUMP<br /><br />
+
+  <code>cd [dossier_contenant_dump]</code> <<< SEPLACER DANS DOSSIER IMPORT EXPORT<br />
+  <code>mysqldump -uroot -p	formationssql < [nom_du_dump_existant].sql</code> <<< IMPORT DU DUMP
+
+</p><br />
+
+<h3 id="link."><aside class="orange">Quelques requêtes issues des exercices</aside></h3>
+
+<p>
+  Pour les jointures la syntaxe ci-dessous est conseillée car elle compatible avec tous les SGBDR et pas seulement le client MySQL.
+</p>
+
+<p>
+<img src="../img/icon_pdf.png"></img> <a href="../files/NFA008_NOTES_Liaisons_sql.pdf">Mieux comprendre les jointures (naviguer avec le MLD)</a>
+</p>
+
+<p>
+  table.valeurs_identiques_sur_1_ attribut_entre_plusieurs_tuples<br />
+<code class="code2">select <span style="color:blue;">A1.[id_attribut]</span>, <span style="color:blue;">A1.[attribut1]</span>, <span style="color:blue;">A1.[attribut2]</span><br />
+from <span style="color:blue;">[nom_table] A1</span>, <span style="color:red;">[nom table] A2</span><br />
+where <span style="color:blue;">A1.[attribut2]</span> = <span style="color:red;">A2.[attribut2]</span><br />
+and <span style="color:blue;">A1.[id_attribut]</span> != <span style="color:red;">A2.[id_attribut]</span>;</code><br /><br />
+
+
+
+table.parcourir_clés_entre_tables_ avec_alias_pour_atteindre_attribut<br />
+	>>>Quels emprunteurs habitent Eguilles et à emprunter un livre de Shakespeare ? Donnez le nom et le prénom.<br />
+<code class="code2">select <span style="color:blue;">E.NOM</span>, <span style="color:blue;">E.PRENOM</span><br />
+from <span style="color:blue;">NFA008_EXO03_BIBLIOTHEQUE_EMPRUNTEURS E</span>, <span style="color:red;">NFA008_EXO03_BIBLIOTHEQUE_EMPRUNTS EM</span>,<br />
+<span style="color:green;">NFA008_EXO03_BIBLIOTHEQUE_EXEMPLAIRES EX</span>, <span style="color:orange;">NFA008_EXO03_BIBLIOTHEQUE_AUTEURS_LIVRES AL</span>, <br />
+<span style="color:purple;">NFA008_EXO03_BIBLIOTHEQUE_AUTEURS A</span><br /><br />
+
+where <span style="color:blue;">ADRESSE</span> like <span style="color:blue;">'%Eguilles'</span><br /><br />
+
+and <span style="color:blue;">E.ID_EMPRUNTEUR</span> = <span style="color:red;">EM.ID_EMPRUNTEUR</span><br />
+and <span style="color:red;">EM.ID_EXEMPLAIRE</span> = <span style="color:green;">EX.ID_EXEMPLAIRE</span><br />
+and <span style="color:green;">EX.ID_LIVRE</span> = <span style="color:orange;">AL.ID_LIVRE</span><br />
+and <span style="color:orange;">AL.ID_AUTEUR</span> = <span style="color:purple;">A.ID_AUTEUR</span><br />
+and <span style="color:purple;">A.NOM = 'Shakespeare'</span></code><br /><br />
+
+<img src="../img/bibliothequemld.png">
+
+<br />
+
+
+
+table.comptage_nombre_ exemplaires_pourchaque _edition(parcours_de_clés_étrangères)<br />
+	>>>Quel est le nombre d'exemplaires pour chaque édition ?<br />
+<code class="code2">SELECT COUNT(<span style="color:blue;">E.NOM</span>), <span style="color:blue;">E.NOM</span> FROM <span style="color:blue;">NFA008_EXO03_BIBLIOTHEQUE_EDITIONS E</span>, <span style="color:red;">NFA008_EXO03_BIBLIOTHEQUE_EXEMPLAIRES Z</span><br />
+WHERE <span style="color:blue;">E.ID_EDITION</span> = <span style="color:red;">Z.ID_EDITION</span><br /><br />
+GROUP BY <span style="color:red;">Z.ID_EDITION</span></code><br /><br /><br /><br />
+
+
+
+
+2tables.effectuer_requete_ identique(pas_de_cles _etrangères_ni_lien)+renommage_pour classement<br />
+	>>>Quels médecins et patients habitent Aix ? Donnez le nom et le prénom et la qualité.<br />
+<code class="code2">select <span style="color:blue;">'MEDECINS'</span>, <span style="color:blue;">NOM</span>, <span style="color:blue;">PRENOM</span> from <span style="color:blue;">MEDECINS</span> where <span style="color:blue;">adresse</span> like <span style="color:blue;">'%Aix%'</span><br />
+union<br />
+select <span style="color:red;">'PATIENTS'</span>, <span style="color:red;">NOM</span>, <span style="color:red;">PRENOM</span> from <span style="color:red;">PATIENTS</span> where <span style="color:red;">adresse</span> like <span style="color:red;">'%Aix%'</span></code><br /><br />
+
+
+table.recherche(valeur_identique). sur.attribut.même.table<br />
+	>>> Quels sont les patients qui ont le même nom ? Donnez le nom et le prénom.<br />
+	(!) Un alias de correspondance d'un attribut sous forme nom_alias.[nom_attribut] <br />
+	est forcement associé à  un alias de correspondance de la table de cet attribut sous forme [nom_table] nom_alias<br />
+	pas forcement dans le SELECT mais obligatoirement dans la requête.<br /><br />
+
+<code class="code2">select distinct <span style="color:blue;">P1.NOM</span>, <span style="color:blue;">P1.PRENOM</span><br />
+from <span style="color:blue;">PATIENTS P1</span>, <span style="color:blue;">PATIENTS</span> <span style="color:navy;">P2</span><br /><br />
+where <span style="color:blue;">P1.NOM</span> = <span style="color:navy;">P2.NOM</span><br />
+and <span style="color:blue;">P1.ID_PATIENT</span> != <span style="color:navy;">P2.ID_PATIENT</span></code><br /><br />
+
+
+
+table.parcourir_clés_entre_tables_ avec_alias_pour_atteindre_attribut<br />
+	>>>Quels sont les maladies dues à un Syndrome grippal ?<br />
+<code class="code2">SELECT <span style="color:blue;">A.NOM_MALADIE</span> FROM <span style="color:blue;">NFA008_EXO02_CABINETMEDICAL_MALADIES A</span>, <span style="color:red;">NFA008_EXO02_CABINETMEDICAL_SYMPTOMES B</span>,<br />
+<span style="color:orange;">NFA008_EXO02_CABINETMEDICAL_MALADIES_SYMPTOMES C</span><br />
+WHERE <span style="color:blue;">A.ID_MALADIE</span> = <span style="color:orange;">C.ID_MALADIE</span><br />
+AND <span style="color:orange;">C.ID_SYMPTOME</span> = <span style="color:red;">B.ID_SYMPTOME</span><br />
+AND <span style="color:red;">B.NOM_SYMPTOME</span> like '%grippal%'</code><br /><br />
+
+
+
+table.parcourir_clés_entre_tables_ avec_alias_pour_atteindre_attribut<br />
+	>>>Quel est le prix maximum d'une consultation du docteur AGARD ?<br />
+<code class="code2">SELECT MAX(<span style="color:green;">PRIX</span>) FROM <span style="color:green;">NFA008_EXO02_CABINETMEDICAL_CONSULTATIONS A</span>, <span style="color:purple;">NFA008_EXO02_CABINETMEDICAL_MEDECINS B</span><br />
+WHERE <span style="color:green;">A.ID_MEDECIN</span> = <span style="color:purple;">B.ID_MEDECIN</span><br />
+AND <span style="color:purple;">B.NOM</span> = 'AGARD'</code><br /><br />
+
+
+
+
+table.parcourir_clés_entre_tables_avec _alias_pour_atteindre _attribut+ utilisation_dune_fonction_ sur_deuxieme_table (après_and)<br />
+	>>>Quel est le médecin dont la consultation a le cout le moins élevé ? Donnez le nom, le prénom et le cout<br /><br />
+
+2 SOLUTIONS<br /><br />
+
+<code class="code2">SELECT <span style="color:purple;">A.NOM</span>, <span style="color:purple;">A.PRENOM</span>, MIN(<span style="color:green;">B.PRIX</span>) FROM <span style="color:purple;">NFA008_EXO02_CABINETMEDICAL_MEDECINS A</span>, <span style="color:green;">NFA008_EXO02_CABINETMEDICAL_CONSULTATIONS B</span><br />
+WHERE <span style="color:purple;">A.ID_MEDECIN</span> = <span style="color:green;">B.ID_MEDECIN</span></code><br /><br />
+
+OU<br /><br />
+
+<code class="code2">SELECT <span style="color:purple;">A.NOM</span>, <span style="color:purple;">A.PRENOM</span>, MIN(<span style="color:green;">B.PRIX</span>) FROM <span style="color:purple;">NFA008_EXO02_CABINETMEDICAL_MEDECINS A</span>, <span style="color:green;">NFA008_EXO02_CABINETMEDICAL_CONSULTATIONS B</span><br />
+WHERE <span style="color:purple;">A.ID_MEDECIN</span> = <span style="color:green;">B.ID_MEDECIN</span><br />
+AND <span style="color:green;">B.PRIX</span> = <code class="code2">(select min(<span style="color:green;">PRIX</span>) from <span style="color:green;">NFA008_EXO02_CABINETMEDICAL_CONSULTATIONS</span>);</code></code><br /><br />
+
+
+
+table.parcourir_clés_entre_tables_avec _alias_pour_atteindre _attribut (comptage_sur_attribut)<br />
+	>>>Combien de consultations ont été faites dans le cabinet médical pour des Vomissements ?<br />
+<code class="code2">SELECT COUNT(<span style="color:green;">A.ID_CONSULTATION</span>) FROM <span style="color:green;">NFA008_EXO02_CABINETMEDICAL_CONSULTATIONS A</span>, <br />
+<span style="color:pink;">NFA008_EXO02_CABINETMEDICAL_CONSULTATIONS_MALADIES B</span>,<br />
+<span style="color:blue;">NFA008_EXO02_CABINETMEDICAL_MALADIES C</span>,<br />
+<span style="color:orange;">NFA008_EXO02_CABINETMEDICAL_MALADIES_SYMPTOMES D</span>,<br />
+<span style="color:red;">NFA008_EXO02_CABINETMEDICAL_SYMPTOMES E</span><br />
+WHERE<br />
+<span style="color:green;">A.ID_CONSULTATION</span> = <span style="color:pink;">B.ID_CONSULTATION</span><br />
+AND <span style="color:pink;">B.ID_MALADIE</span> = <span style="color:blue;">C.ID_MALADIE</span><br />
+AND <span style="color:blue;">C.ID_MALADIE</span> = <span style="color:orange;">D.ID_MALADIE</span><br />
+AND <span style="color:orange;">D.ID_SYMPTOME</span> = <span style="color:red;">E.ID_SYMPTOME</span><br />
+AND <span style="color:red;">E.NOM_SYMPTOME</span> LIKE '%vomissements%'</code><br /><br />
+
+
+table.parcourir_clés_entre_tables_avec _alias_pour_atteindre _attribut (comptage_sur_attribut)<br />
+	>>>Quel est le chiffre d'affaires du cabinet médical pour des états grippaux ?<br />
+<code class="code2">SELECT SUM(<span style="color:green;">A.PRIX</span>) FROM <span style="color:green;">NFA008_EXO02_CABINETMEDICAL_CONSULTATIONS A</span>,<br />
+<span style="color:pink;">NFA008_EXO02_CABINETMEDICAL_CONSULTATIONS_MALADIES B</span>,<br />
+<span style="color:blue;">NFA008_EXO02_CABINETMEDICAL_MALADIES C</span>,<br />
+<span style="color:orange;">NFA008_EXO02_CABINETMEDICAL_MALADIES_SYMPTOMES D</span>,<br />
+<span style="color:red;">NFA008_EXO02_CABINETMEDICAL_SYMPTOMES E</span><br />
+WHERE <span style="color:green;">A.ID_CONSULTATION</span> = <span style="color:pink;">B.ID_CONSULTATION</span><br />
+AND <span style="color:pink;">B.ID_MALADIE</span> = <span style="color:blue;">C.ID_MALADIE</span><br />
+AND <span style="color:blue;">C.ID_MALADIE</span> = <span style="color:orange;">D.ID_MALADIE</span><br />
+AND <span style="color:orange;">D.ID_SYMPTOME</span> = <span style="color:red;">E.ID_SYMPTOME</span><br />
+AND <span style="color:red;">E.NOM_SYMPTOME</span> like '%grippal%'</code><br /><br />
+
+<img src="../img/cabinetmedicalmld.png">
+
+</p>
+
+<h2>Modéliser en pratique & Saisir des requêtes SQL</h2>
+
+<h3><aside class="orange" id="link5">Exercices pratiques</aside></h3>
+<p>
+  <table>
+  <thead>
+    <tr>
+      <th>Exercice</th>
+      <th>MCD - MLD Questions</th>
+      <th>MCD - MLD Réponses</th>
+      <th>SQL Questions</th>
+      <th>SQL Réponses</th>
+      <th>Fichier SQL</th>
+      <th>Fichier MCD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="">douzes</td>
+      <td data-label="MCD - MLD Questions"><a href="../files/exoDouzesMcdq.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="MCD - MLD Réponses"><a href="../files/exoDouzesMcdr.zip"><img src="../img/icon_zip.gif"></img></a></td>
+      <td data-label="SQL Questions"><a href=""><img src=""></img></a></td>
+      <td data-label="SQL Réponses"><a href=""><img src=""></img></a></td>
+      <td data-label="Fichier SQL"><a href=""><img src=""></img></a></td>
+      <td data-label="Fichier MCD"><a href=""><img src=""></img></a></td>
+    </tr>
+    <tr>
+      <td data-label="">factures</td>
+      <td data-label="MCD - MLD Questions"><a href="../files/exoFacturesMcdq.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="MCD - MLD Réponses"><a href=""><img src=""></img></a></td>
+      <td data-label="SQL Questions"><a href=""><img src=""></img></a></td>
+      <td data-label="SQL Réponses"><a href=""><img src=""></img></a></td>
+      <td data-label="Fichier SQL"><a href=""><img src=""></img></a></td>
+      <td data-label="Fichier MCD"><a href=""><img src=""></img></a></td>
+    </tr>
+    <tr>
+      <td data-label="">commerces</td>
+      <td data-label="MCD - MLD Questions"><a href=""><img src=""></img></a></td>
+      <td data-label="MCD - MLD Réponses"><a href=""><img src=""></img></a></td>
+      <td data-label="SQL Questions"><a href="../files/exoCommercesSqlq.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="SQL Réponses"><a href=""><img src=""></img></a></td>
+      <td data-label="Fichier SQL"><a href="../files/commerces.mssql"><img src="../img/icon_sql.png"></img></a></td>
+      <td data-label="Fichier MCD"><a href=""><img src=""></img></a></td>
+    </tr>
+    <tr>
+      <td data-label="">cabinet médical 1</td>
+      <td data-label="MCD - MLD Questions"><a href=""><img src=""></img></a></td>
+      <td data-label="MCD - MLD Réponses"><a href=""><img src=""></img></a></td>
+      <td data-label="SQL Questions"><a href="../files/exoCabinetMedical1Sqlq.pdf"><img src="../img/icon_pdf.png"></img></a> <a href="http://cnam.atwebpages.com/NFA008/FILES/sqlq/exoCabinetMadical1Sqlq2.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="SQL Réponses"><a href="../files/exaCabinetMedical1Sqlr.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="Fichier SQL"><a href="../files/cabinet_medical.mssql"><img src="../img/icon_sql.png"></img></a></td>
+      <td data-label="Fichier MCD"><a href="../files/cabinet_medical.mcd"><img src="../img/icon_mcd.png"></img></a></td>
+    </tr>
+    <tr>
+      <td data-label="">cabinet médical 2</td>
+      <td data-label="MCD - MLD Questions"><a href=""><img src=""></img></a></td>
+      <td data-label="MCD - MLD Réponses"><a href=""><img src=""></img></a></td>
+      <td data-label="SQL Questions"><a href="../files/exoCabinetMedical2.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="SQL Réponses"><a href="../files/exaCabinetMedical2Sqlr.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="Fichier SQL"><a href=""><img src=""></img></a></td>
+      <td data-label="Fichier MCD"><a href=""><img src=""></img></a></td>
+    </tr>
+    <tr>
+      <td data-label="">bibliothèque</td>
+      <td data-label="MCD - MLD Questions"><a href="../files/exoBibliothequeMcdq.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="MCD - MLD Réponses"><a href=""><img src=""></img></a></td>
+      <td data-label="SQL Questions"><a href="../files/exoBibliothequeSqlq.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="SQL Réponses"><a href="../files/exoBibliothequeSqlr.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="Fichier SQL"><a href="../files/bibliotheque.mssql"><img src="../img/icon_sql.png"></img></a></td>
+      <td data-label="Fichier MCD"><a href="../files/bibliotheque.mcd"><img src="../img/icon_mcd.png"></img></a></td>
+    </tr>
+    <tr>
+      <td data-label="">vétérinaires</td>
+      <td data-label="MCD - MLD Questions"><a href=""><img src=""></img></a></td>
+      <td data-label="MCD - MLD Réponses"><a href=""><img src=""></img></a></td>
+      <td data-label="SQL Questions"><a href="../files/exoVeterinairesSqlq.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="SQL Réponses"><a href="../files/exaVeterinairesSqlr.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="Fichier SQL"><a href="../files/veterinaires.mssql"><img src="../img/icon_sql.png"></img></a></td>
+      <td data-label="Fichier MCD"><a href="../files/veterinaires.mcd"><img src="../img/icon_mcd.png"></img></a></td>
+    </tr>
+    <tr>
+      <td data-label="">club de natation EXAMEN</td>
+      <td data-label="MCD - MLD Questions"><a href="../files/exaClubNatationMcdq.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="MCD - MLD Réponses"><a href="../files/exaClubNatationMcdr.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="SQL Questions"><a href="../files/exaClubNatationSqlq.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="SQL Réponses"><a href="../files/exaClubNatationSqlr.pdf"><img src="../img/icon_pdf.png"></img></a> <a href="http://cnam.atwebpages.com/NFA008/FILES/sqlr/exaClubNatationSqlr2.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="Fichier SQL"><a href="../files/club_natation.mssql"><img src="../img/icon_sql.png"></img></a></td>
+      <td data-label="Fichier MCD"><a href=""><img src=""></img></a></td>
+    </tr>
+    <tr>
+      <td data-label="">parapentes EXAMEN</td>
+      <td data-label="MCD - MLD Questions"><a href="../files/exaParapentesMcdq.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="MCD - MLD Réponses"><a href="../files/exaParapentesMcdr.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="SQL Questions"><a href="../files/exaParapentesSqlq.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="SQL Réponses"><a href="../files/exaParapentesSqlr.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="Fichier SQL"><a href="../files/parapentes.mssql"><img src="../img/icon_sql.png"></img></a></td>
+      <td data-label="Fichier MCD"><a href=""><img src=""></img></a></td>
+    </tr>
+    <tr>
+      <td data-label="">dépannages EXAMEN</td>
+      <td data-label="MCD - MLD Questions"><a href="../files/exaDepannagesMcdq.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="MCD - MLD Réponses"><a href="../files/exaDepannagesMcdr.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="SQL Questions"><a href="../files/exaDepannagesSqlq.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="SQL Réponses"><a href="../filesexaDepannagesSqlr.pdf"><img src="../img/icon_pdf.png"></img></a></td>
+      <td data-label="Fichier SQL"><a href="../files/depannages.mssql"><img src="../img/icon_sql.png"></img></a></td>
+      <td data-label="Fichier MCD"><a href=""><img src=""></img></a></td>
+    </tr>
+  </body>
+</table>
+</p>
+
+<h3><aside class="orange">Examen dépannages : questions-réponses</aside></h3>
+
+<img src="../img/depannagemld.png">
+
+<p>
+
+Comptage.total.tuples.par.plusieurs.tables(union)
+Combien de clients et combien de professionnels comptent la base de données Dépannages ?<br />
+Distinguez les réponses. (0,5 point)<br />
+<code class="code2">select count(*), <span style="color:green;">'CLIENTS'</span><br />
+from <span style="color:green;">CLIENTS</span><br />
+union<br />
+select count(*), <span style="color:purple;">'PROFESSIONNELS'</span><br />
+from <span style="color:purple;">PROFESSIONNELS</span></code><br /><br />
+
+Attributs1 -> identique sonorité -> Attributs2 + 3eme Table de liaison<br />
+Quels sont les clients et les professionnels qui habitent dans la même rue à Venelles. (0,5 point)<br />
+<code class="code2">select <span style="color:green;">C.NOM</span>, <span style="color:green;">C.PRENOM</span>, <span style="color:green;">C.ADRESSE</span><br />
+from <span style="color:green;">CLIENTS C</span>, <span style="color:purple;">PROFESSIONNELS P</span>, <span style="color:deepskyblue;">CODES_POSTAUX CP</span><br />
+where SOUNDEX(<span style="color:green;">C.ADRESSE</span>) = SOUNDEX(<span style="color:purple;">P.ADRESSE</span>)<br />
+and <span style="color:green;">C.CODE_POSTAL</span> = <span style="color:purple;">P.CODE_POSTAL</span><br />
+and <span style="color:deepskyblue;">CP.CODE_POSTAL</span> = <span style="color:green;">C.CODE_POSTAL</span><br />
+and <span style="color:deepskyblue;">COMMUNE</span> = 'VENELLES'</code><br /><br />
+
+Recherche.attribut.avec. Conditions.sur.plusieurs.tables<br />
+Quels métiers exercent Gérard L'Herever habitant à Venelles ? (0,5 point)<br />
+<code class="code2">select <span style="color:blue;">LIBELLE</span><br />
+from <span style="color:blue;">METIERS M</span>, <span style="color:pink;">PROFESSIONNELS P</span>, <span style="color:purple;">METIERS_PROFESSIONNELS MP</span>, <span style="color:deepskyblue;">CODES_POSTAUX CP</span><br />
+where <span style="color:blue;">M.ID_METIER</span> = <span style="color:purple;">MP.ID_METIER</span><br />
+and <span style="color:purple;">MP.ID_PRO</span> = <span style="color:pink;">P.ID_PRO</span><br />
+and <span style="color:pink;">P.CODE_POSTAL</span> = <span style="color:deepskyblue;">CP.CODE_POSTAL</span><br />
+and <span style="color:pink;">PRENOM</span> = 'Gérard'<br />
+and <span style="color:pink;">NOM</span> = 'L\'HEREVER'<br />
+and <span style="color:deepskyblue;">COMMUNE</span> = 'Venelles'</code><br />
+(!)Toujours faire la LIAISON COMPLETE de toutes les TABLES REQUISES en premier<br />
+ensuite faire les conditions sur les attributs des tables<br />
+(!)Attention au danger possible de DEUX attributs de même NOM mais dans des tables DIFFERENTES<br /><br />
+
+Identité.identique (attributs identiques mais tables différentes)<br />
+Des clients peuvent-ils aussi être des professionnels ? (1point)<br />
+<code class="code2">select <span style="color:green;">C.NOM</span>, <span style="color:green;">C.PRENOM</span><br />
+from <span style="color:green;">CLIENTS C</span>, <span style="color:pink;">PROFESSIONNELS P</span><br />
+where <span style="color:green;">C.NOM</span> = <span style="color:pink;">P.NOM</span><br />
+and <span style="color:green;">C.PRENOM</span> = <span style="color:pink;">P.PRENOM</span><br />
+and <span style="color:green;">C.ADRESSE</span> = <span style="color:pink;">P.ADRESSE</span><br />
+and <span style="color:green;">C.CODE_POSTAL</span> = P.CODE_POSTAL</code><br /><br />
+
+Attribut.avec.1condition sur 1table.différente<br />
+Quels sont les professionnels qui sont serruriers ? (1 point)<br />
+<code class="code2">select <span style="color:pink;">NOM</span>, <span style="color:pink;">PRENOM</span><br />
+from <span style="color:pink;">PROFESSIONNELS P</span>, <span style="color:purple;">METIERS_PROFESSIONNELS MP</span>, <span style="color:blue;">METIERS M</span><br />
+where <span style="color:pink;">P.ID_PRO</span> = <span style="color:purple;">MP.ID_PRO</span><br />
+and <span style="color:purple;">MP.ID_METIER</span> = <span style="color:blue;">M.ID_METIER</span><br />
+and <span style="color:blue;">LIBELLE</span> = 'SERRURERIE'</code><br /><br />
+
+Recherche 2valeurs différentes sur même attribut avec jointure<br />
+6. Quels sont les professionnels qui sont serruriers et aussi plombiers ? (1,5 point)<br />
+<code class="code2">select <span style="color:pink;">NOM</span>, <span style="color:pink;">PRENOM</span><br />
+from <span style="color:pink;">PROFESSIONNELS P</span>, <span style="color:purple;">METIERS_PROFESSIONNELS MP</span>, <span style="color:blue;">METIERS M</span><br />
+where <span style="color:pink;">P.ID_PRO</span> = <span style="color:purple;">MP.ID_PRO</span><br />
+and <span style="color:purple;">MP.ID_METIER</span> = <span style="color:blue;">M.ID_METIER</span><br />
+and <span style="color:blue;">LIBELLE</span> = 'SERRURERIE'<br />
+and <span style="color:pink;">P.ID_PRO</span> in (select <span style="color:pink;">P.ID_PRO</span><br />
+ &nbsp;&nbsp;from <span style="color:pink;">PROFESSIONNELS P</span>, <span style="color:purple;">METIERS_PROFESSIONNELS MP</span>, <span style="color:blue;">METIERS M</span><br />
+ &nbsp;&nbsp;where <span style="color:pink;">P.ID_PRO</span> = <span style="color:purple;">MP.ID_PRO</span><br />
+ &nbsp;&nbsp;and <span style="color:purple;">MP.ID_METIER</span> = <span style="color:blue;">M.ID_METIER</span><br />
+ &nbsp;&nbsp;and <span style="color:blue;">LIBELLE</span> = 'PLOMBERIE')</code><br /><br />
+
+Moyenne sur attribut table2 avec condition table1<br />
+ 7. Combien gagne en moyenne un professionnel ? (1 point)<br />
+ Remarque : vérifier que le paiement a bien été effectué.<br />
+<code class="code2">select round(avg(<span style="color:orange;">FORFAIT</span>), 2)<br />
+from <span style="color:red;">COMMANDES C</span>, <span style="color:orange;">FORFAITS F</span><br />
+where <span style="color:red;">C.ID_FORFAIT</span> = <span style="color:orange;">F.ID_FORFAIT</span><br />
+and <span style="color:red;">PAIEMENT</span> = 'AUTHORISED'</code><br /><br />
+
+Conditions.sur.3 tables différentes (1attribut par table)<br />
+8. Combien gagne en moyenne un serrurier ? (1,5 point)<br />
+<code class="code2">select round(avg(<span style="color:orange;">FORFAIT</span>), 2)<br />
+from <span style="color:orange;">FORFAITS F</span>, <span style="color:red;">COMMANDES C</span>, <span style="color:gold;">EXECUTANTS E</span>, <span style="color:pink;">PROFESSIONNELS P</span>,<br />
+ <span style="color:purple;">METIERS_PROFESSIONNELS MP</span>, <span style="color:blue;">METIERS M</span><br />
+where <span style="color:orange;">F.ID_FORFAIT</span> = <span style="color:red;">C.ID_FORFAIT</span><br />
+and <span style="color:red;">C.ID_COMMANDE</span> = <span style="color:gold;">E.ID_COMMANDE</span><br />
+and <span style="color:gold;">E.ID_PRO</span> = <span style="color:pink;">P.ID_PRO</span><br />
+and <span style="color:pink;">P.ID_PRO</span> = <span style="color:purple;">MP.ID_PRO</span><br />
+and <span style="color:purple;">MP.ID_METIER</span> = <span style="color:blue;">M.ID_METIER</span><br />
+and <span style="color:blue;">LIBELLE = 'SERRURERIE'</span><br />
+and <span style="color:red;">PAIEMENT</span> = 'AUTHORISED'</code><br /><br />
+
+Fonctions et groupages sur attributs multiples<br />
+9. Combien gagne en moyenne un professionnel par métier et par année ? (1,5 point)<br />
+<code class="code2">select round(avg(<span style="color:orange;">FORFAIT</span>), 2), <span style="color:blue;">LIBELLE</span>, YEAR(<span style="color:red;">DATE_COMMANDE</span>) as ANNEE<br />
+from <span style="color:orange;">FORFAITS F</span>, <span style="color:red;">COMMANDES C</span>, <span style="color:gold;">EXECUTANTS E</span>, <span style="color:pink;">PROFESSIONNELS P</span>,<br />
+ <span style="color:purple;">METIERS_PROFESSIONNELS MP</span>, <span style="color:blue;">METIERS M</span><br />
+where <span style="color:orange;">F.ID_FORFAIT</span> = <span style="color:red;">C.ID_FORFAIT</span><br />
+and <span style="color:red;">C.ID_COMMANDE</span> = <span style="color:gold;">E.ID_COMMANDE</span><br />
+and <span style="color:gold;">E.ID_PRO</span> = <span style="color:pink;">P.ID_PRO</span><br />
+and <span style="color:pink;">P.ID_PRO</span> = <span style="color:purple;">MP.ID_PRO</span><br />
+and <span style="color:purple;">MP.ID_METIER</span> = <span style="color:blue;">M.ID_METIER</span><br />
+and <span style="color:red;">PAIEMENT = 'AUTHORISED'</span><br />
+group by <span style="color:blue;">LIBELLE</span>, ANNEE<br />
+order by ANNEE</code><br /><br />
+
+10. Combien gagne en moyenne un professionnel travaillant dans la Zone1. (2 points)<br />
+Remarque : la zone de rendez-vous du bon de commande correspond à la zone d'intervention du
+professionnel.<br />
+<code class="code2">select round(avg(<span style="color:orange;">FORFAIT</span>), 2)<br />
+from <span style="color:orange;">FORFAITS F</span>, <span style="color:red;">COMMANDES C</span>, <span style="color:gold;">EXECUTANTS E</span>, <span style="color:pink;">PROFESSIONNELS P,</span><br />
+ <span style="color:brown;">ZONES_PROFESSIONNELS ZP</span>, <span style="color:darkgreen;">ZONES Z</span><br />
+where <span style="color:orange;">F.ID_FORFAIT</span> = <span style="color:red;">C.ID_FORFAIT</span><br />
+and <span style="color:red;">C.ID_COMMANDE</span> = <span style="color:gold;">E.ID_COMMANDE</span><br />
+and <span style="color:gold;">E.ID_PRO</span> = <span style="color:pink;">P.ID_PRO</span><br />
+and <span style="color:pink;">P.ID_PRO</span> = <span style="color:brown;">ZP.ID_PRO</span><br />
+and <span style="color:brown;">ZP.ID_ZONE</span> = <span style="color:darkgreen;">Z.ID_ZONE</span><br />
+and <span style="color:darkgreen;">NOM_ZONE</span> = 'ZONE1'<br />
+and <span style="color:red;">PAIEMENT</span> = 'AUTHORISED'</code><br /><br />
+
+compter.prendre.id (de la table)<br />
+11. Quel est le client qui a passé le plus de commande ? (1 point)<br />
+<code class="code2">select <span style="color:green;">NOM</span>, <span style="color:green;">PRENOM</span><br />
+from <span style="color:red;">COMMANDES CO</span>, CLIENTS CL<br />
+where <span style="color:red;">CO.ID_CLIENT</span> = CL.ID_CLIENT<br />
+group by <span style="color:green;">NOM</span>, <span style="color:green;">PRENOM</span><br />
+order by count(<span style="color:red;">ID_COMMANDE</span>) desc<br />
+limit 1</code><br /><br />
+
+12. Quels sont les <span style="color:green;">clients</span> qui ont passé plus de <span style="color:red;">trois commandes</span> dans <span style="color:red;">l'année 2016</span> ? (2 points)<br />
+<code class="code2"><span style="color:#00f;font-weight:700">select</span> NOM, PRENOM<br />
+<span style="color:#00f;font-weight:700">from</span> COMMANDES CO, CLIENTS CL<br />
+<span style="color:#00f;font-weight:700">where</span> <span style="color:#c5060b;font-weight:700">CO</span>.<span style="color:#c5060b;font-weight:700">ID_CLIENT</span> <span style="color:#00f;font-weight:700">=</span> <span style="color:#c5060b;font-weight:700">CL</span>.<span style="color:#c5060b;font-weight:700">ID_CLIENT</span><br />
+<span style="color:#00f;font-weight:700">and</span> YEAR(DATE_COMMANDE) <span style="color:#00f;font-weight:700">=</span> <span style="color:#036a07">'2016'</span><br />
+<span style="color:#00f;font-weight:700">group by</span> NOM, PRENOM<br />
+<span style="color:#00f;font-weight:700">having</span> <span style="color:#3c4c72;font-weight:700">count</span>(ID_COMMANDE) <span style="color:#00f;font-weight:700">></span> <span style="color:#0000cd">3</span>
+</code><br /><br />
+
+
+13. Quels sont les <span style="color:blue;">serruriers</span> qui ont fait plus de <span style="color:red;">4 réparations</span> dans l'année <span style="color:red;">2016</span> ? (2 points)<br />
+<code class="code2"><span style="color:#00f;font-weight:700">select</span> NOM, PRENOM<br />
+<span style="color:#00f;font-weight:700">from</span> COMMANDES C, METIERS M, METIERS_PROFESSIONNELS MP,
+ PROFESSIONNELS P, EXECUTANTS E<br />
+<span style="color:#00f;font-weight:700">where</span> <span style="color:#c5060b;font-weight:700">C</span>.<span style="color:#c5060b;font-weight:700">ID_METIER</span> <span style="color:#00f;font-weight:700">=</span> <span style="color:#c5060b;font-weight:700">M</span>.<span style="color:#c5060b;font-weight:700">ID_METIER</span><br />
+<span style="color:#00f;font-weight:700">and</span> <span style="color:#c5060b;font-weight:700">M</span>.<span style="color:#c5060b;font-weight:700">ID_METIER</span> <span style="color:#00f;font-weight:700">=</span> <span style="color:#c5060b;font-weight:700">MP</span>.<span style="color:#c5060b;font-weight:700">ID_METIER</span><br />
+<span style="color:#00f;font-weight:700">and</span> <span style="color:#c5060b;font-weight:700">MP</span>.<span style="color:#c5060b;font-weight:700">ID_PRO</span> <span style="color:#00f;font-weight:700">=</span> <span style="color:#c5060b;font-weight:700">P</span>.<span style="color:#c5060b;font-weight:700">ID_PRO</span><br />
+<span style="color:#00f;font-weight:700">and</span> <span style="color:#c5060b;font-weight:700">P</span>.<span style="color:#c5060b;font-weight:700">ID_PRO</span> <span style="color:#00f;font-weight:700">=</span> <span style="color:#c5060b;font-weight:700">E</span>.<span style="color:#c5060b;font-weight:700">ID_PRO</span><br />
+<span style="color:#00f;font-weight:700">and</span> <span style="color:#c5060b;font-weight:700">C</span>.<span style="color:#c5060b;font-weight:700">ID_COMMANDE</span> <span style="color:#00f;font-weight:700">=</span> <span style="color:#c5060b;font-weight:700">E</span>.<span style="color:#c5060b;font-weight:700">ID_COMMANDE</span><br />
+<span style="color:#00f;font-weight:700">and</span> LIBELLE <span style="color:#00f;font-weight:700">=</span> <span style="color:#036a07">'SERRURERIE'</span><br />
+<span style="color:#00f;font-weight:700">and</span> YEAR(DATE_COMMANDE) <span style="color:#00f;font-weight:700">=</span> <span style="color:#036a07">'2016'</span><br />
+<span style="color:#00f;font-weight:700">group by</span> NOM, PRENOM<br />
+<span style="color:#00f;font-weight:700">having</span> <span style="color:#3c4c72;font-weight:700">count</span>(<span style="color:#c5060b;font-weight:700">C</span>.<span style="color:#c5060b;font-weight:700">ID_COMMANDE</span>) <span style="color:#00f;font-weight:700">></span> <span style="color:#0000cd">4</span>
+</code><br /><br />
+
+
+Dans la suite nous allons simuler le passage d'une commande par un client.<br /><br />
+
+14. Le client GEIL Dominique demeurant à Venelles passe une commande à la date d''aujourdhui pour<br />
+une intervention de serrurerie au forfait de 199€, il veut un rendez-vous le 28 juin à 16H30, et<br />
+son paiement a été accepté.<br /><br />
+Effectuez la requête qui insère la commande. (2 points)<br />
+<code class="code2"><span style="color:#00f;font-weight:700">insert into</span> COMMANDES (DATE_COMMANDE, DATE_RDV, TIME_RDV, ZONE_RDV, PAIEMENT, ID_CLIENT, ID_METIER, ID_FORFAIT)<br />
+<span style="color:#00f;font-weight:700">select</span> now(), <span style="color:#036a07">'2017-06-28'</span>, <span style="color:#036a07">'16:30:00'</span>, ID_ZONE, <span style="color:#036a07">'AUTHORIZED'</span>,
+ID_CLIENT, ID_METIER, ID_FORFAIT<br />
+<span style="color:#00f;font-weight:700">from</span> CLIENTS CL, METIERS, FORFAITS, ZONES Z, CODES_POSTAUX CP<br />
+<span style="color:#00f;font-weight:700">where</span> NOM <span style="color:#00f;font-weight:700">=</span> <span style="color:#036a07">'GEIL'</span><br />
+<span style="color:#00f;font-weight:700">and</span> PRENOM <span style="color:#00f;font-weight:700">=</span> <span style="color:#036a07">'Dominique'</span><br />
+<span style="color:#00f;font-weight:700">and</span> <span style="color:#c5060b;font-weight:700">CL</span>.<span style="color:#c5060b;font-weight:700">CODE_POSTAL</span> <span style="color:#00f;font-weight:700">=</span> <span style="color:#c5060b;font-weight:700">CP</span>.<span style="color:#c5060b;font-weight:700">CODE_POSTAL</span><br />
+<span style="color:#00f;font-weight:700">and</span> COMMUNE <span style="color:#00f;font-weight:700">=</span> <span style="color:#036a07">'Venelles'</span><br />
+<span style="color:#00f;font-weight:700">and</span> LIBELLE <span style="color:#00f;font-weight:700">=</span> <span style="color:#036a07">'SERRURERIE'</span><br />
+<span style="color:#00f;font-weight:700">and</span> FORFAIT <span style="color:#00f;font-weight:700">=</span> <span style="color:#0000cd">199</span><br />
+<span style="color:#00f;font-weight:700">and</span> <span style="color:#c5060b;font-weight:700">Z</span>.<span style="color:#c5060b;font-weight:700">CODE_POSTAL</span> <span style="color:#00f;font-weight:700">=</span> <span style="color:#c5060b;font-weight:700">CP</span>.<span style="color:#c5060b;font-weight:700">CODE_POSTAL</span>
+</code><br /><br />
+
+15. Dans la table EXECUTANTS, insérez l'identifiant des professionnels qui répondent aux critères de
+la commande. (2 points)<br />
+<code class="code2"><span style="color:#00f;font-weight:700">insert into</span> EXECUTANTS (ID_COMMANDE, ID_PRO)
+<span style="color:#00f;font-weight:700">select</span> <span style="color:#0000cd">583</span>, ID_PRO<br />
+<span style="color:#00f;font-weight:700">from</span> JOURS_PROFESSIONNELS<br />
+<span style="color:#00f;font-weight:700">where</span> JOUR <span style="color:#00f;font-weight:700">=</span> dayofweek(<span style="color:#036a07">'2017-06-28'</span>)<br />
+<span style="color:#00f;font-weight:700">and</span> HEURE_13_18 <span style="color:#00f;font-weight:700">=</span> <span style="color:#0000cd">1</span>
+<span style="color:#00f;font-weight:700">and</span> ID_PRO <span style="color:#00f;font-weight:700">in</span> (<span style="color:#00f;font-weight:700">select</span> ID_PRO<br />
+<span style="color:#00f;font-weight:700">from</span> METIERS_PROFESSIONNELS MP, METIERS M<br />
+<span style="color:#00f;font-weight:700">where</span> <span style="color:#c5060b;font-weight:700">MP</span>.<span style="color:#c5060b;font-weight:700">ID_METIER</span> <span style="color:#00f;font-weight:700">=</span> <span style="color:#c5060b;font-weight:700">M</span>.<span style="color:#c5060b;font-weight:700">ID_METIER</span><br />
+<span style="color:#00f;font-weight:700">and</span> LIBELLE <span style="color:#00f;font-weight:700">=</span> <span style="color:#036a07">'SERRURERIE'</span>)<br />
+<span style="color:#00f;font-weight:700">and</span> ID_PRO <span style="color:#00f;font-weight:700">in</span> (<span style="color:#00f;font-weight:700">select</span> ID_PRO<br />
+<span style="color:#00f;font-weight:700">from</span> ZONES_PROFESSIONNELS ZP, ZONES Z, CODES_POSTAUX CP<br />
+<span style="color:#00f;font-weight:700">where</span> <span style="color:#c5060b;font-weight:700">ZP</span>.<span style="color:#c5060b;font-weight:700">ID_ZONE</span> <span style="color:#00f;font-weight:700">=</span> <span style="color:#c5060b;font-weight:700">Z</span>.<span style="color:#c5060b;font-weight:700">ID_ZONE</span><br />
+<span style="color:#00f;font-weight:700">and</span> <span style="color:#c5060b;font-weight:700">Z</span>.<span style="color:#c5060b;font-weight:700">CODE_POSTAL</span> <span style="color:#00f;font-weight:700">=</span> <span style="color:#c5060b;font-weight:700">CP</span>.<span style="color:#c5060b;font-weight:700">CODE_POSTAL</span><br />
+<span style="color:#00f;font-weight:700">and</span> COMMUNE <span style="color:#00f;font-weight:700">=</span> <span style="color:#036a07">'Venelles'</span>)
+</code><br />
+
+</p><br />
+
+<h3><aside class="orange">Examen natation : questions-réponses</aside></h3>
+
+<p>
+
+1. <span style="color:red;">Combien</span> de <span style="color:red;">membres</span> compte le club de natation ?<br />
+<code class="code2">select count(*)<br />
+from membres;</code><br /><br />
+2. Est-ce que <span style="color:red;">tous</span> les membres du club <span style="color:red;">ont</span> abonnement ?<br />
+<code class="code2">select NOM, PRENOM<br />
+from membres<br />
+where ID_MEMBRE not in (select ID_MEMBRE<br />
+ from MEMBRES_ABONNEMENTS);</code><br /><br />
+3. Quels sont les <span style="color:red;">membres</span> du club qui habitent dans la <span style="color:red;">rue</span> d'Algérie au Puy Saint Réparade ? Donner leur nom,
+leur prénom et leur adresse.<br />
+<code class="code2">select NOM, PRENOM, ADRESSE<br />
+from membres M, communes C<br />
+where M.CODE_POSTAL = C.CODE_POSTAL<br />
+and COMMUNE = 'Le Puy Saint Réparade'<br />
+and ADRESSE like '%Algérie%';</code><br /><br />
+4. Pour chaque <span style="color:red;">commune</span> <span style="color:red;">combien</span> de <span style="color:red;">membres</span> du club y-a-t-il ? <span style="color:red;">Classer</span> chaque <span style="color:red;">ville</span> par ordre alphabétique et
+donner</span> leur <span style="color:red;">nombre</span> de membres.<br />
+<code class="code2">select count(ID_MEMBRE), COMMUNE<br />
+from membres M, communes C<br />
+where C.code_postal = M.code_postal<br />
+group by COMMUNE<br />
+order by COMMUNE;</code><br /><br />
+5. <span style="color:red;">Combien</span> rapportent les <span style="color:red;">abonnements</span> <span style="color:red;">chaque année</span> ? Donner le <span style="color:red;">montant</span> par année.<br />
+<code class="code2">select sum(TARIF), YEAR(DATE_DEB) ANNEE<br />
+from abonnements A, membres_abonnements MA<br />
+where A.ID_ABONNEMENT = MA.ID_ABONNEMENT<br />
+group by DATE_DEB;</code><br /><br />
+6. <span style="color:red;">Combien</span> rapportent les abonnements <span style="color:red;">chaque année</span> par <span style="color:red;">activité</span> ? Donner le montant <span style="color:red;">par année</span> et <span style="color:red;">par
+activité</span>.<br />
+<code class="code2">select sum(TARIF), YEAR(DATE_DEB) ANNEE, LIBELLE<br />
+from activites AC, abonnements_activites AA, abonnements AB, membres_abonnements MA<br />
+where AC.ID_ACTIVITE = AA.ID_ACTIVITE<br />
+and AB.ID_ABONNEMENT = AA.ID_ABONNEMENT<br />
+and AA.ID_ABONNEMENT = MA.ID_ABONNEMENT<br />
+group by ANNEE, LIBELLE;</code><br /><br />
+7. <span style="color:red;">Combien</span> rapportent les <span style="color:red;">abonnements</span> <span style="color:red;">chaque</span> année <span style="color:red;">par</span> piscine ? Donner le montant <span style="color:red;">par année</span> et <span style="color:red;">par
+piscine</span>.<br />
+<code class="code2">select sum(A.TARIF), YEAR(DATE_DEB) as ANNEE, P.NOM<br />
+from ABONNEMENTS A, MEMBRES_ABONNEMENTS MA, MEMBRES M, PISCINES P<br />
+where MA.ID_ABONNEMENT = A.ID_ABONNEMENT<br />
+and MA.ID_MEMBRE = M.ID_MEMBRE<br />
+and M.ID_PISCINE = P.ID_PISCINE<br />
+group by ANNEE, P.NOM<br />
+order by P.NOM , ANNEE;</code><br /><br />
+8. Quels sont les membres du club habitant Venelles qui pratiquent le plongeon ? Donner leur nom et leur
+prénom<br />
+<code class="code2">select distinct NOM, PRENOM<br />
+from membres M, membres_abonnements MA, abonnements_activites AA, activites AC, communes C<br />
+where M.ID_MEMBRE = MA.ID_MEMBRE<br />
+and MA.ID_ABONNEMENT = AA.ID_ABONNEMENT<br />
+and AA.ID_ACTIVITE = AC.ID_ACTIVITE<br />
+and LIBELLE = 'Plongeon'<br />
+and C.CODE_POSTAL = M.CODE_POSTAL<br />
+and COMMUNE = 'Venelles';</code><br /><br />
+9. Quels sont les membres du club habitant Eguilles qui pratiquent le plongeon ou la plongée sous-marine ?<br />
+Donner leur nom, leur prénom et leur activité.<br />
+<code class="code2">select distinct NOM, PRENOM<br />
+from membres M, membres_abonnements MA,<br />
+ abonnements_activites AA, activites AC, communes C<br />
+where M.ID_MEMBRE = MA.ID_MEMBRE<br />
+and C.CODE_POSTAL = M.CODE_POSTAL<br />
+and COMMUNE = 'Eguilles'<br />
+and MA.ID_ABONNEMENT = AA.ID_ABONNEMENT<br />
+and AA.ID_ACTIVITE = AC.ID_ACTIVITE<br />
+and LIBELLE in ('Plongeon','Plongée sous-marine');</code><br /><br />
+10. Quels sont les membres du club habitant Venelles qui pratiquent le plongeon et la plongée sous-marine ?<br />
+Donner leur nom, leur prénom.<br />
+<code class="code2">select distinct NOM, PRENOM<br />
+from membres M, membres_abonnements MA,<br />
+ abonnements_activites AA, activites AC, communes C<br />
+where M.ID_MEMBRE = MA.ID_MEMBRE<br />
+and C.CODE_POSTAL = M.CODE_POSTAL<br />
+and COMMUNE = 'Venelles'<br />
+and MA.ID_ABONNEMENT = AA.ID_ABONNEMENT<br />
+and AA.ID_ACTIVITE = AC.ID_ACTIVITE<br />
+and LIBELLE = 'Plongée sous-marine'<br />
+and M.ID_MEMBRE in (select distinct M.ID_MEMBRE<br />
+ from membres M, membres_abonnements MA,<br />
+ abonnements_activites AA, activites AC, communes C<br />
+ where M.ID_MEMBRE = MA.ID_MEMBRE<br />
+ and C.CODE_POSTAL = M.CODE_POSTAL<br />
+ and COMMUNE = 'Venelles'<br />
+ and MA.ID_ABONNEMENT = AA.ID_ABONNEMENT<br />
+ and AA.ID_ACTIVITE = AC.ID_ACTIVITE<br />
+ and LIBELLE = 'Plongeon');</code><br /><br />
+11. Quels sont les membres du club qui ont pratiqué plus de 4 activités ?<br />
+<code class="code2">select NOM, PRENOM<br />
+from membres M, membres_abonnements MA, abonnements_activites AA<br />
+where M.ID_MEMBRE = MA.ID_MEMBRE<br />
+and MA.ID_ABONNEMENT = AA.ID_ABONNEMENT<br />
+group by NOM, PRENOM<br />
+having count(ID_ACTIVITE) > 4</code><br /><br />
+12. Quels sont les membres du club qui ont pratiqué plus d'une activité par an ?<br />
+<code class="code2">select NOM, PRENOM, YEAR(DATE_DEB) ANNEE<br />
+from membres M, membres_abonnements MA, abonnements_activites AA<br />
+where M.ID_MEMBRE = MA.ID_MEMBRE<br />
+and MA.ID_ABONNEMENT = AA.ID_ABONNEMENT<br />
+group by NOM, PRENOM, ANNEE<br />
+having count(ID_ACTIVITE) > 1</code><br /><br />
+13. Insérer un nouveau membre Gérard l'Herever habitant à Venelles au 5, rue de la Grande Bégude. Celui
+prend un abonnement pour la plongée sous-marine au tarif de 150€.<br />
+<code class="code2">insert into MEMBRES values ('L\'Herever', 'Gérard','5, rue de la Grande Bégude', 1370,1);</code><br /><br />
+Première façon de faire :<br />
+On récupère le ID_MEMBRE de L'Herever dans notre exemple 100.<br />
+On récupère le ID_ABONNEMENT dont le tarif vaut 150 dans notre exemple 17.<br />
+On insère les valeurs de MEMBRES_ABONNEMENTS avec la date du jour et la date du jour plus 1 an.<br />
+<code class="code2">insert into MEMBRES_ABONNEMENTS values ('2017-05-04', '2018-05-04', '100, 17);</code><br /><br />
+Deuxième façon de faire (plus correcte) :<br />
+<code class="code2">insert into MEMBRES (NOM, PRENOM, ADRESSE, CODE_POSTAL, ID_PISCINE)<br />
+select 'L\'Herever', 'Gérard','5, rue de la Grande Bégude', 13770, ID_PISCINE<br />
+from PISCINES<br />
+where PISCINES.NOM = 'Piscine de Venelles';<br /><br />
+insert into ABONNEMENTS_ACTIVITES (ID_ABONNEMENT, ID_ACTIVITE)<br />
+select ID_ABONNEMENT, ID_ACTIVITE<br />
+from ABONNEMENTS, ACTIVITES AC, PISCINES P, COMMUNES C<br />
+where TARIF = 150<br />
+and LIBELLE = 'Plongée sous-marine'<br />
+and AC.ID_PISCINE = P.ID_PISCINE<br />
+and C.CODE_POSTAL = P.CODE_POSTAL<br />
+and COMMUNE = 'Venelles';<br /><br />
+insert into MEMBRES_ABONNEMENTS (DATE_DEB, DATE_FIN, ID_MEMBRE, ID_ABONNEMENT)<br />
+select NOW(), DATE_ADD(NOW(), interval 1 YEAR), ID_MEMBRE, AB.ID_ABONNEMENT<br />
+from MEMBRES M, ABONNEMENTS AB, ABONNEMENTS_ACTIVITES AA, ACTIVITES A<br />
+where NOM = 'L\'Herever'<br />
+and PRENOM = 'Gérard'<br />
+and ADRESSE = '5, rue de la Grande Bégude'<br />
+and TARIF = 150<br />
+and AB.ID_ABONNEMENT = AA.ID_ABONNEMENT<br />
+and AA.ID_ACTIVITE = A.ID_ACTIVITE<br />
+and LIBELLE = 'Plongée sous-marine';</code><br /><br />
+14. Modifier tous les tarifs des abonnements de 5%.<br />
+<code class="code2">update abonnements<br />
+set TARIF = TARIF *1 .05;</code><br /><br />
+15. Supprimer le membre qui habite Aix en Provence au 18, rue de l'Annonciade. Attention aux contraintes.<br />
+<code class="code2">delete from MEMBRES_ABONNEMENTS<br />
+where ID_MEMBRE = (select ID_MEMBRE<br />
+ from MEMBRES M, COMMUNES C<br />
+ where ADRESSE = '18, Route de l\'Annonciade'<br />
+ and M.CODE_POSTAL = C.CODE_POSTAL<br />
+ and COMMUNE = 'Aix en Provence')<br /><br />
+delete from MEMBRES<br />
+where ADRESSE = '18, Route de l\'Annonciade'<br />
+and CODE_POSTAL = (select CODE_POSTAL<br />
+ from COMMUNES<br />
+ where COMMUNE = 'Aix en Provence');</code><br />
+
+ </p>

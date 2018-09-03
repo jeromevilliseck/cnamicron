@@ -1,0 +1,743 @@
+<div class="wrapper">
+    <div class="youtube" data-embed="XgKOC6X8W28">
+        <div class="play-button"></div>
+    </div>
+</div>
+    
+<h2>Débuter avec Docker</h2>
+<h3>Les hubs docker</h3>
+<ul>
+    <li>Se rendre sur <a href="https://registry.hub.docker.com/">https://store.docker.com</a> puis rechercher les hub désirés.
+        Les hub sont cumulables sur une image. On peut ainsi créer son image contenant un ensemble de hub, qui fournit une configuration globale souhaitée, un
+        environnement de développement.</li>
+    <li>Ou depuis la console, taper <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo apt install docker.io</code></pre> puis une fois docker installé sur votre
+        linux tapez<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker search [nom_hub]</code></pre>pour afficher les hub (images) disponibles. Pour en télécharger une,
+        faites <pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker pull [nom_hub]</code></pre> pour la charger. Pour voir votre bibliothèque d'image, faites
+        <pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker images</code></pre>qui affichera la liste des images de votre bibliothèque. 
+
+        <br><br>
+        A NOTER : il faut passer en mode administrateur 
+        <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">sudo sh</code></pre> (puis entrer son mot de passe utilisateur)
+        pour certaines commandes sous docker sinon risque de accès denied.</li>
+        <li>Pour windows, vous devrez passez par l'installation de boot2docker. Ensuite le fonctionnement est identique à celui d'une console linux</li>
+</ul>
+<h3>Lancer une image</h3>
+<ul>
+    <li>Taper <pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker run -ti [nom_image]</code></pre>Si l'image n'est pas présente, il va aller la télécharger automatiquement.
+        <br>L'option <code class="language-bash">-ti</code> permet de rester dans le terminal. Les téléchargements en pull sont <mark>incrémentaux</mark>, c-a-d que comme le pull de git, si une partie des fichiers sont déjà présent sur votre machine, docker ne re-télécharge pas tout, seulement les modifications, les ajouts.</li>
+    <li>Une fois le téléchargement, ou l'image lancée, faites <pre><code class="language-docker">ls</code></pre>. Vous pouvez alors voir le système de l'image en direct</li>
+</ul>
+<h3>Comprendre le fonctionnement d'une image</h3>
+<ul>
+    <li>Tapez <pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker run -ti debian</code></pre>
+        puis <pre><code class="language-docker">ls</code></pre>
+        puis <pre><code class="language-docker">rm -rf /lib</code></pre>
+        puis <pre><code class="language-docker">ls</code></pre>
+        vous avez supprimé un dossier maitre de votre image, l'image est donc désormais inutilisable.
+        tapez <pre><code class="language-docker">exit</code></pre>
+        puis <pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker run -ti debian</code></pre> à nouveau.
+        Constatez la puissance de Docker : toutes les modifications effectuées sur l'environnement ne sont jamais persistées.
+        <br>L'avantage est que l'on peut à chaque fois repartir sur une image propre.</li>
+</ul>
+
+<h3>Sauvegarder les changements effectuées sur une image</h3>
+<p>
+
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker run -ti debian</code></pre>
+<pre><code class="language-docker">touch /test.txt</code></pre>
+ Lancer en parallèle un nouvel invite de commandes avec boot2docker pour ceux qui sont sur windows ou mac, nativement pour linux.
+ <br><br>Dans le deuxième invite de commandes
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker ps</code></pre>
+ Vous affiche les images en cours de fonctionnement
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker images</code></pre>
+ Vous affiche les images stockées sur votre ordinateur
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker diff [id_conteneur_3_premiers_symboles]</code></pre>
+ Vous donnera les modifications par rapport à l'image initiale sur une image en cours de manipulation
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker commit [id_conteneur_3_premiers_symboles] [nom_image_pour_sauvegarde]</code></pre>
+Va sauvegarder sous forme d'image votre image actuellement en cours de manipulation.
+ <br><br>Retourner dans le premier invite de commandes
+<pre><code class="language-docker">exit</code></pre>
+ Quittera l'image en cours de travail
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker run -ti [nom_image_pour_sauvegarde]</code></pre>
+ Relancera l'image sauvegardée précèdement
+ <br>Si besoin d'un export, possibilité soit de la publier sur le hub docker, soit de l'exporter.
+ <br>Procédure à suivre
+<pre><code class="language-docker">exit</code></pre>
+ Préalablement sortir du conteneur
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker save debiantest > /[votre_chemin_absolu_syst_fichiers]/debiantest.tar</code></pre>
+ NOTE : il est possible également d'utiliser un dockerfile (c'est une série de commandes qui se lance pour construire une image), il n'y a plus qu'ensuite coté serveur à faire un build de cette image
+</p>
+
+
+<h3>Comprendre l'intéret du dockerfile</h3>
+<p>
+
+ Exemple : rechercher tutum-docker dans le docker store
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker run -p 80:80 tutum/wordpress</code></pre>
+ L'option <code class="language-bash">-p</code> permet de faire le lien entre une image isolée et une configuration locale, cela plug le port 80 par exemple ici de la machine sur le port 80 du conteneur
+ <br>Attention si votre port est déja utilisé par un autre service en cours sur votre machine il faudra en changer, a savoir le numero de port avant les <code class="language-bash">:</code>
+ <br>exemple : 
+ <pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker run -p 400:80 tutum/wordpress</code></pre>
+
+ Maintenant tapez <samp>localhost:400</samp> dans votre navigateur, vous aller voir une nouvelle configuration wordpress apparaitre
+ <br>L'option permet de dire à docker tourne en tache de fond : toutefois dans le cas de wordpress cela ne se ferme pas automatiquement car il se branche sur les logs d'apache. Seul un <kbd>CTRL+C</kbd> permet de fermer le processus en cours, visible avec un docker ps sur une autre invite de commandes.
+<br>
+ <br>Docker permet ainsi de tester plein de technologies en meme temps sans faire de conflits sur une configuration locale
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker run -p 8080:2368 ghost</code></pre>
+ Cela va permet d'utiliser ghost sur le port 8080, l'image va etre beaucoup plus rapide à télécharger car docker va réutiliser des composants déjà téléchargés d'autres images.</p>
+
+ <h3>Supprimer des images</h3>
+ <p>Faites
+    <pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker images</code></pre>
+    Pour repérer les images avec leurs <code class="language-bash">ID</code>, notez les 3 premiers symboles des images que vous souhaiter supprimer, puis
+    <pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker rmi [3_premiers_symboles_id]</code></pre>
+    Va permettre de supprimer l'image portant l'id spécifié. Parfois il faudra utiliser l'option
+    force <code class="language-bash">-f</code> à la suite de rmi pour forcer une suppression.<br>
+ 
+
+ <br>La question maintenant : comment conserver les données, puisque la fermeture d'un processus docker n'entraine pas la persistance des données (en clair mes modification seront perdues à la fermeture de l'image)
+</p>
+<h3>Utilisation du système de liaison</h3>
+<p>
+ Le système de liaison permet d'établir un pont entre un dossier en local et un endroit dans le système de fichier de l'image : vous accédez à vos données locales à travers l'utilisation de l'image.
+ <br>Exemple: sur linux créer un dossier <samp>ghost</samp> dans votre <samp>/home/[user]</samp>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker run --name some-ghost -p 8080:2368 -v /home/jerome/ghost:/var/lib/ghost -d ghost  </code></pre>
+ Une nouvelle machine viens d'etre lancée en tache de fond et un pont, une liaison et etablie entre le dossier local dans le home et le repertoire de l'image.
+ <br><code class="language-bash">--name</code> est une option permettant de donner un nom à une image en train de tourner, pour mieux la repérer avec la commande <code class="language-bash">docker-ps</code>  
+ <br>Les fichiers de ce dossier seront persistés, si on change la version de ghost
+ <br>Dans une deuxième invite de commandes
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker ps</code></pre>
+ Arreter le service ghost qui tourne
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker some-ghost</code></pre>
+ Supprime le container ghost
+</p>
+
+
+<h2>Construire son environnement de développement basé sur Docker</h2>
+<p>boot2docker, c'est l'installation d'une micro-machine virtuelle (150mo environ), pour faire tourner docker sur windows</p>
+
+<p>double click, ok, ok, suivant, laisser les 4 cases cochées, installer</p>
+
+<p>double cliquer sur l’icône boot2docker qui à été mise sur le bureau,
+cela va créer la machine sur virtual box, l'initialiser, la démarrer</p>
+
+<p>lancer un terminal puis sous windows
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">boot2docker up</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">boot2docker stop</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">boot2docker ssh</code></pre>
+
+up lance boot2docker en mode classique, boot2docker ssh en mode ssh
+
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">boot2docker ip</code></pre>
+permet de connaître l'ip de la machine
+
+<br>régler le problème du dossier présent sur la machine local et non dans la machine virtuelle
+<br>se rendre sur la machine boot2docker sur virtual box, clic droit puis configurer, puis dans dossier partages créer un nouveau dossier partage,
+<br>aller chercher le dossier et lui mettre un nom de point de montage, clic sur montage automatique pour que le montage se fasse a chaque démarrage
+
+<h3>Fabriquer le point de montage du dossier local sur la machine virtuelle</h3>
+refaire un 
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">boot2docker ssh</code></pre>
+puis taper
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">mkdir /var/www</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">sudo mount -t vboxsf www /var/www</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">ls /var/www</code></pre>
+
+on voit que automatiquement on se retrouve avec la structure de Windows, ce qui va permettre de travailler plus simplement avec</p>
+
+<h3>Rendre le point de montage permanent</h3>
+
+<p>les dossiers /var/lib/boot2docker et /var/lib/docker sont les deux seuls dossiers persistants qui ne s'effacent pas quand on relance la machine 
+virtuelle. on va donc créer un fichier sh qui s’exécutera a chaque démarrage, ce fichier se nommera bootlocal.sh, et on y mettre à l'intérieur ce que l'on souhaite faire.
+
+<br>taper
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">ls -la</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">ls /var/lib/boot2docker</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">sudo vi /var/lib/boot2docker/bootlocal.sh</code></pre>
+
+dans le fichier crée
+
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">mkdir /var/www</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">mount -t vboxsf www /var/www</code></pre>
+
+puis faire echap, :wq
+
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">sudo chmod +x /var/lib/boot2docker/bootlocal.sh</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">exit</code></pre>
+
+puis redémarrer la machine
+
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">boot2docker stop && boot2docker start && boot2docker ssh</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">ls /var/www/</code></pre>
+
+on doit bien voir le dossier local dans la machine virtuelle. Si l'on veut modifier son point de montage à l'avenir il suffira de modifier son fichier bootlocal.sh</p>
+
+<h3>Installation d'apache avec le module php</h3>
+
+<p>Se rendre dans le docker hub puis browser pour trouver l'image (hub) correspondante.
+<br>Bien comprendre : le dockerfile n'est exécuté qu'une seule fois, au moment de la construction de l'image. alors que les fichiers .sh sont eux exécutés en permanence.
+<br>aller chercher l'image apache php de tutum.
+
+<br>taper (dans boot2docker)
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker run --name apache --rm -p tutum/apache-php </code></pre>
+(name donne un nom au conteneur, p map le port 80 sur le port 80 de la machine locale la suite c'est le nom de l'image rm lui dit a chaque fois que je quitte je veux que tu supprime le conteneur)
+
+ouvrir une deuxième fenêtre boot2docker en tapant 
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">boot2docker ssh</code></pre>
+puis tapez
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">boot2docker images</code></pre>
+ pour visualiser vos images
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">boot2docker ip</code></pre>
+ une fois le téléchargement finalisé de l'image
+<br> récupérer l'ip obtenu et la coller dans la barre d'adresse du navigateur
+<br> php tatum s'affiche
+<br> maintenant il faut faire pointer vers le bon dossier
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker exec -ti apache bash</code></pre>
+ je me retrouve à l'intérieur de répertoire de l'environnement de développement
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">ls</code></pre>
+ affiche les fichiers chargé lors ce que l'on tape l'adresse ip dans la barre d'adresse du navigateur
+<br> arrêter apache
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">run --name apache --rm -p 80:80 -v /var/www:/app tutum/apache-php </code></pre>
+ actualiser la page 
+<br> vous vous retrouvez bien avec votre dossier local pour effectuer du développement
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker exec -ti apache bash</code></pre>
+ vous re-rentrez dans le conteneur
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">ls /etc/php5/apache2/conf.d</code></pre>
+ vous aller chercher la configuration apache du conteneur contenant les différentes sous configurations
+ dans le dossier local de travail, créez un dossier docker qui contiendra toute le configuration du serveur apache
+<br> créer un fichier php.ini, et y mettre la configuration spécifique que l'on souhaite avoir a php qui écrasera les information par défaut
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">display_errors=1</code></pre>
+error_reporting=E_ALL
+ affiche les erreurs et tout leur reporting
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">run --name apache --rm -p 80:80 -v /var/www/docker/php.ini:/etc/php5/apache2/conf.d/30-custom.ini -v www:/app tutum/apache-php</code></pre>
+ cela relance toute l'image, en portant une configuration apache d'un fichier local vers l'image
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">run --name apache --rm -p 80:80 -v /var/www/docker/php.ini:/etc/php5/apache2/conf.d/30-custom.ini -e ALLOW_OVERRIDE=true -v www:/app tutum/apache-php</code></pre>
+ en relancant votre image, cette fois les htaccess vont fonctionner
+<br> créer un nouveau dossier test nomme aze par exemple
+<br> tapez dans la barre d'adresse de votre navigateur local.dev, automatiquement docker accède à l'ip (c'est un alias)
+<br> faire pointer directement un hôte virtuel vers ce dossier local.dev
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker exec -ti apache bash</code></pre>
+ se reconnecter sur apache
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">ls /etc/apache2/sites-enabled/</code></pre>
+ aller chercher la configuration apache par defaut
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">vi /etc/apache2/sites-enabled/000-default.conf</code></pre>
+ vous rentrez en édition du fichier
+<br> aller dans votre dossier www local, dans le dossier docker ou il y le fichier php.ini puis creer un dossier sites
+<br> créer un nouveau fichier default.conf
+<br> éditez ce fichier comme suit (n'oubliez pas de ne pas mettre d'espace entre < et le texte>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> < VirtualHost *:80>
+ ServerName default
+ DocumentRoot /var/www/html
+
+ ErrorLog ${APACHE_LOG_DIR}/error.log
+ CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+ < Directory "/var/www/html/">
+  AllowOverride All
+ </ Directory></code></pre>
+
+ Maintenant faire une liaison de ce dossier sites et le dossier sites-enabled d'apache
+ <br>Remarque : A partir de maintenant les lignes vont devenir trop longues, il faut utiliser un outil nomme <mark>docker compose</mark> qui permet de créer des recettes pour
+ docker</p>
+
+<h3>Utiliser l'outil docker-compose d'utilisation des recettes pour docker</h3>
+
+<p>Se rendre sur docker compose en tapant docker compose sur Google puis aller sur le premier lien
+<br>docker compose sert a automatiser les commandes quand elle deviennent trop longues a taper
+<br>En fonction de votre système d'exploitation, installer en suivant les instructions
+
+<br>quand vous êtes dans boot2docker
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> curl -L https://github... (la commande disponible sur le site)</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> chmod +x /usr/local/bin/docker-compose</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose</code></pre>
+on voit que la commande fonctionne : problème, à chaque redémarrage de la machine, cela va être supprime puisqu'il n'y a que 2 dossiers persistants avec docker
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> cp /usr/local/bin/docker-compose /var/lib/boot2docker/docker-compose</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> ls /var/lib/boot2docker/</code></pre>
+cela doit bien afficher le fichier docker-compose
+<br>il va falloir préciser dans le fichier bootlocal.sh de bouger le fichier docker-compose a chaque redémarrage pour docker compose reste toujours accessible
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> vi /var/lib/boot2docker/bootlocal.sh</code></pre>
+puis dans ce fichier l’éditer comme suit
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> cp /var/lib/boot2docker/docker-compose /usr/local/bin/docker-compose</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> chmod +x /usr/local/bin/docker-compose</code></pre>
+
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> mkdir /var/www</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> mount -t vboxsf www /var/www</code></pre>
+enregistrer, puis faire
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> exit</code></pre>
+pour quitter le mode administrateur
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> exit</code></pre>
+pour quitter boot2docker
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> boot2docker stop && boot2docker start && boot2docker ssh</code></pre>
+on va ensuite voir si docker-compose reste exécutable à chaque démarrage
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose</code></pre>
+tout doit fonctionner correctement
+<br>le système docker compose permet de créer un fichier qui va permettre d'automatiser les choses via un fichier au format yml
+<br>se rendre de le dossier www/docker en local
+<br>créer un nouveau fichier texte
+<br>l'appeler docker-compose.yml
+<br>éditer le fichier
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">web:
+    image: tutum/apache-php
+    ports:
+        -"80:80"
+    volumes:
+        - /var/www:/var/www
+    - /var/www/docker/php.ini:/etc/php5/apache2/conf.d/30-custom.ini
+    - /var/www/dockers/sites:/etc/apache2/sites-enabled</code></pre>
+sauvegarder le fichier
+<br>se rendre dans le dossier
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> cd /var/www/</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> cd docker</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+il prend le nom du dossier, il met un underscore, le nom de l'index
+<br>réactualisez la page de votre navigateur, aller a la racine avec l'adresse ip, vous aller voir votre dossier
+
+modifiez votre fichier de configuration php sites enables comme suit
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">< VirtualHost *:80>
+ ServerName default
+ DocumentRoot /var/www
+
+ ErrorLog ${APACHE_LOG_DIR}/error.log
+ CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+ < Directory "/var/www/html/">
+  AllowOverride All
+ </ Directory></code></pre>
+
+puis enregistrer,
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">CTRL+C</code></pre>
+pour stopper docker-compose
+<br>puis taper
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+cela permet de relancer à chaque fois les conteneurs et de les recréer
+<br>on va mettre le allow override directement dans les variables d'environnement pour ne plus s'embetter
+<br>rééditer le fichier yml comme suit
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">web:
+    image: tutum/apache-php
+    ports:
+        -"80:80"
+    volumes:
+        - /var/www:/var/www
+    - /var/www/docker/php.ini:/etc/php5/apache2/conf.d/30-custom.ini
+    - /var/www/dockers/sites:/etc/apache2/sites-enabled
+    environment:
+        - ALLOW_OVERRIDE=true</code></pre>
+Cela permet de garder les configuration des hotes virtuels très légères. Rééditez votre fichier avec les directives virtualhost comme suit
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">< VirtualHost *:80>
+ ServerName default
+ DocumentRoot /var/www
+
+ ErrorLog ${APACHE_LOG_DIR}/error.log
+ CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+ </ VirtualHost></code></pre>
+Couper docker compose
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> CTRL+C</code></pre>
+Redémarrer docker compose
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+Si vous avez une erreur, c'est qu'il y a une erreur dans l'indentation du fichier yml (il faut toujours 4 espaces, et pas d'espace entre les :)
+<br>Réactualiser la page du navigateur, et la tout doit bien fonctionner
+<br>Maintenant je veux que local.dev pointe sur ce dossier
+<br>Aller dans www/docker/sites
+<br>Modifier la configuration en l'appelant local-dev.conf
+<br>Ouvrir le fichier
+<br>Le modifier comme suit
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> 
+< VirtualHost *:80>
+     ServerName local.dev
+     DocumentRoot /var/www/local.dev
+</ VirtualHost>
+</pre></code>
+Enregistrer, fermer, mettre fin au processus docker-compose
+<br>Le relancer
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+<br>Maintenant taper local/dev dans la barre d'adresse du navigateur
+<br>Automatiquement cela va aller sur chemin aze
+<br>Se rendre dans le dossier local local.dev, y creer un fichier de votre choix
+<br>Actualiser la page du navigateur
+<br>Automatiquement le fichier crée va alors s'afficher
+
+<br>Se rendre sur le site d'adminer et télécharger le fichier php associé
+<br>Le placer à la racine www (pas dans local.dev)
+<br>Se rendre a la racine et double cliquer sur le fichier, cela ne vas fonctionner, car il faut modifier la configuration pour avoir mysql
+<br>Mettez fin au processus docker compose
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">CTRL+C</code></pre>
+Créer un nouveau conteneur, qui va contenir mysql
+<br>Rechercher sur le site des hub docker (search the registry), tapez mysql, il y a un dépôt officiel.
+<br>Se rendre sur le fichier yml et le modifier comme suit
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">web:
+    image: tutum/apache-php
+    ports:
+        -"80:80"
+    volumes:
+        - /var/www:/var/www
+    - /var/www/docker/php.ini:/etc/php5/apache2/conf.d/30-custom.ini
+    - /var/www/dockers/sites:/etc/apache2/sites-enabled
+    environment:
+        - ALLOW_OVERRIDE=true
+    links:
+        -db:db
+db:
+    image:mysql
+    volumes:
+        - /var/lib/boot2docker/mysql:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root</code></pre>
+Sauvegarder le fichier et quitter, puis tapez dans boot2docker
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+Vous aller voir alors docker-compose lancer le 2 environnements séparément
+<br>Le premier lancement de la commande sera plus long car la base de données va procéder à toute la partie installation
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> CTRL-C</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+Cette fois le processus va être beaucoup plus rapide à lancer
+<br>Lancer dans un autre console un autre processus boot2docker
+<br>Puis faire
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-ps</code></pre>
+Vous voyez alors les 2 machines ouvertes actuellement: apache-php, et mysql
+<br>Faites
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker exec -ti docker_web_1 /bin/bash</code></pre>
+On voit que cela pointe vers une ip, cela signifie que quand la liaison est faite, le système web va être modifié
+<br>et il va lui dire maintenant le nom d'hote db correspond à l'ip de cette machine la
+<br>On peut donc  faire communiquer les machines l'une avec l'autre
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> printenv</code></pre>
+Permet de voir les variables d'environnement, je vais ainsi voir toutes les variables d'environnement qui sont dans le premier élément, ou
+<br>les deux peuvent communiquer de cette manière la (soit en transvasant le nom d’hôte, soit avec les variables ,d'environnement)
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> exit</code></pre>
+Fermer</p>
+
+<h3>Avantage du système : cas du besoin d'un changement de composant</h3>
+
+<p>Exemple vous changez de client sql, vous passer de mysql a mariadb
+
+<br>Il vous suffit de changer de configuration comme suit dans le fichier yml en changeant le paramètre image
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">web:
+    image: tutum/apache-php
+    ports:
+        -"80:80"
+    volumes:
+        - /var/www:/var/www
+    - /var/www/docker/php.ini:/etc/php5/apache2/conf.d/30-custom.ini
+    - /var/www/dockers/sites:/etc/apache2/sites-enabled
+    environment:
+        - ALLOW_OVERRIDE=true
+    links:
+        -db:db
+db:
+    image:mariadb
+    volumes:
+        - /var/lib/boot2docker/mysql:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root</code></pre>
+Enregistrer
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> CTRL-C</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+En cas de changement de nom dans le fichier yml, il faut faire un docker-stop avant
+<br>Reconnecter vous a adminder
+<br>Observez : c'est désormais une mariadb
+<br>Le docker-compose via son fichier yml peut être utilisé pour connecter un ensemble de choses
+<br>Exemple : rajout du composant maildev
+<br>Aller dans le docker hub chercher un conteneur nommé maildev
+<br>Retourner dans le fichier docker compose et le modifier comme suit
+<br>Toujours le même processus pour un rajout de conteneur dans le fichier yml, d'abord écrire la variable image, puis les ports ou les volumes,
+ensuite si d'autres conteneur ont des dépendances avec le conteneur installé, rajouter dans le conteneur principal une ligne à links
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">web:
+    image: tutum/apache-php
+    ports:
+        -"80:80"
+    volumes:
+        - /var/www:/var/www
+    - /var/www/docker/php.ini:/etc/php5/apache2/conf.d/30-custom.ini
+    - /var/www/dockers/sites:/etc/apache2/sites-enabled
+    environment:
+        - ALLOW_OVERRIDE=true
+    links:
+        -db:db
+    -maildev:maildev
+db:
+    image:mariadb
+    volumes:
+        - /var/lib/boot2docker/mysql:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+maildev:
+    image: djfarrelly/maildev
+    ports:
+        - "1080:80"</code></pre>
+Faire le configuration smtp avec maildev au niveau de php
+<br>créer un fichier l'editer comme suit
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">host:maildev
+encryption:none
+port:25
+</code></pre>
+Enregistrer, cela fonctionnera directement avec php
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose stop</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+Retourner dans le navigateur
+<br>Faire
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> local.dev</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> local.dev:1080</code></pre>
+On se retrouve sur maildev pour effectuer ses essais
+
+<h3>Utilisation de composer avec les fichier yml</h3>
+
+Chercher dans la base de données docker hub composer
+<br>Un composer officiel existe
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> exit</code></pre>
+Se mettre sur boot2docker sans docker-composer de lancé
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">cd /var/www/local.dev</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker run -ti -v $(pwd):/app composer/composer init</code></pre>
+L'image va alors être téléchargée
+
+<br>Le message welcome to the composer config generator apparaît.
+<br>Renseigner votre nom d'auteur, passer la stabilité, passer la licence, pour le dépendances interactive mettre yes,
+<br>pour search for a package taper carbon
+<br>Les résultats apparaissent, taper 0 pour choisir la premiere version par exemple
+<br>Au prochain search for a package s'affichant, taper entrée directement
+<br>Au message définir des dépendances interactives, taper no,
+<br>A la confirmation taper yes,
+
+<br>Ensuite pour lancer une installation il suffit de faire
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">docker run -ti -v $(pwd):/app composer/composer install</code></pre>
+
+Ceci installe les dépendances et fait un lien entre le dossier courant et le dossier :/app
+<br>On va maintenant modifier notre fichier bootlocal.sh pour créer un alias, ainsi on tapera seulement composer pour lancer toute la commande juste au dessus
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> sudo vi /var/lib/boot2docker/bootlocal.sh</code></pre>
+Une fois dans le fichier l'éditer comme suit
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> cp /var/lib/boot2docker/docker-compose /usr/local/bin/docker-compose</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> chmod +x /usr/local/bin/docker-compose</code></pre>
+
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> mkdir /var/www</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> mount -t vboxsf www /var/www</code></pre>
+
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> echo 'alias composer='\''docker run -ti --rm -v $(pwd):/app composer/composer'\''' >> /home/docker/.ashrc</code></pre> 
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> echo 'cd /var/www' >> /home/docker/.ashrc</code></pre>
+Sauvegarder puis rebooter
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> sudo reboot</code></pre>
+Cela redémarre le service
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> boot2docker ssh</code></pre>
+Cela relance boot2docker
+Normalement vous êtes directement dans le dossier /var/www
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> alias</code></pre>
+Vous voyez que votre dernier alias a été crée
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> cd local.dev/</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> composer install</code></pre>
+Et la vous voyez directement composer se lancer sous forme de conteneur</p>
+
+<h3>Pour ceux qui veulent la configuration NGINX au lieu d'Apache</h3>
+
+<p>Commencer par installer php en premier bloc: rechercher sur le site de docker le conteneur php, puis repérer le conteneur correspondant
+et dans la rubrique web du fichier yml l'intégrer: créer, une rubrique php, une variable image qui contient en paramètre le nom de la version
+désirée, ensuite monter les volumes qui correspondent a la même architecture que celle utilisée pour le web, on fait une liaison avec links,
+car c'est php qui communique avec la base de donnée, le fameux links db db.
+<br>Re modifier son fichier yml comme suit
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">php:
+    image:php:5.6.10-fpm
+    volumes:
+        - /var/www:/var/www/html
+    links:
+        - db:db
+db:
+    image:mysql
+    volumes:
+        - /var/lib/boot2docker/mysql:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+maildev:
+    image: djfarrelly/maildev
+    ports:
+        - "1080:80"</code></pre>
+
+Lancer boot2docker
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> boot2docker ssh</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> cd docker/</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+Remarquez dans dans le dockerfile de ce php, qu'il a un WORKDIR conflictuel, cette version de php specifie un workdir /var/www/html, hors notre configuration
+spécifie seulement /var/www  -> On va donc temporairement ajouter un dossier html dans le dossier www en local
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose stop</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose rm</code></pre>
+A la question are you sure ? Répondre y
+<br>Cela permet de supprimer un conteneur dont l'installation aurait été conflictuelle
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+Désormais cela doit fonctionner
+<br>Aller ensuite chercher nginx sur le site de docker, prendre la version officielle, et modifier votre fichier yml comme suit
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">web:nginx
+    image:nginx
+    ports: 
+        - "80:80"
+    volumes:
+        - /var/www/:/var/www/html
+    links:
+        - php:php
+php:
+    image:php:5.6.10-fpm
+    volumes:
+        - /var/www:/var/www/html
+    links:
+        - db:db
+db:
+    image:mysql
+    volumes:
+        - /var/lib/boot2docker/mysql:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+maildev:
+    image: djfarrelly/maildev
+    ports:
+        - "1080:80"</code></pre>
+
+Enregistrer stoppez vos processus ouverts,
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> CTRL-C</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose stop</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+Rendez-vous sur la page local.dev, le message Welcome to Nginx. Cela signifie que Nginx est bien configuré
+<br>Si je veux maintenant faire pointer différemment lors de la saisie de local.dev dans la barre d'adresse du navigateur
+<br>Créer dans votre dossier docker en local un dossier nginx
+<br>Créer dans le dossier crée un fichier de configuration default.conf comme ceci (qui contiendra la configuration nginx)
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> server{
+     listen 80;
+     server_name localhost;
+
+     location/{
+         root /var/www/html;
+     index index.html index.htm;
+     }
+ }</code></pre>
+Se rendre a la racine www
+<br>Créer un nouveau fichier index.html, l'ouvrir et juste mettre un message aléatoire, aze par exemple (pour vérifier que cela fonctionne)
+<br>Remodifier votre fichier yml comme suit
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">web:nginx
+    image:nginx
+    ports: 
+        - "80:80"
+    volumes:
+        - /var/www/docker/nginx:/etc/nginx/conf.d
+        - /var/www/:/var/www/html
+    links:
+        - php:php
+php:
+    image:php:5.6.10-fpm
+    volumes:
+        - /var/www:/var/www/html
+    links:
+        - db:db
+db:
+    image:mysql
+    volumes:
+        - /var/lib/boot2docker/mysql:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+maildev:
+    image: djfarrelly/maildev
+    ports:
+        - "1080:80"</code></pre>
+Enregistrer, taper
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+Retaper local.dev dans la barre de configuration de votre navigateur internet. Cela fonctionne.
+<br>Maintenant nous allons modifier la configuration du fichier default.conf pour prendre en compte la nouvelle installation et faire fonctionner php
+<br>Ouvrir le fichier default.conf (fichier de configuration nginx)
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash">server{
+     listen 80;
+     server_name localhost;
+     root /var/www/html;
+     location/{
+         index index.php index.html index.htm;
+         #par defaut on charge index.php puis sinon index.html puis sinon index.htm
+     }
+
+     location ~*\.php${
+         fastcgi_index index.php;
+         #des qu'on accede a un fichier php on dit que l'index c'est index.php
+         fastcgi_pass php:9000;
+         include fastcgi_params;
+         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+     }
+ } </code></pre>
+Couper et relancer docker-compose
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> CTRL+C</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up </code></pre>
+Maintenant de votre barre d'adresse aller voir le fichier phpinfo en faisant local.dev/phpinfo.php
+<br>Vous voyez s'afficher la version de votre php, ici 5.6
+
+<h3>Installation de laravel</h3>
+
+Lancer boot2docker et utiliser l'alias
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> cd ..</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> composer create-project laravel/laravel --prefer-dist Laravel</code></pre>
+Automatiquement, docker va installer toutes les dépendances
+<br>Modifier la configuration de nginx au niveau de location et root comme suit :
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> server{
+     listen 80;
+     server_name localhost;
+     root /var/www/html/Laravel/public;
+     location/{
+         try_files $uri $uri/ /index.php?$query_string;
+     }
+
+     location ~*\.php${
+         fastcgi_index index.php;
+         #des qu'on accede a un fichier php on dit que l'index c'est index.php
+         fastcgi_pass php:9000;
+         include fastcgi_params;
+         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+     }
+ } </code></pre>
+Enregistrer, puis relancer docker-composer
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> CTRL-C</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-composer up</code></pre>
+Problématique : il vous manque des composants php. Il va donc falloir créer un fichier nommé docker file.</p>
+
+<h3>Introduction au dockerfile</h3>
+
+<p>Aller dans votre dossier www, puis docker, puis php, et y créer un fichier nommé Dockerfile sans extension
+<br>Écrire ce qui suit dans le fichier
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> FROM php:5.6-fpm
+
+ RUN apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng-dev \
+    && docker-php-ext-install -j$(nproc) iconv mcrypt \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) gd
+ CMD ["php-fpm"]</code></pre>
+Enregistrez, vous aller ensuite modifier dans votre fichier yml l'image php par le dockerfile, qui va ainsi charger toutes les commandes supplémentaires
+<br>La directive ne sera plus image: mais build:
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> web:nginx
+    image:nginx
+    ports: 
+        - "80:80"
+    volumes:
+        - /var/www/docker/nginx:/etc/nginx/conf.d
+        - /var/www/:/var/www/html
+    links:
+        - php:php
+php:
+    build: php
+    volumes:
+        - /var/www:/var/www/html
+    links:
+        - db:db
+db:
+    image:mysql
+    volumes:
+        - /var/lib/boot2docker/mysql:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+maildev:
+    image: djfarrelly/maildev
+    ports:
+        - "1080:80"</code></pre>
+
+Enregistrer. La ligne build suivi de la valeur php va permettre d'aller chercher automatiquement le dockerfile. Couper docker-compose et relancer
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> CTRL-C</code></pre>
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose build</code></pre>
+Build car on doit d'abord construire a cause des apt-get présent dans le dockerfile
+<pre class="command-line" data-user="root" data-host="localhost"><code class="language-bash"> docker-compose up</code></pre>
+Relancer la page local.dev de votre navigateur. Lavarel apparaît.
+<br>Vous pouvez modifier la variable display errors de votre fichier php.ini pour afficher ou non les erreurs selon votre environnement</p>
+
+<h3>Faire démarrer de manière automatique les différents conteneurs</h3>
+<p>Il suffit de simplement rajouter le paramètre restart: always, dans le fichier de configuration yml pour chacun des conteneurs que l'on veut voir redémarrer automatiquement</p>
+<p>Quand vous ferez boot2docker start ou ssh, tout redémarrera automatiquement sans avoir besoin de ressaisir docker-compose up...</p>

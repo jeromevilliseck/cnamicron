@@ -1,0 +1,246 @@
+<p>Ce guide présente les commandes de bases pour une utilisation rapide de l'éditeur multi-fonctions en mode console VIM.</p>
+<p>La syntaxe <code>< TOUCHE></code> utilisée dans le guide représente une touche du clavier.</p>
+<h1 class="paddingTen">Les 3 modes de VIM</h1>
+
+<p>Lorsque vous lancez vim depuis la console en tapant <code>vim</code>, il démarre par défaut en mode interactif. Vous pouvez aussi lancer Vim sur un fichier précisé avec <code>vim [nomFichier]</code></p>
+
+<h1 class="paddingTen">Démarrage rapide</h1>
+
+<h3>Version pré-configurée de VIM (plus productif)</h3>
+
+<p>La version de Vincent Jousse va vous permettre d'utiliser Vim et d'apprendre Vim de manière beaucoup plus simple<br />
+<a href="../files/VimGuideApprentissage.pdf">Guide d'apprentissage de VIM</a></p>
+
+<p>Sous linux (distributions debian), commencez par installer vim avec la commande suivante : <code>sudo apt install vim</code>, puis telecharger le zip suivant, décompresser le et placer le fichier .vimrc
+qu'il contient dans votre home directory (<code class="code2">/home/[user]</code> ou <code class="code2">~</code>), et le dossier caché .vim dans votre home également. Vous devez avoir l'arborescence suivante pour un bon fonctionnnement</p>
+
+<p>
+<code class="code2">/home/[user]/.vimrc</code><br />
+<code class="code2">/home/[user]/.vim</code><br />
+</p>
+
+<p><a href="../files/vimConfiguration.zip">Télécharger la configuration linux pour VIM</a></p>
+<p><a href="../files/.vimrc">Télécharger le fichier de configuration .vimrc</a></p>
+
+<h4>Ou placer le fichier .vimrc et le dossier .vim ?</h4>
+
+<p><code>~/.vimrc</code><br />
+Fichier de configuration (caché), contenant la configuration de vim</p>
+
+<p><code class="code2">~/.vim</code><br />
+Dossier de configuration vim, contenant les plugins sous format .vim</p>
+
+<p>Imprimez l'aide ci-dessous, puis conservez la à coté de votre ordinateur pendant l'utilisation, le temps d'aprentissage de VIM est de quelques jours</p>
+
+<h4>Passer le terminal en 256 couleurs</h4>
+<p>Se rendre dans le dossier <samp>/home/[user]/~</samp>. Ouvrir le fichier .bashrc et y ajouter les lignes suivantes à la fin</p>
+<pre>
+<code class="language-textile">
+#Export terminal in 256 colors mode
+export TERM=xterm-256color
+</code>
+</pre>
+
+<p>
+<a href="../files/vimHelper.Fr.pdf">Memo VIM (Version Française)</a><br />
+<a href="../files/vimHelper.En.pdf">VIM Memo (English Version)</a></p>
+
+<h4>Raccourci pour emmet sous vim</h4>
+<p>Le raccourci principal : <code class="code2">CTRL+y</code><code class="code2">CTRL+,</code> (sans relacher la touche CTRL)<br />
+Le fichier texte contenant la liste de tous les raccourcis <code class="code2">.vim/bundle/emmet-vim/doc/emmet.txt</code></p>
+<p>Vous pouvez télécharger la version Windows pré-configurée de VIM ci-dessous<br />
+<a href="../files/GVimPortable.zip">Version portable pré-configurée</a>
+</p>
+
+<h4>Plugin TagBar sous vim</h4>
+<p>Necessite l'installation d'abord de ctags sur votre ordinateur. Pour linux (debian)
+<pre><code class="code2">sudo apt install exuberant-ctags</code></pre>
+Puis il vous suffit de d'utiliser F8 sur votre clavier pour afficher une barre latérale affichant les fonctions, variables de votre projet</p>
+
+<h4>Plugin Syntastic sous vim</h4>
+<p>Tapez la commande <pre><code class="code2">:SyntasticCheck</code></pre> pour afficher les erreurs de programmation. Tapez la commande
+<pre><code class="code2">:lclose</code></pre>pour fermer le panneau d'affichage des erreurs.</p>
+
+<h4>Indentation automatique</h4>
+<p>Appuyer sur la touche F7 grace au plugin tabular</p>
+
+<h4>Plugin Fugitive</h4>
+<p>Permet de faire du versioning directement dans vim. <em>Attention, Fugitive ne fonctionne que si on édite des fichiers dans un dossier qui à été init avec git préalablement</em></p>
+<h5>Commandes fugitive</h5>
+<table>
+    <thead>
+        <tr>
+            <th>Commande fugitive</th>
+            <th>Equivalent commande git</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code class="language-bash">:Gstatus</code></td>
+            <td><code class="language-bash">git status</code></td>
+            <td><code class="language-bash">en vert les fichier ajouté à la branche pour commit, en rouge non</code></td>
+        </tr>
+        <tr>
+            <td><code class="language-bash">:Gblame</code></td>
+            <td><code class="language-bash"></code></td>
+            <td><code class="language-bash">vision de l'ensemble des commit du projet</code></td>
+        </tr>
+        <tr>
+            <td><code class="language-bash">:Gedit</code></td>
+            <td><code class="language-bash"></code></td>
+            <td><code class="language-bash">revenir à la version initiale du fichier du dernier commit</code></td>
+        </tr>
+        <tr>
+            <td><code class="language-bash">:Gvdiff</code></td>
+            <td><code class="language-bash"></code></td>
+            <td><code class="language-bash">voir les differences entre la version de travail en cours et la derniere version sauvegardee (= commitée) de la branche - split Vertical</code></td>
+        </tr>
+        <tr>
+            <td><code class="language-bash">:Gdiff</code></td>
+            <td><code class="language-bash"></code></td>
+            <td><code class="language-bash">idem à :Gvdiff avec un split horizontal</code></td>
+        </tr>
+        <tr>
+            <td><code class="language-bash">:Git commande</code></td>
+            <td><code class="language-bash">n'importe quelle commande git</code></td>
+            <td><code class="language-bash">va executer la commande de git voulue automtiquement</code></td>
+        </tr>
+        <tr>
+            <td><code class="language-bash">:close</code></td>
+            <td><code class="language-bash"></code></td>
+            <td><code class="language-bash">ferme la fenetre de versionning</code></td>
+        </tr>
+    </tbody>
+    </tfoot>
+</table>
+
+<h4>Installation plugin YouCompleteMe sous vim</h4>
+<p>Attention requiert environ 350Mo d'espace disque. Se rendre à 
+	<a href="https://vimawesome.com/plugin/youcompleteme#ubuntu-linux-x64">Vimawesome.com/plugin/youcompleteme</a>
+et suivre les intructions d'installation. Va rajouter la complétion automatique en fonction du language comme sous eclipse et autres</p>
+
+
+<h1 class="paddingTen">Commandes de base</h1>
+<ul>
+	<li><code>h</code> se déplacer vers la gauche</li>
+	<li><code>j</code> se déplacer vers le bas</li>
+	<li><code>k</code> se déplacer vers le haut</li>
+	<li><code>l</code> se déplacer vers la droite</li>
+	<li><code>(</code><code>)</code> se déplacer par phrases</li>
+	<li><code>{</code><code>}</code> se déplacer par paragraphe</li>
+	<li><code>< ECHAP> :q! < ENTER></code> fermer sans sauvegarde</li>
+	<li><code>< ECHAP> :wq < ENTER></code> fermer avec sauvegarde</li>
+	<li><code>x</code> effacer caractères</li>
+	<li><code>i < ECHAP></code> inserer texte</li>
+	<li><code>a < ECHAP></code> ajouter texte</li>
+	<li><code>< ECHAP></code> passer en mode NORMAL ou dit INSERTION (ecriture de texte)</li>
+	<li><code>< ECHAP></code> revenir en mode interactif</li>
+</ul>
+
+<h1 class="paddingTen">Opérer sur des lignes, supprimer</h1>
+
+<ul>
+	<li><code>dw</code> effacer mot jusqu'au mot suivant</li>
+	<li><code>d$</code> effacer curseur jusqu'a fin de la ligne</li>
+	<li><code>dd</code> effacer toute une ligne</li>
+	<li><code>2w</code> deplacer 2 mots vers la gauche</li>
+</ul>
+
+<p>Syntaxe d'une commande de changement</p>
+
+<pre>
+    operateur        [nombre] deplacement
+	|                |         |
+    d = effacer          x       w = un mot
+    rien = deplacer              $ = fin de ligne
+</pre>
+
+<ul>
+	<li><code>0</code> se deplacer debut de ligne</li>
+	<li><code>u</code> annuler une modification (undo)</li>
+	<li><code>U</code> annuler tous les changements sur une ligne</li>
+	<li><code>< CTRL-R></code> annuler l'annulation (equivalent d'un CTRL + SHIFT + Z = redo)</li>
+</ul>
+
+<h1 class="paddingTen">Syntaxe du remplacement et du changement</h1>
+
+<ul>
+	<li><code>p</code> remet le texte qui à été effacé préalablement à la position à laquelle on se situe</li>
+	<li><code>r</code> remplace le caractère situé sous le curseur par une autre caractère que vous choisissez</li>
+	<li><code>ce</code> changer du curseur jusque la fin du mot</li>
+	<li><code>c$</code> chnager du curseur jusque la fin de la ligne</li>
+</ul>
+
+<h1 class="paddingTen">Déplacement dans un fichier, remplacement de texte</h1>
+
+<ul>
+	<li><code>< CTRL-G></code> affichage de la position dans un fichier et etat de ce dernier</li>
+	<li><code>nombre G</code> déplace au numero de ligne indique par nombre</li>
+	<li><code>gg</code> retour en debut de fichier</li>
+	<li><code>G</code> fin de fichier</li>
+	<li><code>/ [texteSaisi]</code> recherche ce texte vers l'avant</li>
+	<li><code>? [texteSaisi]</code> recherche ce texte vers l'arriere</li>
+</ul>
+
+<p>Après une recherche taper <code>n</code> pour trouver l'occurence suivante dans la même direction ou <code>MAJ + n</code> pour rechercher dans la direction opposée</p>
+
+<p>Que le curseur est positionné sur un des symboles suivants <code>( ) [ ] { }</code> appuyer sur <code>%</code> pour trouver l'equivalent fermant ou ouvrant de la balise. Pratique pour le debbogage.</p>
+
+<ul>
+	<li><code>:s/aa/bb</code> remplace le premier aa par bb sur une ligne</li>
+	<li><code>:s/aa/bb/g</code> remplace tout les aa par bb sur une ligne</li>
+	<li><code>:#,#s/aa/bb/g</code></li>
+	<li><code>:%s/aa/bb/g</code> remplace toutes les occurences dans le fichier</li>
+	<li><code>:%s/aa/bb/gc</code> demander une confirmation a chaque fois</li>
+</ul>
+
+<h1 class="paddingTen">Commandes externes, enregistrement intégration de fichier</h1>
+
+<ul>
+	<li><code>:!commande</code> execute une commande externe (à noter: la commande cd ne fonctionne pas, se placer à l'endroit du disque ou l'on souhaite avant de lancer l'éditeur</li>
+	<li><code>:w [nomDeFichier]</code> enregistre le fichier courant sur le disque à l'endroit ou vous êtes positionné avec le nom de fichier précisé</li>
+	<li><code>v < deplacementAvecLesTouchesHautBas> :w FICHIER</code> sauvegarde les lignes de la selection visuelle dans le fichier FICHIER</li>
+	<li><code>:r FICHIER</code> recupere le contenu du fichier FICHIER et l'insere sous la position du curseur</li>
+	<li><code>:r !dir</code> lit la sortie de la commande dir et l'insère sous la position du curseur</li>
+</ul>
+
+<h1 class="paddingTen">Insertion, copie, remplacement de texte</h1>
+
+<ul>
+	<li><code>o</code> ouvre une ligne SOUS le curseur et démarre le mode Insertion, insérer ce que l'on veut puis ECHAP pour sortir du mode</li>
+	<li><code>O</code> ouvre une ligne au-DESSUS du curseur</li>
+	<li><code>a</code> inserer du texte après le curseur</li>
+	<li><code>A</code> inserer du texte après la fin de la ligne</li>
+	<li><code>e</code> déplace a la fin du mot</li>
+	<li><code>y</code> copie du texte, <code>p</code> le colle</li>
+	<li><code>R</code> R majuscule active le mode remplacement jusqu'a ce que ECHAP</li>
+</ul>
+
+<h1 class="paddingTen">Système d'aide</h1>
+
+<ul>
+	<li><code>:help</code> ouvre la fenetre d'aide</li>
+	<li><code>:help cmd</code> trouve de l'aide sur cmd</li>
+	<li><code>CTRL-W CTRL-W</code> saute à une autre fenetre</li>
+	<li><code>:q</code> fermer la fenetre d'aide</li>
+	<li><code>edit /etc/vim/.vimrc</code> edite le fichier vimrc, l'éditer, et enregistrer</li>
+	<li><code>:r $VIMRUNTIME/vimrc_example.vim</code> lire ce fichier pour comprendre les options de configuration disponibles</li>
+</ul>
+
+<p>Pour le fichier de configuration, quelques paramètres disponibles</p>
+
+<ul>
+	<li><code>set number</code> affiche les numéros de ligne</li>
+	<li><code>set smartindent</code> indentation intelligente</li>
+	<li><code>set autoindent</code> conserve l'indentation sur une nouvelle ligne</li>
+	<li><code>set ruler</code> affiche la position du curseur</li>
+	<li><code>set mouse=a</code> service GPM : active la souris dans vim</li>
+	<li><code>syntax on</code> coloration syntaxique</li>
+	<li><code>set nowrap</code> eviter retour automatique à la ligne</li>
+</ul>
+
+<p>Sur mac le fichier de configuration de vim se trouve dans <code>~/.vimrc</code>. Si il n'existe pas créez le, puis éditer le en rajoutant les options ci-dessus désirées.</p>
+<p>Sur linux créez un fichier .vimrc dans votre répertoire home/user nommé aussi ~/, puis affichez les fichiers cachés et éditer le en rajoutant les options ci-dessus désirées ligne après ligne.</p>
+
+<p>Pour travailler sur du code source, ouvrir de mutliples onglets sur un terminal pour pouvoir travailler sur plusieurs fichiers en même temps</p>

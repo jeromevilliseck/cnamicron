@@ -1,0 +1,589 @@
+<h1>Installation et présentation de SASS</h1>
+
+<p>SASS est un pré-processeur : programme qui travaille sur un fichier .scss ou
+    .sass en l'analysant puis en le transformant en générant un fichier .css
+    distinct, qui lui est utilisable par le navigateur. Cette conversion automatique
+    (compilation) est effectuée au moment de la sauvegarde du fichier, un écouteur
+    surveille les modifications et l'enregistrement de ce fichier .scss. COMPASS lui
+    améliore SASS en lui rajoutant des méthodes, et fonctionnalités pré-définies
+    afin de gagner du temps. on peux considérer compass comme une bibliothèque de
+    fonctions pré-définies pour sass.</p>
+
+<h1>Fonctionnement de SASS</h1>
+
+<h2 class="paddingTen">Installation via le terminal</h2>
+
+<p>Rappel : les instructions placés entre [] sont à supprimer, accolades []
+    incluse à supprimer également, puis remplacer par vos paramètres à vous.</p>
+
+<ol>
+    <li>Placer vous en administrateur avant d'effectuer les commandes suivantes.</li>
+    <li>Tout d'abord avoir Ruby installé sur son système. Utiliser le ruby installer
+        pour windows, pour mac ruby est pré-installé, pour linux utiliser le
+        gestionnaire de paquets pour installer Ruby.
+    </li>
+    <li>Pour s'assurer qu ruby est installé faire
+        <code>ruby --help</code>
+        avec l'utilitaire cmd de windows ou bien le terminal sous linux ou mac. Vous
+        devez voir apparaitre l'aide de Ruby si ruby s'est bien installé.
+    </li>
+    <li>Installez SASS. Faire
+        <code>gem install sass</code>
+    </li>
+    <li>Installer compass. Faire
+        <code>gem install compass</code>
+    </li>
+    <li>Créez n'importe ou dans votre arborescence locale un dossier
+        <code class="code2">sass</code>
+        et un dossier
+        <code class="code2">css</code>
+    </li>
+    <li>Créez un fichier
+        <code class="code2">style.scss</code>
+        dans votre dossier
+        <code class="code2">scss</code>
+    </li>
+    <li>Avec le terminal, se rendre dans le dossier ou se situe le fichier .scss</li>
+    <li>Placer un écouteur qui va surveiller le dossier ou se situe le fichier
+        .scss, commencer par se mettre dans le dossier qui contient les 2 dossiers sass
+        et css, puis faire<br/>
+        <code>sass --watch [nomDossierSass]:[nomDossierCss]</code>
+    </li>
+    <li>Modifier le fichier .sass ou .scss, puis l'enregistrer. SASS, qui tourne en
+        arrière plan, indiqué par la présence des 3 chevrons
+        <code>>>></code>
+        va détecter l'enregistrement et générer automatiquement le fichier css dans le
+        dossier css correspondant a [nomDossierCss]
+    </li>
+</ol>
+
+<p>Pour connaitre les versions de sass et compass sur votre machine :
+    <code>sass --version</code>
+    et
+    <code>compass --version</code>
+</p>
+
+<p>Sinon en interface graphique il existe SCOUT</p>
+
+<h2 class="paddingTen">Imbrication</h2>
+
+On peut écrire la syntaxe du css dans les fichiers sass
+
+<p>L'interet c'est que en changeant les nom des class css permet d'éviter de
+    devoir remodifier partout le fichier css ou la class est présente</p>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    body{
+        background-color: #ddd;
+    }
+    a{
+        color:green;
+    }
+    h1{
+        font-size: 32px;
+        a{  /*imbrication -> va transformer ce a, en h1 a, remplace les enfants par le chemin complet parent parent (...) enfant*/
+            color: green;
+            text-decoration:none;
+            &:hover{    /*& est remplacé par tout ce qui est le parent, soit h1 a, pas seulement a!*/
+                color:#000;
+            }
+            .first &{ /*sera remplacé par .first h1 a*/
+                ..
+            }
+        }
+    }
+    </code>
+</pre>
+
+<p>Eviter de mettre plus de 3 niveaux d'imbrication</p>
+
+<code class="code2">css/style.css</code>
+<pre>
+    <code class="language-css">
+    body{
+        background-color: #ddd;}
+    a {
+        color: green;}
+    h1{
+        font-size: 32px; }
+    h1 a{ /*résultat de l'imbrication*/
+            color: green;
+            text-decoration: none; }
+            h1 a:hover{ /*resultat de l'imbrication*/
+                color: #000; }
+    </code>
+</pre>
+
+<h2 class="paddingTen">Héritage</h2>
+
+<p>Cet exemple montre comment styliser plusieurs classes avec sass</p>
+
+<code class="code2">html/index.html</code>
+<!-- HTML generated using hilite.me -->
+<div
+        style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+    <pre
+            style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;div</span> <span style="color: #0000cc">class=</span><span
+            style="background-color: #fff0f0">&quot;info&quot;</span><span style="color: #007700">&gt;</span>
+penser a faire <span style="color: #007700">&lt;em&gt;</span>ceci<span style="color: #007700">&lt;/em&gt;</span> avant cela
+<span style="color: #007700">&lt;/div&gt;</span>
+<span style="color: #007700">&lt;div</span> <span style="color: #0000cc">class=</span><span
+                style="background-color: #fff0f0">&quot;error&quot;</span><span style="color: #007700">&gt;</span>
+il n&#39;y a plus de <span style="color: #007700">&lt;em&gt;</span>hyperdrive t14<span style="color: #007700">&lt;/em&gt;</span>
+<span style="color: #007700">&lt;/div&gt;</span>
+<span style="color: #007700">&lt;div</span> <span style="color: #0000cc">class=</span><span
+                style="background-color: #fff0f0">&quot;success&quot;</span><span style="color: #007700">&gt;</span>
+il y a le sens de la vie, <span style="color: #007700">&lt;em&gt;</span>de l&#39;univers<span style="color: #007700">&lt;/em&gt;</span> et de tout
+<span style="color: #007700">&lt;/div&gt;</span>
+</pre>
+</div>
+
+<br/>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-sass">
+    .info{
+        padding: 10px;
+        border: 1px solid #999;
+        margin: 10px;
+        border-radius:5px;
+        em{ /*les imbrications sont également héritées*/
+            text-decoration: underline;
+        }
+    }
+
+    .error{ /*error prend toutes les propriétés de .info*/
+        @extend .info;
+        border-color: #870000;
+        background-color: #ffd9d9;
+    }
+
+    .success{
+        @extend .info;
+        border-color:#005700;
+        background-color: #d6ffd6;
+    }
+    </code>
+</pre>
+
+<p>La syntaxe
+    <code>@extend .nomClass</code>, dans le fichier ci-dessus, permet de faire heriter de la classe
+    <code>.nomClass</code>, toutes les imbrications de la .classe parent sont également héritées.</p>
+
+<code class="code2">css/style.css</code>
+<pre>
+    <code class="language-css">
+    @charset "utf-8";
+    .info, .error, .success {
+      padding: 10px;
+      border: 1px solid #999;
+      margin: 10px;
+      border-radius: 5px; }
+      .info em, .error em, .success em {
+        /*les imbrications sont également héritées*/
+        text-decoration: underline; }
+
+    .error {
+      /*error prend toutes les propriétés de .info*/
+      border-color: #870000;
+      background-color: #ffd9d9; }
+
+    .success {
+      border-color: #005700;
+      background-color: #d6ffd6; }
+    </code>
+</pre>
+
+<p>Sans compass on est obligé de faire .class, .class2, .class3{ dans le css.</p>
+<p>Les classes sous-enfant héritent également de tout leurs ancêtres.</p>
+
+<p>Il est possible de garder des propriétés spécifiques et de pousser plus loin
+    l'héritage avec la syntaxe suivante</p>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    .info{
+    }
+    /*les .class qui font extends de .info ici sont touchés que si il ne sont pas englobés dans une autre classe*/
+
+    .content{
+        .info{
+        }
+        /*les .class qui font extends de .info ici sont touchés, mais seulement qui sont dans leur conteneur .content*/
+    }
+    </code>
+</pre>
+
+<h2 class="paddingTen">Import</h2>
+
+<h3>Mauvaise méthode</h3>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    @import "reset.css"; /*cela crée un apport classique qui, fait un appel serveur supplementaire*/
+    /*ceci nest pas une bonne méthode on alourdit les appels*/
+    </code>
+</pre>
+
+<h3>Bonne méthode</h3>
+
+<ol>
+    <li>Créer un fichier
+        <code class="code2">reset.scss</code>
+        placé dans le repertoire ou sont les fichiers scss</li>
+    <li>Mettre le code scss de base intialement dans le fichier style.scss dans le
+        fichier reset.scss</li>
+    <li>
+        <code class="code2">scss/style.scss</code>
+        <pre>
+                <code class="language-scss">
+    @import "reset.scss"; /*cela fait un apport scss beaucoup plus rapide en terme de temps de réponse*/
+    @import "menu.scss"; /*exemple un petit fichier .scss qui ne contiendrait que le menu
+                </code>
+            </pre>
+    </li>
+</ol>
+
+<h3>Ajout des _ devant les fichier .scss intégrés</h3>
+
+<p>Enregistrer les fichiers .scss sauf le fichier style.scss avec un _en debut
+    de fichier</p>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    @import "_reset"; /*le underscore devant est important*/
+    @import "_menu"; /*l'extension n'est plus nécessaire !*/
+    </code>
+</pre>
+
+<h2 class="paddingTen">Variables et fonctions</h2>
+
+<p>Définir des variables (peuvent contenir chiffres, caracteres...)</p>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    $rouge:#FFD9D9;
+    $vert: #D6FFD6; /*On définit ainsi des couleurs prédéfinies au départ*/
+
+    .info{
+        padding: 10px;
+        border: 1px solid #999;
+        margin: 10px;
+        border-radius:5px;
+        em{ /*les imbrications sont également héritées*/
+            text-decoration: underline;
+        }
+    }
+
+    .error{ /*error prend toutes les propriétés de .info*/
+        $rouge: red !default; /*Attention si une variable globale $rouge existe, cette propriété est ignorée, elle n'est intégrée que si il n'y a pas de variable $rouge déclarée en amont du fichier
+        @extend .info;
+        border-color: $rouge; /*La variable stockée en dehors des propriétés des éléments est utilisable dedans*/
+        background-color: $rouge;
+        color: darken($rouge, 30%) /*darken est une fonction prédéfinie par SASS, qui prends 2 paramètres, une valeur, puis une valeur absolue)
+    }
+
+    .success{
+        @extend .info;
+        border-color:desaturate(darken($vert, 30%), 70%); /*On peut appliquer des methodes qui prennent en parametre d'autres methodes
+        background-color: $vert;
+    }
+    </code>
+</pre>
+
+<h2 class="paddingTen">Fonctions et Mixins</h2>
+
+<p>Créer des fonctions pré-définies et utiliser le système de mixins</p>
+<ol>
+    <li>je crée une fonction en début de fichier avec @function</li>
+    <li>j'ajoute @return en debut du corps de la fonction pour signifier que la fonction retourne quelque chose</li>
+    <li>je copie colle dans le corps de la fonction une propriété css que je souhaite automatiser</li>
+    <li>je supprime toute référence dans le corps de la fonction a des valeurs prédéfinies et les remplace par des variables de portée locale</li>
+    <li>j'ajoute des paramètres si besoin a la fonction en lien avec ces variables de portée locale</li>
+    <li>j'utilise directement la fonction en les appelant juste après le : d'une propriété css</li>
+</ol>
+
+<p>Il est possible également de mettre des valeurs par défaut aux fonctions</p>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    /*Syntaxe pour mettre par defaut des valeurs aux fonctions*/
+    @function borderColor($color : white){ /*si je ne définit pas de valeur, la couleur par défaut utilisée sera blanche*/
+    /*...*/
+    }
+    </code>
+</pre>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    $rouge:#FFD9D9;
+    $vert: #D6FFD6;
+
+    @function borderColor($color){
+        $darken : darken($color, 30%); /*On peut même créer des petites variables de portée locale qui stockent temporairement une valeur
+        @return desaturate($darken, 30%);
+
+    }
+
+    .info{
+        padding: 10px;
+        border: 1px solid borderColor(white);
+        margin: 10px;
+        border-radius:5px;
+        em{
+            text-decoration: underline;
+        }
+    }
+
+    .error{ /*error prend toutes les propriétés de .info*/
+        $rouge: red !default;
+        @extend .info;
+        border-color: borderColor($rouge); /*fonction*/
+        background-color: $rouge;
+        color: darken($rouge, 30%)
+    }
+
+    .success{
+        @extend .info;
+        border-color:borderColor($vert); /*fonction*/
+        background-color: $vert;
+    }
+    </code>
+</pre>
+
+<h3>Utilisation de Mixins</h3>
+
+<p>La fonction ne permet que de retourner une valeur. La mixin permet de créer un <mark>bloc de propriétés CSS qui peut contenir plusieurs valeurs, fonctions</mark>.<br/>On dit qu'on sauvegarde une <mark>collection</mark> de propriétés et de valeurs.</p>
+
+<ol>
+    <li>Définir une mixin avec @mixin</li>
+    <li>Mettre le nom de la mixin, la mixin peut prendre un paramètre ou plusieurs</li>
+    <li>Mettre en place des relations d'héritage ou non</li>
+    <li>Et surtout mettre en place des fonctions et des propriétes dans la mixin</li>
+    <li>Appeler la mixin ou l'on souhaite à l'aide de @include (exemple ci-dessous)</li>
+</ol>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    $rouge = red;
+
+    /*Création d'une sous-mixin*/
+    @mixin tdu(){
+        text-decoration: underline;
+    }
+
+    @mixin borderColor($color : white){
+        @extend .info; /*on a un heritage ici*/
+        border-color:borderColor($color);
+        background-color: $color;
+        color: darken($color, 80%);
+        @include tdu();  /*on peut inclure des mixins dans d'autres mixins*/
+        em{                                 /*on peut utiliser l'imbrication dans les mixins*/
+            font-weight: bold;
+            color: darken($color, 90%);
+        }
+    }
+
+    .error{
+        @include borderColor($rouge) /*utilisation de la mixin principale*/
+    }
+    </code>
+</pre>
+
+<h2 class="paddingTen">Différences SCSS et SASS</h2>
+
+<p>SASS est le nom qui est donné à la technologie qui est utilisée comme pré-processeur au css. cette technologie peut utiliser 2 langages, 2 syntaxes</p>
+<ul>
+    <li>SCSS : langage très proche du css -> il permet de copier-coller du css directement dedans et de l'utiliser</li>
+    <li>SASS : langage plus synthétique -> @mixin devient =mixin | @include devient + | les accolades disparraissent | l'indentation est primordiale pour l'imbrication</li>
+</ul>
+
+<p>Il existe une commande pour convertir un fichier saas en scss : <code>sass-convert style.sass style.scss</code>. L'inverse est également possible</p>
+
+<p>SASS technology gère ces deux syntaxes, langages. Exemple ci-dessous de syntaxe SASS</p>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    .info
+        padding: 10px
+        border: 1px solid #999
+        margin: 10px
+        border-radius: 5px
+
+        em
+            /*Les imbrications sont également héritées
+            text-decoration: underline
+
+    .error
+        /*error prend toutes les propriétés de .info
+        @extend .info
+
+        border-color: #870000
+        background-color: #FFD9D9
+
+    .success
+        @extend .info
+
+        border-color: #005700
+        background-color: #D6FFD6
+    </code>
+</pre>
+
+<h2 class="paddingTen">Conditions</h2>
+
+<code class="code2">index.html</code>
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;a</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;btn&quot;</span> <span style="color: #0000CC">href=</span><span style="background-color: #fff0f0">&quot;#&quot;</span><span style="color: #007700">&gt;</span>Mon bouton<span style="color: #007700">&lt;/a&gt;</span>
+</pre></div><br />
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    $btncolor = #000; /*couleur noire*/
+    $notification = false; /*ici on désactive la notification*/
+
+    $notification: true !default; /*le booléen $ notification est a true par defaut*/
+    @if $notification == true;
+    .btn{
+        padding: 10px;
+        background-color: $btncolor;
+        @if $btncolor == black {
+        color: #fff;
+        } else {
+        color: #000;
+        }
+    }
+
+        /*autre facon d'ecrire une condition (ressemble a la syntaxe de la condition ternaire)
+
+    .btn2{
+        padding: 10px;
+        background-color: $btncolor;
+        color:if(lightness($btncolor) > 50%, #000, #fff) /*parametre1 = la condition || parametre2 = execution si retour true || parametre3 = execution si retour false
+    }
+    </code>
+</pre>
+
+<h2 class="paddingTen">Boucles</h2>
+
+<p>Exemple de l'utilisation des boucles à travers la fabrication d'une grille : création de 3 classes grid</p>
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;grid4&quot;</span><span style="color: #007700">&gt;</span>Mon contenu<span style="color: #007700">&lt;/div&gt;</span>
+<span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;grid4&quot;</span><span style="color: #007700">&gt;</span>Mon contenu<span style="color: #007700">&lt;/div&gt;</span>
+<span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;grid8&quot;</span><span style="color: #007700">&gt;</span>Mon contenu<span style="color: #007700">&lt;/div&gt;</span>
+</pre></div>
+
+<p>Les boucles s'écrivent avec @for, puis avec FROM / TO, et l'utilisation de la variable de portée locale #{$  }</p>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    $columns: 16; /*le nombre de colonne de notre template*/
+    $width:100%; /*par défaut*/
+    $marge:1%; /*une marge de 1% sur les côtés*/
+
+    .grid{
+        margin: 0 $marge;
+        float:left;
+
+    @for $i from 1 to $columns +1{ /*Syntaxe d'une boucle en SASS
+    .grid#{$i}{ /*la syntaxe spécifique SASS de la concatenation
+        @extend .grid;
+        width: $i * $width / $columns - 2 * $marge; /*la formule qui permet d'avoir des colonnes de différentes tailles*/
+        }
+    }
+
+    </code>
+</pre>
+
+<h2 class="paddingTen">Fonctionnement de compass, configuration</h2>
+
+<ol>
+    <li>Créer un nouveau projet compass -> se rendre dans le dossier qui contient l'application</li>
+    <li><code>compass init</code> -> cela crée plusieurs dossiers : <ul><li>le dossier .sass-cache (à ne pas utiliser)</li><li>le dossier sass qui contient les fichiers .scss</li><li>le dossier stylesheets qui contient les données compilées</li><li>un fichier config.rb qui contient notre configuration -> ce fichier contient les variables importantes permettant a SASS de savoir ou travailler</li></ul></li>
+    <li>dans le fichier config.rb -> les variables importantes : <br />css_dir (indique dans quel dossier vont être compilés les fichiers css) <br />sass_dir (indique le dossier contenant les fichiers .scss<br />images_dir (indique ou sont les images sur lesquelles on va travailler plus tard)<br />javascript_dir(un dossier pour mettre les fichiers javascript vide au depart<br />output_style (definit le format de sortie du css)<br />line_comment (permet de supprimer les commentaires)</li>
+    <li>dans le dossier sass, tout enlever et renommer le fichier en style.scss</li>
+    <li>Lancer l'écouteur avec <code>compass --watch</code>, lancer cette commande en se placant dans le dossier principal ou se situe les sous dossier applicatifs situés dedans</li>
+    <li>dans config.rb -> pour la variable output_style = :expended (privilégier cette option la, les autres vont générer un css avec des indentation différentes)</li>
+    <li>dans config.rb -> pour la variable output_style = :compressed (quand on est en mode production -> supprime toutes les indentations) + retirer les commentaires</li>
+</ol>
+
+<p>dans le fichier style.css, la directive @import "compass", permet d'aller dans la librairie compass et d'importer les règles prédéfinies</p>
+
+<h2 class="paddingTen">Mixins</h2>
+
+<p>les mixins prédéfinies de compass son disponibles à <a href="http://compass-style.org/">compass-style.org</a></p>
+
+<ol>
+    <ul>Creer au niveau du HTML un div classique, pour un bouton avec une classe btn</ul>
+</ol>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    /*Il est possible de modifier les variables de configuration par defaut en les redéfinissant */
+    $default-border-radius:10px;
+
+    a.btn{
+        @include border-radius(13px); /*Cette mixin pré intégrée va permettre de se libérer de la compatibilité -> va générer en css les compatibilités pour les différents contenus*/
+        /*Les mixins pré-intégrés ont des arguments qui vont dans leur parametres par défaut : si j'avais mis border-radius() de cette façon, j'aurais eu 5px en border radius*/
+        @include transition(); /*permet d'ajouter un effet de transition, idem il y a des transitions par defaut*/
+        @include single-box-shadow($blur: 10px); /*je ne suis pas obligé d'aller dans l'ordre des paramètres pour mettre un argument*/
+    }
+    </code>
+</pre>
+
+<p>Il y a en général un mixin pour chaque propriété qui a un pré-fixage (border-..., ..)</p>
+
+<h2 class="paddingTen">Images et Sprites</h2>
+
+<p>Dans le dossier du projet, On crée un dossier images, puis dans le dossierimages un dossier icons pour les icones.</p>
+
+<p>Dans config.rb, la variable <code>http_path</code> permet de savoir comment se positionner par rapport à la racine, cette racine va être utilisée à travers la mixin, background par exemple</p>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    @import "compass";
+    background:image-url(icons/image.png) /*la mixin va recompleter le chemin a partir du chemin que vous avez indiqué dans config.rb a travers la variable http_path
+    </code>
+</pre>
+
+<h3>Génération de sprites et utilisation de système d'icones (finalisation le 13/12)</h3>
+
+<p>Placer vos images dans un repertoire du projet, exemple images/icons</p>
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+    @import "icons/*.png";
+    </code>
+</pre>
+
+<!--
+
+<code class="code2">scss/style.scss</code>
+<pre>
+    <code class="language-scss">
+
+    </code>
+</pre>
+
+<code class="code2">css/style.css</code>
+<pre>
+    <code class="language-css">
+
+    </code>
+</pre>
+-->

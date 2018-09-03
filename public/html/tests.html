@@ -1,0 +1,186 @@
+<h1>Tests javascript</h1>
+
+<h2><span style="border:1px solid grey;border-radius:4px;padding:0px 5px 0px 5px;">1</span> Lesson name<span style="float:right;border:1px solid grey;border-radius:4px;padding:0px 5px 0px 5px;"><a id="displayText" style="color:black;" href="javascript:toggle();">Afficher</a></span></h2>
+<h3><aside class="green">Voici votre cours qui explique cela &#8681;</aside></h3>
+<!--<div id="toggleText" style="display: none">
+  <h1>cours 1</h1>
+    <p>
+      Le cours 1
+    </p>
+</div>-->
+
+<a id="displayText" href="javascript:toggle();">show</a> <== click Here
+<div id="toggleText" style="display: none"><h1>peek-a-boo</h1></div>
+
+
+<h2><span style="border:1px solid grey;border-radius:4px;padding:0px 5px 0px 5px;">2</span> Lesson name</h2>
+<h3><aside class="green"><a id="displayText2" style="color:white;" href="javascript:toggle2();">Voici votre cours 2 qui explique cela 2 &#8681;</a></aside></h3>
+<div id="toggleText2" style="display: none">
+  <h1>cours 2</h1>
+    <p>
+      Le cours 2
+    </p>
+</div>
+
+<hr />
+<!-- toggleText doit varier-->
+
+<h1>Balises pour coder</h1>
+<p>
+	Nous sommes dans un paragraphe<br/>
+<code>< code ></code><br/>
+<code class="code2">< code class="code2"></code><br/>
+<code class="code3">< code class="code3"></code><br/>
+
+<code></code>
+<code class="code2"></code>
+<code class="code3"></code>
+
+
+</p>
+
+Nous sommes hors paragraphe
+
+<code>< code ></code><br/>
+<code class="code2">< code class="code2"></code><br/>
+<code class="code3">< code class="code3"></code><br/>
+
+<code></code>
+<code class="code2"></code>
+<code class="code3"></code>
+
+
+<img src="../img/books.png">
+
+<h3>Logos situées dans ../img/icons</h3>
+<p>book, ftpfolder, globe, link, package, pdf, software, sql, trial, txt, zip-1</p>
+
+<h1>Container video youtube</h1>
+
+<div class="video-wrapper">
+  <div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLlxQJeQRaKDSnp4hbA3nJj_OnB0SCQLBU;rel=0&amp" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<br />
+
+<div class="border-bottom"></div>
+
+<hr/>
+
+<h1>Tests methode de phark</h1>
+
+<div class="flexboxcontainer">
+  <img src="../img/icons/tests/consoleSticker.png" />
+  <img src="../img/icons/tests/htmlSticker.png" />
+  <img src="../img/icons/tests/javaSticker.png" />
+  <img src="../img/icons/tests/phpSticker.png" />
+  <img src="../img/icons/tests/dbSticker.png" />
+  <img src="../img/icons/tests/cppSticker.png" />
+</div>
+
+<div class="paddingTen"></div>
+
+
+<h1>JAVASCRIPT</h1>
+
+<h3>Methode1 : Ciblage d'une balise avec la méthode attributEvenement(this)</h3>
+
+<code class="code2">fichier HTML</code>
+
+<blockquote><font color="#009900">&lt;<font color="#000000">p</font>&nbsp;<font color="#000066">onclick</font><font color="#66cc66">=</font><font color="#ff0000">&quot;nomMethode(this)&quot;</font>&gt;</font>Cliquez&nbsp;pour&nbsp;changer&nbsp;la&nbsp;couleur<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">p</font>&gt;</font></blockquote>
+
+<code class="code2">fichier JS</code>
+
+<pre>
+    <code class="language-js">
+    function nomMethode(elem){
+	    elem.style.color = "red";
+	    elem.style.backgroundColor = "yellow";
+    }
+    </code>
+</pre>
+
+<p>En html, (this) -> devient (elem), .elem en Javascript.</p>
+
+<div class="paddingTen"></div>
+
+
+<h3>Methode2 : Ciblage d'une balise par un id unique</h3>
+
+
+<code class="code2">fichier HTML</code>
+
+<blockquote><font color="#009900">&lt;<font color="#000000">p</font>&nbsp;<font color="#000066">id</font><font color="#66cc66">=</font><font color="#ff0000">&quot;identifiantUnique&quot;</font>&nbsp;<font color="#000066">onclick</font><font color="#66cc66">=</font><font color="#ff0000">&quot;nomMethode&quot;</font>&gt;</font>Cliquez&nbsp;pour&nbsp;changer&nbsp;la&nbsp;couleur<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">p</font>&gt;</font></blockquote>
+
+<code class="code2">fichier JS</code>
+
+<pre>
+    <code class="language-js">
+    function nomMethode(){
+	    document.getElementById("identifiantUnique").style.color = "red";
+    }
+    </code>
+</pre>
+
+<p>ou</p>
+
+<pre>
+    <code class="language-js">
+    function nomMethode(){
+	    var maVariable = document.getElementById("identifiantUnique");
+        maVariable.style.color = "red";
+    }
+    </code>
+</pre>
+
+<p>Désormais c'est un objet de type document (document étant une classe statique pré-définie en Javscript) à travers la méthode getEleementById qui est manipulé (instancié), on cible une balise unique avec un id (rappel CSS)</p>
+
+<div class="paddingTen"></div>
+
+<h3>Methode3 : ciblage de plusieurs ou une balise (par son indice) sur les attributs HTML class</h3>
+
+<code class="code2">fichier HTML</code>
+
+<blockquote><font color="#009900">&lt;<font color="#000000">p</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;java&quot;</font>&gt;</font>un&nbsp;paragraphe&nbsp;avec&nbsp;un&nbsp;attribut&nbsp;class&nbsp;java,&nbsp;cet&nbsp;attribut&nbsp;en&nbsp;Js&nbsp;vaut&nbsp;(&quot;java&quot;)[0]<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">p</font>&gt;</font><br/>
+    <font color="#009900">&lt;<font color="#000000">p</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;java&quot;</font>&gt;</font>un&nbsp;autre&nbsp;paragraphe&nbsp;dont&nbsp;la&nbsp;balise&nbsp;à&nbsp;un&nbsp;attribut&nbsp;class&nbsp;java,&nbsp;cet&nbsp;attribut&nbsp;en&nbsp;Js&nbsp;vaut&nbsp;(&quot;java&quot;)[1]<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">p</font>&gt;</font><br/>
+    <font color="#009900">&lt;<font color="#000000">button</font>&nbsp;<font color="#000066">onclick</font><font color="#66cc66">=</font><font color="#ff0000">&quot;nomMethode()&quot;</font>&gt;</font>cliquez&nbsp;pour&nbsp;activer&nbsp;les&nbsp;changements&nbsp;sur&nbsp;les&nbsp;balises&nbsp;avec&nbsp;attribut&nbsp;class<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">button</font>&gt;</font></blockquote>
+
+<code class="code2">fichier JS</code>
+
+<pre>
+    <code class="language-js">
+    function nomMethode3(){
+        var test = document.getElementsByClassName("java");
+        for (var i = 0; i < test.length; i++) { //On cible tous les attributs class
+            test[i].style.color = "green";
+        }
+        test[1].style.backgroundColor = "orange"; //On cible QUE l'attribut class d'indice 1
+    }
+    </code>
+</pre>
+
+<p>ATTENTION : les attributs class se manipulent via un tableau scalaire, les class ont donc un indice, obligatoire à mentionner pour se manipuler en javacript.</p>
+
+
+<h1>Structure de balise prêtes pour les cours javascript</h1>
+
+
+<code class="code2">HTML</code>
+
+<!-- utiliser http://highlight.hohli.com/index.php -->
+
+<code class="code2">JS</code>
+
+<pre>
+    <code class="language-js">
+
+    </code>
+</pre>
+
+
+
+
+
+

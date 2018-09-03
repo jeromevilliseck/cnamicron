@@ -1,0 +1,223 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Client :  127.0.0.1
+-- Généré le :  Lun 18 Avril 2016 à 13:53
+-- Version du serveur :  5.7.9
+-- Version de PHP :  5.6.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `commerces`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `ID_CATEGORIE` int(11) NOT NULL DEFAULT '0',
+  `TITRE_CATEGORIE` varchar(40) NOT NULL,
+  `DESCRIPTION` varchar(150) DEFAULT NULL,
+  `ORDRE` int(11) NOT NULL DEFAULT '1',
+  `ID_MERE` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `categories`
+--
+
+INSERT INTO `categories` (`ID_CATEGORIE`, `TITRE_CATEGORIE`, `DESCRIPTION`, `ORDRE`, `ID_MERE`) VALUES
+(1, 'BeautÃ© & Bien-Ãªtre', '', 1, NULL),
+(2, 'Mode & Bijoux', '', 2, NULL),
+(3, 'Nutrition & Recettes', '', 3, NULL),
+(4, 'AromathÃ©rapie', 'L''aromathÃ©rapie est l''utilisation mÃ©dicale des extraits aromatiques de plantes (essences et huiles essentielles). ', 10, 1),
+(5, 'Minceur', '', 12, 1),
+(6, 'Soin du corps', '', 11, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categories_products`
+--
+
+DROP TABLE IF EXISTS `categories_products`;
+CREATE TABLE IF NOT EXISTS `categories_products` (
+  `ID_CATEGORIE` int(11) NOT NULL,
+  `ID_PRODUCT` int(11) NOT NULL,
+  `ORDRE` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `categories_products`
+--
+
+INSERT INTO `categories_products` (`ID_CATEGORIE`, `ID_PRODUCT`, `ORDRE`) VALUES
+(4, 1, 3),
+(4, 2, 1),
+(4, 3, 2),
+(4, 4, 4),
+(4, 5, 5),
+(4, 6, 6),
+(4, 7, 7),
+(4, 8, 8),
+(4, 9, 9),
+(4, 10, 10),
+(4, 11, 11),
+(5, 2, 5),
+(5, 4, 1),
+(5, 6, 3),
+(6, 1, 4),
+(6, 9, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `clients`
+--
+
+DROP TABLE IF EXISTS `clients`;
+CREATE TABLE IF NOT EXISTS `clients` (
+  `ID_CLIENT` int(11) NOT NULL DEFAULT '0',
+  `NOM` varchar(40) NOT NULL,
+  `PRENOM` varchar(40) NOT NULL,
+  `ADRESSE` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `clients`
+--
+
+INSERT INTO `clients` (`ID_CLIENT`, `NOM`, `PRENOM`, `ADRESSE`) VALUES
+(1, 'AGARD', 'André', '5, Rue Léo Lagrange 13770 Venelles'),
+(2, 'RIDEAU', 'Bastien', '5, Rue d''Aguesseau 13770 Venelles'),
+(3, 'GONDOUIN', 'Bernard', '21, Rue d''Albon 13320 Bouc Bel Air'),
+(4, 'LHERMITTE', 'Bernard', '7, Rue d''Algérie 13510 Eguilles'),
+(5, 'RAMBEAUD', 'Christian', '14, Rue du Lieutenant Allouche 13511 Eguilles'),
+(6, 'KAC', 'Christine', '21, Rue de l''Alma 13512 Eguilles');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `clients_commandes`
+--
+
+DROP TABLE IF EXISTS `clients_commandes`;
+CREATE TABLE IF NOT EXISTS `clients_commandes` (
+  `ID_CLIENT` int(11) NOT NULL,
+  `ID_COMMANDE` varchar(26) NOT NULL,
+  `DATE_COMMANDE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `clients_commandes`
+--
+
+INSERT INTO `clients_commandes` (`ID_CLIENT`, `ID_COMMANDE`, `DATE_COMMANDE`) VALUES
+(1, '1', '2016-04-04 08:00:00'),
+(2, '2', '2016-04-04 10:00:00'),
+(3, '3', '2016-04-05 08:00:00'),
+(4, '4', '2016-04-05 09:00:00'),
+(1, '5', '2016-04-05 10:00:00'),
+(5, '6', '2016-04-06 06:00:00'),
+(6, '7', '2016-04-06 08:00:00'),
+(2, '8', '2016-04-06 09:00:00'),
+(1, '9', '2016-04-07 08:00:00'),
+(3, '10', '2016-04-07 09:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commandes`
+--
+
+DROP TABLE IF EXISTS `commandes`;
+CREATE TABLE IF NOT EXISTS `commandes` (
+  `ID_COMMANDE` varchar(26) NOT NULL,
+  `ID_PRODUCT` int(11) NOT NULL,
+  `QUANTITE` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `commandes`
+--
+
+INSERT INTO `commandes` (`ID_COMMANDE`, `ID_PRODUCT`, `QUANTITE`) VALUES
+('1', 2, 4),
+('1', 3, 3),
+('1', 4, 2),
+('1', 5, 1),
+('1', 6, 2),
+('1', 9, 3),
+('10', 1, 2),
+('10', 3, 1),
+('10', 4, 5),
+('2', 3, 1),
+('2', 5, 2),
+('2', 6, 1),
+('2', 8, 2),
+('3', 1, 1),
+('3', 2, 1),
+('3', 4, 5),
+('3', 5, 3),
+('3', 9, 2),
+('4', 2, 1),
+('4', 3, 2),
+('5', 4, 1),
+('5', 9, 2),
+('6', 4, 1),
+('7', 4, 1),
+('7', 5, 2),
+('7', 6, 2),
+('8', 1, 2),
+('8', 4, 1),
+('8', 7, 3),
+('9', 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `products`
+--
+
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
+  `ID_PRODUCT` int(11) NOT NULL DEFAULT '0',
+  `TITRE_PRODUCT` varchar(40) CHARACTER SET utf8 NOT NULL,
+  `REFERENCE` varchar(10) CHARACTER SET utf8 NOT NULL,
+  `DESCRIPTION` varchar(4000) CHARACTER SET utf8 NOT NULL,
+  `KEYWORDS` varchar(1000) CHARACTER SET utf8 NOT NULL,
+  `VIGNETTE` varchar(40) CHARACTER SET utf8 NOT NULL,
+  `IMAGE` varchar(40) CHARACTER SET utf8 NOT NULL,
+  `PRIX` decimal(10,0) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `products`
+--
+
+INSERT INTO `products` (`ID_PRODUCT`, `TITRE_PRODUCT`, `REFERENCE`, `DESCRIPTION`, `KEYWORDS`, `VIGNETTE`, `IMAGE`, `PRIX`) VALUES
+(1, 'Lorem Ipsum', '530044b1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'excepteur,cupidatat,deserunt', 'vig_laudantium.png', 'laudantium.png', '90'),
+(2, 'Consectetur', '530044b2', 'Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.', 'mollit,pariatur,officia', 'vig_sed_do_eiusmod.png', 'sed_do_eiusmod.png', '130'),
+(3, 'Sed do eiusmode', '530044c3', 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.\r\n', 'laborum,culpa,proident', 'vig_ut_labore.png', 'ut_labore.png', '120'),
+(4, 'Ut labore', '530044c2', 'Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.', 'occaecat,ipsum,adipisicing', 'vig_lorem_ipsum.png', 'lorem_ipsum.png', '100'),
+(5, 'Dolore magna', '640044b1', 'Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'eiusmod,incididunt,magna', 'vig_dolore_magna.png', 'dolore_magna.png', '110'),
+(6, 'Excepteur', '640044b2', 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 'lorem,consectetur,aliqua', 'vig_excepteur.png', 'excepteur.png', '50'),
+(7, 'Laboris', '730044a1', 'Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.', 'minim,nostrud,incididunt', 'vig_laboris.png', 'laboris.png', '45'),
+(9, 'Laudantium', '830044a4', 'Laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 'ullamco,aliquip,consequat', 'vig_laudantium.png', 'laudantium.png', '80');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

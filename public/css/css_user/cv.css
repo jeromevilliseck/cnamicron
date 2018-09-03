@@ -1,0 +1,289 @@
+* {
+    font-family: sans-serif, Arial, Helvetica;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    margin-left: 0%;
+    margin-top: 0%;
+}
+
+header {
+    order: 1;
+    padding-left: 15%;
+    word-wrap: break-word;
+    border-bottom: 1px solid #ebebeb;
+}
+
+nav {
+    order: 2;
+    padding: 0 10% 0 15%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    border-bottom: 1px solid #ebebeb;
+}
+
+nav a {
+    padding: 0.5em 0 0.5em 0;
+    width: 18%;
+    border-left: 1px solid #ebebeb;
+}
+
+nav a:last-child {
+    border-right: 1px solid #ebebeb;
+}
+
+.flag{
+    padding: 0.3em 0 0 0;
+    width:8%;
+}
+
+.nav2 a {
+    padding: 0.7em 0 0.7em 0;
+    width: 30%;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+    border-bottom: none;
+}
+
+nav a, .nav2 a {
+    text-align: center;
+    line-height: 150%;
+    font-size: 1.4em;
+    text-decoration: none;
+    word-wrap: break-word;
+    color: black;
+}
+
+nav a:hover, .nav2 a:hover {
+    background: #ebebeb;
+}
+
+article {
+    order: 4;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+section {
+    padding: 1em 10% 1em 15%;
+    font-size: 1.5em;
+    word-wrap: break-word;
+    border-bottom: 1px solid #ebebeb;
+    text-align: left;
+}
+
+aside {
+    order: 3;
+    padding: 0 10% 0 15%;
+    font-size: 0.9em;
+    line-height: 150%;
+    word-wrap: break-word;
+    border-bottom: 1px solid #ebebeb;
+    color: #262626;
+    background: #fafafa;
+}
+
+.nav2 {
+    order: 5;
+    padding: 0 10% 0 15%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #ebebeb;
+}
+
+footer {
+    order: 6;
+    padding-left: 15%;
+    padding-right: 10%;
+    font-size: 1.1em;
+    word-wrap: break-word;
+    /*background: #f7f9fb;*/
+}
+
+h1, h2, h3, h4, h5, p, li, ol, a{
+    word-wrap: break-word;
+}
+
+h3 {
+    display: inline;
+}
+
+hr {
+    color: #ebebeb;
+}
+
+.avatar {
+    display: block;
+    border-radius: 60px;
+    margin: 1em 0 0 1.5em;
+    height: 108px;
+    width: 108px;
+}
+
+.avatar2 {
+    display: block;
+    border-radius: 36px;
+    margin: 1em 0 0 1.5em;
+    height: 72px;
+    width: 72px;
+}
+
+#cv{
+  display: inline-block;
+  border-radius: 15px;
+  height: 25px;
+  width: 25px;
+}
+
+form {
+    padding-right: 6px;
+}
+
+input, textarea {
+    display: block;
+    width: 80%;
+    font-size: 1.5em;
+    color: grey;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #ebebeb;
+    border-left: none;
+}
+
+select {
+    display: block;
+    width: 80%;
+    font-size: 1.5em;
+    color: grey;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #ebebeb;
+    border-left: none;
+    background: white;
+}
+
+input:focus, textarea:focus {
+     outline:  none;
+     /*a volontairement retiré le rouge du champ actif à cause des personnes souffrant de daltonisme*/
+     border-bottom: 2.5px solid black;
+}
+
+#submit {
+     background: white;
+     color: black;
+     border: 1px solid grey;
+}
+
+.imgFullWidth {
+     width: 100%;
+}
+
+/*Specific style for IE11*/
+/*Permet de contourner une problématique de conservation du ratio Hauteur/Largeur
+lors du redimentionnement des images lors de la réduction / agrandissement d'une
+fenêtre en responsive sous IE*/
+/*IE 11 ignore les commentaires conditionnels depuis IE10*/
+ _:-ms-fullscreen, :root
+
+ .imgFullWidth {
+  width: 100vmax;
+  height: 60vw;
+}
+
+@media all and (max-width: 600px) {
+  header {
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+  }
+
+  nav {
+    flex-flow: column;
+    padding: 0%;
+    border-bottom: none;
+  }
+
+  nav a {
+    padding: 0.2em 0 0.2em 0;
+    line-height: 200%;
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #ebebeb;
+    border-left: none;
+    border-right: none;
+  }
+
+    .flag{
+        padding: 0.5em 0 0 0;
+        line-height: 200%;
+        font-size: 2em;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #ebebeb;
+        border-left: none;
+        border-right: none;
+    }
+
+  nav a:last-child {
+      border-right:none;
+  }
+
+  nav a:hover {
+    background: white;
+  }
+
+  .nav2 {
+    padding: 0%;
+  }
+
+  .nav2 a:first-child {
+    border-left: none;
+  }
+
+  .nav2 a:last-child {
+    border-right: none;
+  }
+
+  section {
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 1.3em;
+  }
+
+  aside {
+    padding: 0 5% 0 5%;
+    text-align: center;
+  }
+
+  footer {
+    font-size: 1em;
+    padding-left: 10%;
+    padding-right: 5%;
+  }
+
+  .avatar, .avatar2 {
+    border-radius: 36px;
+    margin: 1em 0 0 35%;
+    height: 72px;
+    width: 72px;
+  }
+
+  input, textarea {
+    width: 100%;
+  }
+
+  select {
+    width: 100%;
+  }
+
+  #cv{
+    display: none;
+  }
+}

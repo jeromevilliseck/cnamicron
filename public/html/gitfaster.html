@@ -1,0 +1,182 @@
+<h2>Termes utilisés</h2>
+<ul>
+    <li><samp>GIT</samp> : logiciel de versionning, c'est aussi une commande dans la console : <code>git [nom de l'option]</code></li>
+    <li><samp>INIT</samp> (cmd) : "INITER", c'est faire devenir un dossier en <strong>local</strong> sur votre disque dur un <strong>depôt</strong>, un dossier ou Git est en fonctionnement (initialisé). Le <strong>DOSSIER LOCAL</strong> devient un <strong>DEPOT</strong></li>
+    <li><samp>TRACKER</samp> (v.) : ajouter un fichier à la <strong>liste de suivi</strong>.</li>
+    <li><samp>COMMITER</samp> (v.) : sauvegarder via un <strong>commit</strong>, le commit est l'action d'efffectuer <strong>une sauvegarde</strong> d'un projet</li>
+    <li><samp>BACKUP</samp> (objet) : une <strong>sauvegarde</strong> issue d'un commit.</li>
+    <li><samp>DEPOT</samp> (objet) : dossier ou on a initialisé Git : nommé aussi <strong>repository</strong></li>
+    <li><samp>REMOTE</samp> (objet) : une <strong>machine</strong>. Cela peut être un serveur comme votre pc, un télephone portable...<br /><samp>origin</samp> est le nom du remote du <strong>serveur Github</strong> en ligne</li>
+    <li><samp>UNTRACKED</samp> (message) : fichier qui n'a pas été ajouté à l'index, ou nommé stagging area.</li>
+    <li><samp>INDEX</samp> ou aussi appelé <samp>STAGGING AREA</samp> (objet) : <strong>zone tampon</strong> dans laquelle sont ajoutées les fichiers locaux, ce sont ces fichiers qui au prochain commit seront enregistrés dans un <strong>BACKUP</strong></li>
+    <li><samp>BRANCHE</samp> : le voir comme une <strong>voie parralèle</strong> au projet principal ou on développe avec une <strong>stagging area distincte</strong> et des <strong>backups distints</strong> de la branche principale du projet. Cela sert a developper des Fonctionnalites, qui une fois opérationnelles, sont <strong>fusionnés</strong> avec la branche principale, appelée <strong>master</strong>.</li>
+</ul>
+
+<h2>Récupérer un projet existant sur Github.com et le retravailler (un contributeur)</h2>
+<ol>
+    <li><code class="language-bash">git clone [projet]</code></li>
+    <li><code class="language-bash">cd [projet]</code></li>
+    <li>..travailler..</li>
+    <li><code class="language-bash">git status</code></li>
+    <li><code class="language-bash">git add</code></li>
+    <li><code class="language-bash">git status</code></li>
+    <li><code class="language-bash">git commit -m "nom du commit"</code></li>
+    <li><code class="language-bash">git push -u origin master</code></li>
+</ol>
+
+<h2>Créer son dépôt à partir d'un dossier local et versionner depuis ce dossier</h2>
+
+<ol>
+    <li><code class="language-bash">mkdir [nom_dossier]</code> -> créer son dossier local</li>
+    <li><code class="language-bash">cd [nom_dossier]</code> -> se placer dans le dossier crée</li>
+    <li><code class="language-bash">git init</code> -> intialiser le projet, le transformer en repository (dépôt)</li>
+    <li><code class="language-bash">git commit -m "[message pour initialiser son commit]"</code> -> réaliser un commit, on obtient ainsi un backup</li>
+    <li><code class="language-bash">git add .</code> -> ajouter tous les fichiers à son index (avec le .), sinon changer le . par les fichiers de votre choix</li>
+    <li><code class="language-bash">git log</code> -> affiche la liste de tous les commits réalisés. Il sont rangés par ordre chronologique descendant. un commit contient: un SHA (identifiant unique), un auteur, une date, une description (celle que vous avez indiqué)</li>
+    <li><code class="language-bash">rien a valider, la copie de travail est propre</code> -> message signifiant que les fichiers suivis n'ont pas été modifiés depuis le dernier commit.</li>
+    <li><img src="../img/warning.png">Il faut d'abord suivre les fichiers pour ensuite commit. Commit n'est pas pusher.</li>
+</ol>
+
+<h2>Voir les différents commit et branches</h2>
+
+<p><code class="language-bash">git status</code> ou <code>gst</code></p>
+
+<h2>Se postionner sur un commit donné, revenir en arrière</h2>
+
+<ol>
+    <li><code class="language-bash">git checkout [SHA_du_commit]</code> -> se repositionner sur un commit spécifique (remonter dans le temps)</li>
+    <li><code class="language-bash">git checkout master</code> -> revenir à la branche principale (= le commit le plus récent)</li>
+    <li><code class="language-bash">git reset --hard [SHA_du_commit]</code> -> annuler tous les changements non encore commités. Cela dit : reviens a ce commit la avec l'état des fichiers de ce commit la et annule tous les commit qui ont été fait après</li>
+    <li><code class="language-bash">git reset --soft [SHA_du_commit]</code> -> on dit a git : reviens a ce commit la, mais n'anule pas toutes les modifications que j'ai fait jusque là</li>
+    <li><code class="language-bash">git commit --amend --no-edit</code> -> enregistre mes modifcations a mon commit actuel dans lequel je suis placé, mais sanc créer un nouveau commit</li>
+</ol>
+
+<h2>Remote externe : versionner sur un Dépôt GitHub distant en ligne (le serveur gitHub)</h2>
+
+<p>gitHub est le service en ligne. Créer un compte et suivre les instructions. Ne pas confondre git le logiciel de versionning à installer sur sa machine de GitHub le service un ligne ou on peut gérer des dépots distants.</p>
+
+<h2>Récupérer un projet depuis le GitHub sur sa machine locale</h2>
+
+<p>Aller sur GitHub, se placer sur le projet, puis copier la <strong>web url</strong></p>
+
+<img src="../img/github01.png">
+
+<ol>
+    <li><code class="language-bash">git clone [web_url]</code> -> copie en local le projet sur la machine</li>
+    <li><code class="language-bash">git init</code> -> le transforme en dépôt sur la machine existante</li>
+</ol>
+
+<h2>Créer un dépot distant géré sur con compte GitHub et le gérer localement</h2>
+
+<img src="../img/github02.png">
+<img src="../img/github03.png">
+
+<ol>
+    <li>Suivre les captures ci-dessus et donner un nom au projet, une description et un statut (<img src="../img/warning.png"> l'option INITIALISE with a README clone le repository crée sur la machine en direct)</li>
+    <li>Récupérer la web url du projet</li>
+    <li>Se positionner dans le dossier local de son choix</li>
+    <li><code class="language-bash">git clone</code> -> le projet est récupéré</li>
+    <li><code class="language-bash">git init</code></li>
+</ol>
+
+<h2>Créer un dépot distant géré sur con compte GitHubpuis envoyer une PROJET DEJA EXISTANT localement vers le repository de Github (pushing)</h2>
+
+<ol>
+    <li>Même procédure que ci-dessus suivre les capture d'ecran, puis après que le Reposotory distant soit crée</li>
+    <li>Se placer dans le dossier local qui est DEJA <code class="language-bash">init</code> comme Repository local</li>
+    <li><code class="language-bash">git remote add origin [web_url_du_projet]</code> -> On dis a son repository qu'on lui ajoute le nom du remote du serveur Github en ligne avec le lien du projet</li>
+    <li><code class="language-bash">git push -u origin master</code> -> crée un backup distant sur le repository distant</li>
+</ol>
+
+<p>Faire un push à chaque fois qu'on veut crée un backup distant. Dans le projet GitHub clquer sur les liens commit pour voir les différents commit.</p>
+
+<h2>Récupérer les données du dépôt en ligne (si on travail à plusieurs ou si on modifie un fichier en ligne) régulièrement pour avoir la dernière version</h2>
+
+<p>Rappel : un remote est une machine qui heberge. Origin = le dépôt GitHub en ligne, le serveur.</p>
+
+<ol>
+    <li>Se place dans son dossier local préalablement inité</li>
+    <li><code class="language-bash">git pull origin master</code> -> on "pull", on tire les données du Repository distant vers son dossier local</li>
+</ol>
+
+<h2>Utiliser le système de branches</h2>
+
+<ol>
+    <li><code class="language-bash">git branch</code> -> retourne les branches présentes, et ajoute une étoile sur la branche dans laquelle on est placé</li>
+    <li><code class="language-bash">git branch [nouvelle_branche]</code> -> créer une nouvelle branche</li>
+    <li><code class="language-bash">git checkout [nom_de_branche]</code> -> se positionner dans la branche nouvellement crée</li>
+    <li><img src="../img/warning.png"> Toujours commiter avant de changer de branche</li>
+</ol>
+
+<p>Mise à jour des branches et fusion avec la branche master</p>
+
+<ol>
+    <li><code class="language-bash">git checkout master</code> -> se placer dans la branche principale</li>
+    <li><code class="language-bash">git merge [nom_deLa_branche_declinee]</code> -> fusionner la branche avec la branche principale</li>
+</ol>
+
+<p>Savoir qui a fait une modification</p>
+
+<ol>
+    <li><code class="language-bash">git blame [nomFichierExtensionIncluse]</code> -> liste toutes les modifications effectuées sur un fichier ligne par ligne</li>
+    <li><code class="language-bash">git show [debut_du_SHA]</code> -> renvoie directement les détails du commit recherché</li>
+</ol>
+
+<h2><img src="../img/warning.png"> Ignorer des fichiers (fondamental) : il est impératif d'ignorer les fichiers de configuration contenant les mots de passe en cas de push</h2>
+
+<ol>
+    <li>Se placer dans son repository</li>
+    <li><code class="language-bash">touch .gitignore</code> -> crée un fichier de configuration</li>
+    <li>ouvrir le fichier .gitignore</li>
+    <li>rajouter ligne par ligne en mettant le chemin absolu du REPOSITORY les fichiers à ignorer et sauvegarder le fichier</li>
+    <li><code class="language-bash">git add -A</code></li>
+</ol>
+
+<h2>Mettre de coté les modifications avant d'une branche avant de passer dans une autre</h2>
+
+<ol>
+    <li><code class="language-bash">git stash</code> -> met de coté les modifications en cours</li>
+    <li>se rendre dans une autre, branche, faire ses commit, modifier, etc...</li>
+    <li>revenir dans la branche ou on travaillait</li>
+    <li><code class="language-bash">git stash pop</code> -> récuperer les modifications qui avaient été mis de coté et retravailler</li>
+</ol>
+
+
+
+<h1 class="paddingTen">En résumé</h1>
+
+<h3>Intialiser un projet</h3>
+
+<p><code class="language-bash">cd [dossier_du_projet]</code> > <code class="language-bash">git init</code></p>
+
+<h3>Réaliser un commit</h3>
+
+<p><code class="language-bash">git add .</code> > <code>git commit -m "nomCommit"</code></p>
+
+<h3>Ajouter un remote</h3>
+
+<p><code class="language-bash">git remote add origin [lien_http_projet]</code></p>
+
+<h3>Réaliser un push : LOCAL >>> REMOTE</h3>
+
+<p><code class="language-bash">git push -u origin master</code></p>
+
+<h3>Réaliser un pull : REMOTE >>> LOCAL</h3>
+
+<p>Sur un nouveau dossier -> d'abord se positionner dans le dossier -> initialiser avec git init -> ajouter le remote [lien_http_projet] -> puis faire un pull</p>
+<p>ou</p>
+<p>Sur un nouveau dossier -> d'abord se positionner dans le dossier -> initialiser avec git init -> git clone [lien_http_projet]</p>
+
+<p><code class="language-bash">git pull origin master</code></p>
+
+<h3>Supprimer un remote</h3>
+
+<p><code class="language-bash">git remote rm origin</code> > <code class="language-bash">git remote rm upstream</code></p>
+
+<h3>Désinitialiser un projet</h3>
+
+<p><code class="language-bash">rm -rf .git</code></p>
+
+<h3>Connaitre son dépôt git actuel</h3>
+
+<p><code class="language-bash">git remote show origin</code></p>

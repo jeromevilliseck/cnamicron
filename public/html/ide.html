@@ -1,0 +1,690 @@
+<div class="pure-menu pure-menu-horizontal" style="width:100%;">
+  <ul class="pure-menu-list" style="width:100%;">
+      <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover" style="width:100%;text-align:right;">
+          <a href="#link" id="menuLink1" class="pure-menu-link" style="font-size:19px;color:black;">Accès rapide</a>
+          <ul class="pure-menu-children" style="border:1px solid #BFC9CA;">
+              <li class="pure-menu-item"><a href="#link0" class="pure-menu-link">Hebergement web</a></li>
+              <li class="pure-menu-item"><a href="#link1" class="pure-menu-link">Sublime Text 3</a></li>
+              <li class="pure-menu-item"><a href="#link2" class="pure-menu-link">Atom</a></li>
+              <li class="pure-menu-item"><a href="#link3" class="pure-menu-link">Eclipse</a></li>
+              <li class="pure-menu-item"><a href="#link4" class="pure-menu-link">IBM Swift Sandbox</a></li>
+              <li class="pure-menu-item"><a href="#link5" class="pure-menu-link">Geany</a></li>
+              <li class="pure-menu-item"><a href="#link6" class="pure-menu-link">IBM Bluemix</a></li>
+              <li class="pure-menu-item"><a href="#link6" class="pure-menu-link">Toolbox</a></li>
+          </ul>
+      </li>
+  </ul>
+</div>
+
+<h1>Développement Web</h1>
+
+<h2 id="link0"><aside class="herbgreen">Awardspace, Alwaysdata (Hebergement web)</aside></h2>
+
+<h3>Hébergement <img src="../img/icon_externlink.png" alt=""> <a href="https://www.awardspace.com/">Awardspace</a></h3>
+
+<p>Cette rubrique va vous aider à mettre en place un hebergement web comprenant :</p>
+<ul>
+  <li>la gestion et le transfert des fichiers par protocole ftp (le protocole sftp (SSL) necessite de payer)</li>
+  <li>l'hebergement à distance gratuit de fichiers via un espace de 1GO sur un serveur mutualisé</li>
+  <li>une base de données gratuite (limitée à 99tables)</li>
+  <li>un accès SQL via le client MySQL (uniquement via <img src="../img/icon_externlink.png"> <a href="https://supportindeed.com/phpMyAdmin4/index.php">phpmyadmin</a> -> bloquage de l'hebergeur des softwares de SGDBR externes pour sécurité)</li>
+</ul>
+<p>Le tout gratuitement et en acceptant la syntaxe des requetes SQL communes.</p>
+
+<h3>Hébergement <img src="../img/icon_externlink.png" alt=""> <a href="https://www.alwaysdata.com/fr/">Alwaysdata</a></h3>
+
+<p>Alwaysdata va vous permettre lui la meme chose mais va accepter le protocole SSL. Par contre attention la syntaxe pour les requetes SQL sera plus stricte, notamment si vous suivez mon cours SQL vous aller avoir des problèmes d'erreur par rapport à la casse ou au virgules encadrant les tables et attributs. Toutefois alwaysdata va permettre de travailler pas seulement sur MySQL, mais aussi avec les SGBD suivants :</p>
+<ul>
+<li>PostgreSQL</li>
+<li>MongoDB</li>
+<li>CouchDB</li>
+</ul>
+</p>
+
+<hr>
+
+<h3><span style="border:1px solid grey;border-radius:4px;padding:0.4px 5px 0.4px 5px;">Etape 1</span> Mise en place de votre environnement de travail distant avec awardspace.com</h3>
+
+<p>Rendez vous sur <img src="../img/icon_globe.png"> <a href="https://www.awardspace.com">awardspace.com</a> > icone rouge customer en haut à droite puis signup. Créez votre compte comme indiqué ci-dessous</p>
+
+<img src="../img/as01.png" alt="">
+
+<hr>
+
+<p>Une fois crée, contrôlez la boite mail que vous avez renseigné. Confirmez le compte crée en cliquent sur le lien encadré en rouge.<br/>vos identifiants de connexion apparaissent juste en dessous (client ID et login email)</p>
+
+<img src="../img/as02.png" alt="">
+
+<hr>
+
+<p>Connectez vous desormais à votre hebergeur avec vos identifiants de connexion et mot de passe à <img src="../img/icon_globe.png"> <a href="https://cp1.awardspace.net/beta/login/">https://cp1.awardspace.net/beta/login/</a></p>
+
+<img src="../img/as03.png" alt="">
+
+<hr>
+
+<h3><span style="border:1px solid grey;border-radius:4px;padding:0.4px 5px 0.4px 5px;">Etape 2</span> Création d'un base de donnée</h3>
+
+<p>Rendez vous dans la rubrique <img src="../img/icon_globe.png"> <a href="https://cp1.awardspace.net/beta/database-manager/"> Outils avancés > Gestionnaire de bases de données</a>. Créez votre base de donnée MySQL comme ci-dessous (PostgreSQL est un service payant ne pas aller sur cet onglet) :</p>
+
+<img src="../img/as04.png" alt="">
+
+<hr>
+
+<h3><span style="border:1px solid grey;border-radius:4px;padding:0.4px 5px 0.4px 5px;">Etape 3</span> Enregistrement d'un sous-domaine gratuit</h3>
+
+<p>Rendez-vous dans <img src="../img/icon_globe.png"> <a href="https://cp1.awardspace.net/beta/domain-manager/">Gestionnaire du site web > Gestionnaire de domaine</a> puis dans l'onglet 4 Créer un sous domaine gratuit </p>
+
+<img src="../img/as05.png" alt="">
+
+<hr>
+
+<p>Votre sous domaine est immediatement opérationnel</p>
+
+<img src="../img/as07.png" alt="">
+
+<p>Important : le protocole utilisé est http, pas https (sécurisé), ceci est un service payant, pas utile forcément pour vos premiers tests</p>
+
+<hr>
+
+<h3><span style="border:1px solid grey;border-radius:4px;padding:0.4px 5px 0.4px 5px;">Etape 4</span> Enregistrement d'un nom de domaine gratuit (.tk)</h3>
+
+<p>.tk, .ml, .ga, .cf, .gq sont les seuls nom de domaine gratuit du net. Aller sur <img src="../img/icon_globe.png"> <a href="http://www.freenom.com/">Freenom</a>, puis :
+<ol>
+<li>Verifier la disponibilité du nom</li>
+<li>Selectionner le nom de domaine désiré puis checkout</li>
+<li>Le domaine apparait. Selectionner 12 mois free puis Continuer</li>
+<li>Entrez votre adresse mail</li>
+<li>Ouvrez le mail reçu et cliquez sur le lien de validation</li>
+<li>Completez le formulaire, acceptez les termes et conditions puis compléter commande</li>
+<li>Accédez à la section client, se logger, puis onglet Services, domaines</li>
+<li>Votre nom de domaine doit apparaitre, cliquez sur manage domain</li>
+<li>Aller a onglet outils de gestion > Redirection URL</li>
+<li>En URL Forwading mettre le <mark>sous-domaine crée avec awardspace</mark>. En option se mettre en HTTP 301 Forwarding</li>
+</ol>
+
+<hr>
+
+Votre Sous domaine est maintenant opérationnel. Notez la redirection automatique vers l'adresse de sous-domaine lorsque vous saississez votre adresse de domaine .tk ou autre qui agit comme un masque, et réenvoie vers le sous-domaine : c'est le forwading. Respectez bien la syntaxe d'écriture de l'url comme indiqué sur la capture d'ecran.</p>
+
+<img src="../img/as08.png" alt="">
+
+<hr>
+
+<h3>Synthèse</h3>
+
+<p>Nous avons donc crée en moins de 10 minutes :
+<ol>
+  <li>Une base de données gratuite (99tables max, 30Mo max)</li>
+  <li>Un sous-domaine gratuit .atwebpages.com (ou autre)</li>
+  <li>Un nom de domaine</li>
+  <li>Un accès FTP sur le port 21 (le 22 étant sécurisé il est reservé aux abonnés qui payent)</li>
+</ol></p>
+
+<h3>Utilisation des différents accès</h3>
+
+<hr>
+
+<h4><span style="border:1px solid grey;border-radius:4px;padding:0.4px 5px 0.4px 5px;">FTP</span> Accès FTP (client Filezilla ou autre)</h4>
+<p>Telechargez <img src="../img/icons/software.png"> <a href="https://filezilla-project.org/">filezilla</a> ou tout autre client FTP</p>
+<p>Pour accécer à votre repertoire / en ayant suivi l'exemple ci-dessus vos identifiants sont :
+<ul>
+  <li>SERVEUR ou HOST(hôte) <code class="code2">[votre_nomDeDomaine]</code></li>
+  <li>FTP LOGIN ou Nom d'utilisateur ou Identifiant <code class="code2">[votre_ID_sousFormeEx:_2634556] -> voir le mail reçu à l'inscription sur awardspace</code></li>
+  <li>FTP PASS <code class="code2">[mot_de_passe_duCompte_awardspace]</code></li>
+  <li>FTP PORT <code class="code2">21</code></li>
+</ul>
+A noter : vous pouvez accéder à votre accès ftp via votre navigateur web à travers l'adresse : <code>ftp://<mark>[votre_sous_domaine_sans_le_www]</mark>/</code>
+</p>
+
+<img src="../img/as09.png">
+
+<hr>
+
+<h4><span style="border:1px solid grey;border-radius:4px;padding:0.4px 5px 0.4px 5px;">SQL</span> Accès SQL via le client SGBD phpmyadmin</h4>
+
+<p>Rendez vous sur le panneau de controle <img src="../img/icon_externlink.png" alt=""> <a href="https://supportindeed.com/phpMyAdmin4/index.php">phpmyadmin</a>
+
+<ul>
+<li>SQL LOGIN <code class="code2"><mark>[votre_ID_sousFormeEx:_2634556]</mark>_<mark>[nomDonneAVotreBase]</mark></code></li>
+<li>SQL PASS <code class="code2">mot de passe choisi à la création de la base de données</code></li>
+<li>SQL HOST <code class="code2">fdb16.awardspace.net</code></li>
+<li>SQL VERSION <code class="code2">5.7</code></li>
+<li>SQL STORAGE ENGINE <code class="code2">MyISAM</code></li>
+</ul>
+
+<hr>
+
+<h4><span style="border:1px solid grey;border-radius:4px;padding:0.4px 5px 0.4px 5px;">PANEL</span> Contrôle global du compte</h4>
+
+<p>Rendez vous sur le panneau de controle <img src="../img/icon_externlink.png" alt=""> <a href="https://supportindeed.com/phpMyAdmin4/index.php">awardspace</a>
+
+<ul>
+<li>Email <code class="code2">celui fourni à la creation du compte</code></li>
+<li>Password <code class="code2">passport à la creation du compte</code></li>
+<li>SSH <code class="code2">Not available in free plan</code></li>
+<li>SSL <code class="code2">Not available in free plan</code></li>
+<li>PHP VERSION <code class="code2">7.1.7</code></li>
+<li>PERL VERSION <code class="code2">5.14.2</code></li>
+</ul>
+
+<hr>
+
+<h4><span style="border:1px solid grey;border-radius:4px;padding:0.4px 5px 0.4px 5px;">PDO</span> Constantes pour utilisation de la classe PDO (construction d'un site en MVC)</h4>
+
+<pre style="background:#0c1021;color:#f8f8f8">define('DEBUG', true);
+define('DATABASE', 'mysql:host=fdb16.awardspace.com;dbname=2357899_NOM+DE+VOTRE+BASE+DE+DONNEES'); /*attention le DNS peut changer*/
+define('LOGIN', '2357899_NOM+DE+VOTRE+BASE+DE+DONNEES');
+define('PASSWORD', 'MOTDEPASSEDELABASEDEDONNEES');
+</pre>
+
+<hr>
+
+<p>Pour travailler "à la volée" depuis le serveur directement à partir de l'ide, suivre les tutoriels de Sublime Text 3 et ATOM.</p>
+
+<h2 id="link1"><aside class="herbgreen">Sublime Text 3</aside></h2>
+
+<p>Pour faire de la Programmation coté serveur (moins de mémoire vive sollicitée - rapide)</p>
+
+<h3><span style="border:1px solid grey;border-radius:4px;padding:0.4px 5px 0.4px 5px;">Etape 1</span> Installation du logiciel</h3>
+
+<p>Sublime text 3 va nous permettre de faire de la programmation PHP, JS, CSS, Html... web. Commencez par télécharger <img src="../img/icons/software.png" alt=""><a href="https://www.sublimetext.com/3">Sublime text 3</a>,
+la version correspondant à votre système d'exploitation.</p>
+<p>Important : pour linux
+Vous devez utiliser le canal stable (stable channel) pour procéder à l'installation de Sublime Text et pas le canal développement (dev channel)
+<br/>
+<code>echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee<br/> /etc/apt/sources.list.d/sublime-text.list</code>
+<br/>
+Surtout pas<br/>
+<code>echo "deb https://download.sublimetext.com/ apt/dev/" | sudo tee /etc/apt/sources.list.d/sublime-text.list</code>
+</p>
+
+<hr><h3><span style="border:1px solid grey;border-radius:4px;padding:0.4px 5px 0.4px 5px;">Etape 2</span> Installation du plugin SFTP</h3>
+
+<p>Normalement le "Package Control" est installé par défaut avec sublime text 3. Si ce n'est pas le cas suivre le <img src="../img/icon_externlink.png"><a href="http://www.teddypayet.com/Quelques-packages-pour-Sublime"> tutoriel ici.</a></p>
+<p>Une fois installé, sur l'éditeur, faites <code class="code2">CTRL + SHIFT + P</code> (win, linux) ou <code class="code2">CMD + SHIFT + P</code> (mac) puis allez sur <code>Package control: install package</code> en naviguant aves les flèches.
+Tapez <code>sftp</code> puis <code class="code2">ENTER</code>. Vous verez apparaitre en bas à gauche de l'éditeur la mention : Installing Package SFTP [ =     ]. Attendez que cela soit terminé.
+</p>
+
+<h4>SFTP : configuration du serveur</h4>
+<p>Aller dans le menu à <code class="code2">File > SFTP/FTP > Setup Server</code> puis renseignez comme suit:<br/><br/>
+<img src="../img/st01.png" alt=""><br/>
+Sauvergarder en nommant le fichier du nom du profil désiré.
+Aller dans le menu à <code class="code2">File > SFTP/FTP > Browse Server</code>, vous retrouvez alors le profil crée.
+<br/><br/><img src="../img/st02.png" alt=""><br/>
+Entrez votre mot de passe, puis naviguer ensuite dans l'arborescence. Puis fait Edit pour travailler sur les fichiers. Lorsque vous sauvergarderez, il vous sera souvent redemandé le mote de passe.
+</p>
+
+<hr><h3><span style="border:1px solid grey;border-radius:4px;padding:0.4px 5px 0.4px 5px;">Etape 3</span> Installation du plugin Emmet</h3>
+
+<p>Dans l'éditeur, faites <code class="code2">CTRL + SHIFT + P</code> puis dans <code>Package Control : install package</code> tapez <code>emmet</code>,
+puis <code class="code2">ENTER</code>
+
+<h4>Utilisation du plugin Emmet</h3>
+
+<p>Emmet va vous permettre d'accelérer l'écriture de votre code HTML et CSS en permettant une syntaxe abregée pour l'écriture des balises et la construction de squelettes.</p>
+<p>Faites <code class="code2">ctrl+alt+enter</code> ou <code class="code2">cmd+alt+enter</code> puis rentrez les syntaxes raccourcies. Exemple :<br/><br/>
+<img src="../img/st03.png" alt="">
+<br/><br/>
+<img src="../img/icon_externlink.png"><a href="https://docs.emmet.io/cheat-sheet/">Tous les raccourcis emmet</a>.<br/>
+<img src="../img/icons/pdf.png"> <a href="https://docs.emmet.io/cheatsheet-a5.pdf">Guide pdf complet emmet</a>.</p>
+
+<hr><h3>Masquer la barre de menu automatiquement</h3>
+<p>Faire CTRL+SHIFT+P pour afficher la barre de recherche puis taper menu pour afficher View: Toggle Menu et appuyer sur ENTER. Pareil pour la réafficher.</p>
+<hr><h3><span style="border:1px solid grey;border-radius:4px;padding:0.4px 5px 0.4px 5px;">Productivité</span> Les meilleurs plugins Sublime Text 3</h3>
+
+<p>Dans l'editeur, faites <code class="code2">CTRL (ou CMD) + SHIFT + P</code>, puis tapez : </p>
+<table>
+<thead>
+  <tr>
+    <th style="width:25%;">nom du plugin</th>
+    <th>fonctionnalité</th>
+    <th>raccourci clavier (defaut)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td data-label="nom du plugin">Emmet</td>
+    <td data-label="fonctionnalité">écriture rapide de code source par syntaxe abrégée</td>
+    <td data-label="">CTRL + ALT + ENTER</td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">BracketHighlighter</td>
+    <td data-label="fonctionnalité">surbrillance /etiquettage des parenthèses, crochets et accolades</td>
+    <td data-label=""></td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">Package Control</td>
+    <td data-label="fonctionnalité">installation de modules</td>
+    <td data-label="">CTRL + SHIFT + P</td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">Alignment</td>
+    <td data-label="fonctionnalité">aligne les morceaux de code en une touche. <a href="https://www.granneman.com/webdev/editors/sublime-text/packages/how-to-install-and-use-sublime-alignment/">Réglage préalable à effectuer</a></td>
+    <td data-label="">CTRL + ALT + A</td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">Case Conversion</td>
+    <td data-label="fonctionnalité">convertit les chaines de caractères au conventions "Cases"</td>
+    <td data-label="">CTRL + ALT + -, ou, CTRL + ALT + C, puis CTRL + ALT + S,C,P,D, H,W,/,B,-</td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">SublimeCodeIntel</td>
+    <td data-label="fonctionnalité">completion avancée sur la plupart des langages activée</td>
+    <td data-label=""></td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">SublimeLinter</td>
+    <td data-label="fonctionnalité">encadrement des balises liées par double click sur l'élément</td>
+    <td data-label=""></td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">Trimmer</td>
+    <td data-label="fonctionnalité">Supprime automatiquement sur une selection de code les espaces blancs inutiles</td>
+    <td data-label="">CTRL + ALT + S</td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">Color Picker</td>
+    <td data-label="fonctionnalité">Colore automatiquement les codes couleurs qu'importe le format</td>
+    <td data-label=""></td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin"></td>
+    <td data-label="fonctionnalité"></td>
+    <td data-label=""></td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">DocBlockr</td>
+    <td data-label="fonctionnalité">créer des DocBlock pour variables, classes et fonctions</td>
+    <td data-label=""><code>/**</code> juste avant la fonction, puis TAB</td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">GoToDocumentation</td>
+    <td data-label="fonctionnalité">envoie en se plaçant sur une fonction, etc sur la documentation officielle</td>
+    <td data-label="">SUPER + SHIFT + S</td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">Reindentation</td>
+    <td data-label="fonctionnalité">fermer automatiquement balises html, détection balises mal fermées...</td>
+    <td data-label="">Edit > Line > Reindent</td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">AngularJs</td>
+    <td data-label="fonctionnalité">controleurs, modules, factories -> autocomplétion</td>
+    <td data-label=""><code>ng-*</code> dans les balises, <code>.*</code>dans les feuilles JS.</td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">HTMLNestComment</td>
+    <td data-label="fonctionnalité">commenter, decommenter automatiquement</td>
+    <td data-label="">CTRL + SHIFT + /</td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">Jquery</td>
+    <td data-label="fonctionnalité">completion automatique fonctions jquery</td>
+    <td data-label=""></td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">Local History</td>
+    <td data-label="fonctionnalité">Versionning local comme git</td>
+    <td data-label="">CTRL + SHIFT + P, puis taper local:</td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">Monokai Extended</td>
+    <td data-label="fonctionnalité">Coloration syntaxique avancée</td>
+    <td data-label="">Preferences > Themes > Monokai Extended</td>
+  </tr>
+  <tr>
+    <td data-label="nom du plugin">StyleToken</td>
+    <td data-label="fonctionnalité">Colore une balise ou un attribut dans toute la page pour un meilleur repérage</td>
+    <td data-label="">Clic droit sur l'élément > Style token</td>
+  </tr>
+</tbody>
+</table>
+
+<h2><aside class="herbgreen">ATOM</aside></h2>
+
+<p>Programmation coté serveur (fonctionalités ++)</p>
+
+<h3>Atom : installation (win / mac / linux)</h3>
+
+<p>Rendez vous sur <a href="https://atom.io">ATOM</a>. Téléchargez la version correspondant à votre système d'exploitation et installez la.</p>
+<p>A noter la <a href="https://atom.io/beta">BETA</a> qui permet d'installer des packages parfois incompatibles avec la version stable (pré-tests).</p>
+<p>Sous linux pour installer ATOM ouvrez un terminal et saisissez <code class="code2">sudo apt-get install atom -y</code>puis votre mot de passe.</p>
+
+<h3 id="link2">Atom : packages (extensions) de travail indispensables</h3>
+
+<p>Pour installer des packages faites dans l'éditeur<code class="code2">CTRL + ,</code> ou <code class="code2">CMD + ,</code> puis rubrique <code>+ Install</code>, et enfin
+rechercher les packages avec <span style="border:2px solid #4E88F7;border-radius:3px;background-color:#181C24;color:#6D6F72;">Search Packages</span>. Copiez-collez les nom de packages ci-dessous dans la barre d'adresse pour les installer.
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:25%">Nom de package</th>
+      <th>Fonction</th>
+      <th>Catégorie</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">atom-clock</span></td>
+      <td data-label="Fonction">Affiche l'heure de manière discrète en bas à droite de l'éditeur.</td>
+      <td data-label="Catégorie">Ergonomie</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">wordcount</span></td>
+      <td data-label="Fonction">Compte le nombre de mots et caractères de la feuille de code et l'affiche en bas à droite.</td>
+      <td data-label="Catégorie">Ergonomie</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">emmet</span></td>
+      <td data-label="Fonction">Accèlere l'écriture du code source en générant du code standard et minimal sur les langages HTML et CSS.</td>
+      <td data-label="Catégorie">Productivité</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">atom-beautify</span></td>
+      <td data-label="Fonction">Indentation forcée de la feuille de code par langage.</td>
+      <td data-label="Catégorie">Ergonomie</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">autoclose-html</span></td>
+      <td data-label="Fonction">Fermeture automatique des balises html.</td>
+      <td data-label="Catégorie">Productivité</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">ask-stack</span></td>
+      <td data-label="Fonction">Permet de rechercher via un panneau latéral dans l'éditeur les résolutions de problèmes de code faites par la communauté Stack Overflow et d'intégrer directement les solutions dans son code source.</td>
+      <td data-label="Catégorie">Déboggage</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">git-time-machine</span></td>
+      <td data-label="Fonction">Voyager dans le temps pour le versionning.</td>
+      <td data-label="Catégorie">Productivité</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">git-Plus</span></td>
+      <td data-label="Fonction">Commit et autres fonctions de Git (versionning) sans passer par le terminal.</td>
+      <td data-label="Catégorie">Productivité</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">highlight-selected</span></td>
+      <td data-label="Fonction">Surligne le mot courant sur toute la page lorsq'un double clic est effectué dessus.</td>
+      <td data-label="Catégorie">Ergonomie</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">file-icons</span></td>
+      <td data-label="Fonction">Assigne à chaque type de fichier une couleur et une icone pour un meilleur repérage.</td>
+      <td data-label="Catégorie">Ergonomie</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">pigments</span></td>
+      <td data-label="Fonction">surligne les codes couleurs CSS avec leur couleur d'affichage correspondante.</td>
+      <td data-label="Catégorie">Productivité</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">minimap</span></td>
+      <td data-label="Fonction">Affiche un petit panneau visuel lateral de navigation sur le code source de la page.</td>
+      <td data-label="Catégorie">Ergonomie</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">open-recent</span></td>
+      <td data-label="Fonction">Permet dans le menu une option d'ouverture des derniers fichiers modifiés.</td>
+      <td data-label="Catégorie">Productivité</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">autocomplete-paths</span></td>
+      <td data-label="Fonction">En cas d'insertion d'un fichier en lien dans le code, va faire de l'autocomplétion sur l'arborescence et les fichiers existants</td>
+      <td data-label="Catégorie">Productivité</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">Remote-FTP</span></td>
+      <td data-label="Fonction">Travailler à la volée depuis un serveur sur un projet via la protocole FTP. Requiert un hébergement web.</td>
+      <td data-label="Catégorie">Mobilité</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">Ftp-Remote-Edit</span></td>
+      <td data-label="Fonction">Travailler à la volée depuis un serveur sur un projet via la protocole FTP, avec un paramètrage plus simple. Requiert un hébergement web.</td>
+      <td data-label="Catégorie">Mobilité</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">auto-update-packages</span></td>
+      <td data-label="Fonction">Met à jour automatiquement l'éditeur et ses dépendances / packages toutes les 6 heures.</td>
+      <td data-label="Catégorie">Productivité</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">atom-material-syntax</span></td>
+      <td data-label="Fonction">Coloration syntaxique plus visuelle pour un meilleur repérage. En light et Dark.</td>
+      <td data-label="Catégorie">Productivité</td>
+    </tr>
+    <tr>
+      <td data-label="Nom de package"><span style="border:2px solid #4E88F7;border-radius:3px;padding:0.2em;background-color:#181C24;color:#DBDBDB;">atom-ide-ui</span></td>
+      <td data-label="Fonction">Tranforme atom d'éditeur à un IDE pour travailler sur des langages compilés. Nécessite les packages ide-[nom_du_langage] pour fonctionner. Encore expérimental. Le package nuclide également remplit ce rôle.</td>
+      <td data-label="Catégorie">Evolution</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Atom : Keybindings -> créer ses propres raccourcis clavier</h3>
+
+<p>Pour les raccourcis clavier faites dans l'éditeur<code class="code2">CTRL + ,</code> ou <code class="code2">CMD + ,</code> puis rubrique <code>Keybindings</code>, et enfin
+rechercher les raccourcis clavier avec <span style="border:2px solid #4E88F7;border-radius:3px;background-color:#181C24;color:#6D6F72;">Search keybindings</span>, pour créer vos propres raccourcis
+cliquez sur "your keymap file" écrit en bleu sous forme de lien. Ceci ouvre le fichier <code class="code2">keymap.cson</code>.<br/>
+Exemple de raccourci clavier pour la fermeture automatique des balises :<br/>
+Copiez coller le code ci dessous dans le fichier juste sous la ligne 18<br/>
+<code class="code3">'atom-workspace':<br/>
+  'shift-space':'bracket-matcher:close-tag'</code><br/>
+Désormais en faisant <code class="code2">SHIFT + ESPACE</code> vous fermez automatiquement une balise ouverte. Créez vos propres raccourcis avec même syntaxe et même indentation dans le fichier.</p>
+
+<h1>Développement Mobile</h1>
+
+<h2 id="link3"><aside class="herbgreen">Eclipse</aside></h2>
+
+<p>pour JAVA -> Systèmes embarqués, android</p>
+
+<h3>JDK : java development kit</h3>
+
+<p>Il faut installer le JDK, qui est l'environnement de développement java. <br/>Pour le télécharger : <img src="../img/icon_externlink.png" alt=""><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle JDK</a><br/>En cas de besoin d'une méthode alternative (linux) : <img src="../img/icon_externlink.png" alt=""><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Oracle linux</a><br/>Tutoriel Objis installation pas à pas : <img src="../img/icon_externlink.png" alt=""><a href="http://www.objis.com/formation-java/tutoriel-java-installation-jdk.html">Objis JDK Installation</a></p>
+
+<p>Vous pouvez désormais écrire des programmes java, les compiler et les executer mais uniquement en ligne de commande avec la console (terminal) uniquement. Pour tester une écriture > execution > compilation.<br/>
+Ecrire son premier programme : <img src="../img/icon_externlink.png" alt=""><a href="http://www.objis.com/formation-java/tutoriel-java-premier-programme.html">Objis premier programme java</a></p>
+
+<h3>Précisions concernant le répertoire en java sous linux</h3>
+
+<p>Dossier contenant le JDK sous linux (distributions debian)</p>
+
+<code class="code2">/usr/lib/jvm</code>
+
+<p>Au lancement d'Eclipse, Eclipse va controler au travers de la ligne sous le paramètre -vm du fichier eclipse.ini le chemin absolu qui lui est indiqué pour chercher la JVM</p>
+
+<p>
+  La documentation officielle de JAVA9 pour installer le JDK correctement :
+  <a href="https://docs.oracle.com/javase/9/index.html"></a>
+  Rubrique get started
+</p>
+
+<h3>IDE : Eclipse</h3>
+
+<p>Installez maintenant eclipse :<br/>
+Installation d'eclipse guidée avec installateur : <img src="../img/icon_externlink.png" alt=""><a href="https://www.eclipse.org">Eclipse IDE</a> -> puis rubrique Downloads<br/>
+Installation d'eclipse par packages : <img src="../img/icon_externlink.png" alt=""><a href="https://www.eclipse.org/downloads/eclipse-packages/">Eclipse packages</a> puis choisir Eclipse IDE for Java Developers.<br/>
+Tutoriel objis installation pas à pas : <img src="../img/icon_externlink.png" alt=""><a href="http://www.objis.com/formation-java/tutoriel-java-installation-eclipse.html">Objis guide d'installation</a><br/>
+
+<h3>Modelisation UML : ArgoUML</h3>
+<p>
+  Téléchargez et installez : <img src="../img/icon_externlink.png" alt=""><a href="http://argouml.tigris.org/">Argo UML</a>
+</p>
+
+<h3>Eclipse : Manipulation de l'outil, arborescence</h3>
+
+<p>Vous pouvez suivre les <a href="http://www.objis.com/formation-java/premiers-pas-developpeur-java.html">guides Objis de l'étape 4 à l'étape 8</a> pour vous entrainer à manipuler l'outil.
+Pour l'arborescence d'un projet java retenez ceci</p>
+
+
+<ul>
+  <li>Un projet java à travers le "package explorer" d'eclipse comprend un dossier src, qui comprend des dossier dits packages. Ces dossiers dits packages comprennent les fichiers .class qui comprennent les Classes java.</li>
+  <li>Généralement on crée 5 packages standards : controller (qui comprends la Classe principale Main.java), model (qui comprends les autres Classes pour héritage etc..), util, view, dao.</li>
+  <li>Les noms de packages en minuscule, les noms des classes toujours avec une Majuscule au début.</li>
+  <li>Le workspace est le dossier pointé ou sont regroupés tous les projets java du développeur</li>
+  <li>Le dossier bin comprend l'arborescence identique et les memes fichiers que le dossier src mais avec une extension .class et non .java</li>
+  <li>les fichiers .class contiennent le bytecode intermédiaire executé par le processeur du "liseur"</li>
+  <li>les fichiers .java contiennent le code source java éditable directement par le développeur</li>
+</ul>
+
+<img src="../img/ec0.png" alt="">
+<img src="../img/ec1.png" alt="">
+
+<h3>Eclipse : aide et paramétrage avancé</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>aide ou paramétrage</th>
+      <th>lien</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="aide ou paramétrage">réactiver l'aucompletion en cas de perte</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="http://www.windows8facile.fr/eclipse-reactiver-autocompletion/"> ici</a></td>
+    </tr>
+    <tr>
+      <td data-label="aide ou paramétrage">autocomplétion immédiate <br/>Allez dans Window > Preferences > Java > Editor > Content Assist
+<br/>Dans la partie Auto Activation modifier :
+<br/>Auto activation delay (ms) : 0
+<br/>Auto activation triggers for Java : .,_,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="https://www.developpez.net/forums/d1173645/environnements-developpement/eclipse/eclipse-java/auto-completion-immediate-java-eclipse-ctrl-p-espace/"> ici</a></td>
+    </tr>
+    <tr>
+      <td data-label="aide ou paramétrage">PHP Executables préférences</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.php.help%2Fhtml%2Freference%2Fpreferences%2Fphp_executables%2Findex.html"> ici</a></td>
+    </tr>
+    <tr>
+      <td data-label="aide ou paramétrage">Eclipse Scout : accélerer la mise en production</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="https://blog.developpez.com/jmini/p10412/eclipse/eclipse-scout/mieux_comprendre_eclipse_scout"> ici</a></td>
+    </tr>
+    <tr>
+      <td data-label="aide ou paramétrage">Guide eclipse pour les nuls</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="http://www-igm.univ-mlv.fr/~forax/ens/java-avance/cours/pdf/old/Eclipse%20pour%20les%20null.pdf"> ici</a></td>
+    </tr>
+    <tr>
+      <td data-label="aide ou paramétrage">Guide polytechnique utilisation d'eclipse</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="http://www.enseignement.polytechnique.fr/informatique/profs/Julien.Cervelle/eclipse/#"> ici</a></td>
+    </tr>
+    <tr>
+      <td data-label="aide ou paramétrage">ERREUR “'Periodic workspace save.' has encountered a pro‍blem.”</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="https://stackoverflow.com/questions/11729085/eclipse-periodic-workspace-save-has-encountered-a-problem"> ici</a></td>
+    </tr>
+    <tr>
+      <td data-label="aide ou paramétrage">Raccourcis clavier Eclipse essentiels</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="http://jeefacile.unblog.fr/2009/02/23/eclipse-les-raccourcis-clavier-pour-coder-plus-vite/"> ici</a> <img src="../img/icon_globe.png"><a href="http://thierry-leriche-dessirier.developpez.com/tutoriels/eclipse/raccourcis/"> ici</a</td>
+    </tr>
+    <tr>
+      <td data-label="aide ou paramétrage">Bloc code en commentaire</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="https://www.developpez.net/forums/d624693/environnements-developpement/eclipse/eclipse-java/eclipse-3-4-1-raccourci-bloc-code-commentaire/"> ici</a></td>
+    </tr>
+    <tr>
+      <td data-label="aide ou paramétrage">Eclipse et les BDD</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="https://www.jmdoudoux.fr/java/dejae/chap031.htm"> ici</a></td>
+    </tr>
+    <tr>
+      <td data-label="aide ou paramétrage">"Classe PDO" en java, accéder à la database</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="http://www.science.smith.edu/dftwiki/index.php/Tutorial:_Accessing_a_MySql_database_in_Java_(Eclipse)"> ici</a></td>
+    </tr>
+    <tr>
+      <td data-label="aide ou paramétrage">Import / Exports de projets</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="http://agile.csc.ncsu.edu/SEMaterials/tutorials/import_export/"> ici</a></td>
+    </tr>
+    <tr>
+      <td data-label="aide ou paramétrage">Modélisation UML avec papyrus</td>
+      <td data-label="lien"><img src="../img/icon_globe.png"><a href="http://www.eclipse.org/papyrus/"> ici</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Eclipse : Eclipse Marketplace</h3>
+
+<p>Dans eclipse, se rendre dans le système de menus à <code class="code2">Help > Eclipse Marketplace</code> puis dans Find: installez les packages suivants :</p>
+
+<ul>
+  <li>Eclipse Color Theme (coloration syntaxique avancée du code)</li>
+  <li>PHP Developement Tools (programmation PHP intelligente)</li>
+  <li>Remote System Explorer (travailler depuis le serveur à la volée)</li>
+  <li>DBeaver (Client SGBD SQL pour gérer les tables et BDD à distance -> attention l'hebergeur doit accepter les connexions externes)
+</ul>
+
+<h2 id="link4"><aside class="herbgreen">IBM Swift Sandbox, Coderunner 2</aside></h2>
+
+<p>pour Swift -> Applications Mac, iOS</p>
+
+<h3>Si vous avez un système d'exploitation MAC</h3>
+
+<p>Code runner 2 : <img src="../img/icon_externlink.png" alt=""><a href="https://coderunnerapp.com/">télécharger</a><br/>
+IDE pour mac beaucoup moins lourd pour travailler swift et objective-c que Xcode.</p>
+
+
+<h3>Si vous n'avez pas de système d'exploitation MAC</h3>
+<p>IBM Bluemix Swift Sandbox<img src="../img/icon_externlink.png" alt=""><a href="https://swift.sandbox.bluemix.net/#/repl">Utiliser</a><br/>
+application online crée par IBM pour programmer en cloud des softwares pour l'environnement apple sans acheter de mac.</p>
+
+
+<h1>Développement Avancé</h1>
+
+<h2 id="link5"><aside class="herbgreen">Geany</aside></h2>
+
+<p>pour programmer en C++</p>
+
+<p>Allez sur <img src="../img/icon_externlink.png" alt=""><a href="https://www.geany.org/Download/Releases">le site de Geany</a> et téléchargez la version correspondant à votre système d'exploitation.
+
+<p>
+  <img src="../img/ge0.png"><br/>
+  Les fonctions sont les suivantes :
+</p>
+
+<ol>
+  <li>Bouton Build -> Lance la compilation et génère l'executable.</li>
+  <li>Bouton Compile -> Lance la compilation uniquement.</li>
+  <li>Bouton Execute -> Une fois que Build s'est bien passé, cela lance le programme.</li>
+</ol>
+
+<h1>Cloud Computing</h1>
+
+<h2 id="link6"><aside class="herbgreen">IBM Bluemix (Multilangages, cloud developement & deployment)</aside></h2>
+
+<p>En cours de dévelopement</p>
+
+<h2 id="link7"><aside class="herbgreen">Toolbox du développeur</aside></h2>
+
+<h3>Documentation / deboggage</h3>
+<img src="../img/icon_externlink.png" /><a href="https://stackoverflow.com/">Stack Overflow</a><br />
+<img src="../img/icon_externlink.png" /><a href="http://devdocs.io/">Devdocs</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://docs.oracle.com/javase/9/docs/api/overview-summary.html">Java 9 API</a><br />
+
+<h3>Productivité</h3>
+<img src="../img/icon_externlink.png" /><a href="http://www.keybr.com/practice">keybr (apprendre à taper sans regarder)</a><br />
+
+<h3>Ecoles en ligne</h3>
+<img src="../img/icon_externlink.png" /><a href="https://www.udemy.com/">Udemy</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://www.codecademy.com/fr">Codeacademy</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://www.sololearn.com/">Sololearn</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://mva.microsoft.com/">Microsoft Virtual Academy</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://www.grafikart.fr/">Grafikart</a><br />
+<img src="../img/icon_externlink.png" /><a href="http://www.noshade.net/">Noshade</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://openclassrooms.com/">Openclassrooms</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://www.developpez.com/">Developpez</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://parlonscode.com/">Le code par la pratique ParlonsCode</a><br />
+
+<h3>Developpeur front-end</h3>
+<img src="../img/icon_externlink.png" /><a href="https://codepen.io/">Codepen</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://flatuicolors.com/">Faltuicolors</a><br />
+<img src="../img/icon_externlink.png" /><a href="http://htmlcolorcodes.com/fr/">Html color codes</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://uigradients.com">UI gradients</a><br />
+
+<h3>Inspiration design, icons 8</h3>
+<img src="../img/icon_externlink.png" /><a href="https://dribbble.com/">Dribbble</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://icons8.com/">Icons 8</a><br />
+<img src="../img/icon_externlink.png" /><a href="http://fontawesome.io/">Fontawesome</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://fonts.google.com/">Google fonts</a><br />
+
+<h3>Maps</h3>
+<img src="../img/icon_externlink.png" /><a href="https://snazzymaps.com/">Snazzy Maps</a><br />
+<img src="../img/icon_externlink.png" /><a href="https://www.mapbox.com/">Mapbox</a><br />
+<img src="../img/icon_externlink.png" /><a href="http://leafletjs.com/">Leaflet</a><br />
