@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e1bba46-1736-4a08-83b4-f60a7fe66a4b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/html/homeNoResults.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/html/searchWithResults.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/controllers/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/controllers/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/html/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/html/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/api/youtubedynamic/youtubedynamicloading.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/api/youtubedynamic/youtubedynamicloading.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,62 +48,64 @@
     <session id="-1296133695">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.40" value="1" />
+          <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.50" value="1" />
+          <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.52" value="2" />
           <entry key="project.open.time.53" value="1" />
           <entry key="project.open.time.56" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="PURE_MVC_ALGO" value="5" />
-          <entry key="PURE_MVC_ARCHITECTURE" value="3" />
-          <entry key="PURE_MVC_C" value="2" />
-          <entry key="PURE_MVC_CPP" value="2" />
-          <entry key="PURE_MVC_CPPOO" value="3" />
-          <entry key="PURE_MVC_CPPQT" value="1" />
-          <entry key="PURE_MVC_CPPSTL" value="1" />
-          <entry key="PURE_MVC_CSHARP" value="1" />
-          <entry key="PURE_MVC_ENGLISH" value="2" />
-          <entry key="PURE_MVC_FWKS" value="1" />
-          <entry key="PURE_MVC_GODOT" value="1" />
-          <entry key="PURE_MVC_GP" value="1" />
-          <entry key="PURE_MVC_GRAFIC" value="1" />
-          <entry key="PURE_MVC_HTMLCSS" value="1" />
-          <entry key="PURE_MVC_JAVA" value="2" />
+          <entry key="PURE_MVC_ALGO" value="6" />
+          <entry key="PURE_MVC_ARCHITECTURE" value="4" />
+          <entry key="PURE_MVC_C" value="3" />
+          <entry key="PURE_MVC_CPP" value="4" />
+          <entry key="PURE_MVC_CPPOO" value="5" />
+          <entry key="PURE_MVC_CPPQT" value="2" />
+          <entry key="PURE_MVC_CPPSTL" value="2" />
+          <entry key="PURE_MVC_CSHARP" value="2" />
+          <entry key="PURE_MVC_ENGLISH" value="3" />
+          <entry key="PURE_MVC_FWKS" value="3" />
+          <entry key="PURE_MVC_GODOT" value="2" />
+          <entry key="PURE_MVC_GP" value="2" />
+          <entry key="PURE_MVC_GRAFIC" value="2" />
+          <entry key="PURE_MVC_HTMLCSS" value="2" />
+          <entry key="PURE_MVC_JAVA" value="6" />
           <entry key="PURE_MVC_JAVADP" value="2" />
-          <entry key="PURE_MVC_JAVAFX" value="2" />
+          <entry key="PURE_MVC_JAVAFX" value="3" />
           <entry key="PURE_MVC_JAVAOO" value="2" />
-          <entry key="PURE_MVC_JAVA_EJB" value="1" />
-          <entry key="PURE_MVC_JAVA_HIBERNATEORM" value="1" />
+          <entry key="PURE_MVC_JAVA_EJB" value="2" />
+          <entry key="PURE_MVC_JAVA_HIBERNATEORM" value="2" />
           <entry key="PURE_MVC_JAVA_JBOSS" value="1" />
-          <entry key="PURE_MVC_JAVA_JDBC" value="2" />
-          <entry key="PURE_MVC_JAVA_JSF" value="3" />
-          <entry key="PURE_MVC_JAVA_JSP" value="2" />
-          <entry key="PURE_MVC_JAVA_SPRING" value="2" />
-          <entry key="PURE_MVC_JS" value="1" />
+          <entry key="PURE_MVC_JAVA_JDBC" value="3" />
+          <entry key="PURE_MVC_JAVA_JSF" value="4" />
+          <entry key="PURE_MVC_JAVA_JSP" value="3" />
+          <entry key="PURE_MVC_JAVA_SPRING" value="3" />
+          <entry key="PURE_MVC_JS" value="2" />
           <entry key="PURE_MVC_JSAJAX" value="1" />
-          <entry key="PURE_MVC_JSC" value="1" />
-          <entry key="PURE_MVC_JSLST" value="1" />
-          <entry key="PURE_MVC_JSP" value="1" />
-          <entry key="PURE_MVC_MATHS" value="1" />
-          <entry key="PURE_MVC_MICRO" value="1" />
-          <entry key="PURE_MVC_OS" value="1" />
-          <entry key="PURE_MVC_PHP" value="1" />
-          <entry key="PURE_MVC_PHPBDD" value="1" />
-          <entry key="PURE_MVC_PHPDEBUG" value="1" />
-          <entry key="PURE_MVC_PHPINT" value="1" />
-          <entry key="PURE_MVC_PHPMVC" value="1" />
-          <entry key="PURE_MVC_PHPOO" value="1" />
-          <entry key="PURE_MVC_PHPS" value="1" />
-          <entry key="PURE_MVC_PHPSEC" value="1" />
-          <entry key="PURE_MVC_PHPUML" value="1" />
+          <entry key="PURE_MVC_JSC" value="2" />
+          <entry key="PURE_MVC_JSLST" value="2" />
+          <entry key="PURE_MVC_JSP" value="2" />
+          <entry key="PURE_MVC_MATHS" value="2" />
+          <entry key="PURE_MVC_MICRO" value="2" />
+          <entry key="PURE_MVC_OS" value="2" />
+          <entry key="PURE_MVC_PHP" value="2" />
+          <entry key="PURE_MVC_PHPBDD" value="2" />
+          <entry key="PURE_MVC_PHPDEBUG" value="2" />
+          <entry key="PURE_MVC_PHPINT" value="2" />
+          <entry key="PURE_MVC_PHPMVC" value="2" />
+          <entry key="PURE_MVC_PHPOO" value="2" />
+          <entry key="PURE_MVC_PHPS" value="2" />
+          <entry key="PURE_MVC_PHPSEC" value="2" />
+          <entry key="PURE_MVC_PHPUML" value="2" />
           <entry key="PURE_MVC_PROMANAG" value="1" />
           <entry key="PURE_MVC_PYTHON" value="1" />
           <entry key="PURE_MVC_RUBY" value="1" />
@@ -110,28 +113,28 @@
           <entry key="PURE_MVC_VC" value="2" />
           <entry key="collations" value="1" />
           <entry key="css" value="6" />
-          <entry key="html" value="15" />
-          <entry key="js" value="3" />
-          <entry key="php" value="25" />
+          <entry key="html" value="16" />
+          <entry key="js" value="4" />
+          <entry key="php" value="31" />
           <entry key="sql" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="6" />
-          <entry key="Database Element" value="69" />
-          <entry key="HTML" value="15" />
-          <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="25" />
+          <entry key="Database Element" value="113" />
+          <entry key="HTML" value="16" />
+          <entry key="JavaScript" value="4" />
+          <entry key="PHP" value="31" />
           <entry key="Scratch" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cell" value="1270" />
+          <entry key="cell" value="1705" />
           <entry key="css" value="159" />
-          <entry key="html" value="523" />
-          <entry key="php" value="2117" />
+          <entry key="html" value="525" />
+          <entry key="php" value="2260" />
           <entry key="sql" value="23" />
           <entry key="txt" value="4" />
         </counts>
@@ -139,17 +142,108 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="159" />
-          <entry key="HTML" value="523" />
-          <entry key="PHP" value="1984" />
+          <entry key="HTML" value="525" />
+          <entry key="PHP" value="2126" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="SQL" value="133" />
-          <entry key="Scratch" value="1293" />
+          <entry key="SQL" value="134" />
+          <entry key="Scratch" value="1728" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPBDD">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPDEBUG">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPINT">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPMVC">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPOO">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPS">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_CPPOO">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_CPP">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPSEC">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPUML">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -164,6 +258,9 @@
       <find>services</find>
       <find>spaced</find>
       <find>content-spaced</find>
+      <find>$lessonVideoLink</find>
+      <find>frameworks</find>
+      <find>javascript</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,12 +275,13 @@
         <option value="$PROJECT_DIR$/pages/templates/layout.view.php" />
         <option value="$PROJECT_DIR$/pages/views/VMenu.view.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/cc199a46-2208-4d8b-9fa5-da04363493c4/console.sql" />
-        <option value="$PROJECT_DIR$/core/models/MTuples.mod.php" />
-        <option value="$PROJECT_DIR$/public/controllers/main.php" />
-        <option value="$PROJECT_DIR$/public/html/home.html" />
         <option value="$PROJECT_DIR$/public/css/css_framework/pure-min.css" />
         <option value="$PROJECT_DIR$/public/html/homeNoResults.html" />
         <option value="$PROJECT_DIR$/public/html/searchWithResults.html" />
+        <option value="$PROJECT_DIR$/public/html/home.html" />
+        <option value="$PROJECT_DIR$/public/js/api/youtubedynamic/youtubedynamicloading.js" />
+        <option value="$PROJECT_DIR$/core/models/MTuples.mod.php" />
+        <option value="$PROJECT_DIR$/public/controllers/main.php" />
       </list>
     </option>
   </component>
@@ -210,6 +308,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -220,29 +319,7 @@
             <path>
               <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
               <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
@@ -265,33 +342,18 @@
               <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
               <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
               <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="css_api_others" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="css_framework" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -348,17 +410,20 @@
       <workItem from="1535836102694" duration="784000" />
       <workItem from="1535875896292" duration="6048000" />
       <workItem from="1535899751769" duration="13967000" />
-      <workItem from="1535949070055" duration="9936000" />
+      <workItem from="1535949070055" duration="12101000" />
+      <workItem from="1535980374247" duration="2379000" />
+      <workItem from="1536059563878" duration="8329000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39025000" />
+    <option name="totallyTimeSpent" value="51898000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="0" width="2566" height="1410" extended-state="7" />
+    <frame x="-3" y="0" width="2566" height="1410" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13961814" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14200477" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -374,9 +439,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Console" order="7" weight="0.21306376" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32970452" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49960223" visible="true" weight="0.18273717" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960223" visible="true" weight="0.1726283" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5003978" side_tool="true" weight="0.19051322" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -386,7 +451,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.15990454" />
+      <window_info active="true" anchor="right" id="Database" order="7" visible="true" weight="0.15990454" />
       <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
   </component>
@@ -445,7 +510,83 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_CSHARP">
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_UNITY">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/searchWithResults.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/homeNoResults.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/css_framework/pure-min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="229" column="19" selection-start-line="229" selection-start-column="19" selection-end-line="229" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_VC">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/java.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/api/youtubedynamic/youtubedynamicloading.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/views/VGlobal.view.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/views/VTuples.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="105" column="37" lean-forward="true" selection-start-line="105" selection-start-column="37" selection-end-line="105" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_ALGO">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_ARCHITECTURE">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_C">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -466,28 +607,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA">
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_CSHARP">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA">
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_ENGLISH">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA">
+    <entry file="file://$PROJECT_DIR$/core/models/MTuples.mod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_FWKS">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA_HIBERNATEORM">
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_GODOT">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_GP">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_GRAFIC">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -501,7 +663,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA">
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA_HIBERNATEORM">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_HTMLCSS">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -509,27 +678,6 @@
       </provider>
     </entry>
     <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_CPP">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_CPPOO">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -537,13 +685,6 @@
       </provider>
     </entry>
     <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA_JDBC">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA_JBOSS">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -571,21 +712,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVADP">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVAFX">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVAOO">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -599,10 +726,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JSAJAX">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/pages/views/VMenu.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="735" column="46" selection-start-line="735" selection-start-column="36" selection-end-line="735" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -683,20 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPOO">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPS">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPSEC">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -711,90 +829,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PROMANAG">
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPOO">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PYTHON">
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPS">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_RUBY">
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_CPPOO">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_UNITY">
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_CPP">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_ENGLISH">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/searchWithResults.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/homeNoResults.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/css_framework/pure-min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="229" column="19" selection-start-line="229" selection-start-column="19" selection-end-line="229" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="1281" column="11" lean-forward="true" selection-start-line="1281" selection-start-column="11" selection-end-line="1281" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_VC">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/java.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/MTuples.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="184" column="44" selection-start-line="184" selection-start-column="44" selection-end-line="184" selection-end-column="44" />
         </state>
       </provider>
     </entry>

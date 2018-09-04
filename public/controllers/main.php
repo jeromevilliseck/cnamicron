@@ -1023,7 +1023,7 @@ function ide() {
 
 function frameworks() {
     $mTuples = new MTuples();
-    $data       = $mTuples->SelectAllOrderByLessonName("PURE_MVC_FWKS");
+    $data       = $mTuples->SelectAll("PURE_MVC_FWKS");
 
     global $content;
 
