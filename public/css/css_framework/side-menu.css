@@ -76,7 +76,7 @@ The content `<div>` is where all your content goes.
     text-align: center;
     padding: 2.5em 2em 0;
     border-bottom: 1px solid #fff; /*ligne de démarcation header / section*/
-    background-color: none; /*couleur de fond de header*/
+    /*background-color: none; couleur de fond de header*/
 }
 .header h1 {
     margin: 0.2em 0;
@@ -123,7 +123,7 @@ All anchors inside the menu should be styled like this.
     font-weight: lighter; /*affine la police du menu*/
     color: #999; /*COULEUR POLICE DES LIENS PANNEAU LATERAL*/
     border: none;
-    padding: 0.3em 0 0.3em 0.6em;   /*PAR DEFAUT -> padding: 0.6em 0 0.6em 0.6em;*/ ESPACEMENT DES ELEMENTS DU MENU
+    padding: 0.3em 0 0.3em 0.6em;   /*PAR DEFAUT -> padding: 0.6em 0 0.6em 0.6em; ESPACEMENT DES ELEMENTS DU MENU*/
 }
 
 /*
@@ -290,7 +290,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
 
     #menu a {
-        padding: 0.6em 0 0.6em 0.6em;   /*PAR DEFAUT -> padding: 0.6em 0 0.6em 0.6em;*/ ESPACEMENT DES ELEMENTS DU MENU
+        padding: 0.6em 0 0.6em 0.6em;   /*PAR DEFAUT -> padding: 0.6em 0 0.6em 0.6em; ESPACEMENT DES ELEMENTS DU MENU*/
     }
 
     #menu .pure-menu-heading {

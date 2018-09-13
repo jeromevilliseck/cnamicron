@@ -28,7 +28,7 @@ class VTuples extends VGlobal{
 			</p>
 			' : $lessonVideoLink = '' ;
 
-            ($val['LESSON_DETAILS'] != NULL) ? $lessonDetails = '<p><span class="pure-lesson-cap">Concepts importants</span></p><div>'.$val['LESSON_DETAILS'].'</div>' : $lessonDetails = "";
+            ($val['LESSON_DETAILS'] != NULL) ? $lessonDetails = '<div>'.$val['LESSON_DETAILS'].'</div>' : $lessonDetails = "";
             ($val['LESSON_KEYWORDS'] != NULL) ? $lessonKeywords = '<p><span class="pure-lesson-cap">Mots-clés</span></p><p>'.$val['LESSON_KEYWORDS'].'</p>' : $lessonKeywords = "";
 
             ($val['LESSON_FILE_PREVIEW'] != NULL) ? $linkFileLinkPreview = '<p><a href="../../public/files/'.$val['LESSON_FILE_LINK'].'"><div style="text-align:center;"><img src="../../public/img/'.$val['LESSON_FILE_PREVIEW'].'" alt="'.$val['LESSON_FILE_PREVIEW'].'" /></div></a></p>' : $linkFileLinkPreview = '';
@@ -67,7 +67,7 @@ class VTuples extends VGlobal{
             $tr .= '
         <h2>'.$lessonNumber.''.$lessonName.'</h2>                                       				<!-- Titre avec un conteneur pour le numero de la lesson suivi du titre de la lesson -->
         '.$divStart.'                                                                   				<!-- Balise contenant un attribut javascript -->
-        <h3 '.$lessonAnchor.'><aside '.$lessonColor.'>'.$lessonChapter.' '.$lessonLink.'</aside></h3>   	<!-- Titre de couleur avec en contenu le chapitre (ancre et couleur tout les 2 un attribut) -->
+        <div '.$lessonAnchor.'><aside '.$lessonColor.'>'.$lessonChapter.' '.$lessonLink.'</aside></div>   	<!-- Titre de couleur avec en contenu le chapitre (ancre et couleur tout les 2 un attribut) -->
           '.$lessonVideoLink.''.$linkFileLinkPreview.'                                  				<!-- Image ou video (selon le contenu du tuple) -->
 
         '.wordwrap($lessonDetails, 100, "\n").'                             							<!-- Détails de la lesson (dans un div) -->

@@ -4,6 +4,9 @@ require('../../config/configDatabase.php'); 							// Constantes de connection �
 require('../../config/configVectors.php'); 								// Vecteurs
 require('../../core/autoloader/autoloader.php');                        // Autoloader
 
+
+
+
 $EX = isset($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';				// Variable de contrôle
 
 switch ($EX) {															// Contrôleur

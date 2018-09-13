@@ -55,16 +55,12 @@ strong
 	font-weight: 700;
 }
 dfn{
-
 font-style: italic;
-}h1
-{
-	font-size: 2em;margin: .67em 0;
-
 }mark
 {color: #000;
 	background: #ff0;
-}small
+}
+small
 {
 	font-size: 80%;
 }sub,
@@ -872,24 +868,38 @@ body
 	background-color: #fff;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6
+h1
 {
-	font-weight: bold;
-
-	color: rgb(75, 75, 75);
+	font-size: 1.6em;
+}
+h2
+{
+	color: #2C3E50;
+	font-size: 1.5em;
 }
 h3
 {
-	font-size: 1.25em;
+	color:#808B96;
+	font-size: 1.3em;
+	text-decoration: underline;
 }
 h4
 {
-	font-size: 1.125em;
+	color:#78909C;
+	font-size: 1.2em;
+	text-decoration: underline;
+}
+h5
+{
+	color:#85929E;
+	font-size: 1.1em;
+	text-decoration: underline;
+}
+h6
+{
+	color:#AEB6BF;
+	font-size: 1em;
+	text-decoration: underline;
 }
 
 a
@@ -1417,15 +1427,6 @@ a.pure-button-primary
 	{
 		padding-right: 2em;
 		padding-left: 2em;
-	}
-
-	.header h1
-	{
-		font-size: 320%;
-	}
-	.header h2
-	{
-		font-size: 128%;
 	}
 
 	.content p
