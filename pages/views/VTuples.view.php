@@ -103,6 +103,7 @@ HERE;
         if($_data){
             $EX = 'update';
             $id_doc             = $_data['ID'];
+            $lessonName         = $_data['LESSON_NAME'];
             $lessonDetails  	= $_data['LESSON_DETAILS'];
             $lessonKeywords 	= $_data['LESSON_KEYWORDS'];
             $lessonFilePreview  = $_data['LESSON_FILE_PREVIEW'];
@@ -114,6 +115,7 @@ HERE;
         }else{
             $EX = 'insert';
             $id_doc             = '';
+            $lessonName         = '';
             $lessonDetails  	= '';
             $lessonKeywords 	= '';
             $lessonFilePreview  = '';
@@ -132,8 +134,13 @@ HERE;
         <input type="hidden" name="DATABASE" value="$database" />
         
         <div class="pure-control-group">
+        <label for="lessonName">Nom de la leçon</label>
+        <input id="lessonName" name="LESSON_NAME" value="$lessonName" />
+        </div>
+        
+        <div class="pure-control-group">
         <label for="details">Details</label>
-        <textarea id="details" name="LESSON_DETAILS" rows="10" cols="85">$lessonDetails</textarea>
+        <textarea id="details" name="LESSON_DETAILS" rows="10" cols="85" style="font-size: 12px;line-height: normal;color: white; background-color: #0c1021">$lessonDetails</textarea>
         </div>
         
         <div class="pure-control-group">
@@ -158,7 +165,7 @@ HERE;
 
         <div class="pure-control-group">
         <label for="lessonCode">Code de la leçon</label>
-        <textarea id="lessonCode" name="LESSON_CODE" rows="5" cols="85">$lessonCode</textarea>
+        <textarea id="lessonCode" name="LESSON_CODE" rows="5" cols="85" style="font-size: 12px;line-height: normal;color: white; background-color: #0c1021">$lessonCode</textarea>
         </div>
 
         <div class="pure-controls">

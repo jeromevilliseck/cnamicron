@@ -64,15 +64,9 @@ class MTuples extends MGlobal{
 
     private function Update($_databaseTable)
     {
-        $LESSON_DETAILS = $this->value['LESSON_DETAILS'];
-        $LESSON_KEYWORDS = $this->value['LESSON_KEYWORDS'];
-        $LESSON_FILE_PREVIEW = $this->value['LESSON_FILE_PREVIEW'];
-        $LESSON_FILE_LINK = $this->value['LESSON_FILE_LINK'];
-        $LESSON_FILE_VIDEOLINK = $this->value['LESSON_FILE_VIDEOLINK'];
-        $LESSON_CODE = $this->value['LESSON_CODE'];
-
         $query = "update $_databaseTable
-              set LESSON_DETAILS = :DETAILS,
+              set LESSON_NAME = :LESSON,
+                  LESSON_DETAILS = :DETAILS,
                   LESSON_KEYWORDS = :KEYWORDS,
                   LESSON_FILE_PREVIEW = :PREVIEW,
                   LESSON_FILE_LINK = :LINK,
@@ -82,6 +76,7 @@ class MTuples extends MGlobal{
 
         $result = $this->conn->prepare($query);
 
+        $result->bindValue(':LESSON', $this->value['LESSON_NAME'], PDO::PARAM_STR);
         $result->bindValue(':DETAILS', $this->value['LESSON_DETAILS'], PDO::PARAM_STR);
         $result->bindValue(':KEYWORDS', $this->value['LESSON_KEYWORDS'], PDO::PARAM_STR);
         $result->bindValue(':PREVIEW', $this->value['LESSON_FILE_PREVIEW'], PDO::PARAM_STR);
