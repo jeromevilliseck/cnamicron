@@ -257,7 +257,7 @@ function selectAllList($_database){
 
     global $content;
 
-    $content['title']       = '$_database';
+    $content['title']       = $_database;
     $content['description'] = 'Mode Edition';
     $content['class']       = 'VTuples';
     $content['method']      = 'showAllTuples';

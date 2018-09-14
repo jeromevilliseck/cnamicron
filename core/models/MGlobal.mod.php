@@ -34,9 +34,12 @@ class MGlobal{
      * @see used only to see errors in your MVC Architecture
      * @param $result
      */
-    protected function ErrorSQL($result)
+    public function ErrorSQL($result)
     {
-        if (!DEBUG) return;
+        if (DEBUG) {
+        } else {
+            return;
+        }
 
         $error = $result->errorInfo();
 

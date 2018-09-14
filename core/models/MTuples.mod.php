@@ -74,21 +74,33 @@ class MTuples extends MGlobal{
         $LESSON_CODE = $this->value['LESSON_CODE'];
 
         $query = "update $_databaseTable
-              set LESSON_DETAILS = '$LESSON_DETAILS',
-                  LESSON_KEYWORDS = '$LESSON_KEYWORDS',
-                  LESSON_FILE_PREVIEW = '$LESSON_FILE_PREVIEW';
-                  LESSON_FILE_LINK = '$LESSON_FILE_LINK';
-                  LESSON_FILE_VIDEOLINK = '$LESSON_FILE_VIDEOLINK',
-                  LESSON_CODE = '$LESSON_CODE'
-              where PRIMARY_KEY = $this->primary";
+              set LESSON_DETAILS = :DETAILS,
+                  LESSON_KEYWORDS = :KEYWORDS,
+                  LESSON_FILE_PREVIEW = :PREVIEW,
+                  LESSON_FILE_LINK = :LINK,
+                  LESSON_FILE_VIDEOLINK = :VIDEOLINK,
+                  LESSON_CODE = :CODE
+              where ID = :ID";
+
+        var_dump($query);
 
         $result = $this->conn->prepare($query);
 
-        $result->execute() or die ($this->ErrorSQL($result));
+        $result->bindValue(':DETAILS', $this->value['LESSON_DETAILS'], PDO::PARAM_STR);
+        $result->bindValue(':KEYWORDS', $this->value['LESSON_KEYWORDS'], PDO::PARAM_STR);
+        $result->bindValue(':PREVIEW', $this->value['LESSON_FILE_PREVIEW'], PDO::PARAM_STR);
+        $result->bindValue(':LINK', $this->value['LESSON_FILE_LINK'], PDO::PARAM_STR);
+        $result->bindValue(':VIDEOLINK', $this->value['LESSON_FILE_VIDEOLINK'], PDO::PARAM_STR);
+        $result->bindValue(':CODE', $this->value['LESSON_CODE'], PDO::PARAM_STR);
+        $result->bindValue(':ID', $this->primary, PDO::PARAM_STR);
 
-        $this->value['PRIMARY_KEY'] = $this->primary;
+        var_dump($result);
 
-        return $this->value;
+        $result->execute();
+
+
+
+        return;
 
     } // Update()
 
