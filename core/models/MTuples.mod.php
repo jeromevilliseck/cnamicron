@@ -64,8 +64,6 @@ class MTuples extends MGlobal{
 
     private function Update($_databaseTable)
     {
-        var_dump($this->value);
-        var_dump($this->primary);
         $LESSON_DETAILS = $this->value['LESSON_DETAILS'];
         $LESSON_KEYWORDS = $this->value['LESSON_KEYWORDS'];
         $LESSON_FILE_PREVIEW = $this->value['LESSON_FILE_PREVIEW'];
