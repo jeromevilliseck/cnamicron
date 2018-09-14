@@ -15,15 +15,97 @@ class MTuples extends MGlobal{
 	}
 
 
-	public function Select($_database){
+	public function Select($_databaseTable){
 		$query = "select *
-				from $_database
+				from $_databaseTable
 				where ID = $this->primary";
 		$result = $this->conn->prepare($query);
 		$result->execute() or die($this->ErrorSQL($result)); 
 		
 		return $result->fetch();
 	}
+
+    /**
+     * @see
+     * @param $_type argument correspondant au type de modification qui sera effectuée sur la table : insert, update ou delete
+     * @return mixed, switch permet d'appeler la méthode privée correspondante à la valeur de l'argument passé dans la méthode Modify()
+     */
+    public function Modify($_type, $_database = NULL)
+    {
+        switch ($_type)
+        {
+            case 'insert' : return $this->Insert($_database);
+            case 'update' : return $this->Update($_database);
+            case 'delete' : return $this->Delete($_database);
+        }
+
+    } // Modify($_type)
+
+	//TODO Mettre en place un lien d'insertion dans les listings
+    private function Insert($_databaseTable)
+    {
+        $ATTRIBUT_1 = $this->value['ATTRIBUT_1'];
+        $ATTRIBUT_N = $this->value['ATTRIBUT_N'];
+
+        $query = "insert into $_databaseTable(ATTRIBUT_1, ..., ATTRIBUT_N)
+              values('$ATTRIBUT_1', ..., '$ATTRIBUT_N')";
+
+        $result = $this->conn->prepare($query);
+
+        $result->execute() or die ($this->ErrorSQL($result));
+
+        $this->primary = $this->conn->lastInsertId();
+
+        $this->value['PRIMARY_KEY'] = $this->primary_key;
+
+        return $this->value;
+
+    } // Insert()
+
+    private function Update($_databaseTable)
+    {
+        var_dump($this->value);
+        var_dump($this->primary);
+        $LESSON_DETAILS = $this->value['LESSON_DETAILS'];
+        $LESSON_KEYWORDS = $this->value['LESSON_KEYWORDS'];
+        $LESSON_FILE_PREVIEW = $this->value['LESSON_FILE_PREVIEW'];
+        $LESSON_FILE_LINK = $this->value['LESSON_FILE_LINK'];
+        $LESSON_FILE_VIDEOLINK = $this->value['LESSON_FILE_VIDEOLINK'];
+        $LESSON_CODE = $this->value['LESSON_CODE'];
+
+        $query = "update $_databaseTable
+              set LESSON_DETAILS = '$LESSON_DETAILS',
+                  LESSON_KEYWORDS = '$LESSON_KEYWORDS',
+                  LESSON_FILE_PREVIEW = '$LESSON_FILE_PREVIEW';
+                  LESSON_FILE_LINK = '$LESSON_FILE_LINK';
+                  LESSON_FILE_VIDEOLINK = '$LESSON_FILE_VIDEOLINK',
+                  LESSON_CODE = '$LESSON_CODE'
+              where PRIMARY_KEY = $this->primary";
+
+        $result = $this->conn->prepare($query);
+
+        $result->execute() or die ($this->ErrorSQL($result));
+
+        $this->value['PRIMARY_KEY'] = $this->primary;
+
+        return $this->value;
+
+    } // Update()
+
+    //TODO Mettre en place un lien de suppression sur les fiches
+    private function Delete($_databaseTable)
+    {
+        $query = "delete from $_databaseTable
+              where PRIMARY_KEY = $this->primary_key";
+
+        $result = $this->conn->prepare($query);
+
+        $result->execute() or die ($this->ErrorSQL($result));
+
+        return;
+
+    } // Delete()
+
 
 	public function SearchAll($_val, &$_counter){
 	    if(isset($_val) && !empty($_val)){ //We check that the key/value pair that contains the search is not empty

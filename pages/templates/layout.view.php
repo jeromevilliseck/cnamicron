@@ -45,8 +45,9 @@ $vcontent = new $content['class'](); 					/*Instanciation d'une classe variable 
 </head>
 
 <body>																									<!--BLOCK_LEVEL_0-->
+
 <button onclick="topFunction()" id="myBtn" title="Go to top"">&#8593;</button>											<!--button back to top-->
-<script src="../../public/js/framework/purecss/root.js"></script>										<!--Script js central du framework-->																			<!--fichier js racine du framework css-->																		
+<script src="../../public/js/framework/purecss/root.js"></script>										<!--Script js central du framework-->																			<!--fichier js racine du framework css-->
 
   <div id="layout">																							<!--BLOCK_LEVEL_1-->
       <a href="#menu" id="menuLink" class="menu-link">																	<!--Menu de navigation avec évenement javascript qui déclenche l'affichage du conteneur nav-->
@@ -64,7 +65,14 @@ $vcontent = new $content['class'](); 					/*Instanciation d'une classe variable 
       </nav>
 
      <div id="main">																							<!--BLOCK_LEVEL_2-->
+
        <div class="header">																							<!--BLOCK_LEVEL_3-->
+           <?php
+           //TODO Factoriser le CSS
+           if(isset($_SESSION['ID_USER'])){
+               echo "<aside style='position: absolute; top: -1em;'>Connecté sous : ".$_SESSION['NOM'] . ' ' . $_SESSION['PRENOM']. ' | ' ."<a href='../../public/controllers/main.php?EX=deconnect'>Deconnexion</a></aside>";
+           }
+           ?>
            <h1><?=$content['title']?></h1>
            <h2><?=$content['description']?></h2>
        </div>

@@ -4,8 +4,8 @@ require('../../config/configDatabase.php'); 							// Constantes de connection �
 require('../../config/configVectors.php'); 								// Vecteurs
 require('../../core/autoloader/autoloader.php');                        // Autoloader
 
-
-
+session_name('SECURITY');                                        // Session
+session_start();
 
 $EX = isset($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';				// Variable de contrôle
 
@@ -205,6 +205,18 @@ switch ($EX) {															// Contrôleur
     case 'noresults':
         homeNoResults();
         break;
+    case 'admin':
+        formConnect();
+        break;
+    case 'connect':
+        connect();
+        break;
+    case 'deconnect':
+        deconnect();
+        break;
+    case 'update':
+        modify('update');
+        break;
 }
 
 require('../../pages/templates/layout.view.php');						//Vue : template				
@@ -223,7 +235,7 @@ function home() {														//Fonctions de contrôle
     return;
 }
 
-function homeNoResults() {														//Fonctions de contrôle
+function homeNoResults() {
     global $content;
 
     $content['title']       = 'Cnamicron';
@@ -237,8 +249,30 @@ function homeNoResults() {														//Fonctions de contrôle
     return;
 }
 
+function selectAllList($_database){
+    global $ID_USER;
+
+    $mTuples = new MTuples($ID_USER); //User
+    $data       = $mTuples->SelectAll($_database);
+
+    global $content;
+
+    $content['title']       = '$_database';
+    $content['description'] = 'Mode Edition';
+    $content['class']       = 'VTuples';
+    $content['method']      = 'showAllTuples';
+    $content['arg']         = $data;
+    $content['logo']        = ConfigVectors::showHatLogo(50, 50);
+
+    $content['thumbnail']   = 'http://www.image-heberg.fr/files/152079676369203515.png';
+
+    return;
+}
+
 function algo() {
-    $mTuples = new MTuples();
+    global $ID_USER;
+
+    $mTuples = new MTuples($ID_USER); //User
     $data       = $mTuples->SelectAll("PURE_MVC_ALGO");
 
     global $content;
@@ -1304,15 +1338,25 @@ function grafic() {
 }
 
 function displayOne() {
-	$mTuples = new MTuples($_GET['ID']);
-	$data = $mTuples->Select($_GET['TABLE']);
-	
+    if(isset($_SESSION['ID_USER'])){
+        $mTuples = new MTuples($_GET['ID'], $_SESSION['ID_USER']);
+        $data = $mTuples->Select($_GET['TABLE']);
+    } else {
+        $mTuples = new MTuples($_GET['ID']);
+        $data = $mTuples->Select($_GET['TABLE']);
+    }
+
 	global $content;
 	
 	$content['title']       = $data[2];
     $content['description'] = $data[3];
     $content['class']       = 'VTuples';
-    $content['method']      = 'showTuple';
+
+    if(isset($_SESSION['ID_USER'])) {
+        $content['method'] = 'editTuple';
+    } else {
+        $content['method'] = 'showTuple';
+    }
     $content['arg']         = $data;
     $content['logo']        = ConfigVectors::showReadingLogo(50, 50);
     
@@ -1338,3 +1382,67 @@ function searchResults(){
 
     return;
 }
+
+//Partie administrateur
+
+function formConnect(){
+    global $content;
+
+    $content['title']       = 'Connection';
+    $content['description'] = "Administration du site";
+    $content['class']       = 'VHtml';
+    $content['method']      = 'showHtml';
+    $content['arg']         = '../html/formConnect.html';
+    $content['logo']        = ConfigVectors::showHatLogo(50, 50);
+
+    $content['thumbnail']   = 'http://www.image-heberg.fr/files/152079676369203515.png';
+}
+
+function connect()
+{
+    $musers = new MUsers();
+    $value = $musers->VerifUser($_POST);
+
+    $_SESSION['ID_USER'] = $value['ID_USER'];
+    $_SESSION['NOM'] = $value['NOM'];
+    $_SESSION['PRENOM'] = $value['PRENOM'];
+
+    home();
+
+    return;
+
+} // connect()
+
+function deconnect()
+{
+    // Détruit la session
+    session_destroy();
+    // Détruit les variables de session
+    $_SESSION = array();
+    // Redirection vers la page d'accueil
+    header('Location: ../controllers/main.php');
+
+    return;
+
+} // deconnect()
+
+/**
+ * @param $type
+ */
+function modify($type)
+{
+    global $ID_USER;
+
+    $id_doc = isset($_REQUEST['ID_DOC']) ? $_REQUEST['ID_DOC'] : '';
+
+    $mTuples = new MTuples($id_doc, $ID_USER);
+    if ($_POST) {
+        $mTuples->SetValue($_POST);
+    }
+    $mTuples->Modify($type, $_REQUEST['DATABASE']);
+
+    selectAllList($_REQUEST['DATABASE']);
+
+    return;
+
+} // modify($type)

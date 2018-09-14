@@ -1,6 +1,7 @@
 <?php
 class VTuples extends VGlobal{
 
+    //TODO Ancienne version de la classe présence de code noir
     public function showAllTuples($_data)
     {
         // Boucle sur les tuples racines de la table passée en paramètre du lors de l'instanciation d'un objet sur une classe de type Mod
@@ -44,6 +45,23 @@ class VTuples extends VGlobal{
             ($val['LESSON_FILE_PROJECT_ZIP'] != NULL) ? $linkZipNamed = ' '.basename($val['LESSON_FILE_PROJECT_ZIP'], ".7z").' ' : $linkZipNamed = "";
             ($val['LESSON_FILE_PROJECT_ZIP'] != NULL) ? $linkZipEnd = '</a><br />' : $linkZipEnd = "";
 
+			/* Attributs SQL pour l'instant inutilisés ci-dessous
+            ($val['LESSON_FILE_DBTABLES'] != NULL) ? $logoDBTable = '<img src="../../public/img/icon_zip.gif"/>' : $logoDBTable = "";
+            ($val['LESSON_FILE_DBTABLES'] != NULL) ? $linkDBTable = '<a href="../../public/files/'.$val['LESSON_FILE_DBTABLES'].'">' : $linkDBTable = "";
+            ($val['LESSON_FILE_DBTABLES'] != NULL) ? $linkDBTableNamed = ' Tables SQL nécessaires' : $linkDBTableNamed = "";
+            ($val['LESSON_FILE_DBTABLES'] != NULL) ? $linkDBTableEnd = '</a><br />' : $linkDBTableEnd = "";
+
+            ($val['LESSON_FILE_DEMO'] != NULL) ? $logoDemo = '<img src="../../public/img/icon_zip.gif"/>' : $logoDemo = "";
+            ($val['LESSON_FILE_DEMO'] != NULL) ? $linkDemo = '<a href="../../public/files/'.$val['LESSON_FILE_DEMO'].'">' : $linkDemo = "";
+            ($val['LESSON_FILE_DEMO'] != NULL) ? $linkDemoNamed = ' Tables SQL nécessaires' : $linkDemoNamed = "";
+            ($val['LESSON_FILE_DEMO'] != NULL) ? $linkDemoEnd = '</a><br />' : $linkDemoEnd = "";
+
+            ($val['LESSON_SOFTWARE'] != NULL) ? $logoSoftware = '<img src="../../public/img/icon_zip.gif"/>' : $logoSoftware = "";
+            ($val['LESSON_SOFTWARE'] != NULL) ? $linkSoftware = '<a href="../../public/files/'.$val['LESSON_FILE_SOFTWARE'].'">' : $linkSoftware = "";
+            ($val['LESSON_SOFTWARE'] != NULL) ? $linkSoftwareNamed = ' Tables SQL nécessaires' : $linkSoftwareNamed = "";
+            ($val['LESSON_SOFTWARE'] != NULL) ? $linkSoftwareEnd = '</a><br />' : $linkSoftwareEnd = "";
+			*/
+
             ($val['LESSON_CODE'] != NULL) ? $lessonCode = '<p><span class="pure-lesson-cap">Code source</span></p><div>'.$val['LESSON_CODE'].'</div>' : $lessonCode='';
 
             // Concaténation avec l'ancre et le titre de la catégorie
@@ -60,6 +78,9 @@ class VTuples extends VGlobal{
         '.$lessonFileLink.'                                                             				<!-- Fichiers (le mot seulement encadré) -->
         '.$logoPdf.''.$linkFile.' '.$linkFileNamed.''.$linkFileEnd.'                     				<!-- Fichier pdf -->
         '.$logoZip.''.$linkZip.''.$linkZipNamed.''.$linkZipEnd./*'                        				<!-- Archive compressée -->
+        '.$logoDBTable.''.$linkDBTable.''.$linkDBTable.''.$linkDBTable.'                				<!-- Tables SQL -->
+        '.$logoDemo.''.$linkDemo.''.$linkDemo.''.$linkDemo.'                            				<!-- Démonstration -->
+        '.$logoSoftware.''.$linkSoftware.''.$linkSoftware.''.$linkSoftware.'            				<!-- Logiciels nécessaires -->
 
         '.*/$divEnd.'';
         }
@@ -70,8 +91,10 @@ HERE;
 
     }
 
-    public function showTuple($_data){
+    public function showTuple($_data) {
         if ($_data) {
+            $lessonNumber    	= $_data['LESSON_NUMBER'];
+            $lessonChapter   	= $_data['LESSON_CHAPTER'];
             $lessonDetails  	= $_data['LESSON_DETAILS'];
             $lessonKeywords 	= $_data['LESSON_KEYWORDS'];
             
@@ -81,6 +104,8 @@ HERE;
             ($_data['LESSON_CODE'] != NULL) ? $lessonCode ='<div><h3><span class="pure-lesson-cap">Code source de la leçon</span></h3>'.$_data['LESSON_CODE'].'</div>' : $lessonCode = '' ;
             
         } else {
+            $lessonNumber    	= '';
+            $lessonChapter   	= '';
             $lessonDetails  	= '';
             $lessonKeywords 	= '';
             $lessonFilePreview	= '';
@@ -96,77 +121,5 @@ HERE;
     $lessonCode
 HERE;
 }
-
-    public function editTuple($_data){
-        global $ID_USER;
-
-        if($_data){
-            $EX = 'update';
-            $id_doc             = $_data['ID'];
-            $lessonDetails  	= $_data['LESSON_DETAILS'];
-            $lessonKeywords 	= $_data['LESSON_KEYWORDS'];
-            $lessonFilePreview  = $_data['LESSON_FILE_PREVIEW'];
-            $lessonFileLink     = $_data['LESSON_FILE_LINK'];
-            $lessonVideoLink	= $_data['LESSON_FILE_VIDEOLINK'];
-            $lessonCode         = $_data['LESSON_CODE'];
-            $database           = $_data['LESSON_TABLE'];
-            $submit             = 'Modifier';
-        }else{
-            $EX = 'insert';
-            $id_doc             = '';
-            $lessonDetails  	= '';
-            $lessonKeywords 	= '';
-            $lessonFilePreview  = '';
-            $lessonFileLink     = '';
-            $lessonVideoLink	= '';
-            $lessonCode         = '';
-            $database           = $_data['LESSON_TABLE'];
-            $submit             = 'Insérer';
-        }
-
-        echo <<<HERE
-    <form class="pure-form pure-form-aligned" action="../../public/controllers/main.php" method="post">
-        <input type="hidden" name="EX" value="$EX" />
-        <input type="hidden" name="ID_DOC" value="$id_doc" />
-        <input type="hidden" name="ID_USER" value="$ID_USER" />
-        <input type="hidden" name="DATABASE" value="$database" />
-        
-        <div class="pure-control-group">
-        <label for="details">Details</label>
-        <textarea id="details" name="LESSON_DETAILS" rows="10" cols="85">$lessonDetails</textarea>
-        </div>
-        
-        <div class="pure-control-group">
-        <label for="keywords">Mots-cles</label>
-        <input id="keywords" name="LESSON_KEYWORDS" value="$lessonKeywords" />
-        </div>
-
-        <div class="pure-control-group">
-        <label for="filePreview">Fichier pre-vue</label>
-        <input id="filePreview" name="LESSON_FILE_PREVIEW" value="$lessonFilePreview" />
-        </div>
-
-        <div class="pure-control-group">
-        <label for="fileLink">Lien leçon</label>
-        <input id="fileLink" name="LESSON_FILE_LINK" value="$lessonFileLink" />
-        </div>
-
-        <div class="pure-control-group">
-        <label for="videoLink">Lien video</label>
-        <input id="videoLink" name="LESSON_FILE_VIDEOLINK" value="$lessonVideoLink" />
-        </div>
-
-        <div class="pure-control-group">
-        <label for="lessonCode">Code de la leçon</label>
-        <textarea id="lessonCode" name="LESSON_CODE" rows="5" cols="85">$lessonCode</textarea>
-        </div>
-
-        <div class="pure-controls">
-        <input class="pure-button pure-button-primary" type="submit" value="$submit" />
-        </div>
-    </form>
-HERE;
-
-    }
 
 }

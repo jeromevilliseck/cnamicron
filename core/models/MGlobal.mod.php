@@ -1,16 +1,25 @@
 <?php
 class MGlobal{
-    protected $conn;
-    protected $primary;
-    protected $value;
-    
-    public function __construct($_primary = null){
+    protected $conn; //Objet PDO de connexion à la BDD
+    protected $primary; //clef primaire de la table
+    protected $value; //tableau contenant comme clef les attributs de la table et comme valeurs les données à insérer ou à mettre à jour dans la table
+
+    //User
+    protected $id_user;
+
+    /**
+     * MGlobal constructor.
+     * @param null $_primary Clé primaire de la table par défaut nulle
+     * @param null $_id_user identifiant de l'utilisateur
+     */
+    public function __construct($_primary = null, $_id_user = null){
         //PDO Object = DATABASE Connection
         $this->conn  = new PDO(DATABASE, LOGIN, PASSWORD, array(
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
         ));
         //$id_doc instanciation
         $this->primary = $_primary;
+        $this->id_user = $_id_user;
         return;
     }
     
@@ -20,4 +29,20 @@ class MGlobal{
         $this->value = $_value;
         return;
     }
+
+    /**
+     * @see used only to see errors in your MVC Architecture
+     * @param $result
+     */
+    protected function ErrorSQL($result)
+    {
+        if (!DEBUG) return;
+
+        $error = $result->errorInfo();
+
+        debug($error);
+
+        return;
+
+    } // ErrorSQL($result)
 }

@@ -134,6 +134,7 @@ class VMenu extends VGlobal
     <li class="pure-menu-item"><a href="main.php?EX=docker" class="pure-menu-link">$this->docker Docker</a></li>
     <li class="pure-menu-item"><a href="main.php?EX=shell" class="pure-menu-link">$this->shell Scripts Shell</a></li>
     <li class="pure-menu-item"><a href="main.php?EX=english" class="pure-menu-link">$this->english Anglais</a></li>
+    <li class="pure-menu-item"><a href="main.php?EX=admin" class="pure-menu-link">Connection</a></li>
     </ol>
     
     <li class="pure-menu-item"><a href="tel:+(33)6.79.86.48.04" class="pure-menu-link">$this->phone Contact</a></li>
