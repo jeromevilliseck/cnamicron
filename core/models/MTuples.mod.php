@@ -80,8 +80,6 @@ class MTuples extends MGlobal{
                   LESSON_CODE = :CODE
               where ID = :ID";
 
-        var_dump($query);
-
         $result = $this->conn->prepare($query);
 
         $result->bindValue(':DETAILS', $this->value['LESSON_DETAILS'], PDO::PARAM_STR);
@@ -92,11 +90,7 @@ class MTuples extends MGlobal{
         $result->bindValue(':CODE', $this->value['LESSON_CODE'], PDO::PARAM_STR);
         $result->bindValue(':ID', $this->primary, PDO::PARAM_STR);
 
-        var_dump($result);
-
         $result->execute();
-
-
 
         return;
 
