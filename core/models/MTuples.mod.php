@@ -8,7 +8,7 @@ class MTuples extends MGlobal{
 				order by LESSON_NUMBER";
 
 		$result = $this->conn->prepare($query);
-		$result->bindValue(':ID', $this->value['ID'], PDO::PARAM_INT);
+
 		$result->execute();
 
 		return $result->fetchAll();
@@ -44,21 +44,6 @@ class MTuples extends MGlobal{
 	//TODO Mettre en place un lien d'insertion dans les listings
     private function Insert($_databaseTable)
     {
-        $ATTRIBUT_1 = $this->value['ATTRIBUT_1'];
-        $ATTRIBUT_N = $this->value['ATTRIBUT_N'];
-
-        $query = "insert into $_databaseTable(ATTRIBUT_1, ..., ATTRIBUT_N)
-              values('$ATTRIBUT_1', ..., '$ATTRIBUT_N')";
-
-        $result = $this->conn->prepare($query);
-
-        $result->execute() or die ($this->ErrorSQL($result));
-
-        $this->primary = $this->conn->lastInsertId();
-
-        $this->value['PRIMARY_KEY'] = $this->primary_key;
-
-        return $this->value;
 
     } // Insert()
 

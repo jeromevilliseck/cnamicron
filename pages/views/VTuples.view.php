@@ -45,6 +45,8 @@ class VTuples extends VGlobal{
             ($val['LESSON_FILE_PROJECT_ZIP'] != NULL) ? $linkZipEnd = '</a><br />' : $linkZipEnd = "";
 
             ($val['LESSON_CODE'] != NULL) ? $lessonCode = '<p><span class="pure-lesson-cap">Code source</span></p><div>'.$val['LESSON_CODE'].'</div>' : $lessonCode='';
+            //TODO revoir l'algorithme
+            (isset($_SESSION['ID_USER'])) ? $buttonInsert = '<a class="button" href="main.php?EX=select&amp;ID=50&amp;TABLE='.$val['LESSON_TABLE'].'">Inserer</a>' : $buttonInsert='';
 
             // Concaténation avec l'ancre et le titre de la catégorie
             $tr .= '
@@ -64,8 +66,11 @@ class VTuples extends VGlobal{
         '.*/$divEnd.'';
         }
 
+
+
         echo <<<HERE
             $tr
+            $buttonInsert
 HERE;
 
     }

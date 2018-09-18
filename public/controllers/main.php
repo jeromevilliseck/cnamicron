@@ -217,6 +217,9 @@ switch ($EX) {															// Contrôleur
     case 'update':
         modify('update');
         break;
+    case 'insert':
+        modify('insert');
+        break;
 }
 
 require('../../pages/templates/layout.view.php');						//Vue : template				
@@ -1446,3 +1449,4 @@ function modify($type)
     return;
 
 } // modify($type)
+

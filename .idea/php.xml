@@ -3,15 +3,17 @@
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
   <component name="PhpStepFilterConfiguration">
     <skipped_functions>
+      <skipped_function name="__autoload" />
+      <skipped_function name="VMenu-&gt;__construct" />
+      <skipped_function name="require" />
       <skipped_function name="VHtml-&gt;__destruct" />
-      <skipped_function name="VMenu-&gt;__destruct" />
-      <skipped_function name="MTuples-&gt;__destruct" />
     </skipped_functions>
     <option name="skippedFunctions">
       <list>
+        <option value="__autoload" />
+        <option value="VMenu-&gt;__construct" />
+        <option value="require" />
         <option value="VHtml-&gt;__destruct" />
-        <option value="VMenu-&gt;__destruct" />
-        <option value="MTuples-&gt;__destruct" />
       </list>
     </option>
   </component>
