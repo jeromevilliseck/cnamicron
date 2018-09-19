@@ -220,6 +220,9 @@ switch ($EX) {															// Contrôleur
     case 'insert':
         modify('insert');
         break;
+    case 'delete':
+        modify('delete');
+        break;
 }
 
 require('../../pages/templates/layout.view.php');						//Vue : template				
@@ -1434,6 +1437,7 @@ function deconnect()
  */
 function modify($type)
 {
+    echo 'good';
     global $ID_USER;
 
     $id_doc = isset($_REQUEST['ID_DOC']) ? $_REQUEST['ID_DOC'] : '';
@@ -1442,6 +1446,7 @@ function modify($type)
     if ($_POST) {
         $mTuples->SetValue($_POST);
     }
+
     $mTuples->Modify($type, $_REQUEST['DATABASE']);
 
     selectAllList($_REQUEST['DATABASE']);

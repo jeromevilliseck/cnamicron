@@ -41,9 +41,41 @@ class MTuples extends MGlobal{
 
     } // Modify($_type)
 
-	//TODO Mettre en place un lien d'insertion dans les listings
     private function Insert($_databaseTable)
     {
+        $query = "insert into $_databaseTable
+                  set ID = :ID,
+                  LESSON_NUMBER = :LESSONNUMBER,
+                  LESSON_CHAPTER = :CHAPTER,
+                  LESSON_NAME = :LESSON,
+                  LESSON_DETAILS = :DETAILS,
+                  LESSON_KEYWORDS = :KEYWORDS,
+                  LESSON_FILE_PREVIEW = :PREVIEW,
+                  LESSON_FILE_LINK = :LINK,
+                  LESSON_FILE_VIDEOLINK = :VIDEOLINK,
+                  LESSON_CODE = :CODE
+        ";
+
+        $result = $this->conn->prepare($query);
+
+        $result->bindValue(':LESSON', $this->value['LESSON_NAME'], PDO::PARAM_STR);
+        $result->bindValue(':DETAILS', $this->value['LESSON_DETAILS'], PDO::PARAM_STR);
+        $result->bindValue(':KEYWORDS', $this->value['LESSON_KEYWORDS'], PDO::PARAM_STR);
+        $result->bindValue(':PREVIEW', $this->value['LESSON_FILE_PREVIEW'], PDO::PARAM_STR);
+        $result->bindValue(':LINK', $this->value['LESSON_FILE_LINK'], PDO::PARAM_STR);
+        $result->bindValue(':VIDEOLINK', $this->value['LESSON_FILE_VIDEOLINK'], PDO::PARAM_STR);
+        $result->bindValue(':CODE', $this->value['LESSON_CODE'], PDO::PARAM_STR);
+        $result->bindValue(':CHAPTER', $this->value['LESSON_CHAPTER'], PDO::PARAM_STR);
+        $result->bindValue(':LESSONNUMBER', $this->value['LESSON_NUMBER'], PDO::PARAM_INT);
+        $result->bindValue(':ID', $this->primary, PDO::PARAM_INT);
+
+
+        $result->execute();
+        $this->primary = $this->conn->lastInsertId();
+
+        echo $this->primary;
+
+        return;
 
     } // Insert()
 
@@ -51,6 +83,8 @@ class MTuples extends MGlobal{
     {
         $query = "update $_databaseTable
               set LESSON_NAME = :LESSON,
+                  LESSON_NUMBER = :LESSONNUMBER,
+                  LESSON_CHAPTER = :CHAPTER,
                   LESSON_DETAILS = :DETAILS,
                   LESSON_KEYWORDS = :KEYWORDS,
                   LESSON_FILE_PREVIEW = :PREVIEW,
@@ -68,6 +102,8 @@ class MTuples extends MGlobal{
         $result->bindValue(':LINK', $this->value['LESSON_FILE_LINK'], PDO::PARAM_STR);
         $result->bindValue(':VIDEOLINK', $this->value['LESSON_FILE_VIDEOLINK'], PDO::PARAM_STR);
         $result->bindValue(':CODE', $this->value['LESSON_CODE'], PDO::PARAM_STR);
+        $result->bindValue(':CHAPTER', $this->value['LESSON_CHAPTER'], PDO::PARAM_STR);
+        $result->bindValue(':LESSONNUMBER', $this->value['LESSON_NUMBER'], PDO::PARAM_INT);
         $result->bindValue(':ID', $this->primary, PDO::PARAM_STR);
 
         $result->execute();
@@ -76,11 +112,10 @@ class MTuples extends MGlobal{
 
     } // Update()
 
-    //TODO Mettre en place un lien de suppression sur les fiches
     private function Delete($_databaseTable)
     {
         $query = "delete from $_databaseTable
-              where PRIMARY_KEY = $this->primary_key";
+              where ID = $this->primary";
 
         $result = $this->conn->prepare($query);
 

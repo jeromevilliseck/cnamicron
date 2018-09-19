@@ -1,7 +1,7 @@
 <?php
 class MGlobal{
     protected $conn; //Objet PDO de connexion à la BDD
-    protected $primary; //clef primaire de la table
+    public $primary; //clef primaire de la table
     protected $value; //tableau contenant comme clef les attributs de la table et comme valeurs les données à insérer ou à mettre à jour dans la table
 
     //User

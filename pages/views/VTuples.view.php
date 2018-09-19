@@ -46,7 +46,7 @@ class VTuples extends VGlobal{
 
             ($val['LESSON_CODE'] != NULL) ? $lessonCode = '<p><span class="pure-lesson-cap">Code source</span></p><div>'.$val['LESSON_CODE'].'</div>' : $lessonCode='';
             //TODO revoir l'algorithme
-            (isset($_SESSION['ID_USER'])) ? $buttonInsert = '<a class="button" href="main.php?EX=select&amp;ID=50&amp;TABLE='.$val['LESSON_TABLE'].'">Inserer</a>' : $buttonInsert='';
+
 
             // Concaténation avec l'ancre et le titre de la catégorie
             $tr .= '
@@ -66,7 +66,7 @@ class VTuples extends VGlobal{
         '.*/$divEnd.'';
         }
 
-
+        (isset($_SESSION['ID_USER'])) ? $buttonInsert = '<a class="pure-button" href="main.php?EX=select&amp;ID=NULL&amp;TABLE='.$_data[0]['LESSON_TABLE'].'">Inserer</a>' : $buttonInsert='';
 
         echo <<<HERE
             $tr
@@ -108,6 +108,8 @@ HERE;
         if($_data){
             $EX = 'update';
             $id_doc             = $_data['ID'];
+            $lessonNumber       = $_data['LESSON_NUMBER'];
+            $lessonChapter      = $_data['LESSON_CHAPTER'];
             $lessonName         = $_data['LESSON_NAME'];
             $lessonDetails  	= $_data['LESSON_DETAILS'];
             $lessonKeywords 	= $_data['LESSON_KEYWORDS'];
@@ -117,9 +119,12 @@ HERE;
             $lessonCode         = $_data['LESSON_CODE'];
             $database           = $_data['LESSON_TABLE'];
             $submit             = 'Modifier';
+            $delete = '<a class="pure-button" href="../../public/controllers/main.php?EX=delete&amp;ID_DOC='.$id_doc.'&amp;ID_USER='.$ID_USER.'&amp;DATABASE='.$_GET['TABLE'].'">Supprimer</button></a>';
         }else{
             $EX = 'insert';
             $id_doc             = '';
+            $lessonNumber       = '';
+            $lessonChapter      = '';
             $lessonName         = '';
             $lessonDetails  	= '';
             $lessonKeywords 	= '';
@@ -127,7 +132,8 @@ HERE;
             $lessonFileLink     = '';
             $lessonVideoLink	= '';
             $lessonCode         = '';
-            $database           = $_data['LESSON_TABLE'];
+            $database           = $_GET['TABLE']; //TODO il faut que la variable s'adapte
+            $delete             = '';
             $submit             = 'Insérer';
         }
 
@@ -141,6 +147,16 @@ HERE;
         <div class="pure-control-group">
         <label for="lessonName">Nom de la leçon</label>
         <input id="lessonName" name="LESSON_NAME" value="$lessonName" />
+        </div>
+        
+        <div class="pure-control-group">
+        <label for="lessonNumber">Numéro de leçon</label>
+        <input id="lessonNumber" name="LESSON_NUMBER" value="$lessonNumber" />
+        </div>
+        
+        <div class="pure-control-group">
+        <label for="lessonChapter">Chapitre</label>
+        <input id="lessonChapter" name="LESSON_CHAPTER" value="$lessonChapter" />
         </div>
         
         <div class="pure-control-group">
@@ -175,6 +191,7 @@ HERE;
 
         <div class="pure-controls">
         <input class="pure-button pure-button-primary" type="submit" value="$submit" />
+        $delete
         </div>
     </form>
 HERE;
