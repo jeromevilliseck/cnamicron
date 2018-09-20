@@ -118,6 +118,7 @@ HERE;
             $lessonVideoLink	= $_data['LESSON_FILE_VIDEOLINK'];
             $lessonCode         = $_data['LESSON_CODE'];
             $database           = $_data['LESSON_TABLE'];
+            $lessonColor        = $_data['LESSON_COLOR'];
             $submit             = 'Modifier';
             $delete = '<a class="pure-button" href="../../public/controllers/main.php?EX=delete&amp;ID_DOC='.$id_doc.'&amp;ID_USER='.$ID_USER.'&amp;DATABASE='.$_GET['TABLE'].'">Supprimer</button></a>';
         }else{
@@ -132,7 +133,8 @@ HERE;
             $lessonFileLink     = '';
             $lessonVideoLink	= '';
             $lessonCode         = '';
-            $database           = $_GET['TABLE']; //TODO il faut que la variable s'adapte
+            $lessonColor        = '';
+            $database           = $_GET['TABLE'];
             $delete             = '';
             $submit             = 'Insérer';
         }
@@ -157,6 +159,11 @@ HERE;
         <div class="pure-control-group">
         <label for="lessonChapter">Chapitre</label>
         <input id="lessonChapter" name="LESSON_CHAPTER" value="$lessonChapter" />
+        </div>
+        
+        <div class="pure-control-group">
+        <label for="lessonColor">Couleur bordereau (green, red, blue, yellow, purple, orange, black, herbgreen, white)</label>
+        <input id="lessonColor" name="LESSON_COLOR" value="$lessonColor" />
         </div>
         
         <div class="pure-control-group">

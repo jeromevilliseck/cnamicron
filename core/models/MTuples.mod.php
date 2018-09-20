@@ -48,6 +48,7 @@ class MTuples extends MGlobal{
                   LESSON_NUMBER = :LESSONNUMBER,
                   LESSON_CHAPTER = :CHAPTER,
                   LESSON_NAME = :LESSON,
+                  LESSON_COLOR = :COLOR,
                   LESSON_DETAILS = :DETAILS,
                   LESSON_KEYWORDS = :KEYWORDS,
                   LESSON_FILE_PREVIEW = :PREVIEW,
@@ -66,6 +67,7 @@ class MTuples extends MGlobal{
         $result->bindValue(':VIDEOLINK', $this->value['LESSON_FILE_VIDEOLINK'], PDO::PARAM_STR);
         $result->bindValue(':CODE', $this->value['LESSON_CODE'], PDO::PARAM_STR);
         $result->bindValue(':CHAPTER', $this->value['LESSON_CHAPTER'], PDO::PARAM_STR);
+        $result->bindValue(':COLOR', $this->value['LESSON_COLOR'], PDO::PARAM_STR);
         $result->bindValue(':LESSONNUMBER', $this->value['LESSON_NUMBER'], PDO::PARAM_INT);
         $result->bindValue(':ID', $this->primary, PDO::PARAM_INT);
 
@@ -85,6 +87,7 @@ class MTuples extends MGlobal{
               set LESSON_NAME = :LESSON,
                   LESSON_NUMBER = :LESSONNUMBER,
                   LESSON_CHAPTER = :CHAPTER,
+                  LESSON_COLOR = :COLOR,
                   LESSON_DETAILS = :DETAILS,
                   LESSON_KEYWORDS = :KEYWORDS,
                   LESSON_FILE_PREVIEW = :PREVIEW,
@@ -103,6 +106,7 @@ class MTuples extends MGlobal{
         $result->bindValue(':VIDEOLINK', $this->value['LESSON_FILE_VIDEOLINK'], PDO::PARAM_STR);
         $result->bindValue(':CODE', $this->value['LESSON_CODE'], PDO::PARAM_STR);
         $result->bindValue(':CHAPTER', $this->value['LESSON_CHAPTER'], PDO::PARAM_STR);
+        $result->bindValue(':COLOR', $this->value['LESSON_COLOR'], PDO::PARAM_STR);
         $result->bindValue(':LESSONNUMBER', $this->value['LESSON_NUMBER'], PDO::PARAM_INT);
         $result->bindValue(':ID', $this->primary, PDO::PARAM_STR);
 

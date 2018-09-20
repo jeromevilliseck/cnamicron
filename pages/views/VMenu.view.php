@@ -113,7 +113,7 @@ class VMenu extends VGlobal
     <li class="pure-menu-item"><a href="main.php?EX=versioncontrol" class="pure-menu-link"> Avancé</a></li>
     </ol>
 
-    <li class="pure-menu-item"><a id="displaySystemMenu" href="javascript:togglesystemmenu();" style="display:block;">$this->dos System</a></li>
+    <li class="pure-menu-item"><a id="displaySystemMenu" href="javascript:togglesystemmenu();" style="display:block;">$this->dos Systèmes</a></li>
     <ol id="toggleSystemMenu" style="display: none;">
     <li class="pure-menu-item"><a href="main.php?EX=archi" class="pure-menu-link"> Architecture</a></li>
     <li class="pure-menu-item"><a href="main.php?EX=climo" class="pure-menu-link"> CLI Multi-OS</a></li>
