@@ -76,6 +76,7 @@ sup
 }img
 {
 	border: 0;
+	width: 100%;
 }ul,ol{
 	overflow-wrap: break-word;
 }svg:not(:root)
