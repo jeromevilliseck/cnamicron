@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinique Vétérinaire CatClinic - Veterinary clinic - Final Template v1.0</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body class="flex-container flex-dir-column"><!--BLOCK LEVEL 0 START-->
+
+  <div class="content"><!--BLOCK LEVEL 1 START-->
+
+    <header class="title-bar" data-responsive-toggle="monmenu"><!--BLOCK LEVEL 2 START-->
+      <button class="menu-icon" type="button" data-toggle></button><!--INLINE BLOCK LEVEL 3 START/END-->
+      <div class="title-bar-title">Notre site</div><!--BLOCK LEVEL 3 START/END-->
+    </header><!--BLOCK LEVEL 2 END-->
+    <nav class="top-bar" id="monmenu"><!--BLOCK LEVEL 2 START-->
+      <div class="top-bar-left"><!--BLOCK LEVEL 3 START-->
+        <ul class="dropdown menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown"><!--BLOCK LEVEL 4 START-->
+          <div class="menu-logo padding-left-logo"><img src="img/icons/catclinicLogo.png"></div><!--BLOCK LEVEL 5 START/END-->
+          <li class="menu-text show-for-medium">CatClinic</li><!--CHILD BLOCK LEVEL 5 START/END-->
+          <li><!--CHILD BLOCK LEVEL 5 START-->
+            <a href="#">Clinique</a><!--INLINE-->
+            <ul class="menu vertical"><!--BLOCK LEVEL 6 START-->
+              <li><a href="#">Equipe</a></li>
+              <li><a href="#">Spécialités</a></li>
+            </ul><!--BLOCK LEVEL 6 END-->
+          </li><!--CHILD BLOCK LEVEL 5 END-->
+          <li>
+            <a href="#">Conseils</a>
+            <ul class="menu vertical">
+              <li><a href="#">Vaccination</a></li>
+              <li><a href="#">A la maison</a></li>
+              <li><a href="#">Médicaments</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Accès</a>
+            <ul class="menu vertical">
+              <li><a href="#">Adresse</a></li>
+              <li><a href="#">Horaires</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </li>
+        </ul><!--BLOCK LEVEL 4 END-->
+      </div><!--BLOCK LEVEL 3 END-->
+    </nav><!--BLOCK LEVEL 2 END-->
+
+    <aside class="padding-aside sticky-card"><!--BLOCK LEVEL 2 START-->
+        <h1>Titre de la page</h1><!--BLOCK LEVEL 3 START/END-->
+        <p>Le fil d'ariane du site</p><!--BLOCK LEVEL 3 START/END-->
+    </aside>
+
+    <main class="padding-main"><!-- BLOCK LEVEL 2 START-->
+      <article><!-- BLOCK LEVEL 3 START-->
+        <header><!-- BLOCK LEVEL 4 START-->
+          <h2>Titre de l'article</h2><!-- BLOCK LEVEL 5 START-->
+        </header><!-- BLOCK LEVEL 4 END-->
+        <section><!-- BLOCK LEVEL 4 START-->
+          <h3>Titre de la section</h3>
+          <p>Premiere partie de l'article</p>
+        </section><!-- BLOCK LEVEL 4 END-->
+        <section>
+          <h3>Titre de la section</h3>
+          <p>Deuxième partie de l'article</p>
+        </section>
+        <footer>
+          <p>Sources, date de l'articles, lien utiles, fichiers à télécharger</p>
+        </footer>
+      </article><!-- BLOCK LEVEL 3 END-->
+      <!-- Reproduire le même schema pour de multiples articles-->
+
+      <table><!-- BLOCK LEVEL 3 START-->
+        <thead>
+        <tr>
+          <th>Attribut Html</th>
+          <th>Script à exécuter</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="data-label">onblur</td>
+          <td class="data-label">lorsque l'élément perd le focus.<br />
+            Cet attribut peut s'utiliser avec les éléments suivants : <strong>a, area, label, input, select, textarea et button</strong>.</td>
+        </tr>
+        <tr>
+          <td class="data-label">onchange</td>
+          <td class="data-label">quand un élément est modifié et qu'il perd le focus.<br />
+            Cet attribut s'applique aux éléments suivants : <strong>input, select et textarea</strong>.</td>
+        </tr>
+        <tr>
+          <td class="data-label">onfocus</td>
+          <td class="data-label">lorsque l'élément acquiert le focus.<br />
+          <td class="data-label">lorsque l'élément acquiert le focus.<br />
+            Cet attribut peut s'utiliser avec les éléments suivants : <strong>a, area, label, input, select, textarea et button</strong>.</td>
+        </tr>
+        </tbody>
+      </table><!-- BLOCK LEVEL 3 END-->
+    </main><!-- BLOCK LEVEL 2 END-->
+
+  </div><!-- BLOCK LEVEL 1 END-->
+
+  <footer class="body-footer"><!-- BLOCK LEVEL 1 START-->
+    <h4>Information eventuellement importantes</h4>
+    <p>Le pied du site</p>
+  </footer><!-- BLOCK LEVEL 1 END-->
+
+<!--Scripts Javascript-->
+<script src="js/jquery.js"></script>
+<script src="js/what-input.js"></script>
+<script src="js/foundation.js"></script>
+<script src="js/app.js"></script>
+</body><!-- BLOCK LEVEL 0 END-->
+</html>
+
+<!--Pourquoi une balise div de niveau d'imbrication 1 générique qui englobe header, aside, nav, main et se situe au
+même niveau que footer (soit 2 balises de type block de niveau d'imbrication 1 -> DIV + FOOTER
+
+Problématique : le footer, qu'importe le redimensionnement, n'est pas conçu pour être placé systèmatiquement en pied de fenêtre
+selon la hauteur de cette dernière.
+
+Réponse : https://css-tricks.com/couple-takes-sticky-footer/  -> Choix n°4
+Mise en place d'un Sticky Footer avec les règles css de base Flexbox : il n'y a alors pas besoin de Framework
+Cela allège le code css et évite l'utilisation de classes SASS suplémentaires alourdissant le temps de réponse.
+
+
+<!--Redéfinition du code CSS des tableaux :
+Mise en place d'un code CSS simple adapté sur la balises servant à écrire un tableau
+
+Problématique : les balises natives html5 qui décrivent les tableaux ne sont pas conçues nativement pour permettre
+leur adaptation selon le dimensionnement de la fenêtre.
+
+Plutôt que de placer des classes CSS dans les balises qui feraient appel à des classes SASS du framework foundation,
+il à été décidé de réecrire en natif le code CSS des balises afin de gagner en clarté et en rapidité (éviter de charger
+trop de classes du framework) -->
+
+
+
+
+
+

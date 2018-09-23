@@ -1,0 +1,43 @@
+|config
+	constantes de connexion (a proteger par un chmod 700 sur le serveur)
+	visualisation des erreurs
+|core    (terme utilisé pour classes et parties spécifique à l'application en cours dans les frameworks type symphony)s
+	|autoloader
+		chargement automatique des classes
+	|database
+		classes modèle, dont la classe mère MGlobal
+|pages
+	|fixedtemplates
+		template fixe sans intégration MVC généré par foundation
+	|templates
+		layout qui contient tout les appels de fichiers javascript
+	|views
+|public (seul ce dossier doit être visible avec les droits associés sur le serveur)
+	|api
+		|dataTables
+			api ajax permettant des tableaux triables, recherchables et responsives
+		|PHPMailer
+			api d'envoi d'email avec protocole SMTP et options avancées
+	|controllers
+			contient le coeur de l'application, les controleurs
+	|css
+		fichier css généré par foundation
+	|html
+		fichiers html pour les fonctions de controle utilisant showHtml
+	|icons
+		vide puisque vectorisées
+	|img
+		images du carroussel
+	|js
+		|api
+			js spécifique
+		|framework
+			fichier js necessaires au fonctionnement du framework
+		|user_ajax
+			fichier js necessaire au fonctionnement d'ajax comprenant les méthodes le faisant fonctionner
+		|user_js_listeners
+			fichier js necessaire au fonctionnement des listeners
+		|user_js_standard
+			(old) fichier js pour l'utilisation de javascript en standard
+index.html
+	contient une url de redirection vers le controleur

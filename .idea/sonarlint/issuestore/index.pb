@@ -17,3 +17,11 @@ J
 core/models/MUsers.mod.php,4/2/42da9d8ba70076c63c8665c154c8ab6a5b0fa492
 K
 core/models/MTuples.mod.php,6/c/6c6cdeb77ea0cfe09202354cafbacf3c43b0bb84
+O
+pages/templates/layout.view.php,7/e/7e704afce047f5d26ca393ef8192f59dfdbb8ba1
+J
+pages/views/VHtml.view.php,c/0/c04f850a3d3d0022438e43e1b79d035ccd5a3bc8
+L
+pages/views/VGlobal.view.php,1/5/15c07939a9689d66660921da03950a89166ea037
+J
+pages/views/VMenu.view.php,8/f/8f2f1cabab0b8e59c68310d7558b541c82e43525

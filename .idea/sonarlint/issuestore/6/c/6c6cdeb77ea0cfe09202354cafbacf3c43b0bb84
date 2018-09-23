@@ -1,9 +1,6 @@
 
-,	php:S2010"Replace "or" with "||".(ϊΌΊτ
-O	php:S1135ρ"4Complete the task associated to this "TODO" comment.(±Κ«σύÿÿÿÿ
-I	php:S1135,"4Complete the task associated to this "TODO" comment.(³·Ψμ
-N	php:S1135O"4Complete the task associated to this "TODO" comment.(ΌΫτ²όÿÿÿÿ
 Pphp:S131#"7Add a "case default" clause to this "switch" statement.(§·ª†όÿÿÿÿ
-,	php:S2010W"Replace "or" with "||".(ϊΌΊτ
-php:S138^"yThis function "SearchAll" has 155 lines, which is greater than the 150 lines authorized. Split it into smaller functions.(…ϋH
-S	php:S1172-"7Remove the unused function parameter "$_databaseTable".(χΎΥΨ8Δ†Ήιή,
+,	php:S2010~"Replace "or" with "||".(ϊΌΊτ
+,	php:S2010"Replace "or" with "||".(ϊΌΊτ
+O	php:S1135"4Complete the task associated to this "TODO" comment.(±Κ«σύÿÿÿÿ
+php:S138…"yThis function "SearchAll" has 155 lines, which is greater than the 150 lines authorized. Split it into smaller functions.(…ϋH

@@ -1437,6 +1437,7 @@ function deconnect()
  */
 function modify($type)
 {
+    header('X-XSS-Protection:0');
     echo 'good';
     global $ID_USER;
 

@@ -1,15 +1,17 @@
 
-i	php:S1192"ODefine a constant instead of duplicating this literal "LESSON_DETAILS" 4 times.(¬¢¾ôúÿÿÿÿ
-8php:S125$"Remove this commented out code.(·ÿ´ïşÿÿÿÿ
-n	php:S1192""TDefine a constant instead of duplicating this literal "LESSON_FILE_PREVIEW" 7 times.(›Ìàñúÿÿÿÿ
-n	php:S3776"TRefactor this function to reduce its Cognitive Complexity from 48 to the 15 allowed.(Õ®«¬ùÿÿÿÿ
-l	php:S1192""RDefine a constant instead of duplicating this literal "LESSON_FILE_LINK" 13 times.(›Ìàñúÿÿÿÿ
-p	php:S1192"VDefine a constant instead of duplicating this literal "LESSON_FILE_VIDEOLINK" 5 times.(Ù¡ßÄÿÿÿÿÿ
-r	php:S1192$"XDefine a constant instead of duplicating this literal "LESSON_FILE_PROJECT_ZIP" 7 times.(·ÿ´ïşÿÿÿÿ
-r	php:S1192&"]Define a constant instead of duplicating this literal "<a href="../../public/files/" 3 times.(¥³ßø
-j	php:S1192 "PDefine a constant instead of duplicating this literal "LESSON_KEYWORDS" 4 times.(Œ¥±Ãøÿÿÿÿ
-a	php:S1192"LDefine a constant instead of duplicating this literal "LESSON_NAME" 3 times.(ßÊÑ×
 [	php:S1192"GDefine a constant instead of duplicating this literal "</div>" 4 times.(µÄ[
-a	php:S1192/"LDefine a constant instead of duplicating this literal "LESSON_CODE" 5 times.(ğá¦ˆ
-b	php:S1192"MDefine a constant instead of duplicating this literal "LESSON_TABLE" 5 times.(¦‡€
 P	php:S11350"4Complete the task associated to this "TODO" comment.(Ş»’8Â†¹éŞ,
+a	php:S1192"LDefine a constant instead of duplicating this literal "LESSON_NAME" 3 times.(ßÊÑ×
+l	php:S1192""RDefine a constant instead of duplicating this literal "LESSON_FILE_LINK" 13 times.(›Ìàñúÿÿÿÿ
+i	php:S1192"ODefine a constant instead of duplicating this literal "LESSON_DETAILS" 4 times.(¬¢¾ôúÿÿÿÿ
+n	php:S1192"MDefine a constant instead of duplicating this literal "LESSON_COLOR" 3 times.(‡°Îªÿÿÿÿÿ8ŠŸ‰²ß,
+j	php:S1192 "PDefine a constant instead of duplicating this literal "LESSON_KEYWORDS" 4 times.(Œ¥±Ãøÿÿÿÿ
+r	php:S1192$"XDefine a constant instead of duplicating this literal "LESSON_FILE_PROJECT_ZIP" 7 times.(·ÿ´ïşÿÿÿÿ
+8php:S125$"Remove this commented out code.(·ÿ´ïşÿÿÿÿ
+p	php:S1192"VDefine a constant instead of duplicating this literal "LESSON_FILE_VIDEOLINK" 5 times.(Ù¡ßÄÿÿÿÿÿ
+r	php:S1192&"]Define a constant instead of duplicating this literal "<a href="../../public/files/" 3 times.(¥³ßø
+b	php:S1192"MDefine a constant instead of duplicating this literal "LESSON_TABLE" 4 times.(¦‡€
+p	php:S1192"ODefine a constant instead of duplicating this literal "LESSON_CHAPTER" 3 times.(ì·äúşÿÿÿÿ8òóÜ±ß,
+n	php:S1192""TDefine a constant instead of duplicating this literal "LESSON_FILE_PREVIEW" 7 times.(›Ìàñúÿÿÿÿ
+a	php:S1192/"LDefine a constant instead of duplicating this literal "LESSON_CODE" 5 times.(ğá¦ˆ
+n	php:S3776"TRefactor this function to reduce its Cognitive Complexity from 47 to the 15 allowed.(Õ®«¬ùÿÿÿÿ

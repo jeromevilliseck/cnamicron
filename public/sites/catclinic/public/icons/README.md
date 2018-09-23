@@ -1,0 +1,1 @@
+Pour chacun des éléments de type image qui sont dans le site des icones ou des logos, une vectorisation à été appliqué pour transformer ces ficheirs en du code source intégrable directement dans des variables.

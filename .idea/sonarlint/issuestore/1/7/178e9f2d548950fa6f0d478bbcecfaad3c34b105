@@ -1,23 +1,23 @@
 
-l	php:S1192„"VDefine a constant instead of duplicating this literal "Cours complÃ©mentaire" 5 times.(È’ßÕ
-f	php:S1192ì"KDefine a constant instead of duplicating this literal "thumbnail" 67 times.(İŠÂÛıÿÿÿÿ
-”	php:S1192"yDefine a constant instead of duplicating this literal "http://www.image-heberg.fr/files/152079676369203515.png" 56 times.(ıÒ¥Úúÿÿÿÿ
-P	php:S1135"4Complete the task associated to this "TODO" comment.(ßú‰ó8ºˆé¾Ş,
-`	php:S1192é"JDefine a constant instead of duplicating this literal "showHtml" 17 times.(ÎóˆÊ
 I	php:S1135|"4Complete the task associated to this "TODO" comment.(»º¦ 
-w	php:S1192µ"\Define a constant instead of duplicating this literal "../html/englishMessage.html" 6 times.(×Ô¯ıøÿÿÿÿ
-l	php:S1192®"VDefine a constant instead of duplicating this literal "Cours Arts et Metiers" 7 times.(úòÊÑ
-R	php:S1479"8Reduce the number of switch cases from 70 to at most 30.(âÃ—àşÿÿÿÿ
-b	php:S1192æ"GDefine a constant instead of duplicating this literal "title" 67 times.(¿¿Œÿøÿÿÿÿ
-j	php:S1192À
-"HDefine a constant instead of duplicating this literal "ID_USER" 5 times.(şœ¯âüÿÿÿÿ8ºˆé¾Ş,
-]	php:S1192è"GDefine a constant instead of duplicating this literal "VHtml" 17 times.(®”•
 Pphp:S131"7Add a "case default" clause to this "switch" statement.(âÃ—àşÿÿÿÿ
-j	php:S1192Š"ODefine a constant instead of duplicating this literal "showAllTuples" 49 times.(‰ÑÚ’ùÿÿÿÿ
-k	php:S1192ê"UDefine a constant instead of duplicating this literal "Guide d\'utilisation" 3 times.(–“‚°
-d	php:S1192‰"IDefine a constant instead of duplicating this literal "VTuples" 50 times.(Êè€øùÿÿÿÿ
-h	php:S1192ç"MDefine a constant instead of duplicating this literal "description" 67 times.(‡İÆ†üÿÿÿÿ
-^	php:S1192é"HDefine a constant instead of duplicating this literal "method" 68 times.(ÎóˆÊ
-a	php:S1192¬"KDefine a constant instead of duplicating this literal "Javascript" 3 times.(”Ó
-o	php:S1192Ó"TDefine a constant instead of duplicating this literal "Cours Polytechnique" 5 times.(Œ…ú¨şÿÿÿÿ
-]	php:S1192è"GDefine a constant instead of duplicating this literal "class" 67 times.(®”•
+]	php:S1192ë"GDefine a constant instead of duplicating this literal "class" 67 times.(®”•
+l	php:S1192±"VDefine a constant instead of duplicating this literal "Cours Arts et Metiers" 7 times.(úòÊÑ
+R	php:S1479"8Reduce the number of switch cases from 71 to at most 30.(âÃ—àşÿÿÿÿ
+”	php:S1192‘"yDefine a constant instead of duplicating this literal "http://www.image-heberg.fr/files/152079676369203515.png" 56 times.(ıÒ¥Úúÿÿÿÿ
+f	php:S1192ï"KDefine a constant instead of duplicating this literal "thumbnail" 67 times.(İŠÂÛıÿÿÿÿ
+j	php:S1192"ODefine a constant instead of duplicating this literal "showAllTuples" 49 times.(‰ÑÚ’ùÿÿÿÿ
+o	php:S1192Ö"TDefine a constant instead of duplicating this literal "Cours Polytechnique" 5 times.(Œ…ú¨şÿÿÿÿ
+d	php:S1192Œ"IDefine a constant instead of duplicating this literal "VTuples" 50 times.(Êè€øùÿÿÿÿ
+P	php:S1135"4Complete the task associated to this "TODO" comment.(ßú‰ó8ºˆé¾Ş,
+^	php:S1192ì"HDefine a constant instead of duplicating this literal "method" 68 times.(ÎóˆÊ
+b	php:S1192é"GDefine a constant instead of duplicating this literal "title" 67 times.(¿¿Œÿøÿÿÿÿ
+l	php:S1192‡"VDefine a constant instead of duplicating this literal "Cours complÃ©mentaire" 5 times.(È’ßÕ
+w	php:S1192¸"\Define a constant instead of duplicating this literal "../html/englishMessage.html" 6 times.(×Ô¯ıøÿÿÿÿ
+h	php:S1192ê"MDefine a constant instead of duplicating this literal "description" 67 times.(‡İÆ†üÿÿÿÿ
+a	php:S1192¯"KDefine a constant instead of duplicating this literal "Javascript" 3 times.(”Ó
+]	php:S1192ë"GDefine a constant instead of duplicating this literal "VHtml" 17 times.(®”•
+k	php:S1192í"UDefine a constant instead of duplicating this literal "Guide d\'utilisation" 3 times.(–“‚°
+j	php:S1192Ã
+"HDefine a constant instead of duplicating this literal "ID_USER" 5 times.(şœ¯âüÿÿÿÿ8ºˆé¾Ş,
+`	php:S1192ì"JDefine a constant instead of duplicating this literal "showHtml" 17 times.(ÎóˆÊ

@@ -1,0 +1,23 @@
+<h2>Nous envoyer un message</h2>
+
+<form action="../../public/controllers/index.php?EX=send" method="post">
+<p>
+    <label for="ville">Ville</label>
+    <input type="text" id="ville" name="CITY" autofocus required />
+</p>
+<p>
+    <label for="telephone">Numéro pour vous joindre</label>
+    <input type="tel" id="telephone" name="PHONE" required />
+</p>
+<p>
+    <label for="email">Votre adresse mail</label>
+    <input type="email" id="email" name="MAIL" required />
+</p>
+<p>
+    <label for="message">Message, nom, motif de votre message</label>
+    <input type="text" id="message" name="OBJECT" required/>
+</p>
+<p>
+    <input type="submit" value="Envoyer le message" class="success button"/>
+</p>
+</form>

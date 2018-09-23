@@ -1,0 +1,41 @@
+Conception de la base de donnée
+
+Entités
+
+TABLE DOCTOR
+attribut id
+attribut lastname
+attribut firstname
+attribut type
+attribut phonenumber
+attribut mail
+
+TABLE DAY
+attribut id
+attribut dayname
+
+TABLE SCHEDULE
+attribut id
+attribut hourschedule
+
+TABLE SPECIALITIES
+attribut id
+attribut speciality
+
+TABLE ADVICES
+attribut id
+attribut type
+atrribut showed (mettre dedans selon la rubrique les etapes, etc...)
+attribut comment
+
+
+Association
+
+Un docteur possède une ou plusieurs spécialités
+Un docteur à un ou plusieurs jours d'exercice
+Un jour à une plage horaire définie
+OPTIONNEL Une spécialitée est exercée un ou plusieurs jours de la semaine
+Un article n'a pas ou a plusieurs commentaires
+
+
+Contraintes Identifiants / Attributs Obligatoires / Cardinalité à respecter

@@ -1,0 +1,2 @@
+Mockup + structure html5 à respecter pour le fichier layout.view.php
+Le squelette est issu de la documentation officielle w3c (voir le mockup pour le lien)

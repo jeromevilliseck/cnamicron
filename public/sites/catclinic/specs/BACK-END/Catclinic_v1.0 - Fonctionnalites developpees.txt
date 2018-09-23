@@ -1,0 +1,42 @@
+Fonctionnalités travaillées et développées en back-end au fur à mesure
+
+- Mise en place d'un layout normalisé à partir de la fusion des mixins, de sass, et d'un squelette validé w3c
+
+- Mise en place d'un clé du tableau associatif content supplementaire vign, qui se propage dans le layout a travers des éléments méta spécifique pour donner des informations spécifiques en cas de partage des pages sur des plateformes externes
+
+- Mise en place des fonctions selectAll() et parcours des tuples pour les pages Equipes, specialités, conseils
+la page conseil utilise des ancres selon le lien de la vue menu + amélioration et pratique de l'algorithmique dans les vues associés à ces traitements via des conditions ternaires pour générer ou non dynamiquement les balises html
+
+- Mise en place d'une jointure spécifique médecins / spécialités -> s'est exercé sur l'algorithmie en poussant d'avantage l'orienté objet à manipulant des objets d'objets (double instanciation) à travers des collections dans une fonction de controle + vue avec O. gerard pour rendre le code d'avantage générique sur ce type de reflexion -> travail effectué code rendu générique sur le controleur, et code fonctionnel mais à améliorer dans la vue associée.
+
+- Mise en place d'une map et d'éléments html interactifs dans adresse, horaires + mise en place d'un carroussel en javascript sur la page d'accueil, d'abord en js classique, puis en listeners.
+
+- Mise en place d'une console d'administration, avec controle utilisateur mot de passe puis en fonction du retour de ce traitement utilisation d'une superglobale de session et non d'un deuxième controleur pour administrer, superglobale se détruisant à la déconnexion et permettant également des contrôles de sécurité dans les fonctions de contrôle
+
+- Sur l'onglet spécialité en mode administration, mise en pratique de CRUD, qui sera dans des versions ultérieures déployés dans les autres onglets (la reflexion algorithmique CRUD étant la même je ne l'ai pas fait sur les autres onglets mais sera fait dans une version ultérieure au besoin)
+
+- Mise en place d'une gestion des utilisateurs en CRUD, creation des couples id / password
+
+- Mise en place du design pattern singleton pour eviter les connexions mutliples sur la base de données
+
+- Mise en place d'AJAX en changeContent() sur les pages html, tentative d'appliquer changeContent() sur les fonctions de contrôle comprenant des instanciations Modèle et vue mais erreur (à voir et à comprendre absolument)
+
+- AJAX -> mise en place de l'api TableSorter sur la page Horaires et adaptation aux vues du projet
+https://datatables.net/
+
+- Formulaire d'envoi mail -> mise en place de l'api PHPMailer, mise en pratique dans le controleur, mise en pratique des namespaces avec cette api
+https://github.com/PHPMailer/PHPMailer
+
+- Refactoring, héritage (répérage des éléments communs et encapsulation dans des classes mères), généricité, réeindation du code automatique en K&R Style
+http://www.phpformatter.com/
+
+- Suppression de l'icone de navigation du dossier img, car vectorisation -> tentative d'encapsulation des vecteurs dans des classes et appels via des méthodes et membres (partiellement réussi, a voir), manipulation des vecteurs à travers des variables
+
+- Controle de sécurité sur les clés et accès aux pages non autorisé
+
+- Intégration de l'api Externe de prise de rdv adapté aux contraintes de disponibilité des médecins (jointure table medecin table jour), mise en place d'un système de réservation de rdv en ligne avec validation, paiement et alerte du professionnel par sms, et alertes de l'utilisateur sur le suivi et l'acceptation de son rdv
+
+- Livraison de la version v1.0
+
+(a venir) commentaires sur les conseils via jointure et CRUD
+singleton  (remettre un if sur l'objet contenant la connexion active)
