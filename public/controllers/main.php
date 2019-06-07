@@ -139,6 +139,9 @@ switch ($EX) {															// Contrôleur
     case 'network':
         network();
         break;
+    case 'git':
+        git();
+        break;
     case 'versioncontrol':
         versioncontrol();
         break;
@@ -231,7 +234,7 @@ function home() {														//Fonctions de contrôle
     global $content;
 
     $content['title']       = 'Cnamicron';
-    $content['description'] = 'Cours de programmation avancés';
+    $content['description'] = 'Cours de programmation avancés<br>spécialité java';
     $content['class']       = 'VHtml';
     $content['method']      = 'showHtml';
     $content['arg']         = '../html/home.html';
@@ -1010,6 +1013,20 @@ function network() {
     $content['method']      = 'showHtml';
     $content['arg']         = '../html/network.html';
     $content['logo']        = ConfigVectors::showConsoleLogo(50, 50);
+    $content['thumbnail']   = 'http://www.image-heberg.fr/files/15196358792017995989.png';
+
+    return;
+}
+
+function git() {
+    global $content;
+
+    $content['title']       = 'Git';
+    $content['description'] = 'Majorité des commandes utilisées en cadre professionnel';
+    $content['class']       = 'VHtml';
+    $content['method']      = 'showHtml';
+    $content['arg']         = '../html/git.html';
+    $content['logo']        = ConfigVectors::showGitLogo(50, 50);
     $content['thumbnail']   = 'http://www.image-heberg.fr/files/15196358792017995989.png';
 
     return;

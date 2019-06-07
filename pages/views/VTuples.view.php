@@ -28,18 +28,18 @@ class VTuples extends VGlobal{
 			</p>
 			' : $lessonVideoLink = '' ;
 
-            ($val['LESSON_DETAILS'] != NULL) ? $lessonDetails = '<div>'.$val['LESSON_DETAILS'].'</div>' : $lessonDetails = "";
+            ($val['LESSON_DETAILS'] != NULL) ? $lessonDetails = '<div class="lesson-details">'.$val['LESSON_DETAILS'].'</div>' : $lessonDetails = "";
             ($val['LESSON_KEYWORDS'] != NULL) ? $lessonKeywords = '<p><span class="pure-lesson-cap">Mots-clés</span></p><p>'.$val['LESSON_KEYWORDS'].'</p>' : $lessonKeywords = "";
 
-            ($val['LESSON_FILE_PREVIEW'] != NULL) ? $linkFileLinkPreview = '<p><a href="../../public/files/'.$val['LESSON_FILE_LINK'].'"><div style="text-align:center;"><img src="../../public/img/'.$val['LESSON_FILE_PREVIEW'].'" alt="'.$val['LESSON_FILE_PREVIEW'].'" style="width: 100%" /></div></a></p>' : $linkFileLinkPreview = '';
+            ($val['LESSON_FILE_PREVIEW'] != NULL) ? $linkFileLinkPreview = '<p><a href="../../public/files/'.$val['LESSON_FILE_LINK'].'"><div style="text-align:center;"><img class="image-preview" src="../../public/img/'.$val['LESSON_FILE_PREVIEW'].'" alt="'.$val['LESSON_FILE_PREVIEW'].'" /></div></a></p>' : $linkFileLinkPreview = '';
 
             (($val['LESSON_FILE_LINK'] != NULL) || ($val['LESSON_FILE_PROJECT_ZIP'] != NULL)/* || ($val['LESSON_FILE_DBTABLES'] != NULL) || ($val['LESSON_FILE_DEMO'] != NULL) || ($val['LESSON_FILE_SOFTWARE'] != NULL)*/) ? $lessonFileLink = '<p><span class="pure-lesson-cap">Fichiers</span></p>' : $lessonFileLink = '';
-            ($val['LESSON_FILE_LINK'] != NULL) ? $logoPdf = '<img src="../../public/img/icon_pdf.png" />' : $logoPdf = "";
+            ($val['LESSON_FILE_LINK'] != NULL) ? $logoPdf = '<img class="page-logo" src="../../public/img/icon_pdf.png"/>' : $logoPdf = "";
             ($val['LESSON_FILE_LINK'] != NULL) ? $linkFile = '<a href="../../public/files/'.$val['LESSON_FILE_LINK'].'">' : $linkFile = "";
             ($val['LESSON_FILE_LINK'] != NULL) ? $linkFileNamed = basename($val['LESSON_FILE_LINK'], "../../public/files/") : $linkFileNamed = "";
             ($val['LESSON_FILE_LINK'] != NULL) ? $linkFileEnd = '</a><br />' : $linkFileEnd = "";
 
-            ($val['LESSON_FILE_PROJECT_ZIP'] != NULL) ? $logoZip = '<img src="../../public/img/icon_zip.gif"/>' : $logoZip = "";
+            ($val['LESSON_FILE_PROJECT_ZIP'] != NULL) ? $logoZip = '<img class="page-logo" src="../../public/img/icon_zip.gif"/>' : $logoZip = "";
             ($val['LESSON_FILE_PROJECT_ZIP'] != NULL) ? $linkZip = '<a href="../../public/files/'.$val['LESSON_FILE_PROJECT_ZIP'].'">' : $linkZip = "";
             ($val['LESSON_FILE_PROJECT_ZIP'] != NULL) ? $linkZipNamed = ' '.basename($val['LESSON_FILE_PROJECT_ZIP'], ".7z").' ' : $linkZipNamed = "";
             ($val['LESSON_FILE_PROJECT_ZIP'] != NULL) ? $linkZipEnd = '</a><br />' : $linkZipEnd = "";

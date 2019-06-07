@@ -28,7 +28,8 @@ $vcontent = new $content['class'](); 					/*Instanciation d'une classe variable 
 	<link rel="stylesheet" href="../../public/css/css_api_others/wrapper_youtube/wrapper-youtube.css">				<!-- Style CSS permettant d'avoir des videos youtube responsive sur les pages -->
 	<link rel="stylesheet" href="../../public/css/css_framework/pure-min.css"> 										<!-- Framework CSS Pure CSS by Yahoo https://purecss.io/ avec encodage pour protection-->
 	<link rel="stylesheet" href="../../public/css/css_user/tables-responsive.css">									<!-- Style CSS permettant la coloration syntaxique de code source dans les pages web -->
-	<link rel="stylesheet" href="../../public/css/css_user/buttonbacktotop.css">									<!-- Style css du button back to top en bas à gauche de la page -->
+	<link rel="stylesheet" href="../../public/css/css_user/buttonbacktotop.css">									<!-- Style CSS du button back to top en bas à gauche de la page -->
+    <link rel="stylesheet" href="../../public/css/css_user/images.css">                                             <!-- Style CSS des images du site-->
 
    <!-- Hack internet explorer permettant de résoudre les problème d'affichage de ce navigateur-->
    <!--[if lte IE 8]>

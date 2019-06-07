@@ -2,111 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e1bba46-1736-4a08-83b4-f60a7fe66a4b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/css_user/images.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/html/git.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cc199a46-2208-4d8b-9fa5-da04363493c4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/templates/layout.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/templates/layout.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/views/VMenu.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/views/VMenu.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/views/VTuples.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/views/VTuples.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/controllers/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/controllers/main.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/html/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/html/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.github/ISSUE_TEMPLATE.md" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.github/ISSUE_TEMPLATE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.github/PULL_REQUEST_TEMPLATE.md" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.github/PULL_REQUEST_TEMPLATE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.phan/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.phan/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.php_cs" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.php_cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.scrutinizer.yml" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.scrutinizer.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/SECURITY.md" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/SECURITY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/UPGRADING.md" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/UPGRADING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/VERSION" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/VERSION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/changelog.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/DKIM_gen_keys.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/DKIM_gen_keys.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/DKIM_sign.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/DKIM_sign.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/callback.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/callback.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/contactform.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/contactform.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/contents.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/contents.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/contentsutf8.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/contentsutf8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/exceptions.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/exceptions.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/extending.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/extending.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/gmail.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/gmail.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/gmail_xoauth.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/gmail_xoauth.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/images/phpmailer.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/images/phpmailer.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/images/phpmailer_mini.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/images/phpmailer_mini.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/mail.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/mail.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/mailing_list.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/mailing_list.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/pop_before_smtp.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/pop_before_smtp.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/send_file_upload.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/send_file_upload.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/send_multiple_file_upload.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/send_multiple_file_upload.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/sendmail.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/sendmail.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/simple_contact_form.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/simple_contact_form.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/smime_signed_mail.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/smime_signed_mail.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/smtp.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/smtp.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/smtp_check.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/smtp_check.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/smtp_low_memory.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/smtp_low_memory.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/smtp_no_auth.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/smtp_no_auth.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/ssl_options.phps" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/examples/ssl_options.phps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/get_oauth_token.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/get_oauth_token.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-am.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-am.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ar.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-az.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-az.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ba.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ba.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-be.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-be.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-bg.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-bg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ca.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ca.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ch.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-cs.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-cs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-da.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-da.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-de.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-de.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-el.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-el.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-eo.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-eo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-es.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-es.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-et.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-et.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-fa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-fi.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-fi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-fo.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-fo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-fr.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-fr.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-gl.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-gl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-he.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-he.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-hi.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-hi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-hr.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-hr.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-hu.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-hu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-id.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-id.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-it.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-it.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ja.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ja.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ka.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ka.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ko.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ko.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-lt.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-lt.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-lv.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-lv.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ms.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ms.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-nb.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-nb.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-nl.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-nl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-pl.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-pl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-pt.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-pt.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-pt_br.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-pt_br.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ro.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-rs.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-rs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ru.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-ru.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-sk.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-sk.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-sl.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-sl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-sv.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-sv.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-tr.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-tr.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-uk.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-uk.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-vi.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-vi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-zh.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-zh.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-zh_cn.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/language/phpmailer.lang-zh_cn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/phpdoc.dist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/phpdoc.dist.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/src/Exception.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/src/Exception.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/src/OAuth.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/src/OAuth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/src/PHPMailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/src/PHPMailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/src/POP3.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/src/POP3.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/src/SMTP.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/src/SMTP.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/test/DebugLogTestListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/test/DebugLogTestListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/test/PHPMailerLangTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/test/PHPMailerLangTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/test/PHPMailerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/test/PHPMailerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/test/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/test/bootstrap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/test/testbootstrap-dist.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/test/testbootstrap-dist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/travis.phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer/travis.phpunit.xml.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/html/homeNoResults.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/html/homeNoResults.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/html/java.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/html/java.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -114,6 +23,11 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -129,158 +43,107 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="MySQL for 5.1 - @localhost" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="MySQL for 5.1 - @localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="MySQL for 5.1 - @localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="cnamicron: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="cnamicron: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
     </expand>
     <select />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1296133695">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="15" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.111" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.25" value="1" />
-          <entry key="project.open.time.40" value="1" />
-          <entry key="project.open.time.45" value="1" />
-          <entry key="project.open.time.46" value="1" />
-          <entry key="project.open.time.48" value="1" />
-          <entry key="project.open.time.50" value="1" />
-          <entry key="project.open.time.51" value="1" />
-          <entry key="project.open.time.52" value="5" />
-          <entry key="project.open.time.53" value="1" />
-          <entry key="project.open.time.54" value="2" />
-          <entry key="project.open.time.56" value="3" />
-          <entry key="project.open.time.57" value="1" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.61" value="1" />
-          <entry key="project.open.time.63" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.81" value="1" />
-          <entry key="project.open.time.93" value="1" />
-          <entry key="project.opened" value="33" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="PURE_MVC_ALGO" value="6" />
-          <entry key="PURE_MVC_ARCHITECTURE" value="4" />
-          <entry key="PURE_MVC_C" value="3" />
-          <entry key="PURE_MVC_CPP" value="4" />
-          <entry key="PURE_MVC_CPPOO" value="5" />
-          <entry key="PURE_MVC_CPPQT" value="2" />
-          <entry key="PURE_MVC_CPPSTL" value="2" />
-          <entry key="PURE_MVC_CSHARP" value="2" />
-          <entry key="PURE_MVC_ENGLISH" value="3" />
-          <entry key="PURE_MVC_FWKS" value="3" />
-          <entry key="PURE_MVC_GODOT" value="2" />
-          <entry key="PURE_MVC_GP" value="2" />
-          <entry key="PURE_MVC_GRAFIC" value="2" />
-          <entry key="PURE_MVC_HTMLCSS" value="2" />
-          <entry key="PURE_MVC_JAVA" value="6" />
-          <entry key="PURE_MVC_JAVADP" value="2" />
-          <entry key="PURE_MVC_JAVAFX" value="3" />
-          <entry key="PURE_MVC_JAVAOO" value="2" />
-          <entry key="PURE_MVC_JAVA_EJB" value="2" />
-          <entry key="PURE_MVC_JAVA_HIBERNATEORM" value="2" />
-          <entry key="PURE_MVC_JAVA_JBOSS" value="1" />
-          <entry key="PURE_MVC_JAVA_JDBC" value="3" />
-          <entry key="PURE_MVC_JAVA_JSF" value="4" />
-          <entry key="PURE_MVC_JAVA_JSP" value="3" />
-          <entry key="PURE_MVC_JAVA_SPRING" value="3" />
-          <entry key="PURE_MVC_JS" value="2" />
-          <entry key="PURE_MVC_JSAJAX" value="1" />
-          <entry key="PURE_MVC_JSC" value="2" />
-          <entry key="PURE_MVC_JSLST" value="2" />
-          <entry key="PURE_MVC_JSP" value="2" />
-          <entry key="PURE_MVC_MATHS" value="2" />
-          <entry key="PURE_MVC_MICRO" value="2" />
-          <entry key="PURE_MVC_OS" value="2" />
-          <entry key="PURE_MVC_PHP" value="2" />
-          <entry key="PURE_MVC_PHPBDD" value="2" />
-          <entry key="PURE_MVC_PHPDEBUG" value="2" />
-          <entry key="PURE_MVC_PHPINT" value="2" />
-          <entry key="PURE_MVC_PHPMVC" value="2" />
-          <entry key="PURE_MVC_PHPOO" value="2" />
-          <entry key="PURE_MVC_PHPS" value="7" />
-          <entry key="PURE_MVC_PHPSEC" value="3" />
-          <entry key="PURE_MVC_PHPUML" value="2" />
-          <entry key="PURE_MVC_PROMANAG" value="1" />
-          <entry key="PURE_MVC_PYTHON" value="1" />
-          <entry key="PURE_MVC_RUBY" value="1" />
-          <entry key="PURE_MVC_UNITY" value="1" />
-          <entry key="PURE_MVC_VC" value="2" />
-          <entry key="collations" value="1" />
-          <entry key="css" value="15" />
-          <entry key="html" value="26" />
-          <entry key="js" value="4" />
-          <entry key="php" value="95" />
-          <entry key="rnc" value="1" />
-          <entry key="sql" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CSS" value="15" />
-          <entry key="Database Element" value="119" />
-          <entry key="HTML" value="26" />
-          <entry key="JavaScript" value="4" />
-          <entry key="PHP" value="95" />
-          <entry key="RNG Compact" value="1" />
-          <entry key="Scratch" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="cell" value="5512" />
-          <entry key="css" value="438" />
-          <entry key="dummy" value="4" />
-          <entry key="html" value="775" />
-          <entry key="php" value="7495" />
-          <entry key="sql" value="23" />
-          <entry key="txt" value="305" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CSS" value="438" />
-          <entry key="HTML" value="883" />
-          <entry key="PHP" value="7222" />
-          <entry key="PLAIN_TEXT" value="309" />
-          <entry key="SQL" value="165" />
-          <entry key="Scratch" value="5535" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.php.new.class">
-        <counts>
-          <entry key="PHP Class.type" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+            <state relative-caret-position="45">
+              <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html/homeNoResults.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/views/VMenu.view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/html/git.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" column="93" selection-start-line="32" selection-start-column="93" selection-end-line="32" selection-end-column="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/views/VTuples.view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="68" lean-forward="true" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#a#0;n#p#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/css_framework/pure-min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="692" column="2" selection-start-line="692" selection-start-column="2" selection-end-line="692" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/controllers/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="1021" column="20" lean-forward="true" selection-start-line="1021" selection-start-column="20" selection-end-line="1021" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html/network.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1">
+              <caret line="548" column="17" lean-forward="true" selection-start-line="548" selection-start-column="17" selection-end-line="548" selection-end-column="17" />
+              <folding>
+                <element signature="e#44#63#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -292,6 +155,7 @@
       <list>
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -313,6 +177,8 @@
       <find>network</find>
       <find>selectAllList</find>
       <find>img</find>
+      <find>Fichiers</find>
+      <find>function net</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -335,35 +201,34 @@
         <option value="$PROJECT_DIR$/public/html/formConnect.html" />
         <option value="$PROJECT_DIR$/core/models/MUsers.php" />
         <option value="$PROJECT_DIR$/unused/VTuples.view.php" />
-        <option value="$PROJECT_DIR$/pages/templates/layout.view.php" />
-        <option value="$PROJECT_DIR$/public/html/homeNoResults.html" />
         <option value="$PROJECT_DIR$/core/debug/debug.php" />
         <option value="$PROJECT_DIR$/core/models/MGlobal.mod.php" />
         <option value="$PROJECT_DIR$/core/models/MTuples.mod.php" />
-        <option value="$PROJECT_DIR$/pages/views/VMenu.view.php" />
-        <option value="$PROJECT_DIR$/public/controllers/main.php" />
-        <option value="$PROJECT_DIR$/pages/views/VTuples.view.php" />
         <option value="$PROJECT_DIR$/public/css/css_framework/pure-min.css" />
         <option value="$PROJECT_DIR$/public/html/home.html" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/public/html/homeNoResults.html" />
+        <option value="$PROJECT_DIR$/pages/templates/layout.view.php" />
+        <option value="$PROJECT_DIR$/pages/views/VTuples.view.php" />
+        <option value="$PROJECT_DIR$/public/css/css_user/images.css" />
+        <option value="$PROJECT_DIR$/public/html/java.html" />
+        <option value="$PROJECT_DIR$/pages/views/VMenu.view.php" />
+        <option value="$PROJECT_DIR$/public/controllers/main.php" />
+        <option value="$PROJECT_DIR$/public/html/git.html" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="PhpDebugGeneral" xdebug_show_addresses="true" break_at_first_line="true" hide_empty_superglobals="false" />
   <component name="PhpServers">
-    <servers />
+    <servers>
+      <server host="192.168.30.1" id="8c5f6ce5-d619-44be-b0cd-a9dfd0efe433" name="phpstorm" />
+    </servers>
   </component>
   <component name="PhpWebServerValidation" path_to_validation_script="$PROJECT_DIR$" selected_validation_type="LOCAL" web_path_to_validation_script="http://127.0.0.1" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1280" />
-    <option name="width" value="1280" />
-    <option name="height" value="1407" />
+    <option name="width" value="960" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -391,93 +256,57 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
+              <item name="cnamicron_Personnal_PHP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cnamicron_Personnal_PHP" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="autoloader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="debug" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
+              <item name="cnamicron_Personnal_PHP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cnamicron_Personnal_PHP" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
+              <item name="cnamicron_Personnal_PHP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cnamicron_Personnal_PHP" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
+              <item name="cnamicron_Personnal_PHP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cnamicron_Personnal_PHP" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
+              <item name="cnamicron_Personnal_PHP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cnamicron_Personnal_PHP" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
+              <item name="cnamicron_Personnal_PHP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cnamicron_Personnal_PHP" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
+              <item name="cnamicron_Personnal_PHP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cnamicron_Personnal_PHP" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
+              <item name="cnamicron_Personnal_PHP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cnamicron_Personnal_PHP" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="css_api_others" type="462c0819:PsiDirectoryNode" />
+              <item name="css_user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="css_framework" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CNAMICRON" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNAMICRON" type="462c0819:PsiDirectoryNode" />
+              <item name="cnamicron_Personnal_PHP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cnamicron_Personnal_PHP" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -485,14 +314,16 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Constants" value="true" />
-    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DatabaseDriversLRU" value="cassandra&#10;mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
@@ -500,9 +331,10 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535723097759" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -525,10 +357,10 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Debug" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/public/controllers/main.php">
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/public/controllers/main.php">
       <method v="2" />
     </configuration>
-    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/public/controllers/main.php">
+    <configuration name="phpstorm" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="phpstorm" start_url="/cnamicron_Personnal_PHP">
       <method v="2" />
     </configuration>
   </component>
@@ -575,6 +407,10 @@
       <workItem from="1537684320958" duration="65000" />
       <workItem from="1537684412863" duration="12000" />
       <workItem from="1537713737970" duration="602000" />
+      <workItem from="1559911553581" duration="206000" />
+      <workItem from="1559911877587" duration="954000" />
+      <workItem from="1559913211654" duration="3817000" />
+      <workItem from="1559921034400" duration="6429000" />
     </task>
     <task id="LOCAL-00001" summary="Mise en place de la premiere partie de l'interface administrateur (edition) - reste a faire la securite, insertion et suppression">
       <created>1536921431247</created>
@@ -608,13 +444,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132747000" />
+    <option name="totallyTimeSpent" value="144153000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="0" width="2566" height="1410" extended-state="6" />
+    <frame x="0" y="0" width="960" height="1053" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15433572" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.28414097" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -624,16 +460,16 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49960223" weight="0.19051322" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984089" weight="0.1881804" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4984089" weight="0.18429238" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984089" weight="0.18817204" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4984089" weight="0.18387097" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Console" order="7" weight="0.21306376" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.12198912" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960223" visible="true" weight="0.1718507" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5003978" side_tool="true" weight="0.19051322" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.12150538" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49893278" visible="true" weight="0.27645788" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010672" side_tool="true" weight="0.17096774" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="SonarLint" order="13" weight="0.14219114" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -643,17 +479,17 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.15791567" />
+      <window_info anchor="right" id="Database" order="7" weight="0.24101306" />
       <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/public/sites/catclinic/public/api/PHPMailer" />
+    </ignored-roots>
     <MESSAGE value="Mise en place de la premiere partie de l'interface administrateur (edition) - reste a faire la securite, insertion et suppression" />
     <MESSAGE value="Bindage des requêtes, solutionnement d'une problematique sur update, autres changements mineurs" />
     <MESSAGE value="Suppression des var_dump dans les classes modeles" />
@@ -709,21 +545,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA_EJB" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA_HIBERNATEORM" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_HTMLCSS" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA_JDBC" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA_JSF" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA_JSP" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVA_SPRING" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JAVAFX" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JS" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JSC" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JSLST" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_JSP" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_MATHS" />
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_MICRO" />
     <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_OS" />
     <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHP" />
     <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPBDD" />
@@ -750,13 +571,7 @@
         <state relative-caret-position="-3372" />
       </provider>
     </entry>
-    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPS">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://cc199a46-2208-4d8b-9fa5-da04363493c4/schema/cnamicron/table/PURE_MVC_PHPS" />
     <entry file="file://$PROJECT_DIR$/public/css/css_api_others/prism/prism.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -774,24 +589,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/structural.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="104" column="16" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/structural.rnc" />
     <entry file="file://$PROJECT_DIR$/unused/VTuples.view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/homeNoResults.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -806,13 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2428" column="6" selection-start-line="2428" selection-start-column="6" selection-end-line="2428" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/configDatabase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -840,27 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/templates/layout.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/views/VMenu.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="109" column="72" selection-start-line="109" selection-start-column="72" selection-end-line="109" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21465">
-          <caret line="1431" selection-start-line="1431" selection-end-line="1431" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/models/MUsers.mod.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -875,28 +649,151 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cve.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/1e41249e-1bc8-403a-b0b2-a1cff53b2c6b/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/configDatabase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://1e41249e-1bc8-403a-b0b2-a1cff53b2c6b/schema/cnamicron/table/PURE_MVC_ALGO">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="8aeaaa93-d463-4e85-ad14-06eac9e3fa75">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/261a9999-e428-400d-9891-88f41555133f/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/css_user/buttonbacktotop.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://f3f17f02-d827-4641-8db3-f18f4fab8b3e/schema/cnamicron/table/PURE_MVC_JAVA">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="8aeaaa93-d463-4e85-ad14-06eac9e3fa75">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/java.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/css_user/images.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="47" lean-forward="true" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/templates/layout.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#aside#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://f3f17f02-d827-4641-8db3-f18f4fab8b3e/schema/cnamicron/table/PURE_MVC_ALGO">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="8aeaaa93-d463-4e85-ad14-06eac9e3fa75">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f3f17f02-d827-4641-8db3-f18f4fab8b3e/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/gitfaster.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/network.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="548" column="17" lean-forward="true" selection-start-line="548" selection-start-column="17" selection-end-line="548" selection-end-column="17" />
+          <folding>
+            <element signature="e#44#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/views/VMenu.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/css_framework/pure-min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="93" column="19" lean-forward="true" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+        <state relative-caret-position="216">
+          <caret line="692" column="2" selection-start-line="692" selection-start-column="2" selection-end-line="692" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/views/VTuples.view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="225">
+          <caret line="15" column="68" lean-forward="true" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
           <folding>
             <element signature="n#style#0;n#div#0;n#a#0;n#p#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#p#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        <state relative-caret-position="45">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/homeNoResults.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="1021" column="20" lean-forward="true" selection-start-line="1021" selection-start-column="20" selection-end-line="1021" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/git.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="93" selection-start-line="32" selection-start-column="93" selection-end-line="32" selection-end-column="93" />
         </state>
       </provider>
     </entry>
