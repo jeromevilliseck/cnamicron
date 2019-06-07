@@ -55,6 +55,28 @@ function togglejavamenu() {
 	}
 }
 
+function togglejavasemenu() {
+    var ele = document.getElementById("toggleJavaSeMenu");
+    var text = document.getElementById("displayJavaSeMenu");document.getElementById("displayJavaSeMenu").style.color="grey";
+    if(ele.style.display == "block") {
+        ele.style.display = "none";
+    }
+    else {
+        ele.style.display = "block";
+    }
+}
+
+function togglejavaeemenu() {
+    var ele = document.getElementById("toggleJavaEeMenu");
+    var text = document.getElementById("displayJavaEeMenu");document.getElementById("displayJavaEeMenu").style.color="grey";
+    if(ele.style.display == "block") {
+        ele.style.display = "none";
+    }
+    else {
+        ele.style.display = "block";
+    }
+}
+
 function togglecppmenu() {
 	var ele = document.getElementById("toggleCppMenu");
 	var text = document.getElementById("displayCppMenu");document.getElementById("displayCppMenu").style.color="grey";

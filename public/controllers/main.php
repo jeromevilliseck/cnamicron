@@ -55,6 +55,9 @@ switch ($EX) {															// Contrôleur
     case 'javadp':
         javadp();
         break;
+    case 'javajeebase':
+        javajeebase();
+        break;
     case 'javaspring':
         javaspring();
         break;
@@ -531,6 +534,25 @@ function javafx() {
     $content['arg']         = $data;
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
     $content['text']        = '../html/javafx.html';
+
+    $content['thumbnail']   = 'http://www.image-heberg.fr/files/152079676369203515.png';
+
+    return;
+}
+
+function javajeebase() {
+    $mTuples = new MTuples();
+    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_JEE_BASE");
+
+    global $content;
+
+    $content['title']       = 'JAVA EE';
+    $content['description'] = 'Bases de l\'architecture JEE : Http, Servlet, JSP, JSTL, MVC, JDBC, ORM';
+    $content['class']       = 'VTuples';
+    $content['method']      = 'showAllTuples';
+    $content['arg']         = $data;
+    $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
+    $content['text']        = '../html/javajee.html';
 
     $content['thumbnail']   = 'http://www.image-heberg.fr/files/152079676369203515.png';
 
