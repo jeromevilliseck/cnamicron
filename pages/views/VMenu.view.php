@@ -47,6 +47,7 @@ class VMenu extends VGlobal
     <li class="pure-menu-item"><a href="main.php?EX=algo" class="pure-menu-link">$this->algo Algorithmique</a></li>
     <!--<li class="pure-menu-item"><a href="main.php?EX=htmlcss" class="pure-menu-link">$this->html HTML et CSS</a></li>-->
 
+<!--
     <li class="pure-menu-item"><a id="displayPhpMenu" href="javascript:togglephpmenu();" style="display:block;">$this->php PHP</a></li>
     <ol id="togglePhpMenu" style="display: none;">
     <li class="pure-menu-item"><a href="main.php?EX=php" class="pure-menu-link"> Procédural</a></li>
@@ -56,7 +57,7 @@ class VMenu extends VGlobal
     <li class="pure-menu-item"><a href="main.php?EX=phpint" class="pure-menu-link"> Intég. continue</a></li>
     <li class="pure-menu-item"><a href="main.php?EX=phpoo" class="pure-menu-link"> OO Avancé</a></li>
     <li class="pure-menu-item"><a href="main.php?EX=phpdeb" class="pure-menu-link"> Debogage</a></li>
-    </ol>
+    </ol>-->
 
     <li class="pure-menu-item"><a id="displayJavaSeMenu" href="javascript:togglejavasemenu();" style="display:block;">$this->java JAVA SE</a></li>
         <ol id="toggleJavaSeMenu" style="display: none;">

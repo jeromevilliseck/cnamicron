@@ -554,7 +554,7 @@ function javajeebase() {
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
     $content['text']        = '../html/javajee.html';
 
-    $content['thumbnail']   = 'http://www.image-heberg.fr/files/152079676369203515.png';
+    $content['thumbnail']   = 'http://zupimages.net/viewer.php?id=19/25/x8j0.png';
 
     return;
 }

@@ -1073,7 +1073,7 @@ sur apache2 <pre><code class="code3">ErrorLog ${APACHE_LOG_DIR}/error.log</code>
 <pre><code class="code3">< IfModule></code></pre>similaire; les directives qu'il contient ne s'appliqueront que si un module particulier est disponible au niveau du serveur. Le module doit être soit compilé statiquement dans le serveur, soit dynamiquement et dans ce cas, la ligne LoadModule correspondante doit apparaître plus haut dans le fichier de configuration.</br>
 <pre><code class="code3">< IfVersion></code></pre>les directives qu'il contient ne s'appliqueront que si une version particulière du serveur s'exécute.
 
-<pre><code class="code3">< Directory [chemin_designant_le_repertoire]></code></pre>directives contenues dans une section <Directory> s'appliquent au répertoire précisé, ainsi qu'à tous ses sous-répertoires et aux fichiers que ces derniers contiennent. Le même effet peut être obtenu en utilisant les fichiers .htaccess.
+<pre><code class="code3">< Directory [chemin_designant_le_repertoire]></code></pre>directives contenues dans une section < Directory> s'appliquent au répertoire précisé, ainsi qu'à tous ses sous-répertoires et aux fichiers que ces derniers contiennent. Le même effet peut être obtenu en utilisant les fichiers .htaccess.
 <pre><code class="code3">< Files></code></pre>s'appliquent à tout fichier avec le nom spécifié, quel que soit le répertoire dans lequel il se trouve.
 <pre><code class="code3">< LocationMatch></code></pre>modifient quant à eux la configuration de parties de l'arborescence du site web
 <pre><code class="code3">< VirtualHost></code></pre> permettent de rassembler un groupe de directives qui ne s'appliquent qu'à un serveur virtuel particulier.
@@ -1611,6 +1611,8 @@ Lien pour facilitez vos opérations de filtrage<br>
 
 </p>
 
+<!--
+
 <h3 id="linkJ" class="paddingTwelve"><aside class="black">Serveur FTP</aside></h3>
 <h3 id="linkK" class="paddingTwelve"><aside class="black">Serveur SSH</aside></h3>
 
@@ -1618,9 +1620,7 @@ Lien pour facilitez vos opérations de filtrage<br>
 
 <p>Rubrique a retravailler : des erreurs sont présentes dans le premier lien sur la configuration de Directory, il faut modifier le chemin de la directive documentroot dans httpd.conf et non pas utiliser un conteneur Directory dans un fichier username.conf, il faut bien décommenter l'ensemble des modules mentionnés pour les faire fonctionner</p>
 <p>pour php, se rendre sur le lien php, car le tutoriel utilise php5 or le module est php*, actuellement php7</p>
+    <p>
 <a href="https://blog.edenpulse.com/apache-mysql-php-sur-osx/">Config de base</a>
 <a href="http://php.net/manual/fr/install.macosx.bundled.php">Activation de php</a>
-
-
-
-</p>
+    </p>-->

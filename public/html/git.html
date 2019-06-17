@@ -1,5 +1,7 @@
 <aside class="orange"><span>Créer un dépôt</span></aside>
 
+<aside class="red"><span>En cours de rédaction</span></aside>
+
 <h2>git init</h2>
 
 <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git init</code></pre>
@@ -29,6 +31,195 @@
 </ul>
 
 <h2>git clone</h2>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git clone [depot] [repertoire]</code></pre>
+<p>clone le dépôt distant dans le repertoire spécifié (equivalent d'un git init + git pull)</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git clone --branch [tag] [depot]</code></pre>
+<p>clone à partir d'un pointeur tag pointant sur un commit = clonage du depot à un instant T de son historique</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git clone --depth=[depth] [depot]</code></pre>
+<p>clone le depot avec un historique dont le nombre d'élément dépends de la profondeur spécifiée</p>
+<ul>
+    <li>[depth] := profondeur de l'historique en nb de commits depuis la tete</li>
+</ul>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git clone --branch [nom_branche] [depot]</code></pre>
+<p>clone le depot depuis une branche specifique, car head pointe souvent vers master</p>
+<ul>
+    <li>[nom_branche] := branche distante</li>
+</ul>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git clone --bare [depot]</code></pre>
+<p>clone ineditable</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git clone --mirror</code></pre>
+<p>miroir, herite de bare</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git clone --template [repertoire_modele] [emplacement]</code></pre>
+<p>clone en appliquant le modèle depuis rep modèle dans dossier .git</p>
+<p>protocoles URL git acceptés + syntaxe officielle</p>
+<ul>
+    <li>[ssh]  := ssh://[utilisateur@]hôte.xz[:port]/chemin/dépôt.git/</li>
+    <li>[git]  := git://host.xz[:port]/path/to/repo.git/</li>
+    <li>[http] := http[s]://host.xz[:port]/path/to/repo.git/</li>
+</ul>
+
+<h2>git config</h2>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git config [level] [parameter]</code></pre>
+<p>va configurer le parametre spécifié au niveau de couverture spécifié</p>
+<p>[level] := le niveau de configuration. 3 niveaux disponibles</p>
+<table>
+    <thead>
+    <tr>
+        <th>COMMANDE</th>
+        <th>NIVEAU</th>
+        <th>FICHIER OU EST STOCKE LA CONFIGURATION</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td data-label="COMMANDE">--local</td>
+        <td data-label="NIVEAU">Local = current project</td>
+        <td data-label="FICHIER OU EST STOCKE LA CONFIGURATION">./.git/config</td>
+    </tr>
+    <tr>
+        <td data-label="COMMANDE">--global</td>
+        <td data-label="NIVEAU">Global = session current user</td>
+        <td data-label="FICHIER OU EST STOCKE LA CONFIGURATION">[UNIX] ~/.gitconfig [WIN] C:\Users\[username]\.gitconfig</td>
+    </tr>
+    <tr>
+        <td data-label="COMMANDE">--system</td>
+        <td data-label="NIVEAU">System = current computer</td>
+        <td data-label="FICHIER OU EST STOCKE LA CONFIGURATION">[UNIX] $/etc/gitconfig [WIN] C:\ProgramData\Git\config</td>
+    </tr>
+    </tbody>
+</table>
+<ul>
+    <li>[parameter] := le parametre parmi les suivants (non exhaustif)</li>
+    <li>user.email := email de l'utilisateur (OBLIGATOIRE)</li>
+    <li>user.name := prenom et nom de l'utilisateur (OBLIGATOIRE)</li>
+    <li>core.editor := editeur que git lancera lors des commandes qui demande de la saisie texte
+    <br>[nano] $git config --global core.editor "nano -w"
+    <br>[WINexecutable] $git config --global core.editor "'c:/program files/[chemin_executable]/[executable].exe' -w"
+    <br>merge.tool := outil de merge de git. Privilégier kdiff3
+    <br>color.ui := couleurs du terminal. auto := couleurs que dans le terminal, always := couleur egalement sur les flux de sortie, false := desactive les couleurs
+    </li>
+</ul>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git config core.autocrlf input</code></pre>
+<p>configure automatiquement les retours fin de ligne pour windows</p>
+
+<h2>git alias</h2>
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git config --global alias.[nom_alias] [commande_git_complete]</code></pre>
+<p>configure un alias pour l'utilisateur</p>
+<ul>
+    <li>[nom_alias] := nom donne à l'alias = une commande raccourcie</li>
+    <li>[commande_git_complete] := comande git à laquelle correspond l'alias</li>
+    <li>[note] un alias peut faire référence à un autre alias pour créer de puissantes combinaisons (ex: git config --global alias.amend ci --amend, alors que ci était deja l'alias pour git commit)</li>
+</ul>
+
+
+<aside class="orange"><span>Enregistrer des changements</span></aside>
+
+<h2>git add</h2>
+<p>ATTENTION</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">$git add .</code></pre>
+<p>ajoute tous les fichiers de la zone de travail à la zone de stash en tenant compte des exclusions du .gitignore s'appliquant au projet</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git add *</code></pre>
+<p>ne tiendra pas compte du fichier .gitignore et ajoutera tout</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git add -A</code></pre>
+<p>ne tiendra pas compte de .gitignore et ajoutera tout</p>
+
+<h2>git commit</h2>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git commit</code></pre>
+<p>va lancer un éditeur de texte ou devra être spécifié le message du commit</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git commit -a</code></pre>
+<p>crée un commit avec le message spécifié aentre le double quotes</p>
+<p>Note: il est recommandé de respecter le pattern suivant pour les commits</p>
+<ul>
+    <li>Une dièse suivi du numéro du ticket à développer (sous github ou gitlab notamment. Ex : #56</li>
+    <li>Il existe plusieurs types de commit, le type doit être précisé dans le message</li>
+    <li>Fix : Correction de  bugs</li>
+    <li>Feat : Nouvelles fonctionnalités</li>
+    <li>Doc : Ajout de documentation</li>
+    <li>Test : Ajout de tests unitaires</li>
+    <li>Refactor : Refactorisation ou nettoyage de code existant, sans impact sur les fonctionnalités</li>
+</ul>
+
+<h2>git diff</h2>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git diff --git a/diff_test.txt b/diff_test.txt</code></pre>
+<p>Cette ligne affiche les sources d'entrée du diff. Nous pouvons voir que a/diff_test.txt et b/diff_test.txt ont été passés à la diff.</p>
+
+<h2>git stash</h2>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git stash</code></pre>
+<p>va prendre tous les changements non commités (working area et stagging area incluse), les enregistre pour une utilisation ulterieure dans un tampon, la working area sera donc vide, car tout aura été placé dans ce tampon</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git stash pop</code></pre>
+<p>réapplique les changements stashés au préalable dans le repertoire de travail (replace le contenu du tampon dans la working area)</p>
+
+<h2>.gitignore</h2>
+<p>[note] les fichiers et extensions ne devant pas être trackés (à copier-coller dans fichier .gitignore) (un fichier ou extension par ligne uniquement)</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">touch .gitignore</code></pre>
+<p>créer le fichier caché .gitignore à la racine du projet qui va exclure les fichiers et extensions spécifiées dedans</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">notepad .gitignore</code></pre>
+<p>editer le fichier sous windows</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">nano .gitignore</code></pre>
+<p>editer le fichier sous UNIX</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git config --global core.excludesFile ~/.gitignore</code></pre>
+<p>va exclure au niveau global à partir de la configuration dans le fichier ~/.gitignore (le fichier d'exclusion globale peut etre placé ailleurs)</p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git check-ignore -v [fichier]</code></pre>
+<p>connaitre le fichier contenant l'exclusion, déterminer le modèle à cause duquel un fichier spécifique est ignoré</p>
+
+<h3>protocole : ignorer un fichier commité au préalable</h3>
+<ol>
+    <li>inscrire le fichier dans le .gitignore du projet := $echo [fichier] ]] .gitignore</li>
+    <li>supprimer le fichier du dépôt mais le conserver dans le working area := $git rm --cached [fichier]</li>
+    <li>commiter := git commit -m "start ignoring [fichier]"</li>
+</ol>
+<h3>protocole : commiter un fichier ignoré</h3>
+<ol>
+    <li>ajouter au stash de manière forcée le fichier avec -f := $git add -f debug.log</li>
+    <li>commiter := git commit -m "Force adding debug.log"</li>
+</ol>
+<h3>protocole : creer un .gitignore sous windows</h3>
+<ol>
+    <li>lancer un CMD en admin</li>
+    <li>creer le fichier .gitignore := fsutil file createnew .gitignore 1024</li>
+    <li>ouvrir le fichier avec notepad et ajouter les exclusions := notepad .gitignore</li>
+    <li>lire le fichier pour voir si c ok := type [nom_fichier] OU more [nom_fichier]</li>
+</ol>
+
+
+<aside class="orange"><span>Inspecter un dépôt</span></aside>
+
+<h2>git status</h2>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git status -s</code></pre>
+<p>afficher un statut plus lisible de la zone de travail en cours</p>
+<ul>
+    <li>A:= addition of a file</li>
+    <li>D:= deletion of a file</li>
+    <li>U:= file is unmerged (you must complete the merge before it can be committed)</li>
+    <li>C: copy of a file into a new one</li>
+    <li>D: deletion of a file</li>
+    <li>M: modification of the contents or mode of a file</li>
+    <li>R: renaming of a file</li>
+    <li>T: change in the type of the file</li>
+    <li>X: "unknown" change type (most probably a bug, please report it)</li>
+</ul>
+
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash">git status</code></pre>
+<p>indique les fichiers stagés, non stagés, non trackés</p>
+<ol>
+    <li>fichiers qui vont être commités = CHANGES TO BE COMMITTED = ZONE DE STASH</li>
+    <li>fichiers non stagés à add	= UNTRACKED FILES = CHANGES NOT STAGGED FOR THE COMMIT = ZONE DE TRAVAIL</li>
+    <li>fichiers non trackés à add éventuellement</li>
+</ol>
+
+
+
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash"></code></pre>
+<p></p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash"></code></pre>
+<p></p>
+<pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash"></code></pre>
+<p></p>
+
 
 <pre class="command-line" data-user="user" data-host="localhost"><code class="language-bash"></code></pre>
 <p></p>
