@@ -19,16 +19,16 @@ class VMenu extends VGlobal
 
         echo <<<HERE
     <li class="pure-menu-item"><a href="main.php?EX=algo" class="pure-menu-link">$this->algo Algorithmique</a></li>
-    <li class="pure-menu-item"><a id="displayJavaSeMenu" href="javascript:togglejavasemenu();" style="display:block;">$this->java JAVA SE</a></li>
-        <ol id="toggleJavaSeMenu" style="display: none;">
+    <li class="pure-menu-item"><a id="displayJavaMenu" href="javascript:togglejavamenu();" style="display:block;">$this->java JAVA SE</a></li>
+    <ol id="toggleJavaMenu" style="display: none;">
         <li class="pure-menu-item"><a href="main.php?EX=java" class="pure-menu-link"> Procédural</a></li>
         <li class="pure-menu-item"><a href="main.php?EX=javaoo" class="pure-menu-link"> Orienté Objet</a></li>
         <li class="pure-menu-item"><a href="main.php?EX=javadesign" class="pure-menu-link"> Design Patterns</a></li>
         <li class="pure-menu-item"><a href="main.php?EX=javafx" class="pure-menu-link"> FX (Swing)</a></li>
-        </ol>
+    </ol>
         
-    <li class="pure-menu-item"><a id="displayJavaEeMenu" href="javascript:togglejavaeemenu();" style="display:block;">$this->java JAVA EE</a></li>
-        <ol id="toggleJavaEeMenu" style="display: none;">
+    <li class="pure-menu-item"><a id="displayJeeMenu" href="javascript:togglejeemenu();" style="display:block;">$this->java JAVA EE</a></li>
+    <ol id="toggleJeeMenu" style="display: none;">
         <li class="pure-menu-item"><a href="main.php?EX=javajeebase" class="pure-menu-link"> Bases architecture</a></li>
         <li class="pure-menu-item"><a href="main.php?EX=" class="pure-menu-link"> Inversion Contrôle</a></li>
         <li class="pure-menu-item"><a href="main.php?EX=" class="pure-menu-link"> Servlet, JSP, MVC</a></li>
@@ -36,12 +36,12 @@ class VMenu extends VGlobal
         <li class="pure-menu-item"><a href="main.php?EX=" class="pure-menu-link"> Spring MVC</a></li>
         <li class="pure-menu-item"><a href="main.php?EX=" class="pure-menu-link"> EJB</a></li>
         <li class="pure-menu-item"><a href="main.php?EX=" class="pure-menu-link"> Spring Boot & Cloud</a></li>
-        </ol>    
+    </ol>    
         
     <li class="pure-menu-item"><a id="displayCppMenu" href="javascript:togglecppmenu();" style="display:block;">$this->cpp C++</a></li>
     <ol id="toggleCppMenu" style="display: none;">
-    <li class="pure-menu-item"><a href="main.php?EX=cpp" class="pure-menu-link"> Procédural</a></li>
-    <li class="pure-menu-item"><a href="main.php?EX=cppoo" class="pure-menu-link"> Orienté Objet</a></li>
+        <li class="pure-menu-item"><a href="main.php?EX=cpp" class="pure-menu-link"> Procédural</a></li>
+        <li class="pure-menu-item"><a href="main.php?EX=cppoo" class="pure-menu-link"> Orienté Objet</a></li>
     </ol>
 
     <li class="pure-menu-item"><a href="main.php?EX=sql" class="pure-menu-link">$this->sql SQL</a></li>

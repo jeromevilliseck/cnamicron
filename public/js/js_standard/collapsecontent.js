@@ -1,49 +1,4 @@
 /*Creer une boucle itérative pour ne pas réécrire sans arrêt les fonctions, une fois javascript approfondi*/
-
-function togglephpmenu() {
-	var ele = document.getElementById("togglePhpMenu");
-	var text = document.getElementById("displayPhpMenu");document.getElementById("displayPhpMenu").style.color="grey";
-	if(ele.style.display == "block") {
-    		ele.style.display = "none";
-  	}
-	else {
-		ele.style.display = "block";
-	}
-}
-
-function togglegitmenu() {
-    var ele = document.getElementById("toggleGitMenu");
-    var text = document.getElementById("displayGitMenu");document.getElementById("displayGitMenu").style.color="grey";
-    if(ele.style.display == "block") {
-        ele.style.display = "none";
-    }
-    else {
-        ele.style.display = "block";
-    }
-}
-
-function togglejsmenu() {
-	var ele = document.getElementById("toggleJsMenu");
-	var text = document.getElementById("displayJsMenu");document.getElementById("displayJsMenu").style.color="grey";
-	if(ele.style.display == "block") {
-    		ele.style.display = "none";
-  	}
-	else {
-		ele.style.display = "block";
-	}
-}
-
-function toggletoolsmenu() {
-    var ele = document.getElementById("toggleToolsMenu");
-    var text = document.getElementById("displayToolsMenu");document.getElementById("displayToolsMenu").style.color="grey";
-    if(ele.style.display == "block") {
-        ele.style.display = "none";
-    }
-    else {
-        ele.style.display = "block";
-    }
-}
-
 function togglejavamenu() {
 	var ele = document.getElementById("toggleJavaMenu");
 	var text = document.getElementById("displayJavaMenu");document.getElementById("displayJavaMenu").style.color="grey";
@@ -55,20 +10,9 @@ function togglejavamenu() {
 	}
 }
 
-function togglejavasemenu() {
-    var ele = document.getElementById("toggleJavaSeMenu");
-    var text = document.getElementById("displayJavaSeMenu");document.getElementById("displayJavaSeMenu").style.color="grey";
-    if(ele.style.display == "block") {
-        ele.style.display = "none";
-    }
-    else {
-        ele.style.display = "block";
-    }
-}
-
-function togglejavaeemenu() {
-    var ele = document.getElementById("toggleJavaEeMenu");
-    var text = document.getElementById("displayJavaEeMenu");document.getElementById("displayJavaEeMenu").style.color="grey";
+function togglejeemenu() {
+    var ele = document.getElementById("toggleJeeMenu");
+    var text = document.getElementById("displayJeeMenu");document.getElementById("displayJeeMenu").style.color="grey";
     if(ele.style.display == "block") {
         ele.style.display = "none";
     }
@@ -87,30 +31,6 @@ function togglecppmenu() {
 		ele.style.display = "block";
 	}
 }
-
-function toggleothermenu() {
-	var ele = document.getElementById("toggleOtherMenu");
-	var text = document.getElementById("displayOtherMenu");document.getElementById("displayOtherMenu").style.color="grey";
-	if(ele.style.display == "block") {
-    		ele.style.display = "none";
-  	}
-	else {
-		ele.style.display = "block";
-	}
-}
-
-function togglesystemmenu() {
-	var ele = document.getElementById("toggleSystemMenu");
-	var text = document.getElementById("displaySystemMenu");document.getElementById("displaySystemMenu").style.color="grey";
-	if(ele.style.display == "block") {
-    		ele.style.display = "none";
-  	}
-	else {
-		ele.style.display = "block";
-	}
-}
-
-
 
 function toggle() {var ele = document.getElementById("toggleText");
 	var text = document.getElementById("displayText");
