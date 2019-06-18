@@ -136,43 +136,10 @@ class MTuples extends MGlobal{
             $query = "SELECT * FROM PURE_MVC_ALGO
                       WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
                       UNION 
-                      SELECT * FROM PURE_MVC_ARCHITECTURE
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_C
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
                       SELECT * FROM PURE_MVC_CPP
                       WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
                       UNION
                       SELECT * FROM PURE_MVC_CPPOO
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_CPPQT
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_CPPSTL
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_CSHARP
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_ENGLISH
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_FWKS
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_GODOT
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_GP
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_GRAFIC
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_HTMLCSS
                       WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
                       UNION
                       SELECT * FROM PURE_MVC_JAVA
@@ -206,72 +173,6 @@ class MTuples extends MGlobal{
                       WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
                       UNION
                       SELECT * FROM PURE_MVC_JAVA_SPRING
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_JS
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_JSAJAX
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_JSC
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_JSLST
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_JSP
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_MATHS
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_MICRO
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_OS
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_PHP
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_PHPBDD
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_PHPDEBUG
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_PHPINT
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_PHPMVC
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_PHPOO
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_PHPS
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_PHPSEC
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_PHPUML
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_PROMANAG
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_PYTHON
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_RUBY
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_UNITY
-                      WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
-                      UNION
-                      SELECT * FROM PURE_MVC_VC
                       WHERE LESSON_NAME LIKE '%$expression%' OR LESSON_DETAILS LIKE '%$expression%' OR LESSON_KEYWORDS LIKE '%$expression%'
                       ";
 
