@@ -1172,7 +1172,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// Support: IE<10
 	// Check if getElementById returns elements by name
 	// The broken getElementById methods don't pick up programmatically-set names,
-	// so use a roundabout getElementsByName test
+	// so use a roundabout getElementsByName thumbnails
 	support.getById = assert(function( el ) {
 		docElem.appendChild( el ).id = expando;
 		return !document.getElementsByName || !document.getElementsByName( expando ).length;
@@ -1292,7 +1292,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		// Regex strategy adopted from Diego Perini
 		assert(function( el ) {
 			// Select is set to empty string on purpose
-			// This is to test IE's treatment of not explicitly
+			// This is to thumbnails IE's treatment of not explicitly
 			// setting a boolean content attribute,
 			// since its presence should be enough
 			// https://bugs.jquery.com/ticket/12359
@@ -1302,7 +1302,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Support: IE8, Opera 11-12.16
 			// Nothing should be selected when empty strings follow ^= or $= or *=
-			// The test attribute must be unknown in Opera but "safe" for WinRT
+			// The thumbnails attribute must be unknown in Opera but "safe" for WinRT
 			// https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section
 			if ( el.querySelectorAll("[msallowcapture^='']").length ) {
 				rbuggyQSA.push( "[*^$]=" + whitespace + "*(?:''|\"\")" );
@@ -6241,7 +6241,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 				return;
 			}
 
-			// Hook needed; redefine it so that the support test is not executed again.
+			// Hook needed; redefine it so that the support thumbnails is not executed again.
 			return ( this.get = hookFn ).apply( this, arguments );
 		}
 	};
@@ -10718,7 +10718,7 @@ return jQuery;
 		 *      var oTable = $('#example').dataTable();
 		 *
 		 *      // Sometime later - filter...
-		 *      oTable.fnFilter( 'test string' );
+		 *      oTable.fnFilter( 'thumbnails string' );
 		 *    } );
 		 */
 		this.fnFilter = function( sInput, iColumn, bRegex, bSmart, bShowGlobal, bCaseInsensitive )
@@ -11694,7 +11694,7 @@ return jQuery;
 		var out = [];
 		var i=0, ien=a.length;
 	
-		// Could have the test in the loop for slightly smaller code, but speed
+		// Could have the thumbnails in the loop for slightly smaller code, but speed
 		// is essential here
 		if ( prop2 !== undefined ) {
 			for ( ; i<ien ; i++ ) {
@@ -11722,7 +11722,7 @@ return jQuery;
 		var out = [];
 		var i=0, ien=order.length;
 	
-		// Could have the test in the loop for slightly smaller code, but speed
+		// Could have the thumbnails in the loop for slightly smaller code, but speed
 		// is essential here
 		if ( prop2 !== undefined ) {
 			for ( ; i<ien ; i++ ) {
@@ -12867,7 +12867,7 @@ return jQuery;
 		{
 			/* If there is a . in the source string then the data source is in a
 			 * nested object so we loop over the data for each level to get the next
-			 * level down. On each loop we test for undefined, and if found immediately
+			 * level down. On each loop we thumbnails for undefined, and if found immediately
 			 * return. This allows entire objects to be missing and sDefaultContent to
 			 * be used if defined, rather than throwing an error
 			 */
@@ -16223,8 +16223,8 @@ return jQuery;
 			 *      return iTest;
 			 *    return oSort['numeric-asc']( aiOrig[a], aiOrig[b] );
 			 *  }
-			 * Basically we have a test for each sorting column, if the data in that column is equal,
-			 * test the next column. If all columns match, then we use a numeric sort on the row
+			 * Basically we have a thumbnails for each sorting column, if the data in that column is equal,
+			 * thumbnails the next column. If all columns match, then we use a numeric sort on the row
 			 * positions in the original data array to provide a stable sort.
 			 *
 			 * Note - I know it seems excessive to have two sorting methods, but the first is around
@@ -19381,7 +19381,7 @@ return jQuery;
 	 * Check if a `<table>` node is a DataTable table already or not.
 	 *
 	 *  @param {node|jquery|string} table Table node, jQuery object or jQuery
-	 *      selector for the table to test. Note that if more than more than one
+	 *      selector for the table to thumbnails. Note that if more than more than one
 	 *      table is passed on, only the first will be checked
 	 *  @returns {boolean} true the table given is a DataTable, or false otherwise
 	 *  @static
@@ -21069,7 +21069,7 @@ return jQuery;
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
 		 *        "preDrawCallback": function( settings ) {
-		 *          if ( $('#test').val() == 1 ) {
+		 *          if ( $('#thumbnails').val() == 1 ) {
 		 *            return false;
 		 *          }
 		 *        }

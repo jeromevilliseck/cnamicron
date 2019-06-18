@@ -228,7 +228,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  // updates input intent for `mousemove` and `pointermove`
 	  var setIntent = function setIntent(event) {
-	    // test to see if `mousemove` happened relative to the screen
+	    // thumbnails to see if `mousemove` happened relative to the screen
 	    // to detect scrolling versus mousemove
 	    if (mousePos['x'] !== event.screenX || mousePos['y'] !== event.screenY) {
 	      isScrolling = false;

@@ -13,13 +13,13 @@ $vcontent = new $content['class'](); 					/*Instanciation d'une classe variable 
     <meta name="author" 					content="Jerome Villiseck" />
 
     <meta property="fb:app_id"             	content="571276129900940" /> 									<!--Propriétés pour partager sur facebook les pages dynamiquement-->
-    <meta property="og:url"                	content=<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?> />
+    <meta property="og:url"                	content=<?php echo 'https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?> />
     <meta property="og:type"               	content="article" />
     <meta property="og:title"              	content="Cnamicron - <?=$content['title']?>" />
     <meta property="og:description"        	content="<?=$content['description']?>" />
     <meta property="og:image"              	content="<?=$content['thumbnail']?>" />
-    <meta property="og:image:width" 		content="430">
-    <meta property="og:image:height" 		content="235">
+    <meta property="og:image:width" 		content="1200">
+    <meta property="og:image:height" 		content="628">
 
     <!--Favicon-->
     <link href="../../public/favicon/favicon.ico" rel="icon" type="image/x-icon" />

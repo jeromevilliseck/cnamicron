@@ -94,7 +94,7 @@ switch ($EX) {															// Contrôleur
     case 'deconnect':
         deconnect();
         break;
-    case 'test':
+    case 'thumbnails':
         tests();
         break;
     case 'update':
@@ -266,7 +266,7 @@ function javajeebase() {
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
     $content['text']        = '../html/javajee.html';
 
-    $content['thumbnail']   = 'http://zupimages.net/viewer.php?id=19/25/x8j0.png';
+    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/javaeebase.png';
 
     return;
 }

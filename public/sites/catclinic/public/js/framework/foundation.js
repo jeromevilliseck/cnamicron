@@ -433,7 +433,7 @@ var matchMedia = window.matchMedia || function () {
         info = null;
 
     style.type = 'text/css';
-    style.id = 'matchmediajs-test';
+    style.id = 'matchmediajs-thumbnails';
 
     script && script.parentNode && script.parentNode.insertBefore(style, script);
 
@@ -442,7 +442,7 @@ var matchMedia = window.matchMedia || function () {
 
     styleMedia = {
       matchMedium: function (media) {
-        var text = '@media ' + media + '{ #matchmediajs-test { width: 1px; } }';
+        var text = '@media ' + media + '{ #matchmediajs-thumbnails { width: 1px; } }';
 
         // 'style.styleSheet' is used by IE <= 8 and 'style.textContent' for all other browsers
         if (style.styleSheet) {
@@ -1053,7 +1053,7 @@ var Box = {
   /**
    * Compares the dimensions of an element to a container and determines collision events with container.
    * @function
-   * @param {jQuery} element - jQuery object to test for collisions.
+   * @param {jQuery} element - jQuery object to thumbnails for collisions.
    * @param {jQuery} parent - jQuery object to use as bounding container.
    * @param {Boolean} lrOnly - set to true to check left and right values only.
    * @param {Boolean} tbOnly - set to true to check top and bottom values only.
@@ -5062,11 +5062,11 @@ var Abide = function (_Plugin) {
       var valid = false;
 
       if (inputText.length) {
-        // If the pattern attribute on the element is in Abide's list of patterns, then test that regexp
+        // If the pattern attribute on the element is in Abide's list of patterns, then thumbnails that regexp
         if (this.options.patterns.hasOwnProperty(pattern)) {
           valid = this.options.patterns[pattern].test(inputText);
         }
-        // If the pattern name isn't also the type attribute of the field, then test it as a regexp
+        // If the pattern name isn't also the type attribute of the field, then thumbnails it as a regexp
         else if (pattern !== $el.attr('type')) {
             valid = new RegExp(pattern).test(inputText);
           } else {
