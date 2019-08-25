@@ -257,7 +257,7 @@ function javajeebase() {
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
     $content['text']        = '../html/javajee.html';
 
-    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/javaeebase.png';
+    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/prejavawebbanner.png';
 
     return;
 }
@@ -275,7 +275,7 @@ function javajeeioc() {
     $content['arg']         = $data;
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
 
-    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/javaeebase.png';
+    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/prejavawebbanner.png';
 
     return;
 }
@@ -293,7 +293,7 @@ function javajeemvc() {
     $content['arg']         = $data;
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
 
-    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/javaeebase.png';
+    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/prejavawebbanner.png';
 
     return;
 }
@@ -311,7 +311,7 @@ function javajeeorm() {
     $content['arg']         = $data;
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
 
-    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/javaeebase.png';
+    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/hibernate.png';
 
     return;
 }
@@ -329,7 +329,7 @@ function javajeews() {
     $content['arg']         = $data;
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
 
-    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/javaeebase.png';
+    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/microservices.png';
 
     return;
 }
@@ -347,7 +347,7 @@ function javajeesbc() {
     $content['arg']         = $data;
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
 
-    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/javaeebase.png';
+    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/microservices.png';
 
     return;
 }
