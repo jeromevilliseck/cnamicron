@@ -21,21 +21,21 @@ class VMenu extends VGlobal
     <li class="pure-menu-item"><a href="main.php?EX=algo" class="pure-menu-link">$this->algo Algorithmique</a></li>
     <li class="pure-menu-item"><a id="displayJavaMenu" href="javascript:togglejavamenu();" style="display:block;">$this->java JAVA SE</a></li>
     <ol id="toggleJavaMenu" style="display: none;">
-        <li class="pure-menu-item"><a href="main.php?EX=java" class="pure-menu-link"> Procédural</a></li>
-        <li class="pure-menu-item"><a href="main.php?EX=javaoo" class="pure-menu-link"> Orienté Objet</a></li>
-        <li class="pure-menu-item"><a href="main.php?EX=javadesign" class="pure-menu-link"> Design Patterns</a></li>
-        <li class="pure-menu-item"><a href="main.php?EX=javafx" class="pure-menu-link"> FX (Swing)</a></li>
+        <li class="pure-menu-item"><a href="main.php?EX=javase" class="pure-menu-link"> Procédural</a></li>
+        <li class="pure-menu-item"><a href="main.php?EX=javaseoo" class="pure-menu-link"> Orienté Objet</a></li>
+        <li class="pure-menu-item"><a href="main.php?EX=javasedesign" class="pure-menu-link"> Design Patterns</a></li>
+        <li class="pure-menu-item"><a href="main.php?EX=javasefx" class="pure-menu-link"> FX (Swing)</a></li>
     </ol>
         
     <li class="pure-menu-item"><a id="displayJeeMenu" href="javascript:togglejeemenu();" style="display:block;">$this->java JAVA EE</a></li>
     <ol id="toggleJeeMenu" style="display: none;">
         <li class="pure-menu-item"><a href="main.php?EX=javajeebase" class="pure-menu-link"> Bases architecture</a></li>
-        <li class="pure-menu-item"><a href="main.php?EX=" class="pure-menu-link"> Inversion Contrôle</a></li>
-        <li class="pure-menu-item"><a href="main.php?EX=" class="pure-menu-link"> Servlet, JSP, MVC</a></li>
-        <li class="pure-menu-item"><a href="main.php?EX=" class="pure-menu-link"> ORM JPA Hibernate</a></li>
-        <li class="pure-menu-item"><a href="main.php?EX=" class="pure-menu-link"> Spring MVC</a></li>
-        <li class="pure-menu-item"><a href="main.php?EX=" class="pure-menu-link"> EJB</a></li>
-        <li class="pure-menu-item"><a href="main.php?EX=" class="pure-menu-link"> Spring Boot & Cloud</a></li>
+        <li class="pure-menu-item"><a href="main.php?EX=javajeeioc" class="pure-menu-link"> Inversion Contrôle</a></li>
+        <li class="pure-menu-item"><a href="main.php?EX=javajeemvc" class="pure-menu-link"> Servlet, JSP, MVC</a></li>
+        <li class="pure-menu-item"><a href="main.php?EX=javajeeorm" class="pure-menu-link"> ORM JPA Hibernate</a></li>
+        <li class="pure-menu-item"><a href="main.php?EX=javajeews" class="pure-menu-link"> Web Services</a></li>
+        <li class="pure-menu-item"><a href="main.php?EX=javajeesbc" class="pure-menu-link"> Spring Boot & Cloud</a></li>
+        <li class="pure-menu-item"><a href="https://openclassrooms.com/fr/courses/4668056-construisez-des-microservices/5122300-apprehendez-larchitecture-microservices" class="pure-menu-link"> Microservices</a></li>
     </ol>    
         
     <li class="pure-menu-item"><a id="displayCppMenu" href="javascript:togglecppmenu();" style="display:block;">$this->cpp C++</a></li>

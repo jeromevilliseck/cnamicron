@@ -16,44 +16,35 @@ switch ($EX) {															// Contrôleur
     case 'algo':
         algo();
         break;
-    case 'java':
+    case 'javase':
         java();
         break;
-    case 'javaoo':
+    case 'javaseoo':
         javaoo();
         break;
-    case 'javadesign':
+    case 'javasedesign':
         javadesign();
         break;
-    case 'javafx':
+    case 'javasefx':
         javafx();
-        break;
-    case 'javadp':
-        javadp();
         break;
     case 'javajeebase':
         javajeebase();
         break;
-    case 'javaspring':
-        javaspring();
+    case 'javajeeioc':
+        javajeeioc();
         break;
-    case 'javajsp':
-        javajsp();
+    case 'javajeemvc':
+        javajeemvc();
         break;
-    case 'javajsf':
-        javajsf();
+    case 'javajeeorm':
+        javajeeorm();
         break;
-    case 'javahiborm':
-        javahiborm();
+    case 'javajeews':
+        javajeews();
         break;
-    case 'javajdbc':
-        javajdbc();
-        break;
-    case 'javaejb':
-        javaejb();
-        break;
-    case 'javajboss':
-        javajboss();
+    case 'javajeesbc':
+        javajeesbc();
         break;
     case 'cpp':
         cpp();
@@ -259,7 +250,7 @@ function javajeebase() {
     global $content;
 
     $content['title']       = 'JAVA EE';
-    $content['description'] = 'Bases de l\'architecture JEE : Http, Servlet, JSP, JSTL, MVC, JDBC, ORM';
+    $content['description'] = 'Bases de l\'architecture JEE<br> Http, Servlet, JSP, JSTL, MVC, JDBC, ORM';
     $content['class']       = 'VTuples';
     $content['method']      = 'showAllTuples';
     $content['arg']         = $data;
@@ -271,135 +262,92 @@ function javajeebase() {
     return;
 }
 
-function javaspring() {
+function javajeeioc() {
     $mTuples = new MTuples();
-    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_SPRING");
+    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_JEE_IOC_DI");
 
     global $content;
 
-    $content['title']       = 'JAVA SPRING';
-    $content['description'] = 'Déploiement rapide d\'applications web JAVA';
+    $content['title']       = 'JAVA EE';
+    $content['description'] = 'Inversion de controle, injection de dépendances';
     $content['class']       = 'VTuples';
     $content['method']      = 'showAllTuples';
     $content['arg']         = $data;
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
-    $content['text']        = '../html/javaspring.html';
 
-    $content['thumbnail']   = 'http://www.image-heberg.fr/files/152079676369203515.png';
+    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/javaeebase.png';
 
     return;
 }
 
-function javajsp() {
+function javajeemvc() {
     $mTuples = new MTuples();
-    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_JSP");
+    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_JEE_MVC");
 
     global $content;
 
-    $content['title']       = 'JAVA JSP, Servlets';
-    $content['description'] = 'Créer dynamiquement du code HTML, XML, etc';
+    $content['title']       = 'JAVA EE';
+    $content['description'] = 'Servlet, JSP, MVC';
     $content['class']       = 'VTuples';
     $content['method']      = 'showAllTuples';
     $content['arg']         = $data;
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
-    $content['text']        = '../html/englishMessage.html';
 
-    $content['thumbnail']   = 'http://www.image-heberg.fr/files/152079676369203515.png';
+    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/javaeebase.png';
 
     return;
 }
 
-function javajsf() {
+function javajeeorm() {
     $mTuples = new MTuples();
-    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_JSF");
+    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_JEE_ORM");
 
     global $content;
 
-    $content['title']       = 'JAVA JSF';
-    $content['description'] = 'Framework Java pour developper des applications web, type MVC';
+    $content['title']       = 'JAVA EE';
+    $content['description'] = 'Object Relationnal Mapping : ORM, JPA, Hibernate, Spring Data';
     $content['class']       = 'VTuples';
     $content['method']      = 'showAllTuples';
     $content['arg']         = $data;
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
-    $content['text']        = '../html/englishMessage.html';
 
-    $content['thumbnail']   = 'http://www.image-heberg.fr/files/152079676369203515.png';
+    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/javaeebase.png';
 
     return;
 }
 
-function javahiborm() {
+function javajeews() {
     $mTuples = new MTuples();
-    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_HIBERNATEORM");
+    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_JEE_WEBSERVICES");
 
     global $content;
 
-    $content['title']       = 'JAVA HIBERNATE (ORM)';
-    $content['description'] = 'Représenter une base de données en objets JAVA, et vice versa<br/>ORM = mapping objet relationnel';
+    $content['title']       = 'JAVA EE';
+    $content['description'] = 'Notion de Webservices et Microservices : architecture SOA';
     $content['class']       = 'VTuples';
     $content['method']      = 'showAllTuples';
     $content['arg']         = $data;
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
-    $content['text']        = '../html/englishMessage.html';
 
-    $content['thumbnail']   = 'http://www.image-heberg.fr/files/152079676369203515.png';
+    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/javaeebase.png';
 
     return;
 }
 
-function javajdbc() {
+function javajeesbc() {
     $mTuples = new MTuples();
-    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_JDBC");
+    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_JEE_SPRINGBOOT");
 
     global $content;
 
-    $content['title']       = 'JAVA JDBC';
-    $content['description'] = 'Accéder via une interface à une base de donnée';
+    $content['title']       = 'JAVA EE';
+    $content['description'] = 'Micro Services avec Spring Boot et Spring Cloud';
     $content['class']       = 'VTuples';
     $content['method']      = 'showAllTuples';
     $content['arg']         = $data;
     $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
-    $content['text']        = '../html/englishMessage.html';
 
-    $content['thumbnail']   = 'http://www.image-heberg.fr/files/152079676369203515.png';
-
-    return;
-}
-
-function javaejb() {
-    $mTuples = new MTuples();
-    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_EJB");
-
-    global $content;
-
-    $content['title']       = 'JAVA EJB';
-    $content['description'] = 'Accéder via une interface à une base de donnée';
-    $content['class']       = 'VTuples';
-    $content['method']      = 'showAllTuples';
-    $content['arg']         = $data;
-    $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
-    $content['text']        = '../html/englishMessage.html';
-
-    $content['thumbnail']   = 'http://www.image-heberg.fr/files/152079676369203515.png';
-
-    return;
-}
-
-function javajboss() {
-    $mTuples = new MTuples();
-    $data       = $mTuples->SelectAll("PURE_MVC_JAVA_JBOSS");
-
-    global $content;
-
-    $content['title']       = 'JAVA JBOSS';
-    $content['description'] = 'Composants logiciels côté serveur pour Java';
-    $content['class']       = 'VTuples';
-    $content['method']      = 'showAllTuples';
-    $content['arg']         = $data;
-    $content['logo']        = ConfigVectors::showJavaLogo(50, 50);
-    $content['text']        = '../html/englishMessage.html';
-
-    $content['thumbnail']   = 'http://www.image-heberg.fr/files/152079676369203515.png';
+    $content['thumbnail']   = 'https://www.cnamicron.zd.fr/public/img/thumbnails/javaeebase.png';
 
     return;
 }

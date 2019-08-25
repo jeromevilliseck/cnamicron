@@ -81,7 +81,7 @@ HERE;
             $lessonKeywords 	= $_data['LESSON_KEYWORDS'];
             
             ($_data['LESSON_FILE_PREVIEW'] != NULL) ? $lessonFilePreview = '<a href="../../public/files/'.$_data['LESSON_FILE_LINK'].'"><div style="text-align:center;"><img src="../../public/img/'.$_data['LESSON_FILE_PREVIEW'].'" alt="'.$_data['LESSON_FILE_PREVIEW'].'" /></div></a>' : $lessonFilePreview = NULL ;
-            ($_data['LESSON_FILE_LINK'] != NULL) ? $lessonFileLink = '<img src="../../public/img/icon_pdf.png"/> <a href="../../public/files/'.$_data['LESSON_FILE_LINK'].'">'.basename($_data['LESSON_FILE_LINK'], "../../public/files/").'</a>' : $lessonFileLink = NULL ;
+            ($_data['LESSON_FILE_LINK'] != NULL) ? $lessonFileLink = '<img class="page-logo" src="../../public/img/icon_pdf.png"/> <a href="../../public/files/'.$_data['LESSON_FILE_LINK'].'">'.basename($_data['LESSON_FILE_LINK'], "../../public/files/").'</a>' : $lessonFileLink = NULL ;
             ($_data['LESSON_FILE_VIDEOLINK'] != NULL) ? $lessonVideoLink = '<p><div class="wrapper"><div class="youtube" data-embed="'.$_data['LESSON_FILE_VIDEOLINK'].'"><div class="play-button"></div></div></div></p>' : $lessonVideoLink = '' ;
             ($_data['LESSON_CODE'] != NULL) ? $lessonCode ='<div><h3><span class="pure-lesson-cap">Code source de la leçon</span></h3>'.$_data['LESSON_CODE'].'</div>' : $lessonCode = '' ;
             
